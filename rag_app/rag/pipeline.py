@@ -1,0 +1,38 @@
+from typing import Dict
+
+from .config import SETTINGS
+from .schema import Answer, QueryRequest
+from .loader import load_documents
+from .indexer import split_documents, build_or_load_faiss
+from .bm25 import build_bm25
+from .retriever import hybrid_retrieve
+from .generator import generate_answer
+from .kg_interface import query_knowledge_graph
+
+
+class RagPipeline:
+    def __init__(self):
+        self.docs = load_documents(SETTINGS.docs_dir)
+        self.chunks = split_documents(self.docs)
+        self.store = build_or_load_faiss(self.chunks, SETTINGS.index_dir)
+        self.bm25 = build_bm25(self.chunks)
+
+    def query(self, req: QueryRequest) -> Answer:
+        top_k = req.top_k or SETTINGS.top_k
+        context = hybrid_retrieve(
+            self.store, self.bm25, self.chunks, req.question, top_k
+        )
+        kg_triplets = query_knowledge_graph(req.question) if req.use_kg else []
+        answer_text = generate_answer(
+            req.question, context.passages, kg_triplets, use_llm=True
+        )
+        return Answer(
+            question=req.question,
+            answer=answer_text,
+            citations=context.passages,
+            kg_triplets=kg_triplets,
+            meta={"retriever": "hybrid", "top_k": str(top_k)},
+        )
+
+    def export_answer(self, answer: Answer) -> Dict:
+        return answer.model_dump()

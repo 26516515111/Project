@@ -16,7 +16,7 @@ actual data extraction, Neo4j/GraphDB queries, and UI.
 3) Run `python run_cli.py` or `streamlit run app_streamlit.py`.
 
 ## Notes
-- Uses LangChain + FAISS for vector retrieval.
+- Uses LangChain + Chroma for vector retrieval.
 - Keyword retrieval uses rank_bm25 if installed, otherwise a simple overlap scorer.
 - Generation uses local Ollama (qwen2.5vl:7b) if available. Otherwise, it returns
   an extractive answer built from retrieved snippets.

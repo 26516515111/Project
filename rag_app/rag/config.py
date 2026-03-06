@@ -1,5 +1,7 @@
 import os
 
+os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
+
 
 def env(key: str, default: str) -> str:
     value = os.getenv(key)

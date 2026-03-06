@@ -1,9 +1,10 @@
 from typing import Dict
+import time
 
 from .config import SETTINGS
 from .schema import Answer, QueryRequest
 from .loader import load_documents
-from .indexer import split_documents, build_or_load_faiss
+from .indexer import split_documents, build_or_load_chroma
 from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
 from .generator import generate_answer
@@ -14,17 +15,24 @@ class RagPipeline:
     def __init__(self):
         self.docs = load_documents(SETTINGS.docs_dir)
         self.chunks = split_documents(self.docs)
-        self.store = build_or_load_faiss(self.chunks, SETTINGS.index_dir)
+        self.store = build_or_load_chroma(self.chunks, SETTINGS.index_dir)
         self.bm25 = build_bm25(self.chunks)
 
     def query(self, req: QueryRequest) -> Answer:
         top_k = req.top_k or SETTINGS.top_k
+        t0 = time.perf_counter()
         context = hybrid_retrieve(
             self.store, self.bm25, self.chunks, req.question, top_k
         )
+        t1 = time.perf_counter()
         kg_triplets = query_knowledge_graph(req.question) if req.use_kg else []
+        t2 = time.perf_counter()
         answer_text = generate_answer(
             req.question, context.passages, kg_triplets, use_llm=True
+        )
+        t3 = time.perf_counter()
+        print(
+            f"[timing] retrieve={t1 - t0:.3f}s kg={t2 - t1:.3f}s generate={t3 - t2:.3f}s total={t3 - t0:.3f}s"
         )
         return Answer(
             question=req.question,

@@ -1,0 +1,28 @@
+digraph RAG {
+  rankdir=TB;
+  node [shape=box, style="rounded,filled", fillcolor="#F3F7FF", color="#2E5AAC", fontname="Microsoft YaHei"];
+  edge [color="#2E5AAC"];
+
+  A [label="用户问题"];
+  B [label="文档加载/分块/索引"];
+  C1 [label="语义向量检索 (FAISS)"];
+  C2 [label="关键词检索 (BM25)"];
+  D [label="混合融合与排序"];
+  E [label="检索上下文"];
+  F [label="知识图谱查询 (Neo4j)"];
+  G [label="提示词构建"];
+  H [label="Ollama 生成答案\n(qwen2.5vl:7b)"];
+  I [label="返回答案 + 引用 + 图谱关联"];
+
+  A -> B;
+  B -> C1;
+  B -> C2;
+  C1 -> D;
+  C2 -> D;
+  D -> E;
+  A -> F;
+  E -> G;
+  F -> G;
+  G -> H;
+  H -> I;
+}

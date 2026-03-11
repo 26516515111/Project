@@ -1,0 +1,970 @@
+[
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT",
+    "merged_from": "CWBT",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡",
+    "merged_from": "工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT管理信息系统",
+    "merged_from": "CWBT管理信息系统",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶设备",
+    "merged_from": "船舶设备",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡",
+    "merged_from": "工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备卡",
+    "merged_from": "设备卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡",
+    "merged_from": "工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备代码",
+    "merged_from": "设备代码",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "维修保养级别",
+    "merged_from": "维修保养级别",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "临时工作卡",
+    "merged_from": "临时工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "计数器",
+    "merged_from": "计数器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT管理信息系统",
+    "merged_from": "CWBT管理信息系统",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管理人员",
+    "merged_from": "船舶管理人员",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "维修保养级别",
+    "merged_from": "维修保养级别",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "计时制式",
+    "merged_from": "计时制式",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡类别",
+    "merged_from": "工作卡类别",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "维修周期",
+    "merged_from": "维修周期",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡",
+    "merged_from": "工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备卡",
+    "merged_from": "设备卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT管理信息系统",
+    "merged_from": "CWBT管理信息系统",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡号",
+    "merged_from": "工作卡号",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "循环周期",
+    "merged_from": "循环周期",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "备件消耗记录",
+    "merged_from": "备件消耗记录",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT管理信息系统",
+    "merged_from": "CWBT管理信息系统",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备卡",
+    "merged_from": "设备卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡",
+    "merged_from": "工作卡",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "维修记录",
+    "merged_from": "维修记录",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡历史",
+    "merged_from": "工作卡历史",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "维修周期",
+    "merged_from": "维修周期",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶维修保养体系",
+    "merged_from": "船舶维修保养体系",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CWBT",
+    "merged_from": "CWBT",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备代码",
+    "merged_from": "设备代码",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主要技术参数",
+    "merged_from": "主要技术参数",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "风险等级",
+    "merged_from": "风险等级",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作内容",
+    "merged_from": "工作内容",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备代码",
+    "merged_from": "设备代码",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作卡编号",
+    "merged_from": "工作卡编号",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "设备名称",
+    "merged_from": "设备名称",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "周期",
+    "merged_from": "周期",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作内容",
+    "merged_from": "工作内容",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主管",
+    "merged_from": "主管",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "轮机长",
+    "merged_from": "轮机长",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "换新日期",
+    "merged_from": "换新日期",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "换新后工作小时",
+    "merged_from": "换新后工作小时",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "检修后工作小时",
+    "merged_from": "检修后工作小时",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "气缸盖",
+    "merged_from": "气缸盖",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "缸头启动阀",
+    "merged_from": "缸头启动阀",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "缸头安全阀",
+    "merged_from": "缸头安全阀",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "喷油器",
+    "merged_from": "喷油器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "高压油泵",
+    "merged_from": "高压油泵",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "缸套",
+    "merged_from": "缸套",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主轴承",
+    "merged_from": "主轴承",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "空气冷却器",
+    "merged_from": "空气冷却器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "调速器",
+    "merged_from": "调速器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "系统滑油",
+    "merged_from": "系统滑油",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "吊缸检修",
+    "merged_from": "吊缸检修",
+    "label": "RepairMethod"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "更换",
+    "merged_from": "更换",
+    "label": "RepairMethod"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "检修",
+    "merged_from": "检修",
+    "label": "RepairMethod"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "换新",
+    "merged_from": "换新",
+    "label": "RepairMethod"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "磨损",
+    "merged_from": "磨损",
+    "label": "FaultPhenomenon"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "工作小时",
+    "merged_from": "工作小时",
+    "label": "Parameter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "轮机长",
+    "merged_from": "轮机长",
+    "label": "SafetyNote"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船管部",
+    "merged_from": "船管部",
+    "label": "SafetyNote"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机务监督",
+    "merged_from": "机务监督",
+    "label": "SafetyNote"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶总管",
+    "merged_from": "船舶总管",
+    "label": "SafetyNote"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "轮机长",
+    "merged_from": "轮机长",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "PMS",
+    "merged_from": "PMS",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "状态监控设备",
+    "merged_from": "状态监控设备",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "验船师",
+    "merged_from": "验船师",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "轮机长",
+    "merged_from": "轮机长",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "切断电源",
+    "merged_from": "切断电源",
+    "label": "SafetyNote"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "万用表",
+    "merged_from": "万用表",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "万用表",
+    "merged_from": "万用表",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "接触器",
+    "merged_from": "接触器",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "短路",
+    "merged_from": "短路",
+    "label": "FaultPhenomenon"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主配电板",
+    "merged_from": "主配电板",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主配电板",
+    "merged_from": "主配电板",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "同步发电机",
+    "merged_from": "同步发电机",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "同步指示灯",
+    "merged_from": "同步指示灯",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶电站",
+    "merged_from": "船舶电站",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发电机",
+    "merged_from": "发电机",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发电机主开关",
+    "merged_from": "发电机主开关",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "过载保护",
+    "merged_from": "过载保护",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶电站",
+    "merged_from": "船舶电站",
+    "label": "System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "自动电压调整器",
+    "merged_from": "自动电压调整器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发电机",
+    "merged_from": "发电机",
+    "label": "Equipment"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "过电流脱扣器",
+    "merged_from": "过电流脱扣器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "逆功率继电器",
+    "merged_from": "逆功率继电器",
+    "label": "Component"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "主配电板",
+    "merged_from": "主配电板",
+    "label": "Equipment"
+  },
+  {
+    "step": "label_unify",
+    "name": "工作卡",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "轮机长",
+    "labels_merged": [
+      "Component",
+      "SafetyNote"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "船岸数据交换",
+    "labels_merged": [
+      "Component",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "船舶机械计划保养系统(PMS)",
+    "labels_merged": [
+      "DiagnosticMethod",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "设备卡",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "船检要求",
+    "labels_merged": [
+      "Component",
+      "Parameter",
+      "SafetyNote"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "风险评估",
+    "labels_merged": [
+      "DiagnosticMethod",
+      "Parameter"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "CWBT维修保养工作计划指令表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "CWBT船舶维修保养月度报告表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "CWBT维修保养工作完成情况表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "PMS船检项目表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "船队维修保养工作统计表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "应急设备试验检查表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "船舶主要设备工作时间统计表",
+    "labels_merged": [
+      "Equipment",
+      "System"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "万用表",
+    "labels_merged": [
+      "DiagnosticMethod",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "集成电路",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "贴片式器件",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "label_unify",
+    "name": "功率表",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶维修保养体系",
+    "entity_b": "船舶维修保养体系(CWBT)",
+    "label": "System",
+    "similarity": 0.9363
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "岸基管理人员",
+    "entity_b": "岸基专业人员",
+    "label": "Component",
+    "similarity": 0.9252
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "维修执行记录",
+    "entity_b": "维修记录",
+    "label": "Component",
+    "similarity": 0.9249
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.2缸气缸盖",
+    "entity_b": "No.9缸气缸盖",
+    "label": "Component",
+    "similarity": 0.9323
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.2缸缸套",
+    "label": "Component",
+    "similarity": 0.9644
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.3缸缸套",
+    "label": "Component",
+    "similarity": 0.941
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.4缸缸套",
+    "label": "Component",
+    "similarity": 0.9344
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.5缸缸套",
+    "label": "Component",
+    "similarity": 0.9438
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.7缸缸套",
+    "label": "Component",
+    "similarity": 0.931
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.8缸缸套",
+    "label": "Component",
+    "similarity": 0.9375
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.9缸缸套",
+    "label": "Component",
+    "similarity": 0.9314
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.10缸缸套",
+    "label": "Component",
+    "similarity": 0.9204
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "No.1缸缸套",
+    "entity_b": "No.6缸缸套",
+    "label": "Component",
+    "similarity": 0.9416
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "电解电容",
+    "entity_b": "电解电容器",
+    "label": "Component",
+    "similarity": 0.9227
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "短延时脱扣器",
+    "entity_b": "长延时脱扣器",
+    "label": "Component",
+    "similarity": 0.947
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "岸电主开关",
+    "entity_b": "岸电开关",
+    "label": "Component",
+    "similarity": 0.9486
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "功率表",
+    "entity_b": "功率表（有功）",
+    "label": "Component",
+    "similarity": 0.9394
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "中间继电器K5",
+    "entity_b": "中间继电器 K6",
+    "label": "Component",
+    "similarity": 0.9539
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "手/自动选择开关",
+    "entity_b": "手动、自动选择开关",
+    "label": "Component",
+    "similarity": 0.9467
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶设备",
+    "entity_b": "船舶电子设备",
+    "label": "Equipment",
+    "similarity": 0.9309
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CWBT设备工作卡汇总表",
+    "entity_b": "CWBT设备工作卡",
+    "label": "Equipment",
+    "similarity": 0.9237
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "A级",
+    "entity_b": "B级",
+    "label": "Parameter",
+    "similarity": 0.9309
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "工作卡号",
+    "entity_b": "工作卡编号",
+    "label": "Parameter",
+    "similarity": 0.9305
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "万用表Rx1kΩ挡",
+    "entity_b": "万用表Rx1Ω挡",
+    "label": "Parameter",
+    "similarity": 0.9906
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "输入信号",
+    "entity_b": "输出信号",
+    "label": "Parameter",
+    "similarity": 0.9266
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "短路电流达2~2.5倍的额定电流",
+    "entity_b": "短路电流达5~10倍的额定电流",
+    "label": "Parameter",
+    "similarity": 0.9654
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "电压低于额定电压的70%~80%",
+    "entity_b": "电压低于额定电压的35%~70%",
+    "label": "Parameter",
+    "similarity": 0.9715
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "电阻测量",
+    "entity_b": "测量电阻法",
+    "label": "DiagnosticMethod",
+    "similarity": 0.9231
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "电阻测量",
+    "entity_b": "电阻测量法",
+    "label": "DiagnosticMethod",
+    "similarity": 0.9258
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "测量电压法",
+    "entity_b": "电压测量法",
+    "label": "DiagnosticMethod",
+    "similarity": 0.9902
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "离线直流电阻测量法",
+    "entity_b": "在线直流电阻测量法",
+    "label": "DiagnosticMethod",
+    "similarity": 0.9469
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "在线直流电阻测量法",
+    "entity_b": "在线直流电压测量法",
+    "label": "DiagnosticMethod",
+    "similarity": 0.9304
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机械设备故障",
+    "entity_b": "机械故障",
+    "label": "FaultPhenomenon",
+    "similarity": 0.948
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "不引起程序中断但能给出故障信息的故障",
+    "entity_b": "不引起程序中断也不给出故障信息的故障",
+    "label": "FaultPhenomenon",
+    "similarity": 0.9719
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "400V电力系统绝缘低故障",
+    "entity_b": "220V电力系统绝缘低故障",
+    "label": "FaultPhenomenon",
+    "similarity": 0.9456
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "逆功率",
+    "entity_b": "逆功率运行",
+    "label": "FaultPhenomenon",
+    "similarity": 0.9326
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "绕组绝缘受到损伤",
+    "entity_b": "绕组绝缘被碰伤",
+    "label": "FaultCause",
+    "similarity": 0.9425
+  }
+]

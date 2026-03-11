@@ -34,6 +34,11 @@
     "path": "data/raw/23438-2009-gbt-e-300.md",
     "num_chunks": 44
   },
+  "船舶电气设备及系统.md": {
+    "doc_id": "船舶电气设备及系统",
+    "path": "data/raw/船舶电气设备及系统.md",
+    "num_chunks": 493
+  },
   "船舶电气设备维护及检测.md": {
     "doc_id": "船舶电气设备维护及检测",
     "path": "data/raw/船舶电气设备维护及检测.md",

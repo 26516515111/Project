@@ -3,7 +3,7 @@ import time
 
 from .config import SETTINGS
 from .schema import Answer, QueryRequest
-from .loader import load_documents
+from .loader import load_documents, load_chunks_json, load_doc_source_map
 from .indexer import split_documents, build_or_load_chroma
 from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
@@ -14,7 +14,10 @@ from .kg_interface import query_knowledge_graph
 class RagPipeline:
     def __init__(self):
         self.docs = load_documents(SETTINGS.docs_dir)
-        self.chunks = split_documents(self.docs)
+        self.chunks = load_chunks_json(SETTINGS.docs_dir)
+        if not self.chunks:
+            self.chunks = split_documents(self.docs)
+        self.doc_source_map = load_doc_source_map(SETTINGS.docs_dir)
         self.store = build_or_load_chroma(self.chunks, SETTINGS.index_dir)
         self.bm25 = build_bm25(self.chunks)
 
@@ -25,7 +28,11 @@ class RagPipeline:
             self.store, self.bm25, self.chunks, req.question, top_k
         )
         t1 = time.perf_counter()
-        kg_triplets = query_knowledge_graph(req.question) if req.use_kg else []
+        kg_triplets = (
+            query_knowledge_graph(req.question, self.doc_source_map)
+            if req.use_kg
+            else []
+        )
         t2 = time.perf_counter()
         answer_text = generate_answer(
             req.question, context.passages, kg_triplets, use_llm=True

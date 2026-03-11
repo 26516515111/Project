@@ -4,16 +4,20 @@ from typing import List
 import numpy as np
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 from .config import SETTINGS
 
 
 def split_documents(docs: List[dict]) -> List[dict]:
+    if not docs:
+        return []
+    if "chunk_id" in docs[0]:
+        return docs
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=600,
-        chunk_overlap=120,
-        separators=["\n\n", "\n", "。", ".", " ", "，",",",""],
+        chunk_size=200,
+        chunk_overlap=20,
+        separators=["\n\n", "\n", "。", ".", " ", "，", ",", ""],
     )
     chunks: List[dict] = []
     for d in docs:

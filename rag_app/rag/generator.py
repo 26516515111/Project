@@ -41,7 +41,7 @@ def _build_prompt(
         f"问题: {question}\n"
         f"资料:\n{context_text}\n"
         f"知识图谱:\n{kg_text}\n"
-        "请输出: 故障判断, 可能原因, 处理步骤, 注意事项。"
+        "请输出: 故障判断, 可能原因, 处理步骤, 注意事项, 每项要点不超过20字，禁止输出无关内容包括无关字符。"
     )
 
 
@@ -56,7 +56,7 @@ def _ollama_generate(prompt: str) -> str:
         },
         "stream": False,
     }
-    resp = requests.post(url, json=payload, timeout=60)
+    resp = requests.post(url, json=payload, timeout=180)
     resp.raise_for_status()
     data = resp.json()
     return data.get("response", "").strip()
@@ -71,7 +71,14 @@ def generate_answer(
     if use_llm and SETTINGS.llm_provider == "ollama":
         prompt = _build_prompt(question, passages, kg_triplets)
         try:
-            return _ollama_generate(prompt)
-        except Exception:
+            result = _ollama_generate(prompt)
+            print("[llm] provider=ollama status=ok")
+            return result
+        except Exception as exc:
+            print(f"[llm] provider=ollama status=fallback error={type(exc).__name__}")
             return extractive_answer(question, passages, kg_triplets)
+    if use_llm and SETTINGS.llm_provider != "ollama":
+        print(f"[llm] provider={SETTINGS.llm_provider} status=disabled")
+    if not use_llm:
+        print("[llm] provider=none status=disabled")
     return extractive_answer(question, passages, kg_triplets)

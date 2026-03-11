@@ -1,6 +1,7 @@
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable
 
 from .config import SETTINGS
 
@@ -12,16 +13,35 @@ def _get_driver():
     )
 
 
-def query_knowledge_graph(question: str) -> List[Dict[str, str]]:
+def query_knowledge_graph(
+    question: str, doc_source_map: Optional[Dict[str, dict]] = None
+) -> List[Dict[str, str]]:
     """
-    Basic Neo4j query template.
-    Adjust labels and relationship types to your KG schema.
-    Returns triplets like {"head": "故障现象", "rel": "原因", "tail": "..."}.
+    Neo4j query template for extended triplets.
+    Returns items like:
+    {
+        "head": "...",
+        "head_label": "...",
+        "rel": "...",
+        "tail": "...",
+        "tail_label": "...",
+        "description": "...",
+        "head_source_section": "...",
+        "tail_source_section": "...",
+    }
     """
     cypher = (
-        "MATCH (s:Symptom)-[r:CAUSES]->(c:Cause) "
-        "WHERE s.name CONTAINS $q OR c.name CONTAINS $q "
-        "RETURN s.name AS head, type(r) AS rel, c.name AS tail "
+        "MATCH (h)-[r]->(t) "
+        "WHERE h.name CONTAINS $q OR t.name CONTAINS $q OR coalesce(r.description, '') CONTAINS $q "
+        "RETURN "
+        "h.name AS head, "
+        "coalesce(head(labels(h)), '') AS head_label, "
+        "type(r) AS rel, "
+        "t.name AS tail, "
+        "coalesce(head(labels(t)), '') AS tail_label, "
+        "coalesce(r.description, '') AS description, "
+        "coalesce(h.source_section, '') AS head_source_section, "
+        "coalesce(t.source_section, '') AS tail_source_section "
         "LIMIT 5"
     )
     results: List[Dict[str, str]] = []
@@ -30,13 +50,30 @@ def query_knowledge_graph(question: str) -> List[Dict[str, str]]:
         with driver.session() as session:
             rows = session.run(cypher, q=question)
             for row in rows:
-                results.append(
-                    {
-                        "head": row.get("head", ""),
-                        "rel": row.get("rel", ""),
-                        "tail": row.get("tail", ""),
-                    }
-                )
+                item = {
+                    "head": row.get("head", ""),
+                    "head_label": row.get("head_label", ""),
+                    "rel": row.get("rel", ""),
+                    "tail": row.get("tail", ""),
+                    "tail_label": row.get("tail_label", ""),
+                    "description": row.get("description", ""),
+                    "head_source_section": row.get("head_source_section", ""),
+                    "tail_source_section": row.get("tail_source_section", ""),
+                }
+                head_doc_id = row.get("head_doc_id", "")
+                tail_doc_id = row.get("tail_doc_id", "")
+                if doc_source_map:
+                    if head_doc_id in doc_source_map:
+                        item["head_source"] = doc_source_map[head_doc_id].get(
+                            "source", ""
+                        )
+                    if tail_doc_id in doc_source_map:
+                        item["tail_source"] = doc_source_map[tail_doc_id].get(
+                            "source", ""
+                        )
+                results.append(item)
+    except ServiceUnavailable:
+        return []
     finally:
         driver.close()
     return results

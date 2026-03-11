@@ -1,6 +1,7 @@
 import os
 
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 
 def env(key: str, default: str) -> str:
@@ -32,7 +33,7 @@ class Settings:
 
     # LLM (optional)
     llm_provider = env("RAG_LLM_PROVIDER", "ollama")  # ollama|none
-    llm_model = env("RAG_LLM_MODEL", "qwen2.5vl:7b")
+    llm_model = env("RAG_LLM_MODEL", "qwen2.5:3b")
     llm_max_tokens = int(env("RAG_LLM_MAX_TOKENS", "512"))
     llm_temperature = float(env("RAG_LLM_TEMPERATURE", "0.2"))
 
@@ -42,7 +43,7 @@ class Settings:
     # Neo4j
     neo4j_uri = env("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = env("NEO4J_USER", "neo4j")
-    neo4j_password = env("NEO4J_PASSWORD", "neo4j")
+    neo4j_password = env("NEO4J_PASSWORD", "neo4j1234")
 
 
 SETTINGS = Settings()

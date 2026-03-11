@@ -13,6 +13,18 @@ def hybrid_retrieve(
     query: str,
     top_k: int,
 ) -> RetrievedContext:
+    """融合dense与sparse分数，返回排序后的检索上下文。
+
+    Args:
+        store: 向量库实例。
+        bm25: BM25检索器实例或None。
+        chunks: chunk列表。
+        query: 查询文本。
+        top_k: 返回结果数量。
+
+    Returns:
+        RetrievedContext: 检索上下文结果。
+    """
     dense = get_dense_scores(store, query, top_k=top_k)
     sparse = get_bm25_scores(bm25, chunks, query, top_k=top_k)
     dense = normalize_scores(dense)

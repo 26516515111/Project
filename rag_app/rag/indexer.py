@@ -10,6 +10,14 @@ from .config import SETTINGS
 
 
 def split_documents(docs: List[dict]) -> List[dict]:
+    """将文档切分为较小chunk以便向量检索。
+
+    Args:
+        docs: 原始文档列表。
+
+    Returns:
+        List[dict]: 切分后的chunk列表。
+    """
     if not docs:
         return []
     if "chunk_id" in docs[0]:
@@ -33,6 +41,15 @@ def split_documents(docs: List[dict]) -> List[dict]:
 
 
 def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
+    """构建或加载Chroma向量库。
+
+    Args:
+        chunks: chunk列表。
+        index_dir: 索引目录路径。
+
+    Returns:
+        Chroma: 向量库实例。
+    """
     os.makedirs(index_dir, exist_ok=True)
     persist_dir = os.path.join(index_dir, "chroma")
     embeddings = HuggingFaceEmbeddings(model_name=SETTINGS.embedding_model)
@@ -56,6 +73,16 @@ def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
 
 
 def get_dense_scores(store: Chroma, query: str, top_k: int) -> List[dict]:
+    """使用向量库计算dense检索得分。
+
+    Args:
+        store: 向量库实例。
+        query: 查询文本。
+        top_k: 返回结果数量。
+
+    Returns:
+        List[dict]: 带得分的检索结果列表。
+    """
     docs_and_scores = store.similarity_search_with_score(query, k=top_k)
     results: List[dict] = []
     for doc, score in docs_and_scores:
@@ -71,6 +98,14 @@ def get_dense_scores(store: Chroma, query: str, top_k: int) -> List[dict]:
 
 
 def normalize_scores(items: List[dict]) -> List[dict]:
+    """将分数归一化到0-1范围。
+
+    Args:
+        items: 带score字段的结果列表。
+
+    Returns:
+        List[dict]: 归一化后的结果列表。
+    """
     if not items:
         return items
     scores = np.array([i["score"] for i in items], dtype=np.float32)

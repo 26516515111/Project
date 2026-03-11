@@ -7,6 +7,14 @@ from .config import SETTINGS
 
 
 def _get_driver():
+    """创建并返回Neo4j驱动。
+
+    Args:
+        None
+
+    Returns:
+        neo4j.Driver: Neo4j驱动实例。
+    """
     return GraphDatabase.driver(
         SETTINGS.neo4j_uri,
         auth=(SETTINGS.neo4j_user, SETTINGS.neo4j_password),
@@ -16,19 +24,14 @@ def _get_driver():
 def query_knowledge_graph(
     question: str, doc_source_map: Optional[Dict[str, dict]] = None
 ) -> List[Dict[str, str]]:
-    """
-    Neo4j query template for extended triplets.
-    Returns items like:
-    {
-        "head": "...",
-        "head_label": "...",
-        "rel": "...",
-        "tail": "...",
-        "tail_label": "...",
-        "description": "...",
-        "head_source_section": "...",
-        "tail_source_section": "...",
-    }
+    """查询知识图谱并返回扩展三元组列表。
+
+    Args:
+        question: 用户问题文本。
+        doc_source_map: 可选的doc_id到来源信息映射。
+
+    Returns:
+        List[Dict[str, str]]: 三元组列表，字段包含head、rel、tail等信息。
     """
     cypher = (
         "MATCH (h)-[r]->(t) "

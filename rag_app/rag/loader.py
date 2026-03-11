@@ -4,6 +4,14 @@ from typing import List, Dict
 
 
 def load_documents(docs_dir: str) -> List[dict]:
+    """从目录中加载文本/Markdown文档并返回统一结构列表。
+
+    Args:
+        docs_dir: 文档目录路径。
+
+    Returns:
+        List[dict]: 文档列表。
+    """
     docs: List[dict] = []
     if not os.path.isdir(docs_dir):
         return docs
@@ -25,6 +33,14 @@ def load_documents(docs_dir: str) -> List[dict]:
 
 
 def load_chunks_json(docs_dir: str) -> List[dict]:
+    """读取chunks.json并规范化为chunk列表。
+
+    Args:
+        docs_dir: 文档目录路径。
+
+    Returns:
+        List[dict]: chunk列表。
+    """
     path = os.path.join(docs_dir, "chunks.json")
     if not os.path.isfile(path):
         return []
@@ -56,6 +72,14 @@ def load_chunks_json(docs_dir: str) -> List[dict]:
 
 
 def load_doc_source_map(docs_dir: str) -> Dict[str, dict]:
+    """读取doc_source_map.json并构建doc_id到来源信息的映射。
+
+    Args:
+        docs_dir: 文档目录路径。
+
+    Returns:
+        Dict[str, dict]: doc_id到来源信息的映射。
+    """
     path = os.path.join(docs_dir, "doc_source_map.json")
     if not os.path.isfile(path):
         return {}

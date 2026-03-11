@@ -5,6 +5,15 @@ os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 
 def env(key: str, default: str) -> str:
+    """读取环境变量，若为空则返回默认值。
+
+    Args:
+        key: 环境变量名。
+        default: 默认值。
+
+    Returns:
+        str: 环境变量值或默认值。
+    """
     value = os.getenv(key)
     if value is None or value.strip() == "":
         return default

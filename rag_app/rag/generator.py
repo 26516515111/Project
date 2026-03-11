@@ -9,6 +9,16 @@ from .config import SETTINGS
 def extractive_answer(
     question: str, passages: List[Passage], kg_triplets: List[Dict[str, str]]
 ) -> str:
+    """生成基于检索片段的抽取式回答。
+
+    Args:
+        question: 用户问题文本。
+        passages: 检索到的片段列表。
+        kg_triplets: 知识图谱三元组列表。
+
+    Returns:
+        str: 抽取式答案文本。
+    """
     lines = ["基于检索到的资料，建议如下："]
     for i, p in enumerate(passages[:3], start=1):
         snippet = p.text.replace("\n", " ")[:220]
@@ -26,6 +36,16 @@ def extractive_answer(
 def _build_prompt(
     question: str, passages: List[Passage], kg_triplets: List[Dict[str, str]]
 ) -> str:
+    """构造用于LLM的结构化提示词。
+
+    Args:
+        question: 用户问题文本。
+        passages: 检索到的片段列表。
+        kg_triplets: 知识图谱三元组列表。
+
+    Returns:
+        str: 提示词文本。
+    """
     ctx = []
     for i, p in enumerate(passages[:5], start=1):
         cleaned = p.text.replace("\n", " ")
@@ -46,6 +66,14 @@ def _build_prompt(
 
 
 def _ollama_generate(prompt: str) -> str:
+    """调用Ollama服务生成答案。
+
+    Args:
+        prompt: 提示词文本。
+
+    Returns:
+        str: 生成的答案文本。
+    """
     url = f"{SETTINGS.ollama_base_url}/api/generate"
     payload = {
         "model": SETTINGS.llm_model,
@@ -68,6 +96,17 @@ def generate_answer(
     kg_triplets: List[Dict[str, str]],
     use_llm: bool = True,
 ) -> str:
+    """根据配置选择LLM或抽取式策略生成答案。
+
+    Args:
+        question: 用户问题文本。
+        passages: 检索到的片段列表。
+        kg_triplets: 知识图谱三元组列表。
+        use_llm: 是否启用LLM生成。
+
+    Returns:
+        str: 生成的答案文本。
+    """
     if use_llm and SETTINGS.llm_provider == "ollama":
         prompt = _build_prompt(question, passages, kg_triplets)
         try:

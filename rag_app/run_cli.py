@@ -4,6 +4,14 @@ from rag.schema import QueryRequest
 
 
 def main():
+    """CLI入口，读取用户问题并输出回答。
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     pipeline = RagPipeline()
     print("Ship Equipment Fault RAG CLI")
     while True:
@@ -22,4 +30,12 @@ def main():
 
 
 if __name__ == "__main__":
+    """脚本入口。
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     main()

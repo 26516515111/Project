@@ -14,11 +14,12 @@ def main():
     """
     pipeline = RagPipeline()
     print("Ship Equipment Fault RAG CLI")
+    session_id = "cli"
     while True:
         q = input("\nQuestion (empty to exit): ").strip()
         if not q:
             break
-        req = QueryRequest(question=q)
+        req = QueryRequest(question=q, session_id=session_id)
         ans = pipeline.query(req)
         print("\nAnswer:\n")
         print(ans.answer)

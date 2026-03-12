@@ -3,7 +3,12 @@ import time
 
 from .config import SETTINGS
 from .schema import Answer, QueryRequest
-from .loader import load_documents, load_chunks_json, load_doc_source_map
+from .loader import (
+    load_documents,
+    load_chunks_json,
+    load_doc_source_map,
+    load_chunk_to_kg,
+)
 from .indexer import split_documents, build_or_load_chroma
 from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
@@ -26,6 +31,8 @@ class RagPipeline:
         if not self.chunks:
             self.chunks = split_documents(self.docs)
         self.doc_source_map = load_doc_source_map(SETTINGS.docs_dir)
+        self.chunk_kg_map = load_chunk_to_kg(SETTINGS.docs_dir)
+        self.chunk_text_map = {c["chunk_id"]: c.get("text", "") for c in self.chunks}
         self.store = build_or_load_chroma(self.chunks, SETTINGS.index_dir)
         self.bm25 = build_bm25(self.chunks)
 
@@ -45,13 +52,24 @@ class RagPipeline:
         )
         t1 = time.perf_counter()
         kg_triplets = (
-            query_knowledge_graph(req.question, self.doc_source_map)
+            query_knowledge_graph(
+                req.question,
+                self.doc_source_map,
+                self.chunk_kg_map,
+                self.chunk_text_map,
+                top_k=top_k,
+            )
             if req.use_kg
             else []
         )
         t2 = time.perf_counter()
         answer_text = generate_answer(
-            req.question, context.passages, kg_triplets, use_llm=True
+            req.question,
+            context.passages,
+            kg_triplets,
+            use_llm=True,
+            use_history=req.use_history,
+            session_id=req.session_id or "default",
         )
         t3 = time.perf_counter()
         print(

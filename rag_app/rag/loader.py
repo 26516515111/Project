@@ -86,9 +86,49 @@ def load_doc_source_map(docs_dir: str) -> Dict[str, dict]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     mapping: Dict[str, dict] = {}
+    if isinstance(data, dict):
+        for source, item in data.items():
+            if not isinstance(item, dict):
+                continue
+            doc_id = str(item.get("doc_id", "")).strip()
+            if not doc_id:
+                continue
+            mapping[doc_id] = {**item, "source": source}
+        return mapping
     for item in data:
         doc_id = str(item.get("doc_id", "")).strip()
         if not doc_id:
             continue
         mapping[doc_id] = item
+    return mapping
+
+
+def load_chunk_to_kg(docs_dir: str) -> Dict[str, dict]:
+    """读取chunk_to_kg.json并构建chunk_id到KG映射。
+
+    Args:
+        docs_dir: 文档目录路径。
+
+    Returns:
+        Dict[str, dict]: chunk_id到KG实体/关系映射。
+    """
+    path = os.path.join(docs_dir, "chunk_to_kg.json")
+    if not os.path.isfile(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    chunks = data.get("chunks", []) if isinstance(data, dict) else data
+    mapping: Dict[str, dict] = {}
+    for item in chunks:
+        chunk_id = str(item.get("chunk_id", "")).strip()
+        if not chunk_id:
+            continue
+        mapping[chunk_id] = {
+            "chunk_id": chunk_id,
+            "doc_id": str(item.get("doc_id", "")).strip(),
+            "source": str(item.get("source", "")).strip(),
+            "chunk_index": item.get("chunk_index"),
+            "kg_entities": item.get("kg_entities", []) or [],
+            "kg_relations": item.get("kg_relations", []) or [],
+        }
     return mapping

@@ -34,3 +34,4 @@ class QueryRequest(BaseModel):
     top_k: Optional[int] = None
     use_kg: bool = True
     use_history: bool = True
+    session_id: Optional[str] = None

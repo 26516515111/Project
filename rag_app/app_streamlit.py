@@ -11,6 +11,8 @@ if "pipeline" not in st.session_state:
 
 if "history" not in st.session_state:
     st.session_state.history = []
+if "session_id" not in st.session_state:
+    st.session_state.session_id = "streamlit"
 
 st.title("船舶装备故障诊断智能问答 (RAG Skeleton)")
 
@@ -22,7 +24,12 @@ with col2:
     top_k = st.slider("检索Top-K", min_value=3, max_value=10, value=5, step=1)
 
 if st.button("查询") and question.strip():
-    req = QueryRequest(question=question.strip(), top_k=top_k, use_kg=use_kg)
+    req = QueryRequest(
+        question=question.strip(),
+        top_k=top_k,
+        use_kg=use_kg,
+        session_id=st.session_state.session_id,
+    )
     ans = st.session_state.pipeline.query(req)
     st.session_state.history.append(ans)
 

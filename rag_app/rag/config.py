@@ -45,6 +45,7 @@ class Settings:
     llm_model = env("RAG_LLM_MODEL", "qwen2.5:3b")
     llm_max_tokens = int(env("RAG_LLM_MAX_TOKENS", "512"))
     llm_temperature = float(env("RAG_LLM_TEMPERATURE", "0.2"))
+    use_history = env("RAG_USE_HISTORY", "true").lower() in {"1", "true", "yes", "y"}
 
     # Ollama
     ollama_base_url = env("RAG_OLLAMA_BASE_URL", "http://localhost:11434")

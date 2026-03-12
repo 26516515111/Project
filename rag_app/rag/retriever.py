@@ -45,7 +45,21 @@ def hybrid_retrieve(
                 "score": item["score"] * SETTINGS.bm25_weight,
             }
 
-    ranked = sorted(merged.values(), key=lambda x: x["score"], reverse=True)[:top_k]
+    ranked = sorted(merged.values(), key=lambda x: x["score"], reverse=True)
+    max_per_source = max(1, top_k // 3)
+    source_counts = {}
+    filtered = []
+    for item in ranked:
+        source_key = (
+            item.get("source_doc_id") or item.get("source") or item.get("doc_id")
+        )
+        count = source_counts.get(source_key, 0)
+        if count >= max_per_source:
+            continue
+        source_counts[source_key] = count + 1
+        filtered.append(item)
+        if len(filtered) >= top_k:
+            break
     passages = [
         Passage(
             doc_id=r["doc_id"],
@@ -53,6 +67,6 @@ def hybrid_retrieve(
             source=r.get("source", ""),
             score=r["score"],
         )
-        for r in ranked
+        for r in filtered
     ]
     return RetrievedContext(passages=passages)

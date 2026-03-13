@@ -56,4 +56,9 @@ class Settings:
     neo4j_password = env("NEO4J_PASSWORD", "neo4j1234")
 
 
+    chunk_size = int(env("RAG_CHUNK_SIZE", "200"))
+    chunk_overlap = int(env("RAG_CHUNK_OVERLAP", "20"))
+    separators = ["\n\n", "\n", "。", ".", " ", "，", ",", ""]
+
+
 SETTINGS = Settings()

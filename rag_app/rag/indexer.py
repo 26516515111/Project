@@ -2,42 +2,10 @@ import os
 from typing import List
 
 import numpy as np
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from .config import SETTINGS
-
-
-def split_documents(docs: List[dict]) -> List[dict]:
-    """将文档切分为较小chunk以便向量检索。
-
-    Args:
-        docs: 原始文档列表。
-
-    Returns:
-        List[dict]: 切分后的chunk列表。
-    """
-    if not docs:
-        return []
-    if "chunk_id" in docs[0]:
-        return docs
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=200,
-        chunk_overlap=20,
-        separators=["\n\n", "\n", "。", ".", " ", "，", ",", ""],
-    )
-    chunks: List[dict] = []
-    for d in docs:
-        for i, chunk in enumerate(splitter.split_text(d["text"])):
-            chunks.append(
-                {
-                    "doc_id": f"{d['id']}::chunk_{i}",
-                    "text": chunk,
-                    "source": d["source"],
-                }
-            )
-    return chunks
 
 
 def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:

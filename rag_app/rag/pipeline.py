@@ -9,7 +9,8 @@ from .loader import (
     load_doc_source_map,
     load_chunk_to_kg,
 )
-from .indexer import split_documents, build_or_load_chroma
+from .indexer import build_or_load_chroma
+from .chunking import TextChunker
 from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
 from .generator import generate_answer
@@ -29,7 +30,7 @@ class RagPipeline:
         self.docs = load_documents(SETTINGS.docs_dir)
         self.chunks = load_chunks_json(SETTINGS.docs_dir)
         if not self.chunks:
-            self.chunks = split_documents(self.docs)
+            self.chunks = TextChunker.from_settings(SETTINGS).split_documents(self.docs)
         self.doc_source_map = load_doc_source_map(SETTINGS.docs_dir)
         self.chunk_kg_map = load_chunk_to_kg(SETTINGS.docs_dir)
         self.chunk_text_map = {c["chunk_id"]: c.get("text", "") for c in self.chunks}

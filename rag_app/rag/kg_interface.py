@@ -27,6 +27,31 @@ def _pick_rel_id_field(session) -> str:
     return ""
 
 
+def _normalize_text(text: str) -> str:
+    return " ".join(str(text or "").strip().split())
+
+
+def _extract_entities(
+    question: str, chunk_kg_map: Optional[Dict[str, dict]]
+) -> List[str]:
+    if not chunk_kg_map:
+        return []
+    q = _normalize_text(question)
+    if not q:
+        return []
+    candidates = set()
+    for item in chunk_kg_map.values():
+        for ent in item.get("kg_entities", []) or []:
+            ent_text = _normalize_text(ent)
+            if not ent_text:
+                continue
+            if len(ent_text) < 2:
+                continue
+            if ent_text in q:
+                candidates.add(ent_text)
+    return list(candidates)
+
+
 def query_knowledge_graph(
     question: str,
     doc_source_map: Optional[Dict[str, dict]] = None,
@@ -48,6 +73,7 @@ def query_knowledge_graph(
     """
     results: List[Dict[str, str]] = []
     chunk_rel_ids: List[str] = []
+    entities: List[str] = []
     if chunk_kg_map and chunk_text_map:
         query_tokens = set(question.replace("\n", " ").split(" "))
         scored = []
@@ -66,6 +92,7 @@ def query_knowledge_graph(
             for rel_id in item.get("kg_relations", []) or []:
                 if rel_id not in chunk_rel_ids:
                     chunk_rel_ids.append(rel_id)
+        entities = _extract_entities(question, chunk_kg_map)
     driver = _get_driver()
     try:
         with driver.session() as session:
@@ -90,6 +117,26 @@ def query_knowledge_graph(
                     "LIMIT $limit"
                 )
                 rows = session.run(cypher, rel_ids=chunk_rel_ids, limit=top_k)
+            elif entities:
+                cypher = (
+                    "MATCH (h)-[r]->(t) "
+                    "WHERE any(e IN $entities WHERE h.name CONTAINS e OR t.name CONTAINS e OR coalesce(r.description, '') CONTAINS e) "
+                    "RETURN "
+                    "h.name AS head, "
+                    "coalesce(head(labels(h)), '') AS head_label, "
+                    "type(r) AS rel, "
+                    "t.name AS tail, "
+                    "coalesce(head(labels(t)), '') AS tail_label, "
+                    "coalesce(r.description, '') AS description, "
+                    "coalesce(h.source_section, '') AS head_source_section, "
+                    "coalesce(t.source_section, '') AS tail_source_section, "
+                    "coalesce(h.doc_id, '') AS head_doc_id, "
+                    "coalesce(t.doc_id, '') AS tail_doc_id, "
+                    "coalesce(r.doc_id, '') AS rel_doc_id, "
+                    "'' AS rel_id "
+                    "LIMIT $limit"
+                )
+                rows = session.run(cypher, entities=entities, limit=top_k)
             else:
                 cypher = (
                     "MATCH (h)-[r]->(t) "

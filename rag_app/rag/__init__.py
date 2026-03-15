@@ -1,3 +1,8 @@
 from .chunking import TextChunker, LanggraphyChunkerAdapter
 
 __all__ = ["TextChunker", "LanggraphyChunkerAdapter"]
+"""
+docker run --interactive --tty --rm --volume=D:/work/AI/neo4j/data:/data --volume=D:/work/AI/Project/rag_app/data/KG:/backups neo4j:latest neo4j-admin database load --from-path=/backups --verbose --overwrite-destination neo4j
+
+docker run -d --name neo4j -p 7474:7474 -p 7687:7687 -v d:/work/AI/neo4j/data:/data -v d:/work/AI/neo4j/logs:/logs -v d:/work/AI/neo4j/conf:/var/lib/neo4j/conf -v d:/work/AI/neo4j/import:/var/lib/neo4j/import -v d:/work/AI/neo4j/plugins:/var/lib/neo4j/plugins -e NEO4J_AUTH=neo4j/neo4j1234 neo4j:latest
+"""

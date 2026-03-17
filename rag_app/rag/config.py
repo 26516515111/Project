@@ -28,6 +28,9 @@ class Settings:
     index_dir = env(
         "RAG_INDEX_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "index")
     )
+    kg_dir = env(
+        "RAG_KG_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "KG")
+    )
 
     # Retrieval
     top_k = int(env("RAG_TOP_K", "5"))
@@ -55,6 +58,9 @@ class Settings:
     neo4j_user = env("NEO4J_USER", "neo4j")
     neo4j_password = env("NEO4J_PASSWORD", "neo4j1234")
 
+    # KG retrieval
+    kg_rel_limit = int(env("RAG_KG_REL_LIMIT", "50"))
+    kg_score_threshold = float(env("RAG_KG_SCORE_THRESHOLD", "0.1"))
 
     chunk_size = int(env("RAG_CHUNK_SIZE", "200"))
     chunk_overlap = int(env("RAG_CHUNK_OVERLAP", "20"))

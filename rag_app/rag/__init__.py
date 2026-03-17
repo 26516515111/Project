@@ -1,6 +1,11 @@
 from .chunking import TextChunker, LanggraphyChunkerAdapter
+from .langgraphy import LanggraphyPipelineAdapter
 
-__all__ = ["TextChunker", "LanggraphyChunkerAdapter"]
+__all__ = [
+    "TextChunker",
+    "LanggraphyChunkerAdapter",
+    "LanggraphyPipelineAdapter",
+]
 """
 docker run --interactive --tty --rm --volume=D:/work/AI/neo4j/data:/data --volume=D:/work/AI/Project/rag_app/data/KG:/backups neo4j:latest neo4j-admin database load --from-path=/backups --verbose --overwrite-destination neo4j
 

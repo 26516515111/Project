@@ -1,4 +1,7 @@
 from typing import Dict, List, Optional
+import re
+import os
+import json
 
 from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable
@@ -31,8 +34,64 @@ def _normalize_text(text: str) -> str:
     return " ".join(str(text or "").strip().split())
 
 
+def _is_kg_id(text: str) -> bool:
+    return re.fullmatch(r"(ENT|REL)_\d+", str(text or "").strip()) is not None
+
+
+def _tokenize(text: str) -> List[str]:
+    value = _normalize_text(text)
+    if not value:
+        return []
+    tokens: List[str] = []
+    parts = re.findall(r"[\u4e00-\u9fff]+|[A-Za-z0-9_]+", value)
+    for part in parts:
+        if re.fullmatch(r"[A-Za-z0-9_]+", part):
+            tokens.append(part.lower())
+            continue
+        if len(part) <= 2:
+            tokens.append(part)
+            continue
+        max_len = min(4, len(part))
+        for size in range(2, max_len + 1):
+            for i in range(0, len(part) - size + 1):
+                tokens.append(part[i : i + size])
+    seen = set()
+    deduped: List[str] = []
+    for token in tokens:
+        token = _normalize_text(token)
+        if not token or len(token) < 2:
+            continue
+        if token in seen:
+            continue
+        seen.add(token)
+        deduped.append(token)
+    return deduped
+
+
+def _load_entity_name_map() -> Dict[str, str]:
+    path = os.path.join(SETTINGS.kg_dir, "kg_merged.json")
+    if not os.path.isfile(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return {}
+    mapping: Dict[str, str] = {}
+    entities = data.get("entities", []) if isinstance(data, dict) else []
+    for idx, ent in enumerate(entities, start=1):
+        name = _normalize_text(ent.get("name", ""))
+        if not name:
+            continue
+        ent_id = _normalize_text(ent.get("id", ""))
+        if not ent_id:
+            ent_id = f"ENT_{idx:06d}"
+        mapping[ent_id] = name
+    return mapping
+
+
 def _extract_entities(
-    question: str, chunk_kg_map: Optional[Dict[str, dict]]
+    question: str, chunk_kg_map: Optional[Dict[str, dict]], ent_name_map: Dict[str, str]
 ) -> List[str]:
     if not chunk_kg_map:
         return []
@@ -45,9 +104,13 @@ def _extract_entities(
             ent_text = _normalize_text(ent)
             if not ent_text:
                 continue
+            if _is_kg_id(ent_text):
+                ent_text = _normalize_text(ent_name_map.get(ent_text, ""))
+                if not ent_text:
+                    continue
             if len(ent_text) < 2:
                 continue
-            if ent_text in q:
+            if ent_text == q or ent_text in q:
                 candidates.add(ent_text)
     return list(candidates)
 
@@ -74,16 +137,19 @@ def query_knowledge_graph(
     results: List[Dict[str, str]] = []
     chunk_rel_ids: List[str] = []
     entities: List[str] = []
+    ent_name_map = _load_entity_name_map()
+    query_terms = _tokenize(question)
     if chunk_kg_map and chunk_text_map:
-        query_tokens = set(question.replace("\n", " ").split(" "))
+        query_tokens = set(query_terms)
         scored = []
         for chunk_id, item in chunk_kg_map.items():
             text = str(chunk_text_map.get(chunk_id, "")).strip()
             if not text:
                 continue
-            tokens = set(text.replace("\n", " ").split(" "))
-            score = float(len(tokens.intersection(query_tokens)))
-            if score <= 0:
+            score = float(sum(1 for token in query_tokens if token and token in text))
+            norm = max(1.0, float(len(query_tokens)))
+            score = score / norm
+            if score < SETTINGS.kg_score_threshold:
                 continue
             scored.append({"chunk_id": chunk_id, "score": score})
         scored.sort(key=lambda x: x["score"], reverse=True)
@@ -92,7 +158,9 @@ def query_knowledge_graph(
             for rel_id in item.get("kg_relations", []) or []:
                 if rel_id not in chunk_rel_ids:
                     chunk_rel_ids.append(rel_id)
-        entities = _extract_entities(question, chunk_kg_map)
+        if len(chunk_rel_ids) > SETTINGS.kg_rel_limit:
+            chunk_rel_ids = chunk_rel_ids[: SETTINGS.kg_rel_limit]
+        entities = _extract_entities(question, chunk_kg_map, ent_name_map)
     driver = _get_driver()
     try:
         with driver.session() as session:
@@ -116,11 +184,15 @@ def query_knowledge_graph(
                     f"coalesce(r.`{rel_id_field}`, '') AS rel_id "
                     "LIMIT $limit"
                 )
-                rows = session.run(cypher, rel_ids=chunk_rel_ids, limit=top_k)
+                rows = session.run(
+                    cypher,
+                    rel_ids=chunk_rel_ids,
+                    limit=min(top_k, SETTINGS.kg_rel_limit),
+                )
             elif entities:
                 cypher = (
                     "MATCH (h)-[r]->(t) "
-                    "WHERE any(e IN $entities WHERE h.name CONTAINS e OR t.name CONTAINS e OR coalesce(r.description, '') CONTAINS e) "
+                    "WHERE h.name IN $entities OR t.name IN $entities "
                     "RETURN "
                     "h.name AS head, "
                     "coalesce(head(labels(h)), '') AS head_label, "
@@ -136,7 +208,35 @@ def query_knowledge_graph(
                     "'' AS rel_id "
                     "LIMIT $limit"
                 )
-                rows = session.run(cypher, entities=entities, limit=top_k)
+                rows = session.run(
+                    cypher,
+                    entities=entities,
+                    limit=min(top_k, SETTINGS.kg_rel_limit),
+                )
+            elif query_terms:
+                cypher = (
+                    "MATCH (h)-[r]->(t) "
+                    "WHERE any(tn IN $terms WHERE h.name CONTAINS tn OR t.name CONTAINS tn OR coalesce(r.description, '') CONTAINS tn) "
+                    "RETURN "
+                    "h.name AS head, "
+                    "coalesce(head(labels(h)), '') AS head_label, "
+                    "type(r) AS rel, "
+                    "t.name AS tail, "
+                    "coalesce(head(labels(t)), '') AS tail_label, "
+                    "coalesce(r.description, '') AS description, "
+                    "coalesce(h.source_section, '') AS head_source_section, "
+                    "coalesce(t.source_section, '') AS tail_source_section, "
+                    "coalesce(h.doc_id, '') AS head_doc_id, "
+                    "coalesce(t.doc_id, '') AS tail_doc_id, "
+                    "coalesce(r.doc_id, '') AS rel_doc_id, "
+                    "'' AS rel_id "
+                    "LIMIT $limit"
+                )
+                rows = session.run(
+                    cypher,
+                    terms=query_terms,
+                    limit=min(top_k, SETTINGS.kg_rel_limit),
+                )
             else:
                 cypher = (
                     "MATCH (h)-[r]->(t) "
@@ -156,7 +256,11 @@ def query_knowledge_graph(
                     "'' AS rel_id "
                     "LIMIT $limit"
                 )
-                rows = session.run(cypher, q=question, limit=top_k)
+                rows = session.run(
+                    cypher,
+                    q=question,
+                    limit=min(top_k, SETTINGS.kg_rel_limit),
+                )
             for row in rows:
                 item = {
                     "head": row.get("head", ""),

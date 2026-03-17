@@ -20,6 +20,7 @@ actual data extraction, Neo4j/GraphDB queries, and UI.
 ## LangGraph 流水线
 
 基于 LangGraph 的构建入口：`run_langgraph_pipeline.py`。
+内部实现位于 `rag/langGraphy/pipeline.py`。
 
 示例：
 

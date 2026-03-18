@@ -1,0 +1,14 @@
+[
+  {
+    "doc_id": "船舶电气设备及系统",
+    "source": "船舶电气设备及系统.md",
+    "path": "data/KG/raw/船舶电气设备及系统.md",
+    "num_chunks": 331
+  },
+  {
+    "doc_id": "船舶电气设备维护及检测",
+    "source": "船舶电气设备维护及检测.md",
+    "path": "data/KG/raw/船舶电气设备维护及检测.md",
+    "num_chunks": 148
+  }
+]

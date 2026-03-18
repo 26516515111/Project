@@ -19,22 +19,34 @@ actual data extraction, Neo4j/GraphDB queries, and UI.
 
 ## LangGraph 流水线
 
-基于 LangGraph 的构建入口：`run_langgraph_pipeline.py`。
-内部实现位于 `rag/langGraphy/pipeline.py`。
+基于 LangGraph 的 KG 构建入口：`run_langgraph_pipeline.py`。
+
+这套实现只使用 `Project/rag_app` 内部代码，不再依赖仓库根目录 `./scripts`。
+
+KG 目录结构：
+
+- `data/KG/raw/`: 原始文档
+- `data/KG/cleaned/`: 清洗结果
+- `data/KG/chunks/`: `chunks.json`、`doc_source_map.json`、`chunk_to_kg.json`
+- `data/KG/extracted/`: `kg_raw.json`、checkpoint
+- `data/KG/delivery/`: `kg_merged.json`、`entity_merge_log.json`、Neo4j CSV、dump、可视化 HTML
+
+流水线步骤：
+
+- `1` 语料清洗
+- `2` 文本切块
+- `3` KG 三元组抽取
+- `4` 实体合并
+- `5` Neo4j 导入与导出
+- `6` 图谱可视化
 
 示例：
 
 - `python run_langgraph_pipeline.py --dry-run`
 - `python run_langgraph_pipeline.py --from 4`
-- `python run_langgraph_pipeline.py --from 5 --to 7`
-- `python run_langgraph_pipeline.py --only 7`
-- `python run_langgraph_pipeline.py --execution-mode subprocess`
-
-说明：
-
-- 当前默认是“内联执行”，会在进程内导入并调用仓库根目录下 `scripts/step1~step7` 的 `main()`。
-- 如需兼容旧行为，可用 `--execution-mode subprocess` 切换为子进程执行。
-- 执行根目录在 `ship`，会自动读取 `.env` 并注入 `HF_ENDPOINT`。
+- `python run_langgraph_pipeline.py --only 3 --only-doc 船舶电气设备及系统`
+- `python run_langgraph_pipeline.py --skip-neo4j`
+- `python run_langgraph_pipeline.py --no-neo4j-import`
 
 ## Notes
 

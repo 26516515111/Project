@@ -1,0 +1,6231 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_0",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 0,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_1",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 1,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_2",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 2,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_3",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 3,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_4",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 4,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_5",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 5,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_6",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 6,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_7",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 7,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_8",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 8,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_9",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 9,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_10",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 10,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_11",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 11,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_12",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 12,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_13",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 13,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_14",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 14,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_15",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 15,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_16",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 16,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_17",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 17,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_18",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 18,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_19",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 19,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_20",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 20,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_21",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 21,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_22",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 22,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_23",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 23,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_24",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 24,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_25",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 25,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_26",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 26,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_27",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 27,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_28",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 28,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_29",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 29,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_30",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 30,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_31",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 31,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_32",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 32,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_33",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 33,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_34",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 34,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_35",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 35,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_36",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 36,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_37",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 37,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_38",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 38,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_39",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 39,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_40",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 40,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_41",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 41,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_42",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 42,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_43",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 43,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_44",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 44,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_45",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 45,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_46",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 46,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_47",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 47,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_48",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 48,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_49",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 49,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_50",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 50,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_51",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 51,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_52",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 52,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_53",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 53,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_54",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 54,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_55",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 55,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_56",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 56,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_57",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 57,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_58",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 58,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_59",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 59,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_60",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 60,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_61",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 61,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_62",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 62,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_63",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 63,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_64",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 64,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_65",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 65,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_66",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 66,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_67",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 67,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_68",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 68,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_69",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 69,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_70",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 70,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_71",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 71,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_72",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 72,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_73",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 73,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_74",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 74,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_75",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 75,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_76",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 76,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_77",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 77,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_78",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 78,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_79",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 79,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_80",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 80,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_81",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 81,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_82",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 82,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_83",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 83,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_84",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 84,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_85",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 85,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_86",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 86,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_87",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 87,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_88",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 88,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_89",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 89,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_90",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 90,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_91",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 91,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_92",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 92,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_93",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 93,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_94",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 94,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_95",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 95,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_96",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 96,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_97",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 97,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_98",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 98,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_99",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 99,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_100",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 100,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_101",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 101,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_102",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 102,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_103",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 103,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_104",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 104,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_105",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 105,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_106",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 106,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_107",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 107,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_108",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 108,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_109",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 109,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_110",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 110,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_111",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 111,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_112",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 112,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_113",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 113,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_114",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 114,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_115",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 115,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_116",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 116,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_117",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 117,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_118",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 118,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_119",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 119,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_120",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 120,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_121",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 121,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_122",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 122,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_123",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 123,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_124",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 124,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_125",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 125,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_126",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 126,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_127",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 127,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_128",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 128,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_129",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 129,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_130",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 130,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_131",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 131,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_132",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 132,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_133",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 133,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_134",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 134,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_135",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 135,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_136",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 136,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_137",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 137,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_138",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 138,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_139",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 139,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_140",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 140,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_141",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 141,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_142",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 142,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_143",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 143,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_144",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 144,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_145",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 145,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_146",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 146,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_147",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 147,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_148",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 148,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_149",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 149,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_150",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 150,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_151",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 151,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_152",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 152,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_153",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 153,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_154",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 154,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_155",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 155,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_156",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 156,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_157",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 157,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_158",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 158,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_159",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 159,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_160",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 160,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_161",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 161,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_162",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 162,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_163",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 163,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_164",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 164,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_165",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 165,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_166",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 166,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_167",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 167,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_168",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 168,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_169",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 169,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_170",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 170,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_171",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 171,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_172",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 172,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_173",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 173,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_174",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 174,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_175",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 175,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_176",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 176,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_177",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 177,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_178",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 178,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_179",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 179,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_180",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 180,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_181",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 181,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_182",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 182,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_183",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 183,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_184",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 184,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_185",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 185,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_186",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 186,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_187",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 187,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_188",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 188,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_189",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 189,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_190",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 190,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_191",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 191,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_192",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 192,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_193",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 193,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_194",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 194,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_195",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 195,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_196",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 196,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_197",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 197,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_198",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 198,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_199",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 199,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_200",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 200,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_201",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 201,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_202",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 202,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_203",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 203,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_204",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 204,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_205",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 205,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_206",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 206,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_207",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 207,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_208",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 208,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_209",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 209,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_210",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 210,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_211",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 211,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_212",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 212,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_213",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 213,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_214",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 214,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_215",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 215,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_216",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 216,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_217",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 217,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_218",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 218,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_219",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 219,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_220",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 220,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_221",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 221,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_222",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 222,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_223",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 223,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_224",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 224,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_225",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 225,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_226",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 226,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_227",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 227,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_228",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 228,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_229",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 229,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_230",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 230,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_231",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 231,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_232",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 232,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_233",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 233,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_234",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 234,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_235",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 235,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_236",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 236,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_237",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 237,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_238",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 238,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_239",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 239,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_240",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 240,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_241",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 241,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_242",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 242,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_243",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 243,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_244",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 244,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_245",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 245,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_246",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 246,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_247",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 247,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_248",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 248,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_249",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 249,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_250",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 250,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_251",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 251,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_252",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 252,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_253",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 253,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_254",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 254,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_255",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 255,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_256",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 256,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_257",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 257,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_258",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 258,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_259",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 259,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_260",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 260,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_261",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 261,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_262",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 262,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_263",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 263,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_264",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 264,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_265",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 265,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_266",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 266,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_267",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 267,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_268",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 268,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_269",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 269,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_270",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 270,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_271",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 271,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_272",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 272,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_273",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 273,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_274",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 274,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_275",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 275,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_276",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 276,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_277",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 277,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_278",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 278,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_279",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 279,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_280",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 280,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_281",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 281,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_282",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 282,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_283",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 283,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_284",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 284,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_285",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 285,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_286",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 286,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_287",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 287,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_288",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 288,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_289",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 289,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_290",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 290,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_291",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 291,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_292",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 292,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_293",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 293,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_294",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 294,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_295",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 295,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_296",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 296,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_297",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 297,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_298",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 298,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_299",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 299,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_300",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 300,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_301",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 301,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_302",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 302,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_303",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 303,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_304",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 304,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_305",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 305,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_306",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 306,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_307",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 307,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_308",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 308,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_309",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 309,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_310",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 310,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_311",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 311,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_312",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 312,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_313",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 313,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_314",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 314,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_315",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 315,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_316",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 316,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_317",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 317,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_318",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 318,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_319",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 319,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_320",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 320,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_321",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 321,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_322",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 322,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_323",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 323,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_324",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 324,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_325",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 325,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_326",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 326,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_327",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 327,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_328",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 328,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_329",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 329,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备及系统::chunk_330",
+      "doc_id": "船舶电气设备及系统",
+      "source": "船舶电气设备及系统.md",
+      "chunk_index": 330,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_0",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 0,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_1",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 1,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_2",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 2,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_3",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 3,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_4",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 4,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_5",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 5,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_6",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 6,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_7",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 7,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_8",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 8,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_9",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 9,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_10",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 10,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_11",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 11,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_12",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 12,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_13",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 13,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_14",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 14,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_15",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 15,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_16",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 16,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_17",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 17,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_18",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 18,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_19",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 19,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_20",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 20,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_21",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 21,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_22",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 22,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_23",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 23,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_24",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 24,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_25",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 25,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_26",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 26,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_27",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 27,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_28",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 28,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_29",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 29,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_30",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 30,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_31",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 31,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_32",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 32,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_33",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 33,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_34",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 34,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_35",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 35,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_36",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 36,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_37",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 37,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_38",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 38,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_39",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 39,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_40",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 40,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_41",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 41,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_42",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 42,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_43",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 43,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_44",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 44,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_45",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 45,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_46",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 46,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_47",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 47,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_48",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 48,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_49",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 49,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_50",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 50,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_51",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 51,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_52",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 52,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_53",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 53,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_54",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 54,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_55",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 55,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_56",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 56,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_57",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 57,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_58",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 58,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_59",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 59,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_60",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 60,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_61",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 61,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_62",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 62,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_63",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 63,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_64",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 64,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_65",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 65,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_66",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 66,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_67",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 67,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_68",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 68,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_69",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 69,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_70",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 70,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_71",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 71,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_72",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 72,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_73",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 73,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_74",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 74,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_75",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 75,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_76",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 76,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_77",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 77,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_78",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 78,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_79",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 79,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_80",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 80,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_81",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 81,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_82",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 82,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_83",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 83,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_84",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 84,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_85",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 85,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_86",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 86,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_87",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 87,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_88",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 88,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_89",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 89,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_90",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 90,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_91",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 91,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_92",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 92,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_93",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 93,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_94",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 94,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_95",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 95,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_96",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 96,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_97",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 97,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_98",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 98,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_99",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 99,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_100",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 100,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_101",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 101,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_102",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 102,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_103",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 103,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_104",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 104,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_105",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 105,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_106",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 106,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_107",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 107,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_108",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 108,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_109",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 109,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_110",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 110,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_111",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 111,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_112",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 112,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_113",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 113,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_114",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 114,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_115",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 115,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_116",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 116,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_117",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 117,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_118",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 118,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_119",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 119,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_120",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 120,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_121",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 121,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_122",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 122,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_123",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 123,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_124",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 124,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_125",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 125,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_126",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 126,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_127",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 127,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_128",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 128,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_129",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 129,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_130",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 130,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_131",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 131,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_132",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 132,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_133",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 133,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_134",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 134,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_135",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 135,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_136",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 136,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_137",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 137,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_138",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 138,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_139",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 139,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_140",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 140,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_141",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 141,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_142",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 142,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_143",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 143,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_144",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 144,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_145",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 145,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_146",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 146,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "船舶电气设备维护及检测::chunk_147",
+      "doc_id": "船舶电气设备维护及检测",
+      "source": "船舶电气设备维护及检测.md",
+      "chunk_index": 147,
+      "kg_entities": [
+        "MOCK_SYSTEM"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001"
+      ],
+      "kg_relations": []
+    }
+  ]
+}

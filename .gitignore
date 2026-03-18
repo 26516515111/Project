@@ -1,2 +1,9 @@
 # Automatically created by ruff.
 /.idea
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+rag_app/.cache/

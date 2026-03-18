@@ -21,9 +21,29 @@ from openai import OpenAI
 from pyvis.network import Network
 from sentence_transformers import SentenceTransformer
 
+from .config import (
+    LLM_API_KEY_ENV,
+    LLM_BASE_URL,
+    LLM_MODEL,
+    LLM_TEMPERATURE,
+    LLM_MAX_TOKENS,
+    LLM_RETRY_LIMIT,
+    LLM_RETRY_BACKOFF,
+    LLM_MIN_CHUNK_CHARS,
+    LLM_SLEEP_SECONDS,
+    LLM_CHECKPOINT_EVERY_CHUNKS,
+    LLM_MOCK_ENV,
+    LLM_REQUIRE_API_KEY,
+)
 from .constants import ENTITY_LABELS, RELATION_TYPES
 from .paths import PipelinePaths
-from .utils import apply_local_env, numbered_path, read_json, same_file_content, write_json
+from .utils import (
+    apply_local_env,
+    numbered_path,
+    read_json,
+    same_file_content,
+    write_json,
+)
 
 MAX_CONTEXT_ENTITIES = 200
 MAX_CONTEXT_RELATIONS = 100
@@ -57,10 +77,10 @@ DEFAULT_COLOR = "#aaaaaa"
 SYSTEM_PROMPT = f"""你是船舶电气设备领域的知识图谱专家。请从给定文本中抽取实体和关系三元组。
 
 实体标签（label）必须从以下选取：
-{', '.join(ENTITY_LABELS)}
+{", ".join(ENTITY_LABELS)}
 
 关系类型（relation）必须从以下选取：
-{', '.join(RELATION_TYPES)}
+{", ".join(RELATION_TYPES)}
 
 输出严格 JSON 格式，不要输出任何其他文字、解释或 markdown 代码块：
 {{
@@ -191,7 +211,13 @@ def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
         output = clean_text(raw_text)
         target = paths.cleaned_dir / source.name
         target.write_text(output, encoding="utf-8")
-        cleaned.append({"source": source.name, "raw_chars": len(raw_text), "cleaned_chars": len(output)})
+        cleaned.append(
+            {
+                "source": source.name,
+                "raw_chars": len(raw_text),
+                "cleaned_chars": len(output),
+            }
+        )
     return {"copied_into_raw": copied, "documents": len(cleaned), "files": cleaned}
 
 
@@ -204,7 +230,9 @@ def extract_heading_context(text: str) -> str:
     return matches[-1] if matches else ""
 
 
-def chunk_documents(paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap: int = 150) -> dict[str, Any]:
+def chunk_documents(
+    paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap: int = 150
+) -> dict[str, Any]:
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
@@ -212,11 +240,17 @@ def chunk_documents(paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap:
     )
     chunks = []
     doc_source_map = []
-    cleaned_files = sorted(paths.cleaned_dir.glob("*.md")) + sorted(paths.cleaned_dir.glob("*.txt"))
+    cleaned_files = sorted(paths.cleaned_dir.glob("*.md")) + sorted(
+        paths.cleaned_dir.glob("*.txt")
+    )
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
-        valid_chunks = [part.strip() for part in splitter.split_text(text) if len(part.strip()) >= 20]
+        valid_chunks = [
+            part.strip()
+            for part in splitter.split_text(text)
+            if len(part.strip()) >= 20
+        ]
         for index, chunk_text in enumerate(valid_chunks):
             chunks.append(
                 {
@@ -261,7 +295,9 @@ def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) 
         if entity["name"] not in seen_names:
             seen_names.add(entity["name"])
             unique_entities.append(entity)
-    unique_entities.sort(key=lambda entity: entity_freq.get(entity["name"], 0), reverse=True)
+    unique_entities.sort(
+        key=lambda entity: entity_freq.get(entity["name"], 0), reverse=True
+    )
     top_entities = unique_entities[:MAX_CONTEXT_ENTITIES]
     top_names = {entity["name"] for entity in top_entities}
 
@@ -275,7 +311,8 @@ def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) 
             seen_relations.add(key)
             candidate_relations.append(relation)
     candidate_relations.sort(
-        key=lambda relation: entity_freq.get(relation["head"], 0) + entity_freq.get(relation["tail"], 0),
+        key=lambda relation: entity_freq.get(relation["head"], 0)
+        + entity_freq.get(relation["tail"], 0),
         reverse=True,
     )
     top_relations = candidate_relations[:MAX_CONTEXT_RELATIONS]
@@ -285,7 +322,10 @@ def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) 
         % (
             len(top_entities),
             json.dumps(
-                [{"name": entity["name"], "label": entity.get("label", "")} for entity in top_entities],
+                [
+                    {"name": entity["name"], "label": entity.get("label", "")}
+                    for entity in top_entities
+                ],
                 ensure_ascii=False,
                 separators=(",", ":"),
             ),
@@ -297,7 +337,14 @@ def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) 
             % (
                 len(top_relations),
                 json.dumps(
-                    [{"h": relation["head"], "r": relation["relation"], "t": relation["tail"]} for relation in top_relations],
+                    [
+                        {
+                            "h": relation["head"],
+                            "r": relation["relation"],
+                            "t": relation["tail"],
+                        }
+                        for relation in top_relations
+                    ],
                     ensure_ascii=False,
                     separators=(",", ":"),
                 ),
@@ -341,7 +388,9 @@ def extract_json_from_response(text: str) -> dict:
         return {"entities": [], "relations": []}
 
 
-def validate_extracted(result: dict, doc_entity_names: set[str], use_context: bool) -> tuple[list, list]:
+def validate_extracted(
+    result: dict, doc_entity_names: set[str], use_context: bool
+) -> tuple[list, list]:
     entities = []
     for entity in result.get("entities", []):
         if not isinstance(entity, dict):
@@ -361,7 +410,10 @@ def validate_extracted(result: dict, doc_entity_names: set[str], use_context: bo
             continue
         if relation.get("relation") not in RELATION_TYPES:
             continue
-        if relation.get("head") not in allowed_names or relation.get("tail") not in allowed_names:
+        if (
+            relation.get("head") not in allowed_names
+            or relation.get("tail") not in allowed_names
+        ):
             continue
         if relation.get("head") == relation.get("tail"):
             continue
@@ -371,9 +423,13 @@ def validate_extracted(result: dict, doc_entity_names: set[str], use_context: bo
 
 def _resolve_api_key(paths: PipelinePaths) -> str:
     apply_local_env(paths.env_path)
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    api_key = os.environ.get(LLM_API_KEY_ENV, "").strip()
+    if not api_key and not LLM_REQUIRE_API_KEY:
+        return ""
     if not api_key:
-        raise RuntimeError("DEEPSEEK_API_KEY 未设置，请在环境变量或 Project/rag_app/.env 中配置")
+        raise RuntimeError(
+            f"{LLM_API_KEY_ENV} 未设置，请在环境变量或 Project/rag_app/.env 中配置"
+        )
     return api_key
 
 
@@ -385,26 +441,41 @@ def extract_kg(
 ) -> dict[str, Any]:
     api_key = _resolve_api_key(paths)
     client = OpenAI(
-        api_key=api_key,
-        base_url=os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+        api_key=api_key or "ollama",
+        base_url=os.environ.get("DEEPSEEK_BASE_URL", LLM_BASE_URL),
     )
-    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
+    model = os.environ.get("DEEPSEEK_MODEL", LLM_MODEL)
     all_chunks = read_json(paths.chunks_path, [])
-    target_chunks = [chunk for chunk in all_chunks if chunk["doc_id"] == only_doc_id] if only_doc_id else all_chunks
+    target_chunks = (
+        [chunk for chunk in all_chunks if chunk["doc_id"] == only_doc_id]
+        if only_doc_id
+        else all_chunks
+    )
     if only_doc_id and not target_chunks:
         raise ValueError(f"未找到 doc_id={only_doc_id} 的 chunks")
 
     if only_doc_id and paths.kg_raw_path.exists():
         existing = read_json(paths.kg_raw_path, {"entities": [], "relations": []})
-        all_entities = [entity for entity in existing.get("entities", []) if entity.get("doc_id") != only_doc_id]
-        all_relations = [relation for relation in existing.get("relations", []) if relation.get("doc_id") != only_doc_id]
+        all_entities = [
+            entity
+            for entity in existing.get("entities", [])
+            if entity.get("doc_id") != only_doc_id
+        ]
+        all_relations = [
+            relation
+            for relation in existing.get("relations", [])
+            if relation.get("doc_id") != only_doc_id
+        ]
     else:
         all_entities = []
         all_relations = []
 
     done_chunk_ids: set[str] = set()
     if checkpoint_enabled and paths.checkpoint_path.exists():
-        checkpoint = read_json(paths.checkpoint_path, {"done_chunk_ids": [], "entities": [], "relations": []})
+        checkpoint = read_json(
+            paths.checkpoint_path,
+            {"done_chunk_ids": [], "entities": [], "relations": []},
+        )
         done_chunk_ids = set(checkpoint.get("done_chunk_ids", []))
         if not only_doc_id:
             all_entities = checkpoint.get("entities", [])
@@ -440,7 +511,7 @@ def extract_kg(
             chunk_id = chunk["chunk_id"]
             if chunk_id in done_chunk_ids:
                 continue
-            if len(chunk["text"].strip()) < 50:
+            if len(chunk["text"].strip()) < LLM_MIN_CHUNK_CHARS:
                 done_chunk_ids.add(chunk_id)
                 continue
 
@@ -454,7 +525,7 @@ def extract_kg(
             doc_entity_names = {entity["name"] for entity in doc_entities}
 
             retries = 0
-            while retries < 3:
+            while retries < LLM_RETRY_LIMIT:
                 try:
                     response = client.chat.completions.create(
                         model=model,
@@ -462,17 +533,30 @@ def extract_kg(
                             {"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": user_content},
                         ],
-                        temperature=0.1,
-                        max_tokens=4000,
+                        temperature=LLM_TEMPERATURE,
+                        max_tokens=LLM_MAX_TOKENS,
                     )
-                    result = extract_json_from_response(response.choices[0].message.content or "")
-                    entities, relations = validate_extracted(result, doc_entity_names, use_context)
-                    total_filtered_entities += len(result.get("entities", [])) - len(entities)
-                    total_filtered_relations += len(result.get("relations", [])) - len(relations)
+                    result = extract_json_from_response(
+                        response.choices[0].message.content or ""
+                    )
+                    entities, relations = validate_extracted(
+                        result, doc_entity_names, use_context
+                    )
+                    total_filtered_entities += len(result.get("entities", [])) - len(
+                        entities
+                    )
+                    total_filtered_relations += len(result.get("relations", [])) - len(
+                        relations
+                    )
 
                     new_names = {entity["name"] for entity in entities}
                     total_cross_chunk_relations += len(
-                        [rel for rel in relations if rel["head"] not in new_names or rel["tail"] not in new_names]
+                        [
+                            rel
+                            for rel in relations
+                            if rel["head"] not in new_names
+                            or rel["tail"] not in new_names
+                        ]
                     )
 
                     for entity in entities:
@@ -489,18 +573,20 @@ def extract_kg(
                     doc_relations.extend(relations)
                     done_chunk_ids.add(chunk_id)
                     chunks_since_checkpoint += 1
-                    if chunks_since_checkpoint >= 10:
+                    if chunks_since_checkpoint >= LLM_CHECKPOINT_EVERY_CHUNKS:
                         save_checkpoint()
                         chunks_since_checkpoint = 0
                     break
                 except Exception:
                     retries += 1
-                    if retries >= 3:
+                    if retries >= LLM_RETRY_LIMIT:
                         raise
-                    time.sleep(2 * retries)
-            time.sleep(0.3)
+                    time.sleep(LLM_RETRY_BACKOFF * retries)
+            time.sleep(LLM_SLEEP_SECONDS)
 
-    write_json(paths.kg_raw_path, {"entities": all_entities, "relations": all_relations})
+    write_json(
+        paths.kg_raw_path, {"entities": all_entities, "relations": all_relations}
+    )
     if paths.checkpoint_path.exists():
         paths.checkpoint_path.unlink()
     return {
@@ -540,39 +626,58 @@ def count_chunks(entity: dict) -> int:
 
 
 def merge_entities(member_entities: list[dict]) -> dict:
-    representative = max(member_entities, key=lambda entity: (count_chunks(entity), len(entity["name"])))
+    representative = max(
+        member_entities, key=lambda entity: (count_chunks(entity), len(entity["name"]))
+    )
     merged = dict(representative)
     descriptions = []
     labels = set()
     sources = []
     for entity in member_entities:
-        descriptions.extend([part for part in str(entity.get("description", "")).split("；") if part])
+        descriptions.extend(
+            [part for part in str(entity.get("description", "")).split("；") if part]
+        )
         if entity.get("label"):
             labels.add(entity["label"])
         if entity.get("all_labels"):
             labels.update(entity["all_labels"])
         if entity.get("source"):
             sources.append(entity["source"])
-    merged["doc_id"] = merge_doc_ids([entity.get("doc_id", "") for entity in member_entities])
-    merged["chunk_id"] = merge_chunk_ids([entity.get("chunk_id", "") for entity in member_entities])
+    merged["doc_id"] = merge_doc_ids(
+        [entity.get("doc_id", "") for entity in member_entities]
+    )
+    merged["chunk_id"] = merge_chunk_ids(
+        [entity.get("chunk_id", "") for entity in member_entities]
+    )
     merged["description"] = "；".join(dict.fromkeys(descriptions))
-    merged["source"] = next((source for source in sources if source), merged.get("source", ""))
+    merged["source"] = next(
+        (source for source in sources if source), merged.get("source", "")
+    )
     if len(labels) > 1:
         merged["all_labels"] = sorted(labels)
     return merged
 
 
-def load_embedding_model(paths: PipelinePaths, device: str) -> SentenceTransformer | None:
+def load_embedding_model(
+    paths: PipelinePaths, device: str
+) -> SentenceTransformer | None:
     os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
     model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-small-zh-v1.5")
     try:
-        return SentenceTransformer(model_name, device=device, cache_folder=str(paths.cache_dir), local_files_only=True)
+        return SentenceTransformer(
+            model_name,
+            device=device,
+            cache_folder=str(paths.cache_dir),
+            local_files_only=True,
+        )
     except Exception:
         pass
     if os.environ.get("ALLOW_ONLINE_MODEL_DOWNLOAD", "1") != "1":
         return None
     try:
-        return SentenceTransformer(model_name, device=device, cache_folder=str(paths.cache_dir))
+        return SentenceTransformer(
+            model_name, device=device, cache_folder=str(paths.cache_dir)
+        )
     except Exception:
         return None
 
@@ -607,7 +712,9 @@ class UnionFind:
         return dict(grouped)
 
 
-def _build_chunk_to_kg(chunks: list[dict], entities: list[dict], relations: list[dict]) -> dict[str, list[dict]]:
+def _build_chunk_to_kg(
+    chunks: list[dict], entities: list[dict], relations: list[dict]
+) -> dict[str, list[dict]]:
     names_by_chunk: dict[str, set[str]] = defaultdict(set)
     ids_by_chunk: dict[str, set[str]] = defaultdict(set)
     rels_by_chunk: dict[str, set[str]] = defaultdict(set)
@@ -653,11 +760,27 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
         key = (entity["name"].strip(), entity.get("label", ""))
         if key in dedup_map:
             existing = dedup_map[key]
-            existing["doc_id"] = merge_doc_ids([existing.get("doc_id", ""), entity.get("doc_id", "")])
-            existing["chunk_id"] = merge_chunk_ids([existing.get("chunk_id", ""), entity.get("chunk_id", "")])
-            if entity.get("description") and entity["description"] not in existing.get("description", ""):
-                existing["description"] = f"{existing.get('description', '')}；{entity['description']}".strip("；")
-            merge_log.append({"step": "exact_dedup", "merged_into": existing["name"], "merged_from": entity["name"]})
+            existing["doc_id"] = merge_doc_ids(
+                [existing.get("doc_id", ""), entity.get("doc_id", "")]
+            )
+            existing["chunk_id"] = merge_chunk_ids(
+                [existing.get("chunk_id", ""), entity.get("chunk_id", "")]
+            )
+            if entity.get("description") and entity["description"] not in existing.get(
+                "description", ""
+            ):
+                existing["description"] = (
+                    f"{existing.get('description', '')}；{entity['description']}".strip(
+                        "；"
+                    )
+                )
+            merge_log.append(
+                {
+                    "step": "exact_dedup",
+                    "merged_into": existing["name"],
+                    "merged_from": entity["name"],
+                }
+            )
         else:
             entity_copy = dict(entity)
             entity_copy["doc_id"] = merge_doc_ids([entity.get("doc_id", "")])
@@ -681,10 +804,14 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
             if entity.get("label"):
                 label_weights[entity["label"]] += count_chunks(entity)
                 all_labels.add(entity["label"])
-        merged["label"] = max(label_weights, key=label_weights.get) if label_weights else ""
+        merged["label"] = (
+            max(label_weights, key=label_weights.get) if label_weights else ""
+        )
         merged["all_labels"] = sorted(all_labels)
         entities_unified.append(merged)
-        merge_log.append({"step": "label_unify", "name": name, "labels_merged": sorted(all_labels)})
+        merge_log.append(
+            {"step": "label_unify", "name": name, "labels_merged": sorted(all_labels)}
+        )
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = load_embedding_model(paths, device)
@@ -734,8 +861,12 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
     updated_relations = []
     for relation in relations:
         relation_copy = dict(relation)
-        relation_copy["head"] = name_remap.get(relation_copy["head"], relation_copy["head"])
-        relation_copy["tail"] = name_remap.get(relation_copy["tail"], relation_copy["tail"])
+        relation_copy["head"] = name_remap.get(
+            relation_copy["head"], relation_copy["head"]
+        )
+        relation_copy["tail"] = name_remap.get(
+            relation_copy["tail"], relation_copy["tail"]
+        )
         updated_relations.append(relation_copy)
 
     seen_relations = set()
@@ -748,20 +879,31 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
         deduped_relations.append(relation)
 
     valid_names = {entity["name"] for entity in merged_entities}
-    clean_relations = [relation for relation in deduped_relations if relation["head"] in valid_names and relation["tail"] in valid_names]
+    clean_relations = [
+        relation
+        for relation in deduped_relations
+        if relation["head"] in valid_names and relation["tail"] in valid_names
+    ]
 
     merged_entities.sort(key=lambda entity: (entity.get("label", ""), entity["name"]))
-    clean_relations.sort(key=lambda relation: (relation["head"], relation["relation"], relation["tail"]))
+    clean_relations.sort(
+        key=lambda relation: (relation["head"], relation["relation"], relation["tail"])
+    )
     for index, entity in enumerate(merged_entities, start=1):
         entity["entity_id"] = f"ENT_{index:06d}"
     for index, relation in enumerate(clean_relations, start=1):
         relation["rel_id"] = f"REL_{index:06d}"
 
-    write_json(paths.kg_merged_path, {"entities": merged_entities, "relations": clean_relations})
+    write_json(
+        paths.kg_merged_path,
+        {"entities": merged_entities, "relations": clean_relations},
+    )
     write_json(paths.merge_log_path, merge_log)
     write_json(
         paths.chunk_to_kg_path,
-        _build_chunk_to_kg(read_json(paths.chunks_path, []), merged_entities, clean_relations),
+        _build_chunk_to_kg(
+            read_json(paths.chunks_path, []), merged_entities, clean_relations
+        ),
     )
     return {
         "entities": len(merged_entities),
@@ -801,7 +943,18 @@ def generate_neo4j_artifacts(
 
     with paths.neo4j_entities_csv_path.open("w", encoding="utf-8", newline="") as fp:
         writer = csv.writer(fp)
-        writer.writerow(["entity_id", "name", "label", "description", "doc_id", "chunk_id", "all_labels", "source"])
+        writer.writerow(
+            [
+                "entity_id",
+                "name",
+                "label",
+                "description",
+                "doc_id",
+                "chunk_id",
+                "all_labels",
+                "source",
+            ]
+        )
         for entity in entities:
             writer.writerow(
                 [
@@ -818,7 +971,19 @@ def generate_neo4j_artifacts(
 
     with paths.neo4j_relations_csv_path.open("w", encoding="utf-8", newline="") as fp:
         writer = csv.writer(fp)
-        writer.writerow(["rel_id", "head", "head_label", "relation", "tail", "tail_label", "description", "doc_id", "chunk_id"])
+        writer.writerow(
+            [
+                "rel_id",
+                "head",
+                "head_label",
+                "relation",
+                "tail",
+                "tail_label",
+                "description",
+                "doc_id",
+                "chunk_id",
+            ]
+        )
         for relation in relations:
             writer.writerow(
                 [
@@ -835,9 +1000,16 @@ def generate_neo4j_artifacts(
             )
 
     if not import_to_neo4j:
-        return {"entities": len(entities), "relations": len(relations), "imported": False, "dumped": False}
+        return {
+            "entities": len(entities),
+            "relations": len(relations),
+            "imported": False,
+            "dumped": False,
+        }
 
-    neo4j_password = os.environ.get("NEO4J_PASSWORD", os.environ.get("NEO4J_PASS", "")).strip()
+    neo4j_password = os.environ.get(
+        "NEO4J_PASSWORD", os.environ.get("NEO4J_PASS", "")
+    ).strip()
     if not neo4j_password:
         raise RuntimeError("NEO4J_PASSWORD/NEO4J_PASS 未设置")
 
@@ -921,21 +1093,44 @@ def generate_neo4j_artifacts(
         neo4j_admin_cmd = _neo4j_executable("neo4j-admin")
         subprocess.run([neo4j_cmd, "stop"], check=False, env=env)
         time.sleep(3)
-        subprocess.run([neo4j_admin_cmd, "database", "dump", "neo4j", f"--to-path={paths.delivery_dir}"], check=True, env=env)
+        subprocess.run(
+            [
+                neo4j_admin_cmd,
+                "database",
+                "dump",
+                "neo4j",
+                f"--to-path={paths.delivery_dir}",
+            ],
+            check=True,
+            env=env,
+        )
         subprocess.run([neo4j_cmd, "start"], check=False, env=env)
         dumped = True
 
-    return {"entities": len(entities), "relations": len(relations), "imported": True, "dumped": dumped}
+    return {
+        "entities": len(entities),
+        "relations": len(relations),
+        "imported": True,
+        "dumped": dumped,
+    }
 
 
-def visualize_kg(paths: PipelinePaths, top_n: int = 300, filter_label: str | None = None) -> dict[str, Any]:
+def visualize_kg(
+    paths: PipelinePaths, top_n: int = 300, filter_label: str | None = None
+) -> dict[str, Any]:
     kg = read_json(paths.kg_merged_path, {"entities": [], "relations": []})
     entities = kg.get("entities", [])
     relations = kg.get("relations", [])
     if filter_label:
-        entities = [entity for entity in entities if entity.get("label") == filter_label]
+        entities = [
+            entity for entity in entities if entity.get("label") == filter_label
+        ]
         valid_names = {entity["name"] for entity in entities}
-        relations = [relation for relation in relations if relation["head"] in valid_names and relation["tail"] in valid_names]
+        relations = [
+            relation
+            for relation in relations
+            if relation["head"] in valid_names and relation["tail"] in valid_names
+        ]
 
     entity_info = {entity["name"]: entity for entity in entities}
     graph = nx.DiGraph()
@@ -951,13 +1146,28 @@ def visualize_kg(paths: PipelinePaths, top_n: int = 300, filter_label: str | Non
 
     degrees = dict(graph.degree())
     if graph.number_of_nodes() > top_n:
-        top_nodes = sorted(degrees, key=lambda name: degrees[name], reverse=True)[:top_n]
+        top_nodes = sorted(degrees, key=lambda name: degrees[name], reverse=True)[
+            :top_n
+        ]
         graph = graph.subgraph(top_nodes).copy()
         entity_info = {name: entity_info[name] for name in graph.nodes()}
         degrees = dict(graph.degree())
 
-    net = Network(height="900px", width="100%", bgcolor="#ffffff", font_color="#333333", directed=True, notebook=False)
-    net.barnes_hut(gravity=-3000, central_gravity=0.3, spring_length=200, spring_strength=0.01, damping=0.09)
+    net = Network(
+        height="900px",
+        width="100%",
+        bgcolor="#ffffff",
+        font_color="#333333",
+        directed=True,
+        notebook=False,
+    )
+    net.barnes_hut(
+        gravity=-3000,
+        central_gravity=0.3,
+        spring_length=200,
+        spring_strength=0.01,
+        damping=0.09,
+    )
 
     for name in graph.nodes():
         entity = entity_info[name]
@@ -981,7 +1191,13 @@ def visualize_kg(paths: PipelinePaths, top_n: int = 300, filter_label: str | Non
     for head, tail, data in graph.edges(data=True):
         rel_type = data.get("relation", "")
         desc = data.get("description", "")
-        net.add_edge(head, tail, title=f"{rel_type}: {desc}" if desc else rel_type, label=rel_type, arrows="to")
+        net.add_edge(
+            head,
+            tail,
+            title=f"{rel_type}: {desc}" if desc else rel_type,
+            label=rel_type,
+            arrows="to",
+        )
 
     net.save_graph(str(paths.visualization_path))
     legend = "".join(
@@ -997,7 +1213,7 @@ def visualize_kg(paths: PipelinePaths, top_n: int = 300, filter_label: str | Non
             "</body>",
             (
                 '<div style="position:fixed;top:10px;right:10px;background:rgba(255,255,255,0.95);'
-                'padding:12px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);'
+                "padding:12px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);"
                 'font-family:Arial,sans-serif;font-size:13px;z-index:9999">'
                 '<div style="font-weight:bold;margin-bottom:6px;font-size:14px">图例</div>'
                 f"{legend}</div></body>"
@@ -1005,4 +1221,8 @@ def visualize_kg(paths: PipelinePaths, top_n: int = 300, filter_label: str | Non
         ),
         encoding="utf-8",
     )
-    return {"nodes": graph.number_of_nodes(), "edges": graph.number_of_edges(), "output": str(paths.visualization_path)}
+    return {
+        "nodes": graph.number_of_nodes(),
+        "edges": graph.number_of_edges(),
+        "output": str(paths.visualization_path),
+    }

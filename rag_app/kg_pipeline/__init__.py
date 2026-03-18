@@ -1,3 +1,29 @@
 from .graph import build_graph
+from .config import (
+    LLM_API_KEY_ENV,
+    LLM_BASE_URL,
+    LLM_MODEL,
+    LLM_TEMPERATURE,
+    LLM_MAX_TOKENS,
+    LLM_RETRY_LIMIT,
+    LLM_RETRY_BACKOFF,
+    LLM_MIN_CHUNK_CHARS,
+    LLM_SLEEP_SECONDS,
+    LLM_CHECKPOINT_EVERY_CHUNKS,
+    LLM_MOCK_ENV,
+)
 
-__all__ = ["build_graph"]
+__all__ = [
+    "build_graph",
+    "LLM_API_KEY_ENV",
+    "LLM_BASE_URL",
+    "LLM_MODEL",
+    "LLM_TEMPERATURE",
+    "LLM_MAX_TOKENS",
+    "LLM_RETRY_LIMIT",
+    "LLM_RETRY_BACKOFF",
+    "LLM_MIN_CHUNK_CHARS",
+    "LLM_SLEEP_SECONDS",
+    "LLM_CHECKPOINT_EVERY_CHUNKS",
+    "LLM_MOCK_ENV",
+]

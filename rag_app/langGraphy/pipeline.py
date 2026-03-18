@@ -8,12 +8,7 @@ CLI and programmatic interfaces.
 from __future__ import annotations
 
 import argparse
-import importlib.util
-import os
-import subprocess
-import sys
 import time
-from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, TypedDict
 
@@ -22,13 +17,14 @@ from langgraph.graph import END, START, StateGraph
 from .config import (
     DEFAULT_END,
     DEFAULT_EXECUTION_MODE,
-    DEFAULT_HF_ENDPOINT,
     DEFAULT_START,
     NODES,
     NODE_ORDER,
-    SCRIPTS_DIR,
     SHIP_ROOT,
 )
+from kg_pipeline.graph import build_graph
+from kg_pipeline.paths import PipelinePaths
+from kg_pipeline.steps import migrate_legacy_files
 
 
 class PipelineState(TypedDict, total=False):
@@ -38,6 +34,13 @@ class PipelineState(TypedDict, total=False):
     end: int
     only: int | None
     skip_neo4j: bool
+    only_doc_id: str | None
+    use_context: bool
+    checkpoint_enabled: bool
+    neo4j_import: bool
+    neo4j_dump: bool
+    visualize_top_n: int
+    visualize_label: str | None
     dry_run: bool
     execution_mode: str
     selected_nodes: list[dict[str, Any]]
@@ -45,21 +48,6 @@ class PipelineState(TypedDict, total=False):
     failed: bool
     failed_step: int | None
     logs: list[str]
-
-
-def load_env_file(env_path: Path) -> dict[str, str]:
-    """Load key=value pairs from .env file into a dict."""
-
-    env_vars: dict[str, str] = {}
-    if not env_path.exists():
-        return env_vars
-    for line in env_path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        env_vars[key.strip()] = value.strip().strip('"').strip("'")
-    return env_vars
 
 
 def build_selected_nodes(
@@ -80,83 +68,29 @@ def build_selected_nodes(
         selected = NODES[clamped_start - 1 : clamped_end]
 
     if skip_neo4j:
-        selected = [n for n in selected if n[0] != "neo4j"]
+        selected = [n for n in selected if n[0] != 5]
 
     return [{"node_id": n[0], "script": n[1], "desc": n[2]} for n in selected]
 
 
-def pick_python_executable() -> str:
-    """Pick venv python if present, otherwise current interpreter."""
-
-    venv_python = SHIP_ROOT / ".venv" / "bin" / "python"
-    if venv_python.exists():
-        return str(venv_python)
-    return sys.executable
-
-
-@contextmanager
-def temporary_env(extra_env: dict[str, str]):
-    """Temporarily inject environment variables for script execution."""
-
-    old_values: dict[str, str | None] = {}
-    for k, v in extra_env.items():
-        old_values[k] = os.environ.get(k)
-        os.environ[k] = v
-    try:
-        yield
-    finally:
-        for k, old_v in old_values.items():
-            if old_v is None:
-                os.environ.pop(k, None)
-            else:
-                os.environ[k] = old_v
-
-
-def execute_step_inline(script_path: Path) -> int:
-    """Execute a step by importing and calling its main() in-process."""
-
-    module_name = f"pipeline_inline_{script_path.stem}"
-    spec = importlib.util.spec_from_file_location(module_name, script_path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"无法加载脚本: {script_path}")
-
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-
-    if not hasattr(module, "main"):
-        raise RuntimeError(f"脚本未定义 main(): {script_path.name}")
-
-    old_argv = sys.argv[:]
-    old_cwd = Path.cwd()
-    try:
-        sys.argv = [str(script_path)]
-        with temporary_env(
-            load_env_file(SHIP_ROOT / ".env")
-            | {"HF_ENDPOINT": os.environ.get("HF_ENDPOINT", DEFAULT_HF_ENDPOINT)}
-        ):
-            os.chdir(SHIP_ROOT)
-            ret = module.main()
-    finally:
-        sys.argv = old_argv
-        os.chdir(old_cwd)
-
-    if ret is None:
-        return 0
-    if isinstance(ret, int):
-        return ret
-    return 0
-
-
-def execute_step_subprocess(script_path: Path) -> int:
-    """Execute a step as a subprocess using python interpreter."""
-
-    python_exe = pick_python_executable()
-    child_env = os.environ.copy()
-    child_env.update(load_env_file(SHIP_ROOT / ".env"))
-    child_env.setdefault("HF_ENDPOINT", DEFAULT_HF_ENDPOINT)
-    cmd = [python_exe, str(script_path)]
-    ret = subprocess.run(cmd, cwd=str(SHIP_ROOT), env=child_env)
-    return ret.returncode
+def _load_pipeline_state(state: PipelineState) -> dict[str, Any]:
+    only_doc_id = state.get("only_doc_id")
+    return {
+        "paths": PipelinePaths.discover(),
+        "start": state["start"],
+        "end": state["end"],
+        "only": state.get("only"),
+        "skip_neo4j": state.get("skip_neo4j", False),
+        "dry_run": state.get("dry_run", False),
+        "only_doc_id": Path(only_doc_id).stem if only_doc_id else None,
+        "use_context": state.get("use_context", True),
+        "checkpoint_enabled": state.get("checkpoint_enabled", True),
+        "neo4j_import": state.get("neo4j_import", True),
+        "neo4j_dump": state.get("neo4j_dump", True),
+        "visualize_top_n": state.get("visualize_top_n", 300),
+        "visualize_label": state.get("visualize_label"),
+        "logs": [],
+    }
 
 
 def planner_node(state: PipelineState) -> PipelineState:
@@ -233,21 +167,11 @@ def execute_graph_node(state: PipelineState, node_id: str) -> PipelineState:
             "logs": logs,
         }
 
-    script = str(node["script"])
+    step_id = int(node_id)
     desc = str(node["desc"])
-
-    script_path = SCRIPTS_DIR / script
-    if not script_path.exists():
-        logs.append(f"✗ Node {node_id} 文件不存在: {script_path}")
-        return {
-            "failed": True,
-            "failed_step": None,
-            "logs": logs,
-        }
 
     logs.append("=" * 60)
     logs.append(f"Node {node_id}: {desc}")
-    logs.append(f"执行: {script_path}")
     logs.append("=" * 60)
 
     if state.get("dry_run", False):
@@ -258,29 +182,38 @@ def execute_graph_node(state: PipelineState, node_id: str) -> PipelineState:
         }
 
     t0 = time.time()
-    mode = state.get("execution_mode", DEFAULT_EXECUTION_MODE)
     try:
-        if mode == "inline":
-            ret_code = execute_step_inline(script_path)
-        else:
-            ret_code = execute_step_subprocess(script_path)
+        payload = _load_pipeline_state(state)
+        payload["only"] = step_id
+        payload["start"] = step_id
+        payload["end"] = step_id
+        paths = payload["paths"]
+        paths.ensure_dirs()
+        migration = migrate_legacy_files(paths)
+        if migration.get("moved") or migration.get("removed_duplicates"):
+            logs.append(
+                f"已迁移旧文件: {len(migration.get('moved', []))}，清理重复文件: {len(migration.get('removed_duplicates', []))}"
+            )
+
+        app = build_graph()
+        sub_state = app.invoke(payload)
+        logs.extend(sub_state.get("logs", []))
+        if sub_state.get("failed", False):
+            logs.append(f"✗ Node {node_id} 失败")
+            return {
+                "failed": True,
+                "failed_step": step_id,
+                "logs": logs,
+            }
     except Exception as e:
         logs.append(f"✗ Node {node_id} 异常: {e}")
         return {
             "failed": True,
-            "failed_step": None,
+            "failed_step": step_id,
             "logs": logs,
         }
+
     elapsed = time.time() - t0
-
-    if ret_code != 0:
-        logs.append(f"✗ Node {node_id} 失败，退出码 {ret_code}，耗时 {elapsed:.1f}s")
-        return {
-            "failed": True,
-            "failed_step": None,
-            "logs": logs,
-        }
-
     logs.append(f"✓ Node {node_id} 完成，耗时 {elapsed:.1f}s")
     return {
         "current_node": _next_node_id(selected_nodes, node_id),
@@ -381,6 +314,13 @@ def run_pipeline(
     skip_neo4j: bool = False,
     dry_run: bool = False,
     execution_mode: str = DEFAULT_EXECUTION_MODE,
+    only_doc_id: str | None = None,
+    use_context: bool = True,
+    checkpoint_enabled: bool = True,
+    neo4j_import: bool = True,
+    neo4j_dump: bool = True,
+    visualize_top_n: int = 300,
+    visualize_label: str | None = None,
 ) -> PipelineState:
     """Run the pipeline with the provided parameters and return final state."""
     _ = NODE_ORDER
@@ -393,6 +333,13 @@ def run_pipeline(
             "skip_neo4j": skip_neo4j,
             "dry_run": dry_run,
             "execution_mode": execution_mode,
+            "only_doc_id": only_doc_id,
+            "use_context": use_context,
+            "checkpoint_enabled": checkpoint_enabled,
+            "neo4j_import": neo4j_import,
+            "neo4j_dump": neo4j_dump,
+            "visualize_top_n": visualize_top_n,
+            "visualize_label": visualize_label,
             "logs": [],
         }
     )
@@ -413,9 +360,34 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="仅打印计划，不实际执行")
     parser.add_argument(
         "--execution-mode",
-        choices=["inline", "subprocess"],
+        choices=["inline"],
         default=DEFAULT_EXECUTION_MODE,
-        help="执行模式：inline=进程内调用 main，subprocess=子进程执行脚本",
+        help="执行模式：inline=进程内调用",
+    )
+    parser.add_argument(
+        "--only-doc",
+        dest="only_doc_id",
+        type=str,
+        default=None,
+        help="step3 仅处理指定 doc_id",
+    )
+    parser.add_argument(
+        "--no-context", action="store_true", help="step3 关闭上下文注入"
+    )
+    parser.add_argument(
+        "--no-checkpoint", action="store_true", help="step3 不使用 checkpoint"
+    )
+    parser.add_argument(
+        "--no-neo4j-import", action="store_true", help="step5 仅生成 CSV，不导入 Neo4j"
+    )
+    parser.add_argument(
+        "--no-neo4j-dump", action="store_true", help="step5 导入后不导出 dump"
+    )
+    parser.add_argument(
+        "--visualize-top", type=int, default=300, help="step6 最多展示节点数"
+    )
+    parser.add_argument(
+        "--visualize-label", type=str, default=None, help="step6 仅展示指定标签"
     )
     return parser.parse_args()
 
@@ -426,11 +398,11 @@ def validate_args(args: argparse.Namespace) -> None:
     if not NODES:
         return
     if not (1 <= args.start <= len(NODES) and 1 <= args.end <= len(NODES)):
-        raise SystemExit("参数错误: --from/--to 必须在 1~7")
+        raise SystemExit("参数错误: --from/--to 必须在 1~6")
     if args.start > args.end and args.only is None:
         raise SystemExit("参数错误: --from 不能大于 --to")
     if args.only is not None and not (1 <= args.only <= len(NODES)):
-        raise SystemExit("参数错误: --only 必须在 1~7")
+        raise SystemExit("参数错误: --only 必须在 1~6")
 
 
 def main() -> int:
@@ -446,6 +418,13 @@ def main() -> int:
         skip_neo4j=args.skip_neo4j,
         dry_run=args.dry_run,
         execution_mode=args.execution_mode,
+        only_doc_id=args.only_doc_id,
+        use_context=not args.no_context,
+        checkpoint_enabled=not args.no_checkpoint,
+        neo4j_import=not args.no_neo4j_import,
+        neo4j_dump=not args.no_neo4j_dump,
+        visualize_top_n=args.visualize_top,
+        visualize_label=args.visualize_label,
     )
 
     for line in final_state.get("logs", []):

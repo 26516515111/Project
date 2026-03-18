@@ -1,5 +1,9 @@
 from .chunking import TextChunker, LanggraphyChunkerAdapter
-from .langgraphy import LanggraphyPipelineAdapter
+
+try:
+    from .langgraphy import LanggraphyPipelineAdapter
+except Exception:  # pragma: no cover - optional dependency
+    LanggraphyPipelineAdapter = None
 
 __all__ = [
     "TextChunker",

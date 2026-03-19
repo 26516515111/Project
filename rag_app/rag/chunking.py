@@ -1,4 +1,5 @@
 from typing import List, Optional, Union
+import re
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -40,7 +41,9 @@ class TextChunker:
                     if not page_text:
                         continue
                     page_num = page.get("page")
-                    for i, chunk in enumerate(splitter.split_text(page_text)):
+                    for i, chunk in enumerate(
+                        self._split_paragraphs(page_text, splitter)
+                    ):
                         chunk_id = f"{d['id']}::page_{page_num}::chunk_{i}"
                         source = d.get("source", "")
                         if page_num is not None:
@@ -58,7 +61,7 @@ class TextChunker:
                             }
                         )
                 continue
-            for i, chunk in enumerate(splitter.split_text(d["text"])):
+            for i, chunk in enumerate(self._split_paragraphs(d["text"], splitter)):
                 chunk_id = f"{d['id']}::chunk_{i}"
                 chunks.append(
                     {
@@ -72,13 +75,31 @@ class TextChunker:
         return chunks
 
     def split_text(self, text: str) -> List[str]:
-
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.chunk_size,
             chunk_overlap=self.chunk_overlap,
             separators=self.separators,
         )
-        return splitter.split_text(text)
+        return self._split_paragraphs(text, splitter)
+
+    def _split_paragraphs(
+        self,
+        text: str,
+        splitter: RecursiveCharacterTextSplitter,
+    ) -> List[str]:
+        value = str(text or "").strip()
+        if not value:
+            return []
+        paragraphs = [p.strip() for p in re.split(r"\n\s*\n+", value) if p.strip()]
+        if not paragraphs:
+            return []
+        chunks: List[str] = []
+        for para in paragraphs:
+            if len(para) <= self.chunk_size:
+                chunks.append(para)
+                continue
+            chunks.extend(splitter.split_text(para))
+        return chunks
 
     @classmethod
     def from_settings(cls, settings) -> "TextChunker":

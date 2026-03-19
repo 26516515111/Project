@@ -1,4 +1,10 @@
-from .chunking import TextChunker, LanggraphyChunkerAdapter
+try:
+    from .chunking import TextChunker, LanggraphyChunkerAdapter
+except ImportError:
+    # Placeholder to allow importing reranker without full dependencies
+    # This is expected if langchain dependencies are missing
+    TextChunker = None
+    LanggraphyChunkerAdapter = None
 
 try:
     from .langgraphy import LanggraphyPipelineAdapter

@@ -35,3 +35,4 @@ class QueryRequest(BaseModel):
     use_kg: bool = True
     use_history: bool = True
     session_id: Optional[str] = None
+    enable_decompose: Optional[bool] = None

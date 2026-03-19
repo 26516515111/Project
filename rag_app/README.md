@@ -13,9 +13,18 @@ actual data extraction, Neo4j/GraphDB queries, and UI.
 
 ## Quick start
 
-1. Create a virtual environment and install requirements.
+1. Create a virtual environment and install requirements (`pip install -r rag_app/requirements.txt`).
 2. Put some .txt/.md docs in data/docs.
 3. Run `python run_cli.py` or `streamlit run app_streamlit.py`.
+4. To enable reranking, set `RAG_USE_RERANKER=true` in your environment.
+
+Example:
+```bash
+export RAG_USE_RERANKER=true
+python run_cli.py
+```
+
+Note: Reranking requires the `transformers` library. Install it via `pip install transformers torch`. If you encounter NumPy version conflicts, downgrade to `numpy<2` (already handled in `requirements.txt`). The first time you run with reranking enabled, the model will be downloaded (approx. 1GB). Ensure you have sufficient disk space and network access. The reranking step is disabled by default to maintain speed.
 
 ## LangGraph 流水线
 
@@ -48,29 +57,72 @@ KG 目录结构：
 - `python run_langgraph_pipeline.py --skip-neo4j`
 - `python run_langgraph_pipeline.py --no-neo4j-import`
 
-## Notes
+## RAG Flow Summary
 
-- Uses LangChain + Chroma for vector retrieval.
-- Keyword retrieval uses rank_bm25 if installed, otherwise a simple overlap scorer.
-- Generation uses local Ollama (qwen2.5vl:7b) if available. Otherwise, it returns
-  an extractive answer built from retrieved snippets.
-- Knowledge graph supports extended triplets with head/tail labels and optional
-  relation description.
+This project implements a complete RAG pipeline with the following stages:
+
+### 1. Retrieval (Recall)
+- **Dense Retrieval**: Vector similarity search using ChromaDB and HuggingFace embeddings.
+- **Sparse Retrieval**: Keyword matching using BM25 (or overlap scoring fallback).
+- **Hybrid Retrieval**: Combines both methods using weighted scores (vector + BM25).
+
+### 2. Reranking (Re-ranking)
+- **Cross-Encoder Reranker**: Optional precision step that reorders retrieved passages using a transformer-based cross-encoder (e.g., BAAI/bge-reranker-v2-m3). This model performs full attention between the query and each document, offering higher accuracy but requiring significant compute and time (especially the first time it downloads the model).
+- **Configuration**: Enable via `RAG_USE_RERANKER=true` and optionally set `RAG_RERANKER_TOP_K`.
+- **Note**: This step requires the `transformers` and `torch` libraries. The model will be downloaded automatically (approx. 1GB) upon first use.
+
+### 3. Generation
+- **LLM Integration**: Uses Ollama for local LLM inference (qwen2.5:3b).
+- **Fallback**: Extractive answer generation when LLM is unavailable.
+
+### 4. Knowledge Graph Integration
+- **Neo4j Storage**: Stores entities and relationships for semantic querying.
+- **KG Retrieval**: Extends context with graph-based relationships.
 
 ## Configuration
 
 Edit `rag/config.py` or set environment variables described there.
 
-Ollama
+### Retrieval
+- `RAG_TOP_K` (default 5): Number of results to retrieve.
+- `RAG_HYBRID_TOP_K` (default 5): Hybrid retrieval top-k before reranking/answering.
+- `RAG_BM25_WEIGHT` (default 0.45): Weight for BM25 scores in hybrid retrieval.
+- `RAG_VECTOR_WEIGHT` (default 0.55): Weight for vector search scores in hybrid retrieval.
 
+### Embeddings
+- `RAG_EMBEDDING_MODEL` (default `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`).
+
+### Ollama (LLM)
 - `RAG_OLLAMA_BASE_URL` (default http://localhost:11434)
-- `RAG_LLM_MODEL` (default qwen2.5vl:7b)
+- `RAG_LLM_MODEL` (default qwen2.5:3b)
+- `RAG_LLM_MAX_TOKENS` (default 512)
+- `RAG_LLM_TEMPERATURE` (default 0.2)
 
-Neo4j
-
+### Knowledge Graph (Neo4j)
 - `NEO4J_URI` (default bolt://localhost:7687)
 - `NEO4J_USER` (default neo4j)
 - `NEO4J_PASSWORD` (default neo4j)
+- `RAG_KG_REL_LIMIT` (default 50)
+- `RAG_KG_SCORE_THRESHOLD` (default 0.1)
+
+### Reranker (Optional)
+- `RAG_USE_RERANKER` (default false): Enable cross-encoder reranking.
+- `RAG_RERANKER_MODEL` (default BAAI/bge-reranker-v2-m3): HuggingFace model name for reranking.
+- `RAG_RERANKER_TOP_K` (default 3): Number of results to keep after reranking.
+
+### Query Decomposition
+- `RAG_USE_QUERY_DECOMPOSITION` (default true): Enable query decomposition.
+- `RAG_DECOMPOSER_METHOD` (default heuristic): `heuristic` or `llm`.
+- `RAG_DECOMPOSE_MIN_LENGTH` (default 8): Minimum question length to trigger decomposition.
+- `RAG_DECOMPOSE_MAX_SUBQUESTIONS` (default 3): Max sub-questions produced by decomposer.
+- `RAG_DECOMPOSE_MAX_SUBQUERIES` (default 4): Max queries used for retrieval (includes original).
+- `RAG_DECOMPOSE_PER_QUERY_TOP_K` (default 4): Per-query retrieval size before merging.
+- `RAG_DECOMPOSE_LLM_MAX_TOKENS` (default 128): LLM output token limit for decomposition.
+- `RAG_DECOMPOSE_LLM_TEMPERATURE` (default 0.1): LLM temperature for decomposition.
+
+### Chunking
+- `RAG_CHUNK_SIZE` (default 200)
+- `RAG_CHUNK_OVERLAP` (default 20)
 
 ## Knowledge graph import规范
 

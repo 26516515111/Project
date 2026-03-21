@@ -36,7 +36,7 @@ class Settings:
     # RAG_TOP_K：最终用于回答的检索数量
     top_k = int(env("RAG_TOP_K", "5"))
     # RAG_HYBRID_TOP_K：混合检索候选数量（重排序前）
-    hybrid_top_k = int(env("RAG_HYBRID_TOP_K", "5"))
+    hybrid_top_k = int(env("RAG_HYBRID_TOP_K", "20"))
     # RAG_BM25_WEIGHT：BM25在混合检索中的权重
     bm25_weight = float(env("RAG_BM25_WEIGHT", "0.45"))
     # RAG_VECTOR_WEIGHT：向量检索在混合检索中的权重
@@ -85,7 +85,7 @@ class Settings:
     # RAG_RERANKER_MODEL：重排序模型名称
     reranker_model = env("RAG_RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
     # RAG_RERANKER_TOP_K：重排序后保留的passage数量
-    reranker_top_k = int(env("RAG_RERANKER_TOP_K", "3"))
+    reranker_top_k = int(env("RAG_RERANKER_TOP_K", "5"))
 
     # 问题分解模块
     # RAG_USE_QUERY_DECOMPOSITION：是否启用问题分解
@@ -112,9 +112,18 @@ class Settings:
 
     # 切块模块
     # RAG_CHUNK_SIZE：单块长度
-    chunk_size = int(env("RAG_CHUNK_SIZE", "200"))
+    chunk_size = int(env("RAG_CHUNK_SIZE", "1500"))
     # RAG_CHUNK_OVERLAP：相邻块重叠长度
-    chunk_overlap = int(env("RAG_CHUNK_OVERLAP", "20"))
+    chunk_overlap = int(env("RAG_CHUNK_OVERLAP", "80"))
+    # RAG_HEADING_MERGE_ENABLED：是否启用标题合并规则
+    heading_merge_enabled = env("RAG_HEADING_MERGE_ENABLED", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_HEADING_MERGE_LEVEL：合并到的标题层级（如2代表1.1）
+    heading_merge_level = int(env("RAG_HEADING_MERGE_LEVEL", "3"))
     separators = ["\n\n", "\n", "。", ".", " ", "，", ",", ""]
 
 

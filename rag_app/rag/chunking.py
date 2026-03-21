@@ -3,6 +3,8 @@ import re
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from .config import SETTINGS
+
 
 class TextChunker:
     def __init__(
@@ -90,9 +92,13 @@ class TextChunker:
         value = str(text or "").strip()
         if not value:
             return []
+        heading_chunks = self._split_by_headings(value, splitter)
+        if heading_chunks:
+            return heading_chunks
         paragraphs = [p.strip() for p in re.split(r"\n\s*\n+", value) if p.strip()]
         if not paragraphs:
             return []
+        paragraphs = self._merge_heading_paragraphs(paragraphs)
         chunks: List[str] = []
         for para in paragraphs:
             if len(para) <= self.chunk_size:
@@ -100,6 +106,112 @@ class TextChunker:
                 continue
             chunks.extend(splitter.split_text(para))
         return chunks
+
+    def _split_by_headings(
+        self,
+        text: str,
+        splitter: RecursiveCharacterTextSplitter,
+    ) -> List[str]:
+        lines = [line.rstrip() for line in str(text or "").splitlines()]
+        heading_re = re.compile(
+            r"^\s*(?:#+\s+|\[[A-Za-z0-9]+\]\s*)?(\d+(?:\.\d+)+)\s+.+"
+        )
+        blocks: List[List[str]] = []
+        current: List[str] = []
+        current_level: int | None = None
+        for line in lines:
+            match = heading_re.match(line)
+            if match:
+                if not SETTINGS.heading_merge_enabled:
+                    if current:
+                        blocks.append(current)
+                    current = [line]
+                    current_level = None
+                    continue
+                level = len(match.group(1).split("."))
+                merge_level = SETTINGS.heading_merge_level
+                if level <= merge_level:
+                    if current:
+                        blocks.append(current)
+                    current = [line]
+                    current_level = level
+                    continue
+                if current_level is None:
+                    current = [line]
+                    current_level = level
+                    continue
+            if current or line.strip():
+                current.append(line)
+        if current:
+            blocks.append(current)
+
+        if len(blocks) <= 1:
+            return []
+
+        chunks: List[str] = []
+        for block in blocks:
+            content = "\n".join([l for l in block if l.strip()]).strip()
+            if not content:
+                continue
+            if len(content) <= self.chunk_size:
+                chunks.append(content)
+                continue
+            chunks.extend(splitter.split_text(content))
+        return chunks
+
+    def _merge_heading_paragraphs(self, paragraphs: List[str]) -> List[str]:
+        merged: List[str] = []
+        buffer: List[str] = []
+
+        def flush() -> None:
+            if buffer:
+                merged.append("\n".join(buffer).strip())
+                buffer.clear()
+
+        for para in paragraphs:
+            if self._is_heading_paragraph(para):
+                flush()
+                buffer.append(para.strip())
+                continue
+            if buffer:
+                buffer.append(para.strip())
+            else:
+                merged.append(para.strip())
+
+        flush()
+        return [part for part in merged if part]
+
+    def _is_heading_paragraph(self, paragraph: str) -> bool:
+        text = paragraph.strip()
+        if not text:
+            return False
+        first_line = text.splitlines()[0].strip()
+        if re.match(r"^\[H\d\]\s+", first_line):
+            return True
+        if re.match(r"^\[[A-Za-z]{2,8}\d+\]\s*", first_line):
+            return True
+        if len(first_line) > 40:
+            return False
+        if re.match(r"^第[一二三四五六七八九十百千0-9]+[章节篇部卷集].*", first_line):
+            return True
+        if re.match(r"^[一二三四五六七八九十]+[、.．\)]", first_line):
+            return True
+        if re.match(r"^\d+(\.\d+)+(\s+|[、.．\)])", first_line):
+            return True
+        if re.match(r"^\d+(\s+|[、.．\)])", first_line):
+            return True
+        if re.match(r"^[\(（]?[一二三四五六七八九十0-9]+[\)）][、.．]?", first_line):
+            return True
+        if re.match(r"^\d+[）)]", first_line):
+            return True
+        if re.match(r"^[A-Z][A-Za-z0-9\s\-/]{0,30}$", first_line):
+            return True
+        if len(first_line) <= 20 and re.match(
+            r"^[\u4e00-\u9fffA-Za-z0-9\s]+$", first_line
+        ):
+            if not re.search(r"[。！？：:，,]", first_line):
+                return True
+        return False
 
     @classmethod
     def from_settings(cls, settings) -> "TextChunker":

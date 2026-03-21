@@ -161,7 +161,8 @@ def main() -> None:
             for c in new_chunks_norm
         ]
         store.add_texts(texts=texts, metadatas=metadatas)
-        store.persist()
+        if hasattr(store, "persist"):
+            store.persist()
 
     updated_chunks = existing_chunks_raw + new_chunks_raw
     with open(chunks_path, "w", encoding="utf-8") as f:

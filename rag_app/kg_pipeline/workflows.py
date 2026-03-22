@@ -4,6 +4,7 @@ import csv
 import html
 import json
 import os
+import shutil
 import subprocess
 import time
 from collections import defaultdict
@@ -38,7 +39,6 @@ from .steps import (
     DEFAULT_THRESHOLD,
     DEFAULT_COLOR,
     UnionFind,
-    _copy_docs_into_raw,
     _neo4j_executable,
     _raw_documents,
     _serialize,
@@ -53,15 +53,17 @@ from .steps import (
     merge_chunk_ids,
     merge_doc_ids,
     merge_entities,
+    split_text_by_heading_tags,
     validate_extracted,
 )
-from .utils import apply_local_env, read_json, write_json
+from .utils import apply_local_envs, read_json, write_json
+from .utils import numbered_path
 
 
 class CleanState(TypedDict, total=False):
     paths: PipelinePaths
-    copied_into_raw: int
     raw_files: list[str]
+    moved_stale_cleaned: list[str]
     file_cursor: int
     cleaned_files: list[dict]
 
@@ -79,7 +81,10 @@ class ExtractState(TypedDict, total=False):
     only_doc_id: str | None
     use_context: bool
     checkpoint_enabled: bool
+    logger: Any
     target_chunks: list[dict]
+    total_target_chunks: int
+    chunk_positions: dict[str, int]
     all_entities: list[dict]
     all_relations: list[dict]
     done_chunk_ids: list[str]
@@ -92,6 +97,8 @@ class ExtractState(TypedDict, total=False):
     current_doc_relations: list[dict]
     client: Any
     model: str
+    base_url: str
+    env_files_loaded: list[str]
     total_filtered_entities: int
     total_filtered_relations: int
     total_cross_chunk_relations: int
@@ -176,14 +183,32 @@ class MockOpenAI:
         self.chat = _MockChat()
 
 
+def _log(state: dict[str, Any], message: str, level: str = "info") -> None:
+    logger = state.get("logger")
+    if logger is None:
+        return
+    if level == "error":
+        logger.error(message)
+    else:
+        logger.info(message)
+
+
 def prepare_clean_node(state: CleanState) -> CleanState:
-    copied_into_raw = _copy_docs_into_raw(state["paths"])
     raw_files = [str(path.name) for path in _raw_documents(state["paths"])]
     if not raw_files:
         raise RuntimeError("data/KG/raw 中没有可处理的 .md/.txt 文档")
+    raw_names = set(raw_files)
+    moved_stale_cleaned: list[str] = []
+    for pattern in ("*.md", "*.txt"):
+        for path in sorted(state["paths"].cleaned_dir.glob(pattern)):
+            if path.name in raw_names:
+                continue
+            target = numbered_path(state["paths"].cleaned_backups_dir / path.name)
+            shutil.move(str(path), str(target))
+            moved_stale_cleaned.append(target.name)
     return {
-        "copied_into_raw": copied_into_raw,
         "raw_files": raw_files,
+        "moved_stale_cleaned": moved_stale_cleaned,
         "file_cursor": 0,
         "cleaned_files": [],
     }
@@ -261,19 +286,12 @@ def _route_chunk_file(state: ChunkState) -> str:
 
 
 def chunk_file_node(state: ChunkState) -> ChunkState:
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-
     paths = state["paths"]
     file_cursor = state.get("file_cursor", 0)
     source_name = state["cleaned_files"][file_cursor]
     source = paths.cleaned_dir / source_name
     text = source.read_text(encoding="utf-8")
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1200, chunk_overlap=150, length_function=len
-    )
-    valid_chunks = [
-        part.strip() for part in splitter.split_text(text) if len(part.strip()) >= 20
-    ]
+    valid_chunks = split_text_by_heading_tags(text, chunk_size=1200, chunk_overlap=150)
     chunks = list(state.get("chunks", []))
     doc_source_map = list(state.get("doc_source_map", []))
     doc_id = source.stem
@@ -331,7 +349,7 @@ def build_chunk_graph():
 
 def prepare_neo4j_node(state: Neo4jState) -> Neo4jState:
     paths = state["paths"]
-    apply_local_env(paths.env_path)
+    apply_local_envs(paths.env_paths)
     kg = read_json(paths.kg_merged_path, {"entities": [], "relations": []})
     return {
         "entities": kg.get("entities", []),
@@ -694,6 +712,7 @@ def _extract_route_after_chunk(state: ExtractState) -> str:
 
 def prepare_extract_node(state: ExtractState) -> ExtractState:
     paths = state["paths"]
+    apply_local_envs(paths.env_paths)
     all_chunks = read_json(paths.chunks_path, [])
     only_doc_id = state.get("only_doc_id")
     target_chunks = (
@@ -733,21 +752,40 @@ def prepare_extract_node(state: ExtractState) -> ExtractState:
 
     docs_order: list[str] = []
     doc_chunk_map: dict[str, list[dict]] = defaultdict(list)
-    for chunk in target_chunks:
+    chunk_positions: dict[str, int] = {}
+    for index, chunk in enumerate(target_chunks, start=1):
         if chunk["doc_id"] not in doc_chunk_map:
             docs_order.append(chunk["doc_id"])
         doc_chunk_map[chunk["doc_id"]].append(chunk)
+        chunk_positions[chunk["chunk_id"]] = index
 
     if os.environ.get(LLM_MOCK_ENV, "0") == "1":
         client = MockOpenAI()
+        base_url = "mock://local"
     else:
         api_key = _resolve_api_key(paths)
+        base_url = os.environ.get("DEEPSEEK_BASE_URL", LLM_BASE_URL)
         client = OpenAI(
             api_key=api_key or "ollama",
-            base_url=os.environ.get("DEEPSEEK_BASE_URL", LLM_BASE_URL),
+            base_url=base_url,
         )
+    model = os.environ.get("DEEPSEEK_MODEL", LLM_MODEL)
+    _log(
+        state,
+        "Step 3 准备完成 | docs=%s | chunks=%s | checkpoint_enabled=%s | resumed_done_chunks=%s | base_url=%s | model=%s"
+        % (
+            len(docs_order),
+            len(target_chunks),
+            state.get("checkpoint_enabled", True),
+            len(done_chunk_ids),
+            base_url,
+            model,
+        ),
+    )
     return {
         "target_chunks": target_chunks,
+        "total_target_chunks": len(target_chunks),
+        "chunk_positions": chunk_positions,
         "all_entities": all_entities,
         "all_relations": all_relations,
         "done_chunk_ids": sorted(done_chunk_ids),
@@ -759,7 +797,13 @@ def prepare_extract_node(state: ExtractState) -> ExtractState:
         "current_doc_entities": [],
         "current_doc_relations": [],
         "client": client,
-        "model": os.environ.get("DEEPSEEK_MODEL", LLM_MODEL),
+        "model": model,
+        "base_url": base_url,
+        "env_files_loaded": [
+            str(path)
+            for path in paths.env_paths
+            if path.exists()
+        ],
         "total_filtered_entities": 0,
         "total_filtered_relations": 0,
         "total_cross_chunk_relations": 0,
@@ -774,8 +818,13 @@ def load_extract_doc_node(state: ExtractState) -> ExtractState:
     doc_cursor = state.get("doc_cursor", 0)
     if doc_cursor >= len(docs_order):
         return {"current_doc_id": None}
+    current_doc_id = docs_order[doc_cursor]
+    _log(
+        state,
+        f"Step 3 切换文档 | doc_id={current_doc_id} | doc_index={doc_cursor + 1}/{len(docs_order)} | doc_chunks={len(state.get('doc_chunk_map', {}).get(current_doc_id, []))}",
+    )
     return {
-        "current_doc_id": docs_order[doc_cursor],
+        "current_doc_id": current_doc_id,
         "doc_cursor": doc_cursor + 1,
         "chunk_cursor": 0,
         "current_doc_entities": [],
@@ -794,6 +843,16 @@ def _save_extract_checkpoint(state: ExtractState) -> None:
             "entities": state.get("all_entities", []),
             "relations": state.get("all_relations", []),
         },
+    )
+    _log(
+        state,
+        "Step 3 保存 checkpoint | path=%s | done_chunks=%s | entities=%s | relations=%s"
+        % (
+            paths.checkpoint_path,
+            len(state.get("done_chunk_ids", [])),
+            len(state.get("all_entities", [])),
+            len(state.get("all_relations", [])),
+        ),
     )
 
 
@@ -815,8 +874,25 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
     chunks_since_checkpoint = state.get("chunks_since_checkpoint", 0)
 
     chunk_id = chunk["chunk_id"]
-    if chunk_id in done_chunk_ids or len(chunk["text"].strip()) < LLM_MIN_CHUNK_CHARS:
+    chunk_text_chars = len(chunk["text"])
+    global_index = state.get("chunk_positions", {}).get(chunk_id, chunk_cursor + 1)
+    total_target_chunks = state.get("total_target_chunks", 0)
+    already_done = chunk_id in done_chunk_ids
+    too_short = len(chunk["text"].strip()) < LLM_MIN_CHUNK_CHARS
+    if already_done or too_short:
         done_chunk_ids.add(chunk_id)
+        _log(
+            state,
+            "Step 3 跳过 chunk | chunk=%s/%s | doc_id=%s | chunk_id=%s | text_chars=%s | reason=%s"
+            % (
+                global_index,
+                total_target_chunks,
+                current_doc_id,
+                chunk_id,
+                chunk_text_chars,
+                "already_done" if already_done else "too_short",
+            ),
+        )
         return {
             "done_chunk_ids": sorted(done_chunk_ids),
             "chunk_cursor": chunk_cursor + 1,
@@ -830,6 +906,22 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
     user_parts.append(f"待抽取文本：\n{chunk['text']}")
     user_content = "\n\n".join(user_parts)
     doc_entity_names = {entity["name"] for entity in doc_entities}
+    _log(
+        state,
+        "Step 3 请求 chunk | chunk=%s/%s | doc_id=%s | doc_chunk=%s/%s | chunk_id=%s | text_chars=%s | request_chars=%s | context_entities=%s | context_relations=%s"
+        % (
+            global_index,
+            total_target_chunks,
+            current_doc_id,
+            chunk_cursor + 1,
+            len(state["doc_chunk_map"][current_doc_id]),
+            chunk_id,
+            chunk_text_chars,
+            len(user_content),
+            len(doc_entities),
+            len(doc_relations),
+        ),
+    )
 
     retries = 0
     while retries < LLM_RETRY_LIMIT:
@@ -874,10 +966,24 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
             doc_relations.extend(relations)
             done_chunk_ids.add(chunk_id)
             chunks_since_checkpoint += 1
+            _log(
+                state,
+                "Step 3 完成 chunk | chunk=%s/%s | chunk_id=%s | new_entities=%s | new_relations=%s | total_entities=%s | total_relations=%s"
+                % (
+                    global_index,
+                    total_target_chunks,
+                    chunk_id,
+                    len(entities),
+                    len(relations),
+                    len(all_entities),
+                    len(all_relations),
+                ),
+            )
             if chunks_since_checkpoint >= LLM_CHECKPOINT_EVERY_CHUNKS:
                 snapshot = {
                     "paths": state["paths"],
                     "checkpoint_enabled": state.get("checkpoint_enabled", True),
+                    "logger": state.get("logger"),
                     "done_chunk_ids": sorted(done_chunk_ids),
                     "all_entities": all_entities,
                     "all_relations": all_relations,
@@ -887,8 +993,27 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
             break
         except Exception as exc:
             retries += 1
+            _log(
+                state,
+                "Step 3 chunk 请求失败 | chunk=%s/%s | chunk_id=%s | retry=%s/%s | error=%s"
+                % (
+                    global_index,
+                    total_target_chunks,
+                    chunk_id,
+                    retries,
+                    LLM_RETRY_LIMIT,
+                    f"{type(exc).__name__}: {exc}",
+                ),
+                "error",
+            )
             if retries >= LLM_RETRY_LIMIT:
-                return {"failed": True, "error": str(exc)}
+                detail = (
+                    f"{type(exc).__name__}: {exc} | "
+                    f"base_url={state.get('base_url')} | "
+                    f"model={state.get('model')} | "
+                    f"env_files={state.get('env_files_loaded', [])}"
+                )
+                return {"failed": True, "error": detail}
             time.sleep(LLM_RETRY_BACKOFF * retries)
 
     if os.environ.get(LLM_MOCK_ENV, "0") != "1":
@@ -918,6 +1043,7 @@ def finalize_extract_node(state: ExtractState) -> ExtractState:
     )
     if paths.checkpoint_path.exists():
         paths.checkpoint_path.unlink()
+        _log(state, f"Step 3 清理 checkpoint | path={paths.checkpoint_path}")
     return {
         "all_entities": state.get("all_entities", []),
         "all_relations": state.get("all_relations", []),
@@ -1168,6 +1294,7 @@ def run_extract_workflow(
     only_doc_id: str | None = None,
     use_context: bool = True,
     checkpoint_enabled: bool = True,
+    logger: Any | None = None,
 ) -> dict[str, Any]:
     final_state = build_extract_graph().invoke(
         {
@@ -1175,6 +1302,7 @@ def run_extract_workflow(
             "only_doc_id": only_doc_id,
             "use_context": use_context,
             "checkpoint_enabled": checkpoint_enabled,
+            "logger": logger,
         },
         config={"recursion_limit": 10000},
     )
@@ -1206,9 +1334,9 @@ def run_clean_workflow(paths: PipelinePaths) -> dict[str, Any]:
         {"paths": paths}, config={"recursion_limit": 1000}
     )
     return {
-        "copied_into_raw": final_state.get("copied_into_raw", 0),
         "documents": len(final_state.get("cleaned_files", [])),
         "files": final_state.get("cleaned_files", []),
+        "moved_stale_cleaned": len(final_state.get("moved_stale_cleaned", [])),
     }
 
 

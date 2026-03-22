@@ -39,6 +39,7 @@ from .constants import ENTITY_LABELS, RELATION_TYPES
 from .paths import PipelinePaths
 from .utils import (
     apply_local_env,
+    apply_local_envs,
     numbered_path,
     read_json,
     same_file_content,
@@ -129,20 +130,6 @@ def migrate_legacy_files(paths: PipelinePaths) -> dict[str, Any]:
     return {"moved": moved, "removed_duplicates": removed_duplicates}
 
 
-def _copy_docs_into_raw(paths: PipelinePaths) -> int:
-    copied = 0
-    for pattern in ("*.md", "*.txt"):
-        for source in sorted(paths.docs_dir.glob(pattern)):
-            target = paths.raw_dir / source.name
-            if target.exists():
-                if same_file_content(source, target):
-                    continue
-                target = numbered_path(target)
-            target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
-            copied += 1
-    return copied
-
-
 def _raw_documents(paths: PipelinePaths) -> list[Path]:
     files: list[Path] = []
     for pattern in ("*.md", "*.txt"):
@@ -200,7 +187,6 @@ def clean_text(text: str) -> str:
 
 
 def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
-    copied = _copy_docs_into_raw(paths)
     files = _raw_documents(paths)
     if not files:
         raise RuntimeError("data/KG/raw 中没有可处理的 .md/.txt 文档")
@@ -218,7 +204,7 @@ def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
                 "cleaned_chars": len(output),
             }
         )
-    return {"copied_into_raw": copied, "documents": len(cleaned), "files": cleaned}
+    return {"documents": len(cleaned), "files": cleaned}
 
 
 def make_doc_id(filename: str) -> str:
@@ -230,14 +216,53 @@ def extract_heading_context(text: str) -> str:
     return matches[-1] if matches else ""
 
 
-def chunk_documents(
-    paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap: int = 150
-) -> dict[str, Any]:
+def split_text_by_heading_tags(
+    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
+) -> list[str]:
+    value = str(text or "").strip()
+    if not value:
+        return []
+
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
         length_function=len,
     )
+    lines = [line.rstrip() for line in value.splitlines()]
+    # Only split on major section headings. H4-H6 stay inside the chunk to avoid over-fragmentation.
+    heading_re = re.compile(r"^\s*\[H([1-3])\]\s+.+$")
+
+    blocks: list[list[str]] = []
+    current: list[str] = []
+    for line in lines:
+        if heading_re.match(line):
+            if current:
+                blocks.append(current)
+            current = [line]
+            continue
+        if current or line.strip():
+            current.append(line)
+    if current:
+        blocks.append(current)
+
+    if len(blocks) <= 1:
+        return [part.strip() for part in splitter.split_text(value) if len(part.strip()) >= 20]
+
+    chunks: list[str] = []
+    for block in blocks:
+        content = "\n".join(line for line in block if line.strip()).strip()
+        if not content:
+            continue
+        if len(content) <= chunk_size:
+            chunks.append(content)
+            continue
+        chunks.extend(part.strip() for part in splitter.split_text(content) if len(part.strip()) >= 20)
+    return [chunk for chunk in chunks if len(chunk.strip()) >= 20]
+
+
+def chunk_documents(
+    paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap: int = 150
+) -> dict[str, Any]:
     chunks = []
     doc_source_map = []
     cleaned_files = sorted(paths.cleaned_dir.glob("*.md")) + sorted(
@@ -246,11 +271,11 @@ def chunk_documents(
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
-        valid_chunks = [
-            part.strip()
-            for part in splitter.split_text(text)
-            if len(part.strip()) >= 20
-        ]
+        valid_chunks = split_text_by_heading_tags(
+            text,
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+        )
         for index, chunk_text in enumerate(valid_chunks):
             chunks.append(
                 {
@@ -422,13 +447,13 @@ def validate_extracted(
 
 
 def _resolve_api_key(paths: PipelinePaths) -> str:
-    apply_local_env(paths.env_path)
+    apply_local_envs(paths.env_paths)
     api_key = os.environ.get(LLM_API_KEY_ENV, "").strip()
     if not api_key and not LLM_REQUIRE_API_KEY:
         return ""
     if not api_key:
         raise RuntimeError(
-            f"{LLM_API_KEY_ENV} 未设置，请在环境变量或 Project/rag_app/.env 中配置"
+            f"{LLM_API_KEY_ENV} 未设置，请在环境变量、Project/.env 或 Project/rag_app/.env 中配置"
         )
     return api_key
 
@@ -936,7 +961,7 @@ def generate_neo4j_artifacts(
     import_to_neo4j: bool = True,
     export_dump: bool = True,
 ) -> dict[str, Any]:
-    apply_local_env(paths.env_path)
+    apply_local_envs(paths.env_paths)
     kg = read_json(paths.kg_merged_path, {"entities": [], "relations": []})
     entities = kg.get("entities", [])
     relations = kg.get("relations", [])

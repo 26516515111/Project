@@ -7,6 +7,7 @@ from pathlib import Path
 
 from kg_pipeline.graph import build_graph
 from kg_pipeline.paths import PipelinePaths
+from kg_pipeline.pipeline_logging import PipelineLogger, build_run_log_path
 from kg_pipeline.steps import migrate_legacy_files
 
 
@@ -73,48 +74,58 @@ def main() -> int:
 
     paths = PipelinePaths.discover()
     paths.ensure_dirs()
+    log_path = build_run_log_path(paths.logs_dir)
+    logger = PipelineLogger(log_path)
     migration = migrate_legacy_files(paths)
 
-    if args.ingest_path:
-        source_path = Path(args.ingest_path).expanduser().resolve()
-        if not source_path.exists():
-            raise SystemExit(f"增量文件不存在: {source_path}")
-        if source_path.is_dir():
-            raise SystemExit("增量模式暂不支持目录，请提供单个文件路径")
-        target_path = paths.raw_dir / source_path.name
-        shutil.copy2(source_path, target_path)
-        args.start = 1
-        args.end = 4
-        args.only = None
-        args.only_doc_id = source_path.stem
+    try:
+        logger.info(f"日志文件: {log_path}")
+        logger.info("启动 KG LangGraph 流水线")
+        if migration["moved"] or migration["removed_duplicates"]:
+            logger.info(
+                "已迁移旧文件: %s，清理重复文件: %s"
+                % (len(migration["moved"]), len(migration["removed_duplicates"]))
+            )
 
-    app = build_graph()
-    state = app.invoke(
-        {
-            "paths": paths,
-            "start": args.start,
-            "end": args.end,
-            "only": args.only,
-            "skip_neo4j": args.skip_neo4j,
-            "dry_run": args.dry_run,
-            "only_doc_id": Path(args.only_doc_id).stem if args.only_doc_id else None,
-            "use_context": not args.no_context,
-            "checkpoint_enabled": not args.no_checkpoint,
-            "neo4j_import": not args.no_neo4j_import,
-            "neo4j_dump": not args.no_neo4j_dump,
-            "visualize_top_n": args.visualize_top,
-            "visualize_label": args.visualize_label,
-            "logs": [],
-        }
-    )
+        if args.ingest_path:
+            source_path = Path(args.ingest_path).expanduser().resolve()
+            if not source_path.exists():
+                raise SystemExit(f"增量文件不存在: {source_path}")
+            if source_path.is_dir():
+                raise SystemExit("增量模式暂不支持目录，请提供单个文件路径")
+            target_path = paths.raw_dir / source_path.name
+            shutil.copy2(source_path, target_path)
+            logger.info(f"增量导入文件: {source_path} -> {target_path}")
+            args.start = 1
+            args.end = 4
+            args.only = None
+            args.only_doc_id = source_path.stem
 
-    if migration["moved"] or migration["removed_duplicates"]:
-        print(
-            f"已迁移旧文件: {len(migration['moved'])}，清理重复文件: {len(migration['removed_duplicates'])}"
+        app = build_graph()
+        state = app.invoke(
+            {
+                "paths": paths,
+                "start": args.start,
+                "end": args.end,
+                "only": args.only,
+                "skip_neo4j": args.skip_neo4j,
+                "dry_run": args.dry_run,
+                "only_doc_id": Path(args.only_doc_id).stem if args.only_doc_id else None,
+                "use_context": not args.no_context,
+                "checkpoint_enabled": not args.no_checkpoint,
+                "neo4j_import": not args.no_neo4j_import,
+                "neo4j_dump": not args.no_neo4j_dump,
+                "visualize_top_n": args.visualize_top,
+                "visualize_label": args.visualize_label,
+                "logs": [],
+                "logger": logger,
+            }
         )
-    for line in state.get("logs", []):
-        print(line)
-    return 1 if state.get("failed", False) else 0
+        exit_code = 1 if state.get("failed", False) else 0
+        logger.info(f"退出码: {exit_code}")
+        return exit_code
+    finally:
+        logger.close()
 
 
 if __name__ == "__main__":

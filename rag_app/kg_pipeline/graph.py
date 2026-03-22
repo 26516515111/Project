@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+from time import perf_counter
 from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
 from .paths import PipelinePaths
+from .pipeline_logging import PipelineLogger, summarize_output
 from .workflows import (
     run_chunk_workflow,
     run_clean_workflow,
@@ -33,9 +35,20 @@ class PipelineState(TypedDict, total=False):
     visualize_label: str | None
     selected_steps: list[int]
     logs: list[str]
+    logger: PipelineLogger | None
     outputs: dict[str, Any]
     failed: bool
     failed_step: int | None
+
+
+def _emit(state: PipelineState, message: str, level: str = "info") -> None:
+    logger = state.get("logger")
+    if logger is None:
+        return
+    if level == "error":
+        logger.error(message)
+    else:
+        logger.info(message)
 
 
 def _select_steps(start: int, end: int, only: int | None, skip_neo4j: bool) -> list[int]:
@@ -57,9 +70,13 @@ def planner_node(state: PipelineState) -> PipelineState:
     )
     logs = list(state.get("logs", []))
     if not selected_steps:
-        logs.append("没有可执行步骤，请检查参数")
+        message = "没有可执行步骤，请检查参数"
+        logs.append(message)
+        _emit(state, message, "error")
         return {"selected_steps": [], "logs": logs, "failed": True}
-    logs.append(f"执行步骤: {selected_steps}")
+    message = f"执行步骤: {selected_steps}"
+    logs.append(message)
+    _emit(state, message)
     return {"selected_steps": selected_steps, "logs": logs, "outputs": {}, "failed": False, "failed_step": None}
 
 
@@ -69,17 +86,36 @@ def _run_step(state: PipelineState, step_no: int, description: str, action) -> P
     if state.get("failed", False):
         return {"logs": logs, "outputs": outputs}
     if step_no not in state.get("selected_steps", []):
-        logs.append(f"跳过 Step {step_no}: {description}")
+        message = f"跳过 Step {step_no}: {description}"
+        logs.append(message)
+        _emit(state, message)
         return {"logs": logs, "outputs": outputs}
     if state.get("dry_run", False):
-        logs.append(f"[dry-run] Step {step_no}: {description}")
+        message = f"[dry-run] Step {step_no}: {description}"
+        logs.append(message)
+        _emit(state, message)
         return {"logs": logs, "outputs": outputs}
+    start_time = perf_counter()
+    start_message = f"开始 Step {step_no}: {description}"
+    logs.append(start_message)
+    _emit(state, start_message)
     try:
-        outputs[f"step_{step_no}"] = action(state["paths"], state)
-        logs.append(f"完成 Step {step_no}: {description}")
+        step_output = action(state["paths"], state)
+        outputs[f"step_{step_no}"] = step_output
+        elapsed = perf_counter() - start_time
+        summary = summarize_output(step_output)
+        if summary:
+            message = f"完成 Step {step_no}: {description} | 耗时 {elapsed:.2f}s | {summary}"
+        else:
+            message = f"完成 Step {step_no}: {description} | 耗时 {elapsed:.2f}s"
+        logs.append(message)
+        _emit(state, message)
         return {"logs": logs, "outputs": outputs}
     except Exception as exc:
-        logs.append(f"失败 Step {step_no}: {description} -> {exc}")
+        elapsed = perf_counter() - start_time
+        message = f"失败 Step {step_no}: {description} | 耗时 {elapsed:.2f}s | {exc}"
+        logs.append(message)
+        _emit(state, message, "error")
         return {"logs": logs, "outputs": outputs, "failed": True, "failed_step": step_no}
 
 
@@ -101,6 +137,7 @@ def step3_node(state: PipelineState) -> PipelineState:
             only_doc_id=st.get("only_doc_id"),
             use_context=st.get("use_context", True),
             checkpoint_enabled=st.get("checkpoint_enabled", True),
+            logger=st.get("logger"),
         ),
     )
 
@@ -142,15 +179,19 @@ def route_after_node(state: PipelineState) -> str:
 def fail_node(state: PipelineState) -> PipelineState:
     logs = list(state.get("logs", []))
     if state.get("failed_step") is not None:
-        logs.append(f"流水线中断于 Step {state['failed_step']}")
+        message = f"流水线中断于 Step {state['failed_step']}"
     else:
-        logs.append("流水线失败")
+        message = "流水线失败"
+    logs.append(message)
+    _emit(state, message, "error")
     return {"logs": logs}
 
 
 def done_node(state: PipelineState) -> PipelineState:
     logs = list(state.get("logs", []))
-    logs.append("流水线执行完成")
+    message = "流水线执行完成"
+    logs.append(message)
+    _emit(state, message)
     return {"logs": logs}
 
 

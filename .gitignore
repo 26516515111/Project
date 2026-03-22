@@ -7,3 +7,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 rag_app/.cache/
+rag_app/data/KG/logs/
+rag_app/data/KG/backups/
+lib/

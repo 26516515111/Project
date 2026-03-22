@@ -26,6 +26,16 @@ def apply_local_env(env_path: Path) -> dict[str, str]:
     return loaded
 
 
+def apply_local_envs(env_paths: list[Path]) -> dict[str, str]:
+    merged: dict[str, str] = {}
+    for env_path in env_paths:
+        loaded = load_env_file(env_path)
+        for key, value in loaded.items():
+            merged.setdefault(key, value)
+            os.environ.setdefault(key, value)
+    return merged
+
+
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")

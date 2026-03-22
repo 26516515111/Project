@@ -6,10 +6,14 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class PipelinePaths:
+    project_root: Path
     app_root: Path
     data_dir: Path
     docs_dir: Path
     kg_dir: Path
+    backups_dir: Path
+    cleaned_backups_dir: Path
+    logs_dir: Path
     raw_dir: Path
     cleaned_dir: Path
     chunks_dir: Path
@@ -21,21 +25,38 @@ class PipelinePaths:
     @classmethod
     def discover(cls) -> "PipelinePaths":
         app_root = Path(__file__).resolve().parents[1]
+        project_root = app_root.parent
         data_dir = app_root / "data"
         kg_dir = data_dir / "KG"
         return cls(
+            project_root=project_root,
             app_root=app_root,
             data_dir=data_dir,
             docs_dir=data_dir / "docs",
             kg_dir=kg_dir,
+            backups_dir=kg_dir / "backups",
+            cleaned_backups_dir=kg_dir / "backups" / "cleaned",
+            logs_dir=kg_dir / "logs",
             raw_dir=kg_dir / "raw",
             cleaned_dir=kg_dir / "cleaned",
             chunks_dir=kg_dir / "chunks",
             extracted_dir=kg_dir / "extracted",
             delivery_dir=kg_dir / "delivery",
-            env_path=app_root / ".env",
+            env_path=project_root / ".env",
             cache_dir=app_root / ".cache",
         )
+
+    @property
+    def env_paths(self) -> list[Path]:
+        candidates = [self.project_root / ".env", self.app_root / ".env"]
+        ordered: list[Path] = []
+        seen: set[Path] = set()
+        for path in candidates:
+            if path in seen:
+                continue
+            ordered.append(path)
+            seen.add(path)
+        return ordered
 
     @property
     def chunks_path(self) -> Path:
@@ -84,6 +105,9 @@ class PipelinePaths:
     def ensure_dirs(self) -> None:
         self.docs_dir.mkdir(parents=True, exist_ok=True)
         self.kg_dir.mkdir(parents=True, exist_ok=True)
+        self.backups_dir.mkdir(parents=True, exist_ok=True)
+        self.cleaned_backups_dir.mkdir(parents=True, exist_ok=True)
+        self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.cleaned_dir.mkdir(parents=True, exist_ok=True)
         self.chunks_dir.mkdir(parents=True, exist_ok=True)

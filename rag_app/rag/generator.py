@@ -12,7 +12,7 @@ from .store_history import get_history
 def extractive_answer(
     question: str, passages: List[Passage], kg_triplets: List[Dict[str, str]]
 ) -> str:
-    """生成基于检索片段的抽取式回答。
+    """生成基于检索片段的抽取式回答。当LLM模型不可用的时候使用
 
     Args:
         question: 用户问题文本。

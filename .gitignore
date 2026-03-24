@@ -1,2 +1,28 @@
-# Automatically created by ruff.
-/.idea
+# Python 虚拟环境 (加入 **/ 强制忽略所有层级的此类文件夹)
+**/.venv/
+**/venv/
+**/env/
+
+# 或者为了双保险，直接写明你截图里的具体路径：
+rag_app/.venv/
+# Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# VS Code 配置（可选，视团队情况而定）
+.vscode/
+
+# 忽略数据库和本地数据
+*.sqlite3
+*.bin
+rag_app/data/
+
+# 忽略临时文件
+.*_*.py

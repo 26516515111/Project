@@ -15,6 +15,7 @@ from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
 from .generator import generate_answer
 from .kg_interface import query_knowledge_graph
+from .decomposer import decompose_question
 
 
 class RagPipeline:
@@ -47,9 +48,26 @@ class RagPipeline:
             Answer: 生成的答案对象。
         """
         top_k = req.top_k or SETTINGS.top_k
+        hybrid_top_k = SETTINGS.hybrid_top_k
+        use_decompose = (
+            req.enable_decompose
+            if req.enable_decompose is not None
+            else SETTINGS.use_query_decomposition
+        )
         t0 = time.perf_counter()
+        questions = [req.question]
+        if use_decompose:
+            sub_questions = decompose_question(req.question)
+            if sub_questions:
+                questions.extend(sub_questions)
         context = hybrid_retrieve(
-            self.store, self.bm25, self.chunks, req.question, top_k
+            self.store,
+            self.bm25,
+            self.chunks,
+            questions,
+            hybrid_top_k,
+            max_subqueries=SETTINGS.decompose_max_subqueries,
+            per_query_top_k=SETTINGS.decompose_per_query_top_k,
         )
         t1 = time.perf_counter()
         kg_triplets = (
@@ -81,7 +99,12 @@ class RagPipeline:
             answer=answer_text,
             citations=context.passages,
             kg_triplets=kg_triplets,
-            meta={"retriever": "hybrid", "top_k": str(top_k)},
+            meta={
+                "retriever": "hybrid",
+                "top_k": str(top_k),
+                "hybrid_top_k": str(hybrid_top_k),
+                "decompose": str(use_decompose),
+            },
         )
 
     def export_answer(self, answer: Answer) -> Dict:

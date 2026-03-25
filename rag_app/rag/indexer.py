@@ -2,7 +2,7 @@ import os
 from typing import List
 
 import numpy as np
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from .config import SETTINGS
@@ -36,7 +36,8 @@ def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
         persist_directory=persist_dir,
         collection_name="rag_chunks",
     )
-    store.persist()
+    if hasattr(store, "persist"):
+        store.persist()
     return store
 
 

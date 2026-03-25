@@ -1,6 +1,21 @@
-from .chunking import TextChunker, LanggraphyChunkerAdapter
+try:
+    from .chunking import TextChunker, LanggraphyChunkerAdapter
+except ImportError:
+    # Placeholder to allow importing reranker without full dependencies
+    # This is expected if langchain dependencies are missing
+    TextChunker = None
+    LanggraphyChunkerAdapter = None
 
-__all__ = ["TextChunker", "LanggraphyChunkerAdapter"]
+try:
+    from .langgraphy import LanggraphyPipelineAdapter
+except Exception:  # pragma: no cover - optional dependency
+    LanggraphyPipelineAdapter = None
+
+__all__ = [
+    "TextChunker",
+    "LanggraphyChunkerAdapter",
+    "LanggraphyPipelineAdapter",
+]
 """
 docker run --interactive --tty --rm --volume=D:/work/AI/neo4j/data:/data --volume=D:/work/AI/Project/rag_app/data/KG:/backups neo4j:latest neo4j-admin database load --from-path=/backups --verbose --overwrite-destination neo4j
 

@@ -36,6 +36,11 @@ if "page" not in st.session_state:
     st.session_state.page = "login"
 if "history" not in st.session_state:
     st.session_state.history = []
+if "sessions" not in st.session_state:
+    st.session_state.sessions = [] # 用于存储所有的历史对话 [{id: str, title: str, history: list}]
+if "current_session_id" not in st.session_state:
+    import uuid
+    st.session_state.current_session_id = str(uuid.uuid4())
 if "pipeline" not in st.session_state:
     st.session_state.pipeline = RagPipeline()
 if "session_id" not in st.session_state:

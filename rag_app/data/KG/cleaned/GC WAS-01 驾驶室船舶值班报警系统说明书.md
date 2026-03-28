@@ -2,7 +2,7 @@
 
 驾驶台驾驶室船舶值班报警系统(Bridge Navigational Watch Alarm System)英文缩写为BNWAS，主要功能是防止驾驶员在航行值班时不能履行值班职责而使船舶处于无人操纵的危险局面发生。当上述情况出现时。系统将产生一系列逐步延伸的报警直到引起相关人员的注意，确保值班驾驶员履行其值班职责。
 
-[H1] 一. Generalization
+[H2] 一. Generalization
 
 The main function of Bridge Navigational Watch Alarm System whose short name is BNWAS is toprevent ship from unmanned situation caused by the watcher is out of duty when watching. Whenthe above situation happens, the system will give series of stepwise extension alarm until draw therelevant person's attention and ensure the watcher is on duty.
 
@@ -16,7 +16,7 @@ This product meets the following specifications:
 [H2] 2、CCS Electric Product Type Approval Test Guideline (2006)
 [H2] 3、Notice on implement revising content for SOLAS II-1 Chapter of MSC.282(86) Resolution, which will be in force on January 1st, 2011
 
-[H1] 4、型号命名方式
+[H2] 4、型号命名方式
 [H2] 4、Naming method of model.
 
 河南光彩驾驶台航行值班报警系统/模块命名规则

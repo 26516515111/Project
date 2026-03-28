@@ -302,7 +302,53 @@ def _normalize_manual_structure(text: str) -> str:
         value,
         flags=re.MULTILINE,
     )
+    value = _rebalance_heading_levels(value)
     return value
+
+
+def _is_real_chapter_heading(title: str) -> bool:
+    stripped = title.strip()
+    return bool(
+        re.match(r"^[一二三四五六七八九十]+、.+$", stripped)
+        or re.match(r"^第[一二三四五六七八九十0-9]+[章节部分篇].+$", stripped)
+    )
+
+
+def _looks_like_subsection_heading(title: str) -> bool:
+    stripped = title.strip()
+    return bool(
+        re.match(r"^[0-9]+[、\.．:].+$", stripped)
+        or re.match(r"^[a-zA-Z][、\.．:].+$", stripped)
+        or re.match(r"^\([0-9]+\)\s*.+$", stripped)
+        or re.match(r"^（[0-9]+）\s*.+$", stripped)
+        or re.match(r"^[ivxlcdmIVXLCDM]+[、\.．:].+$", stripped)
+    )
+
+
+def _rebalance_heading_levels(text: str) -> str:
+    lines = text.splitlines()
+    result: list[str] = []
+    seen_real_h1 = False
+
+    for line in lines:
+        match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", line.strip())
+        if not match:
+            result.append(line)
+            continue
+
+        level = int(match.group(1))
+        title = match.group(2).strip()
+        new_level = level
+
+        if level == 1:
+            if _is_real_chapter_heading(title):
+                seen_real_h1 = True
+            elif seen_real_h1 or _looks_like_subsection_heading(title):
+                new_level = 2
+
+        result.append(f"[H{new_level}] {title}")
+
+    return "\n".join(result)
 
 
 def _trim_manual_front_matter(text: str) -> str:
@@ -735,6 +781,113 @@ def _merge_semantic_sections(
     return merged
 
 
+def _semantic_family(group: str) -> str:
+    families = {
+        "overview": "overview",
+        "component": "overview",
+        "operation": "overview",
+        "repair": "maintenance",
+        "diagnostic": "maintenance",
+        "fault": "maintenance",
+        "safety": "maintenance",
+        "parameter": "spec",
+        "wiring": "spec",
+    }
+    return families.get(group, group)
+
+
+def _merge_section_pair(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(left)
+    merged["text"] = f"{left['text']}\n\n{right['text']}"
+    merged["heading_path"] = (
+        left["heading_path"]
+        if len(left["heading_path"]) >= len(right["heading_path"])
+        else right["heading_path"]
+    )
+    merged["heading_context"] = (
+        merged["heading_path"][-1] if merged["heading_path"] else ""
+    )
+    if left["semantic_group"] == right["semantic_group"]:
+        merged["semantic_group"] = left["semantic_group"]
+    elif left["semantic_group"] == "overview":
+        merged["semantic_group"] = right["semantic_group"]
+    else:
+        merged["semantic_group"] = left["semantic_group"]
+    return merged
+
+
+def _pack_short_semantic_sections(
+    sections: list[dict[str, Any]],
+    chunk_size: int,
+    min_chunk_size: int,
+) -> list[dict[str, Any]]:
+    if not sections:
+        return []
+
+    packed: list[dict[str, Any]] = []
+    pending: dict[str, Any] | None = None
+    tiny_chunk_size = max(120, int(min_chunk_size * 0.67))
+
+    def same_root(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return bool(left["heading_path"]) and bool(right["heading_path"]) and left["heading_path"][:1] == right["heading_path"][:1]
+
+    def compatible(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return same_root(left, right) and _semantic_family(left["semantic_group"]) == _semantic_family(right["semantic_group"])
+
+    def can_merge(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return compatible(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+
+    def can_merge_tiny(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return same_root(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+
+    for section in sections:
+        if pending is None:
+            pending = section
+            continue
+        if len(pending["text"]) < min_chunk_size and can_merge(pending, section):
+            pending = _merge_section_pair(pending, section)
+            continue
+        packed.append(pending)
+        pending = section
+
+    if pending is not None:
+        packed.append(pending)
+
+    changed = True
+    while changed:
+        changed = False
+        refined: list[dict[str, Any]] = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < min_chunk_size
+                and can_merge(refined[-1], section)
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
+    changed = True
+    while changed:
+        changed = False
+        refined = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < tiny_chunk_size
+                and can_merge_tiny(refined[-1], section)
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
+    return packed
+
+
 def _split_large_semantic_section(
     section: dict[str, Any], chunk_size: int, chunk_overlap: int
 ) -> list[dict[str, Any]]:
@@ -772,6 +925,11 @@ def build_semantic_chunks(
     if not sections:
         return []
     merged = _merge_semantic_sections(sections, chunk_size=chunk_size)
+    merged = _pack_short_semantic_sections(
+        merged,
+        chunk_size=chunk_size,
+        min_chunk_size=max(180, int(chunk_size * 0.2)),
+    )
     chunks: list[dict[str, Any]] = []
     for section in merged:
         chunks.extend(

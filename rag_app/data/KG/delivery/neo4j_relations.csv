@@ -1,0 +1,586 @@
+rel_id,head,head_label,relation,tail,tail_label,description,doc_id,chunk_id
+REL_000001,16 路报警显示单元,Component,HAS_COMPONENT,四芯航空插头,Component,16 路报警显示单元使用四芯航空插头,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000002,16 路报警显示单元,Component,RELATED_TO,16 路采集单元,Component,16 路显示单元数据来源于 16 路采集单元,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000003,16 路采集单元,Component,RELATED_TO,设置地址码,DiagnosticMethod,16 路采集单元需要进行地址设定,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000004,24 路报警显示单元,Component,HAS_COMPONENT,七芯航空插头,Component,24 路报警显示单元使用七芯航空插头,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000005,24 路报警显示单元,Component,RELATED_TO,24 路采集单元,Component,24 路显示单元数据来源于 24 路采集单元,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000006,24 路采集单元,Component,HAS_PARAMETER,开始地址为 0,Parameter,24 路采集单元主控地址参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000007,24 路采集单元,Component,HAS_PARAMETER,每组 8 路,Parameter,24 路采集单元数据分组参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000008,24 路采集单元,Component,RELATED_TO,设置地址码,DiagnosticMethod,24 路采集单元需要进行地址设定,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000009,2A 接线端子,Component,RELATED_TO,通讯线,Component,2A 接线端子需连接通讯线,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000010,2B 接线端子,Component,RELATED_TO,通讯线,Component,2B 接线端子需连接通讯线,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000011,485 通讯接口,Component,HAS_COMPONENT,2A 接线端子,Component,485 通讯接口包含 2A 接线端子,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000012,485 通讯接口,Component,HAS_COMPONENT,2B 接线端子,Component,485 通讯接口包含 2B 接线端子,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000013,485 通讯接口,Component,HAS_COMPONENT,GND 接线端子,Component,485 通讯接口包含 GND 接线端子,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000014,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,主机遥控控制单元（RCU）,Component,系统包含主机遥控控制单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000015,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,双气源净化装置,Component,系统包含双气源净化装置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000016,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,机舱控制箱,Component,系统包含机舱控制箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000017,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,机舱阀箱,Component,系统包含机舱阀箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000018,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,转速测量显示单元（SM）,Component,系统包含转速测量显示单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000019,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,辅车钟单元（ATE）,Component,系统包含辅车钟单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000020,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,遥控操纵器（MH）,Component,系统包含遥控操纵器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000021,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,遥控显示控制板（ICP）,Component,系统包含遥控显示控制板,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000022,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,遥控调速机构,Component,系统包含遥控调速机构,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000023,CDQY2A-PC2-6 型主推进装置系统,System,HAS_COMPONENT,齿轮箱油压检测板,Component,系统包含齿轮箱油压检测板,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000024,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,10mm 厚橡胶垫,Component,系统安装包含防震橡胶垫,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000025,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,减震块,Component,系统安装包含防震减震块,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000026,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,日本 OMRON 公司 PLC 微机,Component,系统电控部分包含该 PLC 主控单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0
+REL_000027,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,机舱控制箱,Component,系统包含机舱控制箱组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000028,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,滞燃的帆布,Component,系统维护使用滞燃帆布,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000029,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,空气过滤器,Component,遥控系统包含空气过滤器组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000030,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,进口阀件,Component,系统气控部分包含该阀件组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0
+REL_000031,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,通船管件,Component,系统安装包含通船管件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000032,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,遥控台,Component,系统包含遥控台组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000033,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,遥控系统指示灯,Component,系统配置有多种状态指示灯用于显示工作模式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000034,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,遥控系统管路,Component,系统包含遥控管路组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000035,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,阀箱,Component,系统包含阀箱组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000036,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_COMPONENT,驾驶室的遥控操作器,Component,系统包含该操作器用于船员操纵,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0
+REL_000037,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_FAULT,主电源失压,FaultPhenomenon,系统可能发生主电源失压故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000038,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_FAULT,工作气源失气,FaultPhenomenon,系统可能发生工作气源供应中断的故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000039,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_FAULT,装置表面损坏,FaultPhenomenon,装置表面可能发生损坏,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000040,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,主电源电压 AC220V±10%,Parameter,系统主电源电压规格,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000041,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,倾斜及摇摆 22.5°,Parameter,系统抗倾斜摇摆参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000042,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,单机功耗≤150W,Parameter,系统单机功耗限制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000043,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,垂直方向线性加速度 ±9.8 m/S^2,Parameter,系统抗加速度参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000044,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,备用电源电压 DC24V±20%,Parameter,系统备用电源电压规格,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000045,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,操纵档位九档制,Parameter,系统操纵档位设置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000046,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,最大相对湿度 95%,Parameter,系统工作环境湿度参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000047,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,最高工作温度 +45°C,Parameter,系统工作环境温度参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000048,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,气源工作压力 0.65-0.7MPa,Parameter,系统气源工作压力标准,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000049,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,气源输入压力 1.0MPa,Parameter,系统气源输入压力要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000050,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,调速范围 40%-103%,Parameter,系统具有特定的调速范围参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000051,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,遥控系统控制参数,Parameter,系统具有可在现场调整的控制参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000052,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_PARAMETER,高温环境相对湿度 70%,Parameter,系统高温环境下湿度参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000053,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,三电源各自独立互不干扰,SafetyNote,系统设计需遵循电源独立的安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000054,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,安全越控,SafetyNote,系统支持驾驶员在紧急情况下使用安全越控功能,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000055,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,推进系统减速停车预报警,SafetyNote,系统在遥控时需具备减速停车预报警功能以保障安全,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000056,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,穿过甲板处设通船管件,SafetyNote,系统安装需遵守通船管件设置要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000057,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,符合钢质海船舶入级与建造规范及船级社规定,SafetyNote,系统必须符合相关安全规范,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000058,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,管路连接前高压气体吹扫,SafetyNote,系统安装需遵守管路吹扫安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000059,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,装置安装加装 10mm 厚橡胶垫或减震块,SafetyNote,系统安装需遵守防震安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000060,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,HAS_SAFETY_NOTE,装置安装后用滞燃帆布罩住,SafetyNote,系统安装需遵守装置防护安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000061,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,RELATED_TO,主机,Equipment,系统直接调节主机的转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0
+REL_000062,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,RELATED_TO,倒顺离合器齿轮箱,Equipment,系统直接操纵齿轮箱的脱合排换向,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0
+REL_000063,CDQY2A-PC2-6 型船用主柴油机电气遥控系统,System,RELATED_TO,调速器,Component,遥控系统向调速器给定转速信号以控制主机,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000064,CEFP 型通讯电缆,Component,HAS_PARAMETER,电缆截面积不小于 0.75mm^2,Parameter,CEFP 型通讯电缆的截面积参数要求,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000065,COM1,Component,HAS_PARAMETER,IN1 到 IN8,Parameter,COM1 公共端对应 IN1 到 IN8 输入通道,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000066,COM2,Component,HAS_PARAMETER,IN9 到 IN16,Parameter,COM2 公共端对应 IN9 到 IN16 输入通道,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000067,COM3,Component,HAS_PARAMETER,IN17 到 IN24,Parameter,COM3 公共端对应 IN17 到 IN24 输入通道,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000068,COM4,Component,HAS_PARAMETER,IN25 到 IN32,Parameter,COM4 公共端对应 IN25 到 IN32 输入通道,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000069,CRT17 显示器,Component,BELONGS_TO,显示器,Component,CRT17 显示器是显示器的一种具体类型,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000070,GND 接线端子,Component,RELATED_TO,电源,Equipment,GND 接线端子需连接电源,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000071,LCD/CRT,Component,HAS_COMPONENT,报警速显窗口,Component,显示组件上包含报警速显窗口功能,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000072,LCD/CRT,Component,HAS_PARAMETER,功率,Parameter,显示组件具有功率消耗参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000073,LCD/CRT,Component,RELATED_TO,外界谐波,FaultCause,显示组件具有抗外界谐波干扰的能力,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000074,LCD17 显示器,Component,BELONGS_TO,显示器,Component,LCD17 显示器是显示器的一种具体类型,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000075,PLC 微机,Component,HAS_FAULT,工作不正常,FaultPhenomenon,PLC 微机可能出现工作不正常的故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000076,PLC 微机,Component,HAS_SAFETY_NOTE,严防铁屑、水、油污、杂质掉入内部,SafetyNote,PLC 微机维护需注意防止异物掉入,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000077,PLC 微机,Component,HAS_SAFETY_NOTE,未经船方或设备厂家同意，任何人不准擅自打开或修改程序,SafetyNote,PLC 微机程序修改的安全禁忌,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000078,RS485 总线,Component,HAS_COMPONENT,船用双芯通讯双绞屏蔽电缆,Component,RS-485 总线建议使用的电缆组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000079,RS485 总线,Component,HAS_SAFETY_NOTE,数据线不能接反或接到电源上,SafetyNote,RS-485 总线接线的安全注意事项,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000080,RS485 总线,Component,RELATED_TO,设置地址码,DiagnosticMethod,RS485 总线设备需进行地址设定,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000081,UPS,Equipment,HAS_FAULT,损坏,FaultPhenomenon,UPS 可能发生损坏故障,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000082,UPS,Equipment,HAS_PARAMETER,1000W,Parameter,UPS 具有 1000W 功率参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000083,UPS,Equipment,HAS_SAFETY_NOTE,主电源正常断电时，必须将 UPS 关闭,SafetyNote,UPS 维护时需遵守主电源断电关闭的安全要求,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000084,UPS,Equipment,RELATED_TO,报警系统,System,UPS 为报警系统提供备用电源以支持关闭或维修,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000085,VDR,Equipment,HAS_COMPONENT,LCD/CRT,Component,VDR 系统包含显示组件,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000086,VDR,Equipment,HAS_COMPONENT,主机,Equipment,VDR 系统包含主机单元,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000087,VDR,Equipment,HAS_COMPONENT,打印机,Equipment,VDR 系统连接打印机外设,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000088,VDR,Equipment,HAS_COMPONENT,电源,Component,VDR 设备包含电源组件,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000089,VDR,Equipment,HAS_PARAMETER,工作温度,Parameter,VDR 设备具有工作温度范围限制,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000090,VDR,Equipment,HAS_PARAMETER,测量精度,Parameter,VDR 系统具有测量精度指标,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000091,VDR,Equipment,HAS_PARAMETER,环境适应性,Parameter,VDR 设备具有环境适应性要求,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000092,VDR 数据通讯模块,Component,RELATED_TO,VDR,Equipment,VDR 数据通讯模块连接 VDR 装置,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000093,VDR 数据通讯模块,Component,RELATED_TO,工业控制计算机系统,System,VDR 数据通讯模块连接工业控制计算机系统,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000094,一体化开关电源,Component,HAS_PARAMETER,输入电压 AC220V,Parameter,一体化开关电源的输入电压为 AC220V,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000095,一体化开关电源,Component,HAS_PARAMETER,输出电压 DC24V,Parameter,一体化开关电源的输出电压为 DC24V,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000096,三位四通气控换向阀,Component,HAS_PARAMETER,0.6Mpa 压缩压缩空气,Parameter,换向阀由 0.6Mpa 压缩空气推动,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000097,两位置转换气阀,Component,RELATED_TO,气动逻辑阀箱 LU,Component,转换气阀接通通向气动逻辑阀箱的气源,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000098,严防铁屑、水、油污、杂质掉入内部,SafetyNote,RELATED_TO,铁屑、水、油污、杂质,FaultCause,安全注意针对的故障原因,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000099,主控单元,Component,HAS_COMPONENT,D3 灯,Component,主控单元包含 D3 状态指示灯,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000100,主控单元,Component,HAS_COMPONENT,S1,Component,主控单元包含 S1 开关,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000101,主控单元,Component,REPAIRED_BY,"把主控单元 S1 的 2,3 脚短接以后上电",RepairMethod,主控单元调试通过短接 S1 并上电进行,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000102,主控单元的 D3 灯亮了,FaultPhenomenon,RELATED_TO,取掉 24V 电源,RepairMethod,D3 灯亮后执行断电操作,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000103,主机,Equipment,HAS_COMPONENT,主机停车阀,Component,主机系统包含停车阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000104,主机,Equipment,HAS_COMPONENT,主机调速器,Equipment,主机转速由液压调速器调节,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000105,主机,Equipment,HAS_PARAMETER,功率,Parameter,主机单元具有功率消耗参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000106,主机,Equipment,HAS_PARAMETER,怠速,Parameter,主机具有怠速运行参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000107,主机,Equipment,HAS_SAFETY_NOTE,完车前,SafetyNote,主机操作需在完车前进行特定设置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000108,主机,Equipment,RELATED_TO,螺旋桨尾轴,Component,主机与尾轴连接,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000109,主机,Equipment,RELATED_TO,调速器,Component,主机配备调速器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000110,主机,Equipment,REPAIRED_BY,将转速调至怠速,RepairMethod,主机通过将转速调至怠速步骤进行调整,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000111,主机,Equipment,REPAIRED_BY,起动主机,RepairMethod,主机通过起动主机步骤进行操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000112,主机调速器,Equipment,HAS_COMPONENT,主机调试手柄,Component,主机调速器包含调试手柄,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000113,主机转速高于超速设定值,FaultCause,CAUSED_BY,超速停车报警,FaultPhenomenon,转速过高导致超速报警,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000114,主机遥控控制单元（RCU）,Component,HAS_COMPONENT,PLC 微机,Component,遥控控制单元包含 PLC 微机,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9
+REL_000115,主机遥控控制单元（RCU）,Component,HAS_PARAMETER,临界转速,Parameter,遥控单元能自动避开临界转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000116,主机遥控控制单元（RCU）,Component,HAS_PARAMETER,最大合排时间 2 秒,Parameter,PLC 设定最大合排时间间隔,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000117,主机遥控控制单元（RCU）,Component,RELATED_TO,正倒车控制电磁阀,Component,遥控控制单元控制机舱阀箱内的正倒车电磁阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000118,主机遥控装置,Equipment,HAS_COMPONENT,失气自保阀 YV5,Component,主机遥控装置包含失气自保阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000119,主机遥控装置,Equipment,HAS_COMPONENT,消音按钮,Component,主机遥控装置包含消音按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000120,主机遥控装置,Equipment,HAS_COMPONENT,紧急停车按钮,Component,主机遥控装置包含紧急停车按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000121,主机遥控装置,Equipment,HAS_COMPONENT,试验按钮,Component,主机遥控装置包含试验按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000122,主机遥控装置,Equipment,HAS_COMPONENT,越控按钮,Component,主机遥控装置包含越控按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000123,主机遥控装置,Equipment,HAS_COMPONENT,遥控/机旁两位置转换气阀,Component,主机遥控装置包含模式转换气阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000124,主机遥控装置,Equipment,HAS_FAULT,声光报警,FaultPhenomenon,主机遥控装置失气时发出声光报警,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000125,主机遥控装置,Equipment,HAS_FAULT,故障停车,FaultPhenomenon,主机遥控装置可能发生故障停车,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000126,主机遥控装置,Equipment,HAS_FAULT,故障降速,FaultPhenomenon,主机遥控装置可能发生故障降速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000127,主机遥控装置,Equipment,HAS_FAULT,超速停车报警,FaultPhenomenon,主机遥控装置可能发出超速停车报警,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000128,主机遥控装置,Equipment,HAS_FAULT,遥控系统失效,FaultPhenomenon,主机遥控装置可能发生失效,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000129,主机飞轮,Component,BELONGS_TO,主机,Equipment,主机飞轮属于主机部件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000130,主柴油机调速器,Equipment,HAS_COMPONENT,气压转速设定机构,Component,调速器包含气压转速设定机构,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000131,主柴油机调速器,Equipment,RELATED_TO,PG（WOODWORD）型调速器,Equipment,调速器可采用 PG 型作为替代或类型,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000132,主电源,Component,HAS_PARAMETER,AC220V,Parameter,主电源具有 AC220V 电压参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000133,主电源,Component,RELATED_TO,UPS,Equipment,主电源正常时为 UPS 充电，失电时由 UPS 替代,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000134,产品系统,Equipment,HAS_COMPONENT,485 通讯接口,Component,产品系统包含 485 通讯接口,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000135,产品系统,Equipment,HAS_COMPONENT,开关量输出接口,Component,产品系统包含开关量输出接口,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000136,产品系统,Equipment,REPAIRED_BY,闲置端子不接线,RepairMethod,产品系统安装时需遵循闲置端子不接线要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000137,仪表,Component,DIAGNOSED_BY,整定仪表器件动作值,DiagnosticMethod,仪表通过整定动作值方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000138,倒车工作油压控制器,Component,HAS_COMPONENT,常开触点,Component,倒车工作油压控制器包含常开触点,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000139,倒顺离合器齿轮箱,Equipment,HAS_COMPONENT,三位四通气控换向阀,Component,齿轮箱上装有三位四通气控换向阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000140,倒顺离合器齿轮箱,Equipment,HAS_COMPONENT,油压传感器,Component,齿轮箱设备内部包含油压传感器组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_17
+REL_000141,切换开关,Component,HAS_PARAMETER,备车,Parameter,切换开关具有备车档位,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000142,切换开关,Component,HAS_PARAMETER,完车,Parameter,切换开关具有完车档位,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000143,切换开关,Component,HAS_PARAMETER,机控,Parameter,切换开关具有机控档位,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000144,切换开关,Component,HAS_PARAMETER,驾控,Parameter,切换开关具有驾控档位,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000145,压力变送器,Component,BELONGS_TO,变送器,Component,压力变送器属于变送器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000146,参数越限,FaultPhenomenon,DIAGNOSED_BY,报警历史查询,DiagnosticMethod,通过查询报警历史诊断参数越限故障,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000147,参数越限,FaultPhenomenon,RELATED_TO,报警声响,FaultPhenomenon,参数越限时触发声响报警指示,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000148,参数越限,FaultPhenomenon,RELATED_TO,报警速显窗口,Component,参数越限时触发窗口弹出显示,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000149,参数越限,FaultPhenomenon,RELATED_TO,电子存储器,Component,越限时的参数被存储于电子存储器以备查询,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000150,取掉 24V 电源,RepairMethod,RELATED_TO,把 S1 的 2，3 脚的短接线去掉,RepairMethod,断电后执行去掉短接线的操作,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000151,变送器,Component,HAS_PARAMETER,0-5V,Parameter,变送器支持 0-5V 电压信号参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000152,变送器,Component,HAS_PARAMETER,4-20mA,Parameter,变送器支持 4-20mA 电流信号参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000153,可动件,Component,DIAGNOSED_BY,手动检查可动件,DiagnosticMethod,可动件通过手动检查方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000154,可动件,Component,HAS_SAFETY_NOTE,可动件动作灵活要求,SafetyNote,可动件需满足动作灵活要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000155,器件,Component,DIAGNOSED_BY,整定仪表器件动作值,DiagnosticMethod,器件通过整定动作值方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000156,声光报警,FaultPhenomenon,CAUSED_BY,参数越限,FaultCause,声光报警由参数越限引起,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000157,声光报警,FaultPhenomenon,REPAIRED_BY,按消音键声响报警停止,RepairMethod,声光报警现象通过按消音键停止声响来处理,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000158,声光报警,FaultPhenomenon,REPAIRED_BY,消声,RepairMethod,声光报警可通过消声操作消除声响,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000159,声响报警信号,FaultPhenomenon,REPAIRED_BY,操作消音按钮,RepairMethod,声响报警通过消音按钮消除,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000160,外控报警继电器,Component,REPAIRED_BY,按消音键后声响器及外控报警继电器复原,RepairMethod,外控报警继电器通过按消音键进行复位复原,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000161,失气,FaultPhenomenon,CAUSED_BY,气源降为 0.45 Mpa,FaultCause,气源压力降至 0.45Mpa 导致失气故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000162,失气,FaultPhenomenon,DIAGNOSED_BY,失气报警试验,DiagnosticMethod,失气故障通过失气报警试验诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000163,失气,FaultPhenomenon,DIAGNOSED_BY,将气源降为 0.45 Mpa,DiagnosticMethod,通过降低气源压力诊断失气故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000164,失气,FaultPhenomenon,HAS_COMPONENT,失气指示灯,Component,失气故障对应失气指示灯状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000165,失气,FaultPhenomenon,HAS_FAULT,声光报警,FaultPhenomenon,失气故障会引发声光报警,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000166,失气,FaultPhenomenon,REPAIRED_BY,操作消音按钮,RepairMethod,失气报警可通过按消音按钮消除声响,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000167,失电,FaultPhenomenon,DIAGNOSED_BY,人为的将主电源切断,DiagnosticMethod,通过切断主电源诊断失电故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000168,失电,FaultPhenomenon,HAS_COMPONENT,失电指示灯,Component,失电故障对应失电指示灯状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000169,失电,FaultPhenomenon,HAS_FAULT,备用电源自动投入,FaultPhenomenon,失电故障会导致备用电源自动投入,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000170,失电,FaultPhenomenon,REPAIRED_BY,操作消音按钮,RepairMethod,失电报警可通过按消音按钮消除声响,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000171,安全系统,System,HAS_COMPONENT,停车电磁阀,Component,安全系统自带停车电磁阀用于断油停车,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000172,安全系统,System,HAS_FAULT,故障停车,FaultPhenomenon,安全系统发出故障停车信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000173,安全系统,System,HAS_FAULT,故障降速,FaultPhenomenon,安全系统发出故障降速信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000174,安全越控带灯按钮,Component,HAS_SAFETY_NOTE,仅设于遥控控制站和中央集控站,SafetyNote,安全越控带灯按钮的安装位置限制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000175,工业控制计算机系统,System,HAS_COMPONENT,操作键盘,Component,系统接收操作键盘的指令,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000176,工业控制计算机系统,System,HAS_COMPONENT,显示单元,Component,系统控制显示单元,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000177,工业控制计算机系统,System,HAS_COMPONENT,电源,Component,系统包含电源组件,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000178,工业控制计算机系统,System,HAS_COMPONENT,输入接口,Component,系统采用标准输入接口,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000179,工业控制计算机系统,System,HAS_COMPONENT,输出单元,Component,系统控制输出单元,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000180,工业控制计算机系统,System,HAS_COMPONENT,输出接口,Component,系统采用标准输出接口,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000181,工业控制计算机系统,System,HAS_COMPONENT,采集模块,Component,系统包含采集模块用于信号采集,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000182,工业控制计算机系统,System,RELATED_TO,操作单元,Equipment,系统与操作单元共同组成装置的控制部分,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000183,工作不正常,FaultPhenomenon,REPAIRED_BY,与厂家或就近与 OMRON 公司代理商联系,RepairMethod,PLC 微机工作不正常时需联系厂家,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000184,工控机,Equipment,HAS_COMPONENT,随机接插线,Component,工控机使用随机接插线进行外部连接,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000185,工控机,Equipment,RELATED_TO,打印机,Equipment,工控机通过接口与打印机连接,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000186,工控机,Equipment,RELATED_TO,显示器,Component,工控机通过接口与显示器连接,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000187,左右翼复位单元,Component,HAS_PARAMETER,左右翼防护等级 IP56,Parameter,左右翼复位单元具有更高的环境防护等级,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6
+REL_000188,应急停车带灯按钮,Component,HAS_SAFETY_NOTE,仅设于遥控控制站和中央集控站,SafetyNote,应急停车带灯按钮的安装位置限制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000189,应急车钟,Component,DIAGNOSED_BY,操作试验,DiagnosticMethod,应急车钟通过操作试验进行诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000190,应急车钟,Component,HAS_SAFETY_NOTE,备车前,SafetyNote,应急车钟操作需在备车前进行,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000191,延伸报警灯板,Component,BELONGS_TO,报警系统,System,延伸报警灯板属于报警系统的一部分,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000192,延伸报警灯板,Component,HAS_COMPONENT,指示灯,Component,延伸报警灯板包含指示灯组件,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000193,延伸报警灯板,Component,HAS_PARAMETER,16 点/块,Parameter,延伸报警灯板具有 16 点/块的规格参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000194,延伸报警灯板,Component,HAS_PARAMETER,24 点/块,Parameter,延伸报警灯板具有 24 点/块的规格参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000195,延伸报警灯板,Component,HAS_PARAMETER,RS-485 通讯方式,Parameter,延伸报警灯板采用 RS-485 通讯方式,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000196,延伸报警灯板,Component,HAS_PARAMETER,报警点数,Parameter,报警点数是选择延伸报警灯板的依据,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000197,延伸报警灯板,Component,RELATED_TO,GCWJ-01 报警装置,Equipment,延伸报警灯板与 GCWJ-01 报警装置配套使用,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000198,延伸报警灯板,Component,RELATED_TO,报警声响,FaultPhenomenon,延伸报警灯板报警时伴随声响报警,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000199,开关量传感器,Component,BELONGS_TO,传感器,Component,开关量传感器属于传感器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000200,开关量传感器,Component,HAS_PARAMETER,无源触点信号,Parameter,开关量传感器支持无源触点信号参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000201,开关量传感器,Component,HAS_PARAMETER,有源触点信号,Parameter,开关量传感器支持有源触点信号参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000202,打印机,Equipment,HAS_PARAMETER,功率,Parameter,打印机设备具有功率消耗参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000203,"把主控单元 S1 的 2,3 脚短接以后上电",RepairMethod,RELATED_TO,主控单元的 D3 灯亮了,FaultPhenomenon,短接上电后等待 D3 灯亮作为下一步条件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000204,报警历史查询,DiagnosticMethod,RELATED_TO,电子存储器,Component,查询方法依赖于电子存储器中的数据,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000205,报警声响,FaultPhenomenon,REPAIRED_BY,操作消音按钮,RepairMethod,报警声响通过按动消音按钮维修,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000206,报警指示灯,Component,RELATED_TO,报警声响,FaultPhenomenon,报警指示灯点亮时伴随发出报警声响,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000207,报警数据采集模块,Component,DIAGNOSED_BY,地址从小到大设置,DiagnosticMethod,报警数据采集系统通过地址设置进行调试,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000208,报警数据采集模块,Component,HAS_COMPONENT,COM1,Component,报警数据采集模块包含 COM1 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000209,报警数据采集模块,Component,HAS_COMPONENT,COM2,Component,报警数据采集模块包含 COM2 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000210,报警数据采集模块,Component,HAS_COMPONENT,COM3,Component,报警数据采集模块包含 COM3 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000211,报警数据采集模块,Component,HAS_COMPONENT,COM4,Component,报警数据采集模块包含 COM4 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_7
+REL_000212,报警数据采集模块,Component,HAS_COMPONENT,J1 报警输入口,Component,报警数据采集模块包含 J1 报警输入口,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000213,报警数据采集模块,Component,HAS_COMPONENT,J4 报警输入口,Component,报警数据采集模块包含 J4 报警输入口,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000214,报警数据采集模块,Component,HAS_COMPONENT,J5 公共端,Component,报警数据采集模块包含 J5 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000215,报警数据采集模块,Component,HAS_COMPONENT,J6 公共端,Component,报警数据采集模块包含 J6 公共端,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000216,报警数据采集模块,Component,HAS_COMPONENT,J7 RS-485 接线口,Component,报警数据采集模块包含 RS-485 接线口,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000217,报警数据采集模块,Component,HAS_COMPONENT,J8 24V 电源接口,Component,报警数据采集模块包含 24V 电源接口,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_5
+REL_000218,报警数据采集模块,Component,HAS_COMPONENT,S1,Component,采集模块包含地址设置开关 S1,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000219,报警数据采集模块,Component,HAS_COMPONENT,VDR 485 标准接口,Component,采集模块包含 VDR 接口,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000220,报警数据采集模块,Component,HAS_COMPONENT,主控单元,Component,采集模块包含主控单元,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000221,报警数据采集模块,Component,HAS_COMPONENT,拨码开关 SK2-SK5,Component,采集模块包含报警设置拨码开关,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000222,报警数据采集模块,Component,HAS_COMPONENT,通讯灯,Component,采集模块包含通讯状态指示灯,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000223,报警数据采集模块,Component,HAS_COMPONENT,采集单元,Component,采集模块包含采集单元,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000224,报警数据采集模块,Component,HAS_FAULT,通讯灯将不闪烁,FaultPhenomenon,采集模块可能出现通讯灯不闪烁故障,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000225,报警数据采集模块,Component,HAS_PARAMETER,2—5 秒左右的延时,Parameter,采集模块报警采集点具有 2-5 秒延时参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000226,报警数据采集模块,Component,HAS_SAFETY_NOTE,屏蔽层要可靠接壳,SafetyNote,连接电缆屏蔽层的接地安全要求,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000227,报警数据采集模块,Component,RELATED_TO,16 路报警显示单元,Component,模块文档中展示支持的 16 路显示配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_8
+REL_000228,报警数据采集模块,Component,RELATED_TO,24 路报警显示单元,Component,模块文档中展示支持的 24 路显示配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_8
+REL_000229,报警数据采集模块,Component,RELATED_TO,VDR(航行数据记录仪),Equipment,采集模块向 VDR 提供数据信号,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000230,报警数据采集模块,Component,RELATED_TO,计算机监控系统,System,采集模块发送数据给计算机监控系统,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000231,报警显示单元,Component,HAS_COMPONENT,LCD,Component,显示单元包含 LCD 显示器件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000232,报警显示单元,Component,HAS_COMPONENT,LED,Component,显示单元包含 LED 指示器件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000233,报警显示单元,Component,HAS_COMPONENT,外接延伸消音按钮,Component,报警显示单元外部接线包含的组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000234,报警显示单元,Component,HAS_COMPONENT,外接延伸试验按钮,Component,报警显示单元外部接线包含的组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000235,报警显示单元,Component,HAS_COMPONENT,外接延伸调光按钮,Component,报警显示单元外部接线包含的组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000236,报警显示单元,Component,HAS_PARAMETER,端子 +DC 为 24V+,Parameter,报警显示单元外部接线端子的参数定义,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000237,报警显示单元,Component,HAS_PARAMETER,端子 -DC 为 24V-,Parameter,报警显示单元外部接线端子的参数定义,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000238,报警显示单元,Component,HAS_PARAMETER,"端子 A,B 为数据通讯",Parameter,报警显示单元外部接线端子的参数定义,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000239,报警显示单元,Component,HAS_PARAMETER,端子 BJ 为报警有源输出,Parameter,报警显示单元外部接线端子的参数定义,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000240,报警状态指示信号 c,Parameter,RELATED_TO,报警状态,FaultPhenomenon,信号值为 1 时表示系统处于报警状态,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_7
+REL_000241,指示灯,Component,DIAGNOSED_BY,试灯,DiagnosticMethod,指示灯通过试灯方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000242,指示灯,Component,DIAGNOSED_BY,调光检查,DiagnosticMethod,指示灯通过调光检查方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000243,指示灯,Component,RELATED_TO,指示灯闪烁,FaultPhenomenon,指示灯在报警时呈现闪烁现象,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_7
+REL_000244,指示灯闪频,FaultPhenomenon,CAUSED_BY,参数越限,FaultCause,指示灯闪频由参数越限引起,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000245,损坏,FaultPhenomenon,CAUSED_BY,放完电,FaultCause,UPS 损坏由电池放完电引起,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_6
+REL_000246,换向程序的调整,DiagnosticMethod,RELATED_TO,齿轮箱,Equipment,换向程序调整涉及齿轮箱换向,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000247,接线盒,Component,HAS_COMPONENT,测速探头,Component,接线盒内部安装测速探头,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000248,控制方式选择阀,Component,RELATED_TO,机旁,Parameter,控制方式选择阀可扳至机旁位置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000249,控制管路,Component,DIAGNOSED_BY,检查管路接头及漏气,DiagnosticMethod,控制管路通过检查接头及漏气方法诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000250,控制管路,Component,HAS_FAULT,管路接错,FaultPhenomenon,控制管路可能出现接错故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000251,控制管路,Component,HAS_FAULT,管路漏气,FaultPhenomenon,控制管路可能出现漏气故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000252,控制面板,Component,DIAGNOSED_BY,检查控制面板指示灯及蜂鸣器的完好情况,DiagnosticMethod,控制面板通过试验按钮检查,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000253,操作单元,Equipment,HAS_COMPONENT,操作键盘,Component,操作单元布置有标准键盘,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000254,操作单元,Equipment,HAS_COMPONENT,轨迹球,Component,操作单元布置有轨迹球,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000255,操作面板,Component,DIAGNOSED_BY,检查遥控指示灯是否正常,DiagnosticMethod,操作面板状态通过检查指示灯诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000256,操纵台,Component,HAS_COMPONENT,“机旁”灯,Component,操纵台装机旁状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000257,操纵台,Component,HAS_COMPONENT,“遥控”灯,Component,操纵台装有遥控状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000258,操纵台,Component,HAS_COMPONENT,消音按钮,Component,操纵台装有消音按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000259,操纵台,Component,HAS_COMPONENT,电源转换开关,Component,操纵台装有电源转换开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000260,操纵台,Component,HAS_COMPONENT,试灯按钮,Component,操纵台装有试灯按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000261,操纵台,Component,HAS_COMPONENT,调光旋钮,Component,操纵台装有调光旋钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000262,操纵台,Component,HAS_COMPONENT,遥控、机旁开关,Component,操纵台包含遥控与机旁切换开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000263,操纵台,Component,HAS_COMPONENT,遥控、机旁转换开关,Component,操纵台装有模式转换开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000264,操纵器,Component,HAS_COMPONENT,旋钮,Component,操纵器包含调节旋钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000265,操纵器,Component,HAS_SAFETY_NOTE,调节该旋钮可防止振动转速禁区内长期运转,SafetyNote,操纵器旋钮调节的安全警示,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000266,操纵器,Component,REPAIRED_BY,微调操纵器的尾端 M8 螺丝,RepairMethod,操纵器通过微调 M8 螺丝进行维修调整,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000267,操纵部位转换必须通过辅车钟相互联系并得到应答确认,SafetyNote,RELATED_TO,辅车钟单元（ATE）,Component,安全注意涉及辅车钟单元的使用,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000268,故障停车,FaultPhenomenon,CAUSED_BY,超出危险的极限值,FaultCause,参数超出危险极限导致故障停车,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000269,故障停车,FaultPhenomenon,CAUSED_BY,重要参数出现故障,FaultCause,重要参数故障导致故障停车,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000270,故障停车,FaultPhenomenon,HAS_SAFETY_NOTE,主机重新起动并已达到空车转速,SafetyNote,故障停车恢复条件之一,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000271,故障停车,FaultPhenomenon,HAS_SAFETY_NOTE,引起故障停车的参数恢复正常,SafetyNote,故障停车恢复条件之一,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000272,故障停车,FaultPhenomenon,REPAIRED_BY,人工确认按下复位,RepairMethod,故障停车后需人工确认复位恢复,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000273,故障停车,FaultPhenomenon,REPAIRED_BY,按下越控按钮,RepairMethod,故障停车可通过越控按钮解除,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000274,故障降速,FaultPhenomenon,CAUSED_BY,超过预先的设令极限,FaultCause,参数超过预设极限导致故障降速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000275,故障降速,FaultPhenomenon,CAUSED_BY,重要参数出现故障,FaultCause,重要参数故障导致故障降速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000276,故障降速,FaultPhenomenon,REPAIRED_BY,人工确认按下复位,RepairMethod,故障降速后需人工确认复位恢复,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000277,故障降速,FaultPhenomenon,REPAIRED_BY,按下越控按钮,RepairMethod,故障降速可通过越控按钮解除,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000278,数据输出模块,Component,HAS_PARAMETER,DC24V,Parameter,数据输出模块电源输入电压为 DC24V,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000279,数据输出模块,Component,RELATED_TO,研华 R-8000 系列,Equipment,数据输出模块采用研华 R-8000 系列产品,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000280,数据采集通讯模块,Component,HAS_PARAMETER,DC24V,Parameter,数据采集通讯模块电源输入电压为 DC24V,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000281,数据采集通讯模块,Component,HAS_PARAMETER,RS-232,Parameter,数据采集通讯模块支持 RS-232 通讯方式,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000282,数据采集通讯模块,Component,HAS_PARAMETER,RS-485 通讯方式,Parameter,数据采集通讯模块支持 RS-485 通讯方式,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000283,数据采集通讯模块,Component,RELATED_TO,研华 R-8000 系列,Equipment,数据采集通讯模块采用研华 R-8000 系列产品,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000284,新荣达系列微型打印机,Equipment,BELONGS_TO,打印机,Equipment,新荣达系列微型打印机属于打印机设备类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000285,新荣达系列微型打印机,Equipment,HAS_COMPONENT,连续纸,Component,新荣达系列微型打印机使用连续纸作为耗材,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_9
+REL_000286,显示单元,Component,HAS_COMPONENT,显示器,Component,显示单元包含显示器,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_5
+REL_000287,显示操作面板,Component,HAS_COMPONENT,报警指示灯,Component,显示操作面板包含报警指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000288,显示操作面板,Component,HAS_COMPONENT,控制方式选择阀,Component,显示操作面板包含控制方式选择阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000289,机旁控制单元,Component,HAS_COMPONENT,机旁正车/空车/倒车三位置控制阀,Component,机旁控制单元包含三位置控制阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000290,机旁控制单元,Component,HAS_SAFETY_NOTE,机旁控制单元应尽量安装在调速器附近,SafetyNote,机旁控制单元安装位置要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000291,机旁控制单元,Component,RELATED_TO,液压调速器气动执行器,Component,机旁控制单元与气动执行器相关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000292,机旁操纵,DiagnosticMethod,RELATED_TO,遥控、机旁开关,Component,机旁操纵涉及遥控机旁开关的操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000293,机旁显示和控制单元,Component,HAS_COMPONENT,两位置转换气阀,Component,机旁显示和控制单元包含两位置转换气阀实现部位转换,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000294,机旁显示箱,Component,HAS_COMPONENT,控制方式选择开关,Component,机旁显示箱包含控制方式选择开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000295,机旁显示箱,Component,HAS_COMPONENT,控制方式选择阀,Component,机旁显示箱包含控制方式选择阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000296,机旁显示箱,Component,HAS_COMPONENT,正倒车控制阀,Component,机旁显示箱包含正倒车控制阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000297,机旁显示箱,Component,HAS_COMPONENT,正倒车操纵阀,Component,机旁显示箱包含正倒车操纵阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000298,机舱总线制监测报警系统,System,DIAGNOSED_BY,按下试验按钮所有指示灯全亮同时蜂鸣器有声响输出,DiagnosticMethod,系统工作状态通过按下试验按钮观察指示灯和蜂鸣器来诊断,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000299,机舱总线制监测报警系统,System,HAS_COMPONENT,16 路报警显示单元,Component,系统包含 16 路显示单元配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000300,机舱总线制监测报警系统,System,HAS_COMPONENT,16 路采集单元,Component,系统包含 16 路采集单元配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000301,机舱总线制监测报警系统,System,HAS_COMPONENT,24 路报警显示单元,Component,系统包含 24 路显示单元配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000302,机舱总线制监测报警系统,System,HAS_COMPONENT,24 路采集单元,Component,系统包含 24 路采集单元配置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_4
+REL_000303,机舱总线制监测报警系统,System,HAS_COMPONENT,外控声光继电器,Component,系统包含外控声光继电器组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000304,机舱总线制监测报警系统,System,HAS_COMPONENT,外控报警继电器,Component,系统包含外控报警继电器组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000305,机舱总线制监测报警系统,System,HAS_COMPONENT,报警数据采集模块,Component,系统包含报警数据采集模块,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000306,机舱总线制监测报警系统,System,HAS_COMPONENT,报警显示单元,Component,系统包含报警显示单元,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000307,机舱总线制监测报警系统,System,HAS_COMPONENT,指示灯,Component,系统包含指示灯组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000308,机舱总线制监测报警系统,System,HAS_COMPONENT,数据总线,Component,系统包含数据总线,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000309,机舱总线制监测报警系统,System,HAS_COMPONENT,消音键,Component,系统包含消音键组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000310,机舱总线制监测报警系统,System,HAS_COMPONENT,电源系统,Component,系统包含电源系统,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000311,机舱总线制监测报警系统,System,HAS_COMPONENT,蜂鸣器,Component,系统包含蜂鸣器组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000312,机舱总线制监测报警系统,System,HAS_COMPONENT,试验按钮,Component,系统包含试验按钮组件,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000313,机舱总线制监测报警系统,System,HAS_FAULT,液位超限,FaultPhenomenon,系统监测液位超限故障现象,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000314,机舱总线制监测报警系统,System,HAS_FAULT,电网绝缘故障,FaultPhenomenon,系统监测电网绝缘故障现象,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000315,机舱总线制监测报警系统,System,HAS_FAULT,超温超压,FaultPhenomenon,系统监测超温超压故障现象,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000316,机舱总线制监测报警系统,System,HAS_PARAMETER,工作环境温度 -10℃~+55℃,Parameter,系统具有该工作环境温度参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000317,机舱总线制监测报警系统,System,HAS_PARAMETER,工作电压 DC24V（±20%-30%）1A,Parameter,系统具有该工作电压参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000318,机舱总线制监测报警系统,System,HAS_PARAMETER,最大传输距离 1.2km,Parameter,系统通讯具有最大传输距离参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000319,机舱总线制监测报警系统,System,HAS_PARAMETER,最大传输速率 2.5Mb/s,Parameter,系统通讯具有最大传输速率参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_1
+REL_000320,机舱总线制监测报警系统,System,HAS_PARAMETER,相对湿度 ≤RH95% (+40℃),Parameter,系统具有该相对湿度参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000321,机舱总线制监测报警系统,System,HAS_PARAMETER,防护等级 IP22,Parameter,系统具有该防护等级参数,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000322,机舱总线制监测报警系统,System,HAS_SAFETY_NOTE,满足 SOLAS 公约,SafetyNote,系统具有该公约满足安全注意,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000323,机舱总线制监测报警系统,System,HAS_SAFETY_NOTE,电磁兼容性及抗干扰措施,SafetyNote,系统具有该电磁兼容安全注意,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000324,机舱总线制监测报警系统,System,HAS_SAFETY_NOTE,符合 IEC-92-230 标准,SafetyNote,系统具有该标准符合性安全注意,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000325,机舱总线制监测报警系统,System,HAS_SAFETY_NOTE,防振防潮湿防盐雾防霉菌措施,SafetyNote,系统具有该环境防护安全注意,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_2
+REL_000326,机舱控制箱,Component,HAS_COMPONENT,“机旁”灯,Component,机舱控制箱装机旁状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000327,机舱控制箱,Component,HAS_COMPONENT,“遥控”灯,Component,机舱控制箱装有遥控状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000328,机舱控制箱,Component,HAS_COMPONENT,倒车灯,Component,机舱控制箱装有倒车状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000329,机舱控制箱,Component,HAS_COMPONENT,复位按钮,Component,机舱控制箱上装有复位按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000330,机舱控制箱,Component,HAS_COMPONENT,报警指示灯板,Component,机舱控制箱包含报警指示灯板,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000331,机舱控制箱,Component,HAS_COMPONENT,指示灯,Component,机舱控制箱包含复位按钮指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000332,机舱控制箱,Component,HAS_COMPONENT,机旁控制单元,Component,机舱控制箱包含机旁控制单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000333,机舱控制箱,Component,HAS_COMPONENT,机旁的显示控制板,Component,机舱控制箱包含机旁的显示控制板,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000334,机舱控制箱,Component,HAS_COMPONENT,空车灯,Component,机舱控制箱装有空车状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000335,机舱控制箱,Component,HAS_COMPONENT,辅车钟单元（ATE）,Component,机舱控制箱包含辅车钟单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000336,机舱控制箱,Component,HAS_COMPONENT,遥控、机旁转换开关,Component,机舱控制箱装有模式转换开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000337,机舱控制箱,Component,HAS_COMPONENT,顺车灯,Component,机舱控制箱装有顺车状态指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000338,机舱控制箱,Component,HAS_PARAMETER,防护等级 IP22,Parameter,机舱控制箱防护等级参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000339,机舱控制箱,Component,HAS_SAFETY_NOTE,不影响主机操作,SafetyNote,机舱控制箱安装不得影响主机操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000340,机舱控制箱,Component,HAS_SAFETY_NOTE,便于操作处,SafetyNote,机舱控制箱安装需便于操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000341,机舱控制箱,Component,HAS_SAFETY_NOTE,便于操作维修,SafetyNote,机舱控制箱安装需便于操作维修,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000342,机舱控制箱,Component,HAS_SAFETY_NOTE,安装于距离主机调速手柄较近,SafetyNote,机舱控制箱安装需靠近主机调速手柄,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000343,机舱控制箱,Component,HAS_SAFETY_NOTE,控制箱阀箱靠近主机安装,SafetyNote,机舱控制箱应靠近主机安装,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000344,机舱控制箱,Component,RELATED_TO,主机调速手柄,Component,机舱控制箱安装位置参考主机调速手柄,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14
+REL_000345,机舱监视台,Component,HAS_COMPONENT,联络驾驶室按钮,Component,机舱监视台装有联络驾驶室按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000346,机舱阀箱,Component,HAS_COMPONENT,控制位置转换气阀,Component,机舱阀箱内部包含控制位置转换气阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000347,机舱阀箱,Component,HAS_COMPONENT,机旁控制阀,Component,机舱阀箱面板上设有机旁控制阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000348,机舱阀箱,Component,HAS_COMPONENT,正倒车控制电磁阀,Component,机舱阀箱内部包含正倒车控制电磁阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000349,机舱阀箱,Component,HAS_COMPONENT,电/气转换器 (I/P),Component,机舱阀箱内部包含电/气转换器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000350,机舱阀箱,Component,HAS_SAFETY_NOTE,安装于机舱控制箱旁,SafetyNote,机舱阀箱需安装在机舱控制箱旁边,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000351,检测点的当前参数,Parameter,HAS_FAULT,参数越限,FaultPhenomenon,检测参数超过设定限值时产生故障现象,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000352,检测点的当前参数,Parameter,RELATED_TO,VDR,Equipment,采集的参数信息传送给 VDR 设备,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_2
+REL_000353,正倒车控制阀,Component,RELATED_TO,空车,Parameter,正倒车控制阀可扳至空车位置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000354,正车工作油压控制器,Component,HAS_COMPONENT,常开触点,Component,正车工作油压控制器包含常开触点,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000355,气体泄漏,FaultPhenomenon,DIAGNOSED_BY,1.25 倍额定气压试验,DiagnosticMethod,通过气压试验诊断气体泄漏,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000356,气压转速设定机构,Component,RELATED_TO,膜式执行器,Component,设定机构通过膜式执行器推动,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000357,气容,Component,REPAIRED_BY,放掉气瓶和气容内的杂质和水份,RepairMethod,气容通过放掉杂质和水份进行维护,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000358,气源处理装置,Component,HAS_COMPONENT,减压阀,Component,气源处理装置包含减压阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000359,气源处理装置,Component,HAS_COMPONENT,开关阀（二位三通阀）,Component,气源处理装置包含开关阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000360,气源处理装置,Component,HAS_COMPONENT,油雾气,Component,气源处理装置包含油雾气,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000361,气源处理装置,Component,HAS_COMPONENT,虑气阀,Component,气源处理装置包含虑气阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000362,气源处理装置,Component,HAS_PARAMETER,输入压力 1MPa,Parameter,气源处理装置的输入压力参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000363,气源处理装置,Component,HAS_PARAMETER,输出压力 0.6MPa,Parameter,气源处理装置的输出压力参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000364,气源处理装置,Component,HAS_SAFETY_NOTE,气源处理装置靠近低压气瓶布置,SafetyNote,气源处理装置应靠近低压气瓶安装,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000365,气源处理装置,Component,RELATED_TO,低压气瓶,Component,气源处理装置连接低压气瓶,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000366,气源处理装置,Component,RELATED_TO,机舱遥控专用低压气瓶,Component,气源处理装置与低压气瓶位置相关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000367,气源处理装置,Component,RELATED_TO,机舱阀箱,Component,气源处理装置输出至机舱阀箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000368,气源处理装置,Component,RELATED_TO,遥控系统,System,气源处理装置服务于遥控系统,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000369,气源失压,FaultCause,CAUSED_BY,声光报警,FaultPhenomenon,气源失压导致声光报警,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000370,气源失压,FaultCause,CAUSED_BY,遥控系统失效,FaultPhenomenon,气源失压导致遥控系统失效,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000371,气源装置,Component,DIAGNOSED_BY,检查气源装置的控制空气压力,DiagnosticMethod,气源装置通过检查控制空气压力进行诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000372,气源装置,Component,HAS_COMPONENT,过滤器,Component,气源装置包含过滤器部件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000373,气源装置,Component,HAS_PARAMETER,控制空气压力,Parameter,气源装置具有控制空气压力参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000374,气瓶,Component,REPAIRED_BY,放掉气瓶和气容内的杂质和水份,RepairMethod,气瓶通过放掉杂质和水份进行维护,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000375,油压传感器,Component,RELATED_TO,齿轮箱顺、倒车合排信号,Parameter,油压传感器用于生成齿轮箱顺倒车合排信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_17
+REL_000376,测速传感器,Component,BELONGS_TO,传感器,Component,测速传感器属于传感器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000377,测速齿盘,Component,BELONGS_TO,尾轴,Component,测速齿盘属于尾轴部件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000378,测量精度,Parameter,RELATED_TO,传感器,Component,测量精度指标不包含传感器误差,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000379,测量精度,Parameter,RELATED_TO,变送器,Component,测量精度指标不包含变送器误差,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000380,液位变送器,Component,BELONGS_TO,变送器,Component,液位变送器属于变送器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000381,液压离合器,Component,HAS_COMPONENT,控制导阀,Component,液压离合器包含控制导阀用于接收气信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000382,液压离合器,Component,HAS_SAFETY_NOTE,合排时主机与螺旋桨尾轴之间的转速差不能太大,SafetyNote,离合器合排时的转速差限制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000383,液压调速器气动执行器,Component,HAS_COMPONENT,调节旋钮,Component,气动执行器上有调节旋钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000384,热电偶,Component,BELONGS_TO,传感器,Component,热电偶属于传感器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000385,热电阻,Component,BELONGS_TO,传感器,Component,热电阻属于传感器类别,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000386,热电阻,Component,HAS_PARAMETER,Pt100,Parameter,热电阻具有 Pt100 规格参数,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000387,电源,Equipment,HAS_PARAMETER,24V,Parameter,电源提供 24V 工作电压,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000388,电源,Component,HAS_PARAMETER,电压波动,Parameter,电源组件具有电压波动限制,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000389,电源,Component,HAS_PARAMETER,电源电压,Parameter,电源组件具有电压参数要求,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000390,电源,Component,HAS_PARAMETER,纹波系数,Parameter,电源组件具有纹波系数指标,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_3
+REL_000391,电源单元,Component,HAS_COMPONENT,电源接线模块,Component,电源单元包含电源接线模块，细化检修定位,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000392,电源系统,System,HAS_COMPONENT,一体化开关电源,Component,电源系统包含一体化开关电源,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000393,电源系统,System,HAS_COMPONENT,蓄电池 DC24V 电源,Component,电源系统包含蓄电池 DC24V 电源,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000394,电源系统,Component,HAS_PARAMETER,电源线截面积不小于 1mm^2,Parameter,电源线的截面积参数要求,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000395,电源系统,System,HAS_PARAMETER,电源自动转换,Parameter,电源系统具备电源自动转换功能,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000396,电源系统,Component,HAS_SAFETY_NOTE,极性不能接反,SafetyNote,电源系统接线的安全注意事项,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000397,电源系统,System,HAS_SAFETY_NOTE,极性保护,SafetyNote,电源系统带极性保护功能,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15
+REL_000398,磁电式传感器,Component,BELONGS_TO,测速传感器,Component,磁电式传感器属于测速传感器的一种,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_4
+REL_000399,空气过滤器,Component,HAS_PARAMETER,空气过滤器精度≤50μm,Parameter,空气过滤器具有特定的过滤精度,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6
+REL_000400,管路堵塞,FaultPhenomenon,CAUSED_BY,管内杂物,FaultCause,管内杂物导致管路堵塞,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000401,管路堵塞,FaultPhenomenon,REPAIRED_BY,高压气体吹净管内杂物,RepairMethod,通过高压气体吹扫排除堵塞隐患,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000402,管路接头,Component,HAS_FAULT,接头松动,FaultPhenomenon,管路接头可能出现松动故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000403,精密压力阀,Component,HAS_PARAMETER,起始输出压力 0.05 Mpa,Parameter,精密压力阀起始输出压力设定为 0.05Mpa,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000404,紧急停车按钮,Component,REPAIRED_BY,紧急停车按钮复位,RepairMethod,紧急停车按钮操作后需复位恢复,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000405,紧急状况,FaultPhenomenon,CAUSED_BY,气源中断,FaultCause,紧急状况由气源中断引起,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000406,紧急状况,FaultPhenomenon,CAUSED_BY,电源中断,FaultCause,紧急状况由电源中断引起,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000407,紧急状况,FaultPhenomenon,REPAIRED_BY,人工操纵调速器气动执行器上的调节旋钮,RepairMethod,紧急状况下可通过人工操纵调节旋钮处理,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000408,紧急状况,FaultPhenomenon,REPAIRED_BY,直接扳动液压离合器上的控制导阀的手柄,RepairMethod,紧急状况下可通过直接扳动控制导阀手柄处理,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000409,组合灯扳,Component,HAS_COMPONENT,遥控系统指示灯,Component,组合灯扳上装有遥控指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000410,联络指示灯,Component,HAS_SAFETY_NOTE,操作人员可根据实际情况，规定使用联络按钮的方法和暗号,SafetyNote,联络按钮使用的安全管理要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000411,膜式执行器,Component,HAS_COMPONENT,旋钮,Component,膜式执行器包含旋钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000412,膜片执行器,Component,BELONGS_TO,主机遥控装置,Equipment,膜片执行器属于主机遥控装置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000413,膜片执行器,Component,HAS_COMPONENT,机械连杆,Component,膜片执行器由机械连杆组成,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000414,膜片执行器,Component,HAS_COMPONENT,液压杠杆调速器,Component,膜片执行器由液压杠杆调速器组成,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000415,膜片执行器,Component,HAS_COMPONENT,膜片气缸,Component,膜片执行器由膜片气缸组成,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000416,膜片执行器,Component,RELATED_TO,主机调速器,Equipment,膜片执行器控制主机调速器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000417,膜片执行器,Component,RELATED_TO,主机转速,Parameter,膜片执行器控制主机转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16
+REL_000418,膜片执行器连杆,Component,REPAIRED_BY,调节膜片执行器连杆,RepairMethod,膜片执行器连杆通过调节进行维修,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000419,膜片执行机构,Component,RELATED_TO,主机调速器,Equipment,膜片执行机构驱动主机调速器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000420,船用双芯通讯双绞屏蔽电缆,Component,HAS_PARAMETER,电缆截面积不小于 0.75mm^2,Parameter,该电缆的截面积参数要求,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_6
+REL_000421,船舶电气设备,Equipment,HAS_PARAMETER,工作电压,Parameter,设备的工作电压参数要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000422,船舶电气设备,Equipment,HAS_PARAMETER,环境温度,Parameter,设备的环境温度参数要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000423,船舶电气设备,Equipment,HAS_PARAMETER,相对湿度,Parameter,设备的相对湿度参数要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000424,船舶电气设备,Equipment,HAS_PARAMETER,防护等级,Parameter,设备的防护等级参数要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000425,船舶电气设备,Equipment,HAS_SAFETY_NOTE,国际海上人命安全公约,SafetyNote,设备需满足的国际安全公约,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000426,船舶电气设备,Equipment,HAS_SAFETY_NOTE,抗干扰措施,SafetyNote,设备需具备的抗干扰安全要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000427,船舶电气设备,Equipment,HAS_SAFETY_NOTE,符合 IEC-92-230 标准,SafetyNote,设备需符合的国际电工标准,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000428,船舶电气设备,Equipment,HAS_SAFETY_NOTE,符合钢质海船舶入级与建造规范及船级社规定,SafetyNote,设备需符合的国内海船规范,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000429,船舶电气设备,Equipment,HAS_SAFETY_NOTE,防振防潮湿防盐雾防霉菌措施,SafetyNote,设备需具备的防护安全要求,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_1
+REL_000430,螺旋桨转向与遥控指令不符,FaultPhenomenon,REPAIRED_BY,主机转速自动降到怠速状态,RepairMethod,错向故障通过自动降速处理,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000431,装置表面损坏,FaultPhenomenon,CAUSED_BY,铁屑、焊渣、灰尘,FaultCause,铁屑焊渣灰尘导致装置表面损坏,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000432,装置表面损坏,FaultPhenomenon,REPAIRED_BY,装置安装后用滞燃帆布罩住,SafetyNote,通过覆盖帆布防止装置表面损坏,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000433,计算机监控系统,System,HAS_COMPONENT,LCD,Component,计算机监控系统包含 LCD 显示屏,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000434,设置地址码,DiagnosticMethod,HAS_SAFETY_NOTE,必须在通电情况下,SafetyNote,设置地址码时必须在通电状态下操作,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000435,设置地址码,DiagnosticMethod,REPAIRED_BY,把 S1 的 2，3 短接,RepairMethod,设置地址码需通过短接 S1 的 2、3 脚实现,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000436,该阀的位置不变,SafetyNote,CAUSED_BY,三口气源同时失气,FaultPhenomenon,失气故障触发阀门位置保持不变的安全机制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000437,调速器气动执行器,Component,HAS_COMPONENT,调节旋钮,Component,调速器气动执行器包含调节旋钮用于人工调整,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000438,调速机构的调整,DiagnosticMethod,HAS_SAFETY_NOTE,调整调速机构时，可将电源关闭，接通气源进行调整。如需通电时，需有齿轮箱油压信号输出，否则膜片执行器没有位移输出，柴油机速度不能增加,SafetyNote,调速机构调整时的电源气源安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000439,调速机构的调整,DiagnosticMethod,RELATED_TO,膜片执行器,Component,调速机构调整涉及膜片执行器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000440,调速机构的调整,DiagnosticMethod,REPAIRED_BY,将电源关闭，接通气源进行调整,RepairMethod,调速机构调整的具体操作步骤,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000441,调速机构的调整,DiagnosticMethod,REPAIRED_BY,调节膜片执行器连接杠杆与主机调试手柄的比例,RepairMethod,调速机构调整通过调节杠杆比例实现,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000442,超速,FaultPhenomenon,CAUSED_BY,主机转速高于超速设定值,FaultCause,超速故障由主机转速超过超速设定值引起,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000443,转速测量显示单元（SM）,Component,HAS_COMPONENT,主机飞轮,Component,测量主机转速的 SM 配置包含主机飞轮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000444,转速测量显示单元（SM）,Component,HAS_COMPONENT,测速探头,Component,转速测量显示单元包含测速探头,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000445,转速测量显示单元（SM）,Component,HAS_COMPONENT,测速齿盘,Component,测量尾轴转速的 SM 配置包含测速齿盘,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000446,转速测量显示单元（SM）,Component,RELATED_TO,主机,Equipment,转速测量显示单元用于测量主机转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000447,转速测量显示单元（SM）,Component,RELATED_TO,尾轴,Component,转速测量显示单元用于测量尾轴转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13
+REL_000448,辅车钟单元（ATE）,Component,HAS_COMPONENT,切换开关,Component,机旁辅车钟单元上设有切换开关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000449,辅车钟单元（ATE）,Component,RELATED_TO,中央集控站,Component,辅车钟单元用于中央集控站的联系,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000450,辅车钟单元（ATE）,Component,RELATED_TO,主推进装置,Equipment,辅车钟单元用于主推进装置附近的联系,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000451,辅车钟单元（ATE）,Component,RELATED_TO,机旁,Parameter,辅车钟单元用于机旁位置的联系,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000452,辅车钟单元（ATE）,Component,RELATED_TO,遥控控制站,Component,辅车钟单元用于遥控控制站的联系,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12
+REL_000453,过滤器,Component,REPAIRED_BY,放掉过滤器中的杂质和水份,RepairMethod,过滤器通过放掉杂质和水份进行维护,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000454,进口阀件,Component,HAS_FAULT,阀件损坏,FaultPhenomenon,阀件可能发生损坏故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000455,通讯灯将不闪烁,FaultPhenomenon,CAUSED_BY,没有收到主控单元的信息,FaultCause,通讯灯不闪烁由未收到主控信息引起,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000456,通讯线,Component,RELATED_TO,主机机旁控制箱,Equipment,通讯线连接至主机机旁控制箱,柴油机智能延伸检测单元说明书,柴油机智能延伸检测单元说明书::chunk_4
+REL_000457,遥控台,Component,HAS_COMPONENT,联络监视室按钮,Component,遥控台装有联络监视室按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000458,遥控台,Component,HAS_PARAMETER,防护等级 IP22,Parameter,遥控台防护等级参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000459,遥控台,Component,HAS_SAFETY_NOTE,遥控台布置在驾驶室内,SafetyNote,遥控台应安装在驾驶室内,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000460,遥控操纵,DiagnosticMethod,RELATED_TO,遥控、机旁开关,Component,遥控操纵涉及遥控机旁开关的操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000461,遥控操纵台,Component,HAS_COMPONENT,操纵器手柄,Component,遥控操纵台包含操纵器手柄,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000462,遥控操纵器（MH）,Component,HAS_PARAMETER,操纵档位九档制,Parameter,遥控操纵器输出的指令档位数量参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000463,遥控操纵器（MH）,Component,HAS_PARAMETER,无级方式,Parameter,遥控操纵器支持的连续调速操作模式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000464,遥控操纵器（MH）,Component,HAS_PARAMETER,有级方式,Parameter,遥控操纵器支持的分档操作模式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000465,遥控操纵器（MH）,Component,HAS_PARAMETER,空车,Parameter,遥控操纵器手柄可置于空车位置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000466,遥控操纵器（MH）,Component,HAS_PARAMETER,转速指令信号,Parameter,遥控操纵器主要功能输出的转速控制信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000467,遥控操纵器（MH）,Component,HAS_PARAMETER,转速指令设定值,Parameter,遥控操纵器各档位转速指令可设定修改的参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000468,遥控操纵器（MH）,Component,HAS_PARAMETER,防护等级 IP22,Parameter,遥控操纵器具备的环境防护等级参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000469,遥控操纵器（MH）,Component,HAS_PARAMETER,齿轮箱离合器正倒转指令信号,Parameter,遥控操纵器主要功能输出的离合及转向控制信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10
+REL_000470,遥控操纵器（MH）,Component,HAS_SAFETY_NOTE,完车前,SafetyNote,完车前需将遥控操纵器手柄放回空车位置,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000471,遥控操纵器（MH）,Component,RELATED_TO,主控单元,Component,遥控操纵器命令发至主控制单元,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000472,遥控操纵器（MH）,Component,RELATED_TO,主机,Equipment,遥控操纵器发出指令控制主机转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000473,遥控操纵器（MH）,Component,REPAIRED_BY,打开遥控电源,RepairMethod,使用遥控操纵器前需打开遥控电源,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000474,遥控显示控制板（ICP）,Component,HAS_COMPONENT,两位置转换气阀,Component,遥控控制面板连接两位置转换气阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19
+REL_000475,遥控显示控制板（ICP）,Component,HAS_COMPONENT,安全越控带灯按钮,Component,遥控显示控制板包含安全越控带灯按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000476,遥控显示控制板（ICP）,Component,HAS_COMPONENT,应急停车带灯按钮,Component,遥控显示控制板包含应急停车带灯按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000477,遥控显示控制板（ICP）,Component,HAS_COMPONENT,试灯按钮,Component,遥控显示控制板包含试灯按钮,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000478,遥控显示控制板（ICP）,Component,HAS_PARAMETER,倒车,Parameter,遥控显示控制板显示倒车工作状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000479,遥控显示控制板（ICP）,Component,HAS_PARAMETER,机旁,Parameter,遥控显示控制板显示机旁操纵方式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000480,遥控显示控制板（ICP）,Component,HAS_PARAMETER,正车,Parameter,遥控显示控制板显示正车工作状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000481,遥控显示控制板（ICP）,Component,HAS_PARAMETER,空车,Parameter,遥控显示控制板显示空车工作状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000482,遥控显示控制板（ICP）,Component,HAS_PARAMETER,驾控,Parameter,遥控显示控制板显示驾控操纵方式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000483,遥控显示控制板（ICP）,Component,RELATED_TO,主推进装置,Equipment,遥控显示控制板显示主推进装置的实际工作状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000484,遥控显示控制板（ICP）,Component,RELATED_TO,遥控系统,System,遥控显示控制板显示遥控系统的操纵方式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11
+REL_000485,遥控电源,Component,REPAIRED_BY,关闭遥控电源,RepairMethod,完车后需关闭遥控电源,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000486,遥控系统,System,HAS_COMPONENT,AH/IDLE/AST 三位置气动操纵阀,Component,遥控系统包含三位置气动操纵阀用于机旁控制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000487,遥控系统,System,HAS_COMPONENT,操纵台,Component,遥控系统包含操纵台,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000488,遥控系统,System,HAS_COMPONENT,机舱控制箱,Component,遥控系统包含机舱控制箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000489,遥控系统,System,HAS_COMPONENT,液压离合器,Component,遥控系统包含液压离合器作为执行部件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000490,遥控系统,System,HAS_COMPONENT,调速器气动执行器,Component,遥控系统包含调速器气动执行器用于转速控制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000491,遥控系统,System,HAS_COMPONENT,阀箱,Component,遥控系统包含阀箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000492,遥控系统,System,HAS_COMPONENT,齿轮箱油压检测板,Component,遥控系统包含齿轮箱油压检测板作为选配组件,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_17
+REL_000493,遥控系统,System,HAS_SAFETY_NOTE,安装后一般性检查,SafetyNote,遥控系统安装后需进行一般性检查,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000494,遥控系统,System,HAS_SAFETY_NOTE,操纵部位转换必须通过辅车钟相互联系并得到应答确认,SafetyNote,遥控系统操纵部位转换需遵守的安全注意,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000495,遥控系统,System,RELATED_TO,安全系统,System,遥控系统与安全系统独立但相关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000496,遥控系统,System,RELATED_TO,车钟系统,System,遥控系统与车钟系统独立但相关,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18
+REL_000497,遥控系统失效,FaultPhenomenon,REPAIRED_BY,转机旁操作,RepairMethod,遥控失效需转机旁操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20
+REL_000498,遥控系统控制参数,Parameter,REPAIRED_BY,控制参数现场调整,RepairMethod,控制参数可通过现场调整方法进行维护,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5
+REL_000499,遥控系统管路,Component,HAS_COMPONENT,\Phi 8 \times 1 紫铜管,Component,管路由紫铜管构成,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000500,遥控系统管路,Component,HAS_FAULT,气体泄漏,FaultPhenomenon,管路可能发生气体泄漏故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000501,遥控系统管路,Component,HAS_FAULT,管路堵塞,FaultPhenomenon,管路可能发生堵塞故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000502,遥控系统管路,Component,HAS_PARAMETER,管路弯曲半径大于 3 倍管径,Parameter,管路弯曲半径需满足参数要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000503,遥控装置,Equipment,HAS_COMPONENT,继电器,Component,遥控装置通过继电器控制齿轮箱,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000504,遥控装置,Equipment,HAS_FAULT,安全越控,FaultPhenomenon,遥控装置可能产生安全越控指示,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000505,遥控装置,Equipment,HAS_FAULT,应急停车,FaultPhenomenon,遥控装置可能产生应急停车指示,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000506,遥控装置,Equipment,HAS_FAULT,故障停车,FaultPhenomenon,遥控装置可能产生故障停车指示,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000507,遥控装置,Equipment,HAS_FAULT,故障降速,FaultPhenomenon,遥控装置可能产生故障降速指示,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000508,遥控装置,Equipment,HAS_FAULT,超速,FaultPhenomenon,遥控装置可能产生超速故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000509,遥控装置,Equipment,HAS_FAULT,错向,FaultPhenomenon,遥控装置可能产生错向故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000510,遥控装置,Equipment,RELATED_TO,主机,Equipment,遥控装置控制主机转速,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000511,遥控装置,Equipment,RELATED_TO,应急操纵按钮,Component,遥控装置接受应急操纵按钮的命令,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000512,遥控装置,Equipment,RELATED_TO,紧急停车按钮,Component,遥控装置接受应急停车按钮的命令,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000513,遥控装置,Equipment,RELATED_TO,齿轮箱,Equipment,遥控装置控制齿轮箱动作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000514,遥控装置,Equipment,REPAIRED_BY,控制齿轮箱的合排和脱排,RepairMethod,遥控装置执行齿轮箱合排脱排控制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000515,遥控装置,Equipment,REPAIRED_BY,齿轮箱换向,RepairMethod,遥控装置执行齿轮箱换向控制,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000516,遥控面板,Component,DIAGNOSED_BY,检查遥控面板显示是否正常,DiagnosticMethod,遥控面板通过检查显示状态进行诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000517,遥控面板,Component,HAS_FAULT,报警显示,FaultPhenomenon,遥控面板可能出现报警显示的故障现象,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000518,采集单元,Component,RELATED_TO,设置地址码,DiagnosticMethod,采集单元需要进行地址码设置,机舱总线制监测报警使用说明书,机舱总线制监测报警使用说明书::chunk_3
+REL_000519,采集模块,Component,HAS_COMPONENT,内部的数据处理单元,Component,采集模块内部包含数据处理单元,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000520,采集模块,Component,HAS_PARAMETER,DC24V,Parameter,采集模块电源输入电压为 DC24V,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000521,采集模块,Component,RELATED_TO,SCHPEIDER 系列,Equipment,采集模块可采用 SCHPEIDER 系列产品,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000522,采集模块,Component,RELATED_TO,数据采集通讯模块,Component,采集模块将处理后的数据发送给数据采集通讯模块,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000523,采集模块,Component,RELATED_TO,研华 R-8000 系列,Equipment,采集模块采用研华 R-8000 系列产品,机舱微机监测报警系统说明书,机舱微机监测报警系统说明书::chunk_8
+REL_000524,错向,FaultPhenomenon,CAUSED_BY,操纵器命令和齿轮箱转向不一致,FaultCause,错向故障由操纵器命令和齿轮箱转向不一致引起,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000525,错向,FaultPhenomenon,CAUSED_BY,操纵手柄指令与换向执行机构的动作不一致,FaultCause,操纵指令与执行动作不一致导致错向,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000526,错向,FaultPhenomenon,DIAGNOSED_BY,遥控装置,Equipment,错向故障由遥控装置进行判别,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000527,错向,FaultPhenomenon,HAS_COMPONENT,错向指示灯,Component,错向故障对应错向指示灯状态,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000528,错向,FaultPhenomenon,HAS_FAULT,错向断开调速回路,FaultPhenomenon,错向故障会导致调速回路断开,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000529,错向,FaultPhenomenon,HAS_PARAMETER,延时 15S,Parameter,错向故障判定涉及 15 秒延时参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000530,错向,FaultPhenomenon,REPAIRED_BY,关闭报警指示灯,RepairMethod,错向故障恢复正常后系统关闭报警指示灯,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000531,错向,FaultPhenomenon,REPAIRED_BY,切断调速回路,RepairMethod,错向故障发生后系统切断调速回路,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000532,错向,FaultPhenomenon,REPAIRED_BY,操作消音按钮,RepairMethod,错向报警可通过按消音按钮消除声响,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26
+REL_000533,错向,FaultPhenomenon,REPAIRED_BY,自动消声,RepairMethod,错向故障恢复正常后系统自动消声,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21
+REL_000534,阀件,Component,DIAGNOSED_BY,检查每个阀件的动作是否灵活,DiagnosticMethod,阀件通过检查动作灵活性进行诊断,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000535,阀件,Component,REPAIRED_BY,更换阀件,RepairMethod,阀件出现问题后通过更换进行维修,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000536,阀件损坏,FaultPhenomenon,CAUSED_BY,管路堵塞,FaultPhenomenon,管路堵塞导致阀件损坏,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4
+REL_000537,阀箱,Component,HAS_COMPONENT,控制阀,Component,阀箱包含控制阀,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24
+REL_000538,阀箱,Component,HAS_COMPONENT,过滤器,Component,阀箱内部包含过滤器,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000539,阀箱,Component,HAS_PARAMETER,防护等级 IP22,Parameter,阀箱防护等级参数,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2
+REL_000540,阀箱,Component,HAS_SAFETY_NOTE,不影响主机操作,SafetyNote,阀箱安装不得影响主机操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000541,阀箱,Component,HAS_SAFETY_NOTE,便于操作维修,SafetyNote,阀箱安装需便于操作维修,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000542,阀箱,Component,HAS_SAFETY_NOTE,控制箱阀箱靠近主机安装,SafetyNote,阀箱应靠近主机安装,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3
+REL_000543,阀箱,Component,REPAIRED_BY,放掉阀箱内过滤器中的杂质和水份,RepairMethod,阀箱通过放掉内过滤器杂质和水份进行维护,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27
+REL_000544,驾控台,Component,HAS_PARAMETER,驾控,Parameter,驾控台可选择驾控模式,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23
+REL_000545,驾驶台航行值班报警系统,System,HAS_COMPONENT,主控单元,Component,系统包含主控单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000546,驾驶台航行值班报警系统,System,HAS_COMPONENT,值班官员延伸单元,Component,系统包含值班官员延伸单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000547,驾驶台航行值班报警系统,System,HAS_COMPONENT,左右翼复位单元,Component,系统包含左右翼复位单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000548,驾驶台航行值班报警系统,System,HAS_COMPONENT,报警延伸选择单元,Component,系统包含报警延伸选择单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000549,驾驶台航行值班报警系统,System,HAS_COMPONENT,热释传感器自动复位单元,Component,系统包含热释传感器自动复位单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000550,驾驶台航行值班报警系统,System,HAS_COMPONENT,电源单元,Component,系统包含电源单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000551,驾驶台航行值班报警系统,System,HAS_COMPONENT,输出接线单元,Component,系统包含输出接线单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000552,驾驶台航行值班报警系统,System,HAS_COMPONENT,驾驶室复位单元,Component,系统包含驾驶室复位单元，检修时需定位该部件,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3
+REL_000553,驾驶台航行值班报警系统,System,HAS_FAULT,声音报警,FaultPhenomenon,系统可能触发的声音报警现象,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000554,驾驶台航行值班报警系统,System,HAS_FAULT,紧急呼叫,FaultPhenomenon,系统可能触发的紧急呼叫状态,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000555,驾驶台航行值班报警系统,System,HAS_FAULT,视觉报警,FaultPhenomenon,系统可能触发的视觉报警现象,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000556,驾驶台航行值班报警系统,System,HAS_FAULT,驾驶台值班故障,FaultPhenomenon,系统可能出现的故障现象,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000557,驾驶台航行值班报警系统,System,HAS_PARAMETER,VDR 输出 RS485,Parameter,系统通过 RS485 接口向 VDR 输出数据,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6
+REL_000558,驾驶台航行值班报警系统,System,HAS_PARAMETER,值班待机状态,Parameter,系统运行时的待机状态参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000559,驾驶台航行值班报警系统,System,HAS_PARAMETER,值班激活状态,Parameter,系统运行时的激活状态参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000560,驾驶台航行值班报警系统,System,HAS_PARAMETER,公共区域报警通道数 1,Parameter,系统具备公共区域报警通道数量参数，用于配置核对,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_5
+REL_000561,驾驶台航行值班报警系统,System,HAS_PARAMETER,官员舱室报警通道数 4,Parameter,系统具备官员舱室报警通道数量参数，用于配置核对,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_5
+REL_000562,驾驶台航行值班报警系统,System,HAS_PARAMETER,导航自动复位信号输入通道,Parameter,系统具有导航自动复位信号输入通道,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000563,驾驶台航行值班报警系统,System,HAS_PARAMETER,工作环境温度 -10°C~+55°C,Parameter,系统具有特定的工作环境温度要求,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000564,驾驶台航行值班报警系统,System,HAS_PARAMETER,工作电压 DC24V,Parameter,系统具有特定的工作电压参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000565,驾驶台航行值班报警系统,System,HAS_PARAMETER,异或校验和 ASC 码,Parameter,系统数据通信采用的校验参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000566,驾驶台航行值班报警系统,System,HAS_PARAMETER,手动模式,Parameter,系统运行的手动模式参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000567,驾驶台航行值班报警系统,System,HAS_PARAMETER,无源触点最大容量 DC36V/2A,Parameter,系统无源触点具备特定的电气容量限制,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6
+REL_000568,驾驶台航行值班报警系统,System,HAS_PARAMETER,电磁兼容性能,Parameter,系统具有电磁兼容性能指标,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000569,驾驶台航行值班报警系统,System,HAS_PARAMETER,相对湿度 ≤RH95% (+40℃),Parameter,系统具有特定的环境湿度要求,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000570,驾驶台航行值班报警系统,System,HAS_PARAMETER,自动模式,Parameter,系统运行的自动模式参数,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8
+REL_000571,驾驶台航行值班报警系统,System,HAS_PARAMETER,自动舵遥控启动输入,Parameter,系统具有自动舵遥控启动输入接口,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000572,驾驶台航行值班报警系统,System,HAS_PARAMETER,通用报警输出无源触点,Parameter,系统具备通用报警输出类型参数，用于接线维护指导,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_5
+REL_000573,驾驶台航行值班报警系统,System,HAS_PARAMETER,防护等级 IP22,Parameter,系统主机具有特定的环境防护等级,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6
+REL_000574,驾驶台航行值班报警系统,System,HAS_PARAMETER,防振防潮湿防盐雾防霉菌措施,Parameter,系统具有环境防护设计措施,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000575,驾驶台航行值班报警系统,System,HAS_PARAMETER,驾驶室复位输入输出通道,Parameter,系统具有驾驶室复位输入输出通道,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4
+REL_000576,驾驶台航行值班报警系统,System,RELATED_TO,VDR,System,报警系统与航行数据记录仪存在数据交互关系,GC WAS-01 驾驶室船舶值班报警系统说明书,GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6
+REL_000577,齿轮箱,Equipment,HAS_PARAMETER,6-8 秒,Parameter,齿轮箱换向合排时间参数为 6-8 秒,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000578,齿轮箱,Equipment,HAS_PARAMETER,延时 2 秒,Parameter,齿轮箱脱排延时参数为 2 秒,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25
+REL_000579,齿轮箱,Equipment,REPAIRED_BY,控制齿轮箱的合排和脱排,RepairMethod,齿轮箱通过控制齿轮箱的合排和脱排步骤进行操作,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22
+REL_000580,齿轮箱换向控制阀,Component,HAS_COMPONENT,倒车控制口,Component,换向控制阀包含倒车控制口,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000581,齿轮箱换向控制阀,Component,HAS_COMPONENT,停车控制口,Component,换向控制阀包含停车控制口,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000582,齿轮箱换向控制阀,Component,HAS_COMPONENT,正车控制口,Component,换向控制阀包含正车控制口,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000583,齿轮箱换向控制阀,Component,HAS_FAULT,三口气源同时失气,FaultPhenomenon,换向控制阀可能发生三口气源同时失气故障,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000584,齿轮箱换向控制阀,Component,HAS_SAFETY_NOTE,该阀的位置不变,SafetyNote,换向控制阀需满足失气位置不变的安全要求,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8
+REL_000585,齿轮箱油压检测板,Component,RELATED_TO,齿轮箱顺、倒车合排信号,Parameter,齿轮箱油压检测板用于生成齿轮箱顺倒车合排信号,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书,CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_17

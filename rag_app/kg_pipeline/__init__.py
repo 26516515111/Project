@@ -1,6 +1,8 @@
 from .graph import build_graph
 from .config import (
     LLM_API_KEY_ENV,
+    LLM_BASE_URL_ENV,
+    LLM_MODEL_ENV,
     LLM_BASE_URL,
     LLM_MODEL,
     LLM_TEMPERATURE,
@@ -16,6 +18,8 @@ from .config import (
 __all__ = [
     "build_graph",
     "LLM_API_KEY_ENV",
+    "LLM_BASE_URL_ENV",
+    "LLM_MODEL_ENV",
     "LLM_BASE_URL",
     "LLM_MODEL",
     "LLM_TEMPERATURE",

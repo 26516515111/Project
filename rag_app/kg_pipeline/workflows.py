@@ -22,6 +22,8 @@ from .config import (
     LLM_MODEL,
     LLM_TEMPERATURE,
     LLM_MAX_TOKENS,
+    LLM_QUALITY_MAX_TOKENS,
+    LLM_QUALITY_SCORE_THRESHOLD,
     LLM_RETRY_LIMIT,
     LLM_RETRY_BACKOFF,
     LLM_MIN_CHUNK_CHARS,
@@ -44,17 +46,27 @@ from .steps import (
     _serialize,
     _build_chunk_to_kg,
     _resolve_api_key,
+    _resolve_api_base_url,
+    _resolve_api_model,
+    build_quality_score_request,
     build_context_snapshot,
     clean_text,
     count_chunks,
+    extract_heading_path,
+    extract_score_json,
+    extract_chunk_attachments,
     extract_json_from_response,
     extract_heading_context,
+    heuristic_chunk_score,
+    infer_semantic_group,
     load_embedding_model,
     merge_chunk_ids,
     merge_doc_ids,
     merge_entities,
+    build_semantic_chunks,
     split_text_by_heading_tags,
     validate_extracted,
+    QUALITY_SCORE_PROMPT,
 )
 from .utils import apply_local_envs, read_json, write_json
 from .utils import numbered_path
@@ -102,6 +114,7 @@ class ExtractState(TypedDict, total=False):
     total_filtered_entities: int
     total_filtered_relations: int
     total_cross_chunk_relations: int
+    skipped_low_value_chunks: int
     chunks_since_checkpoint: int
     failed: bool
     error: str | None
@@ -229,7 +242,8 @@ def clean_file_node(state: CleanState) -> CleanState:
     source = paths.raw_dir / source_name
     target = paths.cleaned_dir / source_name
     raw_text = source.read_text(encoding="utf-8")
-    output = clean_text(raw_text)
+    doc_id = source.stem
+    output, saved_images = clean_text(raw_text, paths, doc_id)
     target.write_text(output, encoding="utf-8")
     cleaned_files = list(state.get("cleaned_files", []))
     cleaned_files.append(
@@ -237,6 +251,7 @@ def clean_file_node(state: CleanState) -> CleanState:
             "source": source_name,
             "raw_chars": len(raw_text),
             "cleaned_chars": len(output),
+            "images": len(saved_images),
         }
     )
     return {"cleaned_files": cleaned_files, "file_cursor": file_cursor + 1}
@@ -291,20 +306,24 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
     source_name = state["cleaned_files"][file_cursor]
     source = paths.cleaned_dir / source_name
     text = source.read_text(encoding="utf-8")
-    valid_chunks = split_text_by_heading_tags(text, chunk_size=1200, chunk_overlap=150)
+    semantic_chunks = build_semantic_chunks(text, chunk_size=1200, chunk_overlap=150)
     chunks = list(state.get("chunks", []))
     doc_source_map = list(state.get("doc_source_map", []))
     doc_id = source.stem
-    for index, chunk_text in enumerate(valid_chunks):
+    for index, chunk in enumerate(semantic_chunks):
+        normalized_chunk_text, attachments = extract_chunk_attachments(chunk["text"])
         chunks.append(
             {
                 "chunk_id": f"{doc_id}::chunk_{index}",
                 "doc_id": doc_id,
                 "chunk_index": index,
-                "text": chunk_text,
+                "text": normalized_chunk_text,
                 "source": source.name,
-                "char_count": len(chunk_text),
-                "heading_context": extract_heading_context(chunk_text),
+                "char_count": len(normalized_chunk_text),
+                "heading_context": chunk.get("heading_context") or extract_heading_context(normalized_chunk_text),
+                "heading_path": chunk.get("heading_path", extract_heading_path(normalized_chunk_text)),
+                "semantic_group": chunk.get("semantic_group", infer_semantic_group(normalized_chunk_text, extract_heading_path(normalized_chunk_text))),
+                "attachments": attachments,
             }
         )
     doc_source_map.append(
@@ -312,7 +331,7 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
             "doc_id": doc_id,
             "source": source.name,
             "path": f"data/KG/raw/{source.name}",
-            "num_chunks": len(valid_chunks),
+            "num_chunks": len(semantic_chunks),
         }
     )
     return {
@@ -762,14 +781,15 @@ def prepare_extract_node(state: ExtractState) -> ExtractState:
     if os.environ.get(LLM_MOCK_ENV, "0") == "1":
         client = MockOpenAI()
         base_url = "mock://local"
+        model = "mock"
     else:
         api_key = _resolve_api_key(paths)
-        base_url = os.environ.get("DEEPSEEK_BASE_URL", LLM_BASE_URL)
+        base_url = _resolve_api_base_url(paths)
+        model = _resolve_api_model(paths)
         client = OpenAI(
             api_key=api_key or "ollama",
             base_url=base_url,
         )
-    model = os.environ.get("DEEPSEEK_MODEL", LLM_MODEL)
     _log(
         state,
         "Step 3 准备完成 | docs=%s | chunks=%s | checkpoint_enabled=%s | resumed_done_chunks=%s | base_url=%s | model=%s"
@@ -807,6 +827,7 @@ def prepare_extract_node(state: ExtractState) -> ExtractState:
         "total_filtered_entities": 0,
         "total_filtered_relations": 0,
         "total_cross_chunk_relations": 0,
+        "skipped_low_value_chunks": 0,
         "chunks_since_checkpoint": 0,
         "failed": False,
         "error": None,
@@ -871,6 +892,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
     total_filtered_entities = state.get("total_filtered_entities", 0)
     total_filtered_relations = state.get("total_filtered_relations", 0)
     total_cross_chunk_relations = state.get("total_cross_chunk_relations", 0)
+    skipped_low_value_chunks = state.get("skipped_low_value_chunks", 0)
     chunks_since_checkpoint = state.get("chunks_since_checkpoint", 0)
 
     chunk_id = chunk["chunk_id"]
@@ -908,7 +930,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
     doc_entity_names = {entity["name"] for entity in doc_entities}
     _log(
         state,
-        "Step 3 请求 chunk | chunk=%s/%s | doc_id=%s | doc_chunk=%s/%s | chunk_id=%s | text_chars=%s | request_chars=%s | context_entities=%s | context_relations=%s"
+        "Step 3 请求 chunk | chunk=%s/%s | doc_id=%s | doc_chunk=%s/%s | chunk_id=%s | text_chars=%s | request_chars=%s | context_entities=%s | context_relations=%s | semantic_group=%s"
         % (
             global_index,
             total_target_chunks,
@@ -920,8 +942,71 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
             len(user_content),
             len(doc_entities),
             len(doc_relations),
+            chunk.get("semantic_group", ""),
         ),
     )
+
+    quality_payload = heuristic_chunk_score(chunk)
+    if os.environ.get(LLM_MOCK_ENV, "0") != "1":
+        quality_request = build_quality_score_request(chunk)
+        try:
+            quality_response = state["client"].chat.completions.create(
+                model=state["model"],
+                messages=[
+                    {"role": "system", "content": QUALITY_SCORE_PROMPT},
+                    {"role": "user", "content": quality_request},
+                ],
+                temperature=0,
+                max_tokens=LLM_QUALITY_MAX_TOKENS,
+            )
+            quality_payload = extract_score_json(
+                quality_response.choices[0].message.content or ""
+            )
+        except Exception as exc:
+            _log(
+                state,
+                "Step 3 chunk 评分失败，回退 heuristic | chunk=%s/%s | chunk_id=%s | error=%s"
+                % (
+                    global_index,
+                    total_target_chunks,
+                    chunk_id,
+                    f"{type(exc).__name__}: {exc}",
+                ),
+                "error",
+            )
+
+    _log(
+        state,
+        "Step 3 chunk 评分 | chunk=%s/%s | chunk_id=%s | score=%s | decision=%s | category=%s | reasons=%s"
+        % (
+            global_index,
+            total_target_chunks,
+            chunk_id,
+            quality_payload.get("score", 0),
+            quality_payload.get("decision", ""),
+            quality_payload.get("category", ""),
+            "|".join(quality_payload.get("reasons", [])),
+        ),
+    )
+    if quality_payload.get("decision") != "extract":
+        done_chunk_ids.add(chunk_id)
+        skipped_low_value_chunks += 1
+        _log(
+            state,
+            "Step 3 跳过低价值 chunk | chunk=%s/%s | chunk_id=%s | score=%s | threshold=%s"
+            % (
+                global_index,
+                total_target_chunks,
+                chunk_id,
+                quality_payload.get("score", 0),
+                LLM_QUALITY_SCORE_THRESHOLD,
+            ),
+        )
+        return {
+            "done_chunk_ids": sorted(done_chunk_ids),
+            "chunk_cursor": chunk_cursor + 1,
+            "skipped_low_value_chunks": skipped_low_value_chunks,
+        }
 
     retries = 0
     while retries < LLM_RETRY_LIMIT:
@@ -1028,6 +1113,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
         "total_filtered_entities": total_filtered_entities,
         "total_filtered_relations": total_filtered_relations,
         "total_cross_chunk_relations": total_cross_chunk_relations,
+        "skipped_low_value_chunks": skipped_low_value_chunks,
         "chunks_since_checkpoint": chunks_since_checkpoint,
     }
 

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import base64
 import csv
+import hashlib
 import html
 import json
 import os
@@ -23,10 +25,14 @@ from sentence_transformers import SentenceTransformer
 
 from .config import (
     LLM_API_KEY_ENV,
+    LLM_BASE_URL_ENV,
+    LLM_MODEL_ENV,
     LLM_BASE_URL,
     LLM_MODEL,
     LLM_TEMPERATURE,
     LLM_MAX_TOKENS,
+    LLM_QUALITY_MAX_TOKENS,
+    LLM_QUALITY_SCORE_THRESHOLD,
     LLM_RETRY_LIMIT,
     LLM_RETRY_BACKOFF,
     LLM_MIN_CHUNK_CHARS,
@@ -75,7 +81,7 @@ LABEL_COLORS = {
 }
 DEFAULT_COLOR = "#aaaaaa"
 
-SYSTEM_PROMPT = f"""你是船舶电气设备领域的知识图谱专家。请从给定文本中抽取实体和关系三元组。
+SYSTEM_PROMPT = f"""你是船舶电气设备维护与故障检修领域的知识图谱专家。请从给定文本中抽取高价值实体和关系三元组。
 
 实体标签（label）必须从以下选取：
 {", ".join(ENTITY_LABELS)}
@@ -83,7 +89,41 @@ SYSTEM_PROMPT = f"""你是船舶电气设备领域的知识图谱专家。请从
 关系类型（relation）必须从以下选取：
 {", ".join(RELATION_TYPES)}
 
-输出严格 JSON 格式，不要输出任何其他文字、解释或 markdown 代码块：
+抽取优先级要求：
+1. 优先抽取故障检修核心实体，尤其是：
+   - 故障现象（FaultPhenomenon）
+   - 故障原因（FaultCause）
+   - 诊断方法、检测方法、判断方法（DiagnosticMethod）
+   - 维修步骤、处理措施、排除方法、调整方法（RepairMethod）
+   - 零部件、器件、模块、开关、继电器、传感器、接触器、保险丝等（Component）
+   - 操作禁忌、安全要求、维护注意事项（SafetyNote）
+2. 只有当文本明确提到设备、系统、参数并且它们对故障诊断或维修关系有实际意义时，才抽取 Equipment、System、Parameter。
+3. 不要为了凑数量抽取泛化、空泛、重复的实体，例如“设备”“系统”“方法”“故障”“原因”这种脱离上下文的宽泛词。
+
+标签判定要求：
+- 具体设备整体，如“船舶舵机”“自动开关”“变压器”，优先标注为 Equipment。
+- 设备内部部件、元器件、模块、接点、线圈、触头、熔断器等，优先标注为 Component。
+- 明确描述异常表现、症状、报警、不能启动、温升过高、噪声大等，标注为 FaultPhenomenon。
+- 明确描述故障成因、诱因、损坏原因、失效原因，标注为 FaultCause。
+- 明确描述检测、测量、诊断、检查、判别步骤，标注为 DiagnosticMethod。
+- 明确描述维修、处理、排除、调整、更换、修复步骤，标注为 RepairMethod。
+- 明确描述警示、禁忌、注意、必须、严禁等内容，标注为 SafetyNote。
+
+关系抽取要求：
+- 优先建立 Equipment / Component / System 与 FaultPhenomenon / FaultCause / DiagnosticMethod / RepairMethod / SafetyNote 之间的关系。
+- 如果文本表达“某故障由某原因引起”，优先用 CAUSED_BY。
+- 如果文本表达“某故障/设备通过某方法诊断”，优先用 DIAGNOSED_BY。
+- 如果文本表达“某故障/设备通过某步骤维修或排除”，优先用 REPAIRED_BY。
+- 如果文本表达“设备/系统包含零部件”，优先用 HAS_COMPONENT。
+- 如果文本表达“设备/系统具有某故障”，优先用 HAS_FAULT。
+
+输出约束：
+- 只输出文本中明确出现或可以直接落地到维修语义的实体。
+- 实体名称尽量具体、可复用、可去重，不要输出模糊短语。
+- description 用一句中文短语说明该实体或关系在检修语境中的含义。
+- 输出严格 JSON 格式，不要输出任何其他文字、解释或 markdown 代码块。
+
+输出格式：
 {{
   "entities": [
     {{"name": "实体名", "label": "标签", "description": "简要描述"}}
@@ -92,6 +132,32 @@ SYSTEM_PROMPT = f"""你是船舶电气设备领域的知识图谱专家。请从
     {{"head": "头实体名", "head_label": "头标签", "relation": "关系类型", "tail": "尾实体名", "tail_label": "尾标签", "description": "关系描述"}}
   ]
 }}
+"""
+
+QUALITY_SCORE_PROMPT = """你是船舶设备厂商说明书的知识抽取前置筛选器。
+
+你的任务不是抽实体，而是判断当前 chunk 是否值得进入 KG 抽取。
+
+判断标准：
+1. 高分 chunk 应该能直接支持问答或检修知识检索，例如：
+   - 设备/部件结构与组成
+   - 参数、阈值、报警点、接线定义
+   - 故障现象、故障原因、诊断方法、维修步骤
+   - 操作限制、安全注意事项
+   - 安装、调试、使用、维护流程
+2. 低分 chunk 通常是：
+   - 空泛概述、宣传性描述、厂商介绍
+   - 没有明确对象和操作含义的泛化表述
+   - 纯目录、纯封面、纯版权信息
+3. 如果 chunk 信息密度低、概念空泛、无法稳定落到问答知识点，应判定为 skip。
+
+输出严格 JSON，不要输出其他文字：
+{
+  "score": 0-100,
+  "decision": "extract" 或 "skip",
+  "category": "该 chunk 的主要知识类别",
+  "reasons": ["原因1", "原因2"]
+}
 """
 
 
@@ -150,23 +216,360 @@ def html_table_to_text(table_html: str) -> str:
     return "\n".join(rows)
 
 
-def clean_text(text: str) -> str:
+def _image_extension_from_mime(mime_subtype: str) -> str:
+    subtype = mime_subtype.lower().strip()
+    if subtype in {"jpeg", "jpg"}:
+        return ".jpg"
+    if subtype == "png":
+        return ".png"
+    if subtype == "gif":
+        return ".gif"
+    if subtype == "webp":
+        return ".webp"
+    if subtype == "bmp":
+        return ".bmp"
+    return ".bin"
+
+
+def _extract_base64_images(
+    text: str, paths: PipelinePaths, doc_id: str
+) -> tuple[str, list[dict[str, str]]]:
+    image_dir = paths.images_dir / doc_id
+    image_dir.mkdir(parents=True, exist_ok=True)
+    saved_images: list[dict[str, str]] = []
+
+    pattern = re.compile(
+        r"!\[(?P<alt>.*?)\]\(data:image/(?P<mime>[a-zA-Z0-9.+-]+);base64,(?P<data>[^)]+)\)"
+    )
+
+    def replace(match: re.Match[str]) -> str:
+        alt = (match.group("alt") or "").strip() or "未命名图片"
+        mime_subtype = match.group("mime")
+        encoded = match.group("data").strip()
+        binary = base64.b64decode(encoded)
+        digest = hashlib.sha256(binary).hexdigest()
+        filename = f"{digest}{_image_extension_from_mime(mime_subtype)}"
+        target = image_dir / filename
+        if not target.exists():
+            target.write_bytes(binary)
+        rel_path = target.relative_to(paths.app_root)
+        saved_images.append(
+            {
+                "path": str(rel_path),
+                "alt": alt,
+            }
+        )
+        return f"\n[IMG path={rel_path} alt={alt}]\n"
+
+    return pattern.sub(replace, text), saved_images
+
+
+def _normalize_manual_structure(text: str) -> str:
+    value = text
+    value = re.sub(
+        r"^(#{1,6})\s+(.+)$",
+        lambda match: f"[H{len(match.group(1))}] {match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = re.sub(
+        r"^\s*([0-9]+)[、\.．]\s*(.+)$",
+        lambda match: f"[H2] {match.group(1)}、{match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = re.sub(
+        r"^\s*([①②③④⑤⑥⑦⑧⑨⑩])\s*[、．.]?\s*(.+)$",
+        lambda match: f"[H3] {match.group(1)} {match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = re.sub(
+        r"^\s*\(([0-9]+)\)\s*(.+)$",
+        lambda match: f"[H4] ({match.group(1)}) {match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = re.sub(
+        r"^\s*（([0-9]+)）\s*(.+)$",
+        lambda match: f"[H4] （{match.group(1)}） {match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = re.sub(
+        r"^\s*([一二三四五六七八九十]+)、\s*(.+)$",
+        lambda match: f"[H3] {match.group(1)}、{match.group(2).strip()}",
+        value,
+        flags=re.MULTILINE,
+    )
+    value = _rebalance_heading_levels(value)
+    return value
+
+
+def _is_real_chapter_heading(title: str) -> bool:
+    stripped = title.strip()
+    return bool(
+        re.match(r"^[一二三四五六七八九十]+、.+$", stripped)
+        or re.match(r"^第[一二三四五六七八九十0-9]+[章节部分篇].+$", stripped)
+    )
+
+
+def _looks_like_subsection_heading(title: str) -> bool:
+    stripped = title.strip()
+    return bool(
+        re.match(r"^[0-9]+[、\.．:].+$", stripped)
+        or re.match(r"^[a-zA-Z][、\.．:].+$", stripped)
+        or re.match(r"^\([0-9]+\)\s*.+$", stripped)
+        or re.match(r"^（[0-9]+）\s*.+$", stripped)
+        or re.match(r"^[ivxlcdmIVXLCDM]+[、\.．:].+$", stripped)
+    )
+
+
+def _rebalance_heading_levels(text: str) -> str:
+    lines = text.splitlines()
+    result: list[str] = []
+    seen_real_h1 = False
+
+    for line in lines:
+        match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", line.strip())
+        if not match:
+            result.append(line)
+            continue
+
+        level = int(match.group(1))
+        title = match.group(2).strip()
+        new_level = level
+
+        if level == 1:
+            if _is_real_chapter_heading(title):
+                seen_real_h1 = True
+            elif seen_real_h1 or _looks_like_subsection_heading(title):
+                new_level = 2
+
+        result.append(f"[H{new_level}] {title}")
+
+    return "\n".join(result)
+
+
+def _trim_manual_front_matter(text: str) -> str:
+    lines = text.splitlines()
+
+    def is_heading(value: str) -> bool:
+        return bool(re.match(r"^\[H[1-4]\]\s+.+$", value))
+
+    def is_title_only_heading(value: str) -> bool:
+        plain = re.sub(r"^\[H[1-4]\]\s+", "", value).strip()
+        normalized = re.sub(r"\s+", "", plain)
+        if normalized in {"目录", "目次", "目錄", "目錄表", "目录表", "目录"}:
+            return True
+        if "产品说明书" in plain or "使用说明书" in plain:
+            return True
+        if plain.endswith("说明书") and len(plain) <= 30:
+            return True
+        if re.fullmatch(r"[A-Z0-9,\-.\s()&]+", plain):
+            return True
+        return False
+
+    def is_contact_line(value: str) -> bool:
+        return any(
+            re.search(pattern, value)
+            for pattern in (
+                r"^地址[：:]",
+                r"^Add[:：]",
+                r"^电话[：:]",
+                r"^Tel[:：]",
+                r"^传真[：:]",
+                r"^Fax[:：]",
+                r"^邮编[：:]",
+                r"^P\.?C\.?[:：]",
+                r"^电子邮箱[：:]",
+                r"^E-?mail[:：]",
+                r"^网址[：:]",
+                r"^Http",
+                r".+公司$",
+            )
+        )
+
+    def heading_has_body(index: int) -> bool:
+        body_lines = 0
+        lookahead = 0
+        for probe in range(index + 1, min(len(lines), index + 12)):
+            lookahead += 1
+            stripped_probe = lines[probe].strip()
+            if not stripped_probe:
+                continue
+            if "[IMG " in stripped_probe:
+                continue
+            if is_heading(stripped_probe):
+                return body_lines > 0
+            if is_contact_line(stripped_probe):
+                return False
+            body_lines += 1
+            if body_lines >= 1:
+                return True
+            if lookahead >= 10:
+                break
+        return body_lines > 0
+
+    start_index = 0
+    first_h1_candidate = None
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if "[IMG " in stripped:
+            continue
+        if is_contact_line(stripped):
+            continue
+        if not is_heading(stripped):
+            continue
+        if is_title_only_heading(stripped):
+            continue
+        level = int(re.match(r"^\[H([1-4])\]\s+.+$", stripped).group(1))
+        if level == 1 and first_h1_candidate is None:
+            first_h1_candidate = index
+        if heading_has_body(index):
+            start_index = index
+            break
+    if first_h1_candidate is not None:
+        return "\n".join(lines[first_h1_candidate:]).strip()
+    return "\n".join(lines[start_index:]).strip()
+
+
+def _trim_to_first_real_content_heading(text: str) -> str:
+    lines = text.splitlines()
+
+    def is_real_h1(value: str) -> bool:
+        stripped = value.strip()
+        return bool(
+            re.match(r"^\[H1\]\s*[一二三四五六七八九十]+、.+$", stripped)
+            or re.match(r"^\[H1\]\s*第[一二三四五六七八九十0-9]+[章节部分篇].+$", stripped)
+            or re.match(r"^\[H1\]\s*[0-9]+[、\.．].+$", stripped)
+        )
+
+    for index, line in enumerate(lines[:400]):
+        if is_real_h1(line):
+            return "\n".join(lines[index:]).strip()
+
+    return text.strip()
+
+
+def _trim_manual_tail_matter(text: str) -> str:
+    lines = text.splitlines()
+    tail_patterns = (
+        r"本资料由.+公司.+编制",
+        r"^编制[：:]",
+        r"^审核[：:]",
+        r"^批准[：:]",
+        r"^地址[：:]",
+        r"^电话[：:]",
+        r"^传真[：:]",
+        r"^网址[：:]",
+        r"^邮编[：:]",
+        r"版权所有",
+    )
+    cutoff = None
+    threshold = int(len(lines) * 0.7)
+    for index, line in enumerate(lines):
+        if index < threshold:
+            continue
+        stripped = line.strip()
+        if any(re.search(pattern, stripped) for pattern in tail_patterns):
+            cutoff = index
+            break
+    if cutoff is None:
+        return text.strip()
+    return "\n".join(lines[:cutoff]).strip()
+
+
+def _trim_leading_toc_sections(text: str) -> str:
+    lines = text.splitlines()
+    index = 0
+
+    def is_heading(value: str) -> bool:
+        return bool(re.match(r"^\[H[1-4]\]\s+.+$", value))
+
+    while index < len(lines):
+        stripped = lines[index].strip()
+        if not stripped:
+            index += 1
+            continue
+        if not is_heading(stripped):
+            break
+        body_count = 0
+        probe = index + 1
+        while probe < len(lines):
+            candidate = lines[probe].strip()
+            if not candidate:
+                probe += 1
+                continue
+            if "[IMG " in candidate:
+                probe += 1
+                continue
+            if is_heading(candidate):
+                break
+            body_count += 1
+            if body_count >= 1:
+                return "\n".join(lines[index:]).strip()
+            probe += 1
+        index = probe
+    return "\n".join(lines[index:]).strip()
+
+
+def _drop_preface_before_first_h1(text: str) -> str:
+    lines = text.splitlines()
+    first_h1 = None
+    headings_before_h1 = 0
+    preface_blob: list[str] = []
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if first_h1 is None:
+            preface_blob.append(stripped)
+        match = re.match(r"^\[H([1-4])\]\s+.+$", stripped)
+        if not match:
+            continue
+        level = int(match.group(1))
+        if level == 1:
+            first_h1 = index
+            break
+        headings_before_h1 += 1
+    if first_h1 is not None:
+        preface_text = "\n".join(preface_blob)
+        if headings_before_h1 >= 3:
+            return "\n".join(lines[first_h1:]).strip()
+        if any(
+            keyword in preface_text
+            for keyword in ("控制对象", "船东", "船厂", "船舶用途", "产品设计")
+        ):
+            return "\n".join(lines[first_h1:]).strip()
+    return text.strip()
+
+
+def _prefer_first_real_chapter(text: str) -> str:
+    lines = text.splitlines()
+    for index, line in enumerate(lines[:300]):
+        stripped = line.strip()
+        if re.match(r"^\[H1\]\s*[一二三四五六七八九十]+、.+$", stripped):
+            return "\n".join(lines[index:]).strip()
+        if re.match(r"^\[H1\]\s*第[一二三四五六七八九十0-9]+[章节部分篇].+$", stripped):
+            return "\n".join(lines[index:]).strip()
+    return text.strip()
+
+
+def clean_text(text: str, paths: PipelinePaths, doc_id: str) -> tuple[str, list[dict[str, str]]]:
     text = re.sub(
         r"<table[^>]*>.*?</table>",
         lambda match: html_table_to_text(match.group(0)),
         text,
         flags=re.DOTALL | re.IGNORECASE,
     )
+    text, saved_images = _extract_base64_images(text, paths, doc_id)
     text = re.sub(r"IMAGE_PLACEHOLDER\s*#?\d*", "", text)
     text = re.sub(r"<[^>]+>", "", text)
     text = html.unescape(text)
-    text = re.sub(r"!\[.*?\]\(data:image/[^)]+\)", "[图片]", text)
-    text = re.sub(
-        r"^(#{1,6})\s+(.+)$",
-        lambda match: f"[H{len(match.group(1))}] {match.group(2).strip()}",
-        text,
-        flags=re.MULTILINE,
-    )
+    text = _normalize_manual_structure(text)
     text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
     text = re.sub(r"\*(.+?)\*", r"\1", text)
     text = re.sub(r"!\[.*?\]\(.*?\)", "", text)
@@ -183,7 +586,15 @@ def clean_text(text: str) -> str:
         if stripped and len(stripped) <= 4 and re.match(r"^[\d.]+$", stripped):
             continue
         lines.append(line.rstrip())
-    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+    cleaned = re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+    anchored = _trim_to_first_real_content_heading(cleaned)
+    used_anchor = anchored != cleaned
+    cleaned = anchored if used_anchor else _trim_manual_front_matter(cleaned)
+    if not used_anchor:
+        cleaned = _trim_leading_toc_sections(cleaned)
+    cleaned = _trim_manual_tail_matter(cleaned)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+    return cleaned, saved_images
 
 
 def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
@@ -194,7 +605,8 @@ def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
     cleaned = []
     for source in files:
         raw_text = source.read_text(encoding="utf-8")
-        output = clean_text(raw_text)
+        doc_id = make_doc_id(source.name)
+        output, saved_images = clean_text(raw_text, paths, doc_id)
         target = paths.cleaned_dir / source.name
         target.write_text(output, encoding="utf-8")
         cleaned.append(
@@ -202,6 +614,7 @@ def clean_documents(paths: PipelinePaths) -> dict[str, Any]:
                 "source": source.name,
                 "raw_chars": len(raw_text),
                 "cleaned_chars": len(output),
+                "images": len(saved_images),
             }
         )
     return {"documents": len(cleaned), "files": cleaned}
@@ -216,48 +629,330 @@ def extract_heading_context(text: str) -> str:
     return matches[-1] if matches else ""
 
 
-def split_text_by_heading_tags(
-    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
-) -> list[str]:
-    value = str(text or "").strip()
-    if not value:
+def extract_heading_path(text: str) -> list[str]:
+    path: list[str] = []
+    for line in text.splitlines():
+        match = re.match(r"^\s*\[H([1-6])\]\s+(.+)$", line.strip())
+        if not match:
+            continue
+        level = int(match.group(1))
+        title = match.group(2).strip()
+        while len(path) >= level:
+            path.pop()
+        path.append(f"[H{level}] {title}")
+    return path
+
+
+def extract_chunk_attachments(text: str) -> tuple[str, list[dict[str, str]]]:
+    attachments: list[dict[str, str]] = []
+    pattern = re.compile(r"^\[IMG path=(?P<path>[^\s\]]+) alt=(?P<alt>.+?)\]$", flags=re.MULTILINE)
+
+    def replace(match: re.Match[str]) -> str:
+        attachments.append(
+            {
+                "type": "image",
+                "path": match.group("path").strip(),
+                "alt": match.group("alt").strip(),
+            }
+        )
+        return f"[图片附件] {match.group('alt').strip()}"
+
+    cleaned = pattern.sub(replace, text)
+    return cleaned.strip(), attachments
+
+
+def infer_semantic_group(text: str, heading_path: list[str]) -> str:
+    value = "\n".join(heading_path) + "\n" + text
+    rules = [
+        ("fault", ("故障", "异常", "报警", "不能", "失效", "原因", "现象")),
+        ("repair", ("维修", "排除", "更换", "调整", "检修", "处理步骤")),
+        ("diagnostic", ("检测", "诊断", "测量", "检查", "判别", "测试")),
+        ("safety", ("注意", "警告", "严禁", "必须", "安全")),
+        ("wiring", ("接线", "端子", "通讯线", "接口", "RS-485", "输入信号", "输出信号")),
+        ("parameter", ("参数", "规格", "电压", "电流", "温度", "压力", "防护等级")),
+        ("component", ("组成", "部件", "模块", "单元", "控制计算机", "显示器", "打印机")),
+        ("operation", ("操作", "使用", "调试", "启动", "运行", "显示内容")),
+    ]
+    for name, keywords in rules:
+        if any(keyword in value for keyword in keywords):
+            return name
+    return "overview"
+
+
+def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
+    lines = [line.rstrip() for line in text.splitlines()]
+    sections: list[dict[str, Any]] = []
+    path: list[str] = []
+    current_lines: list[str] = []
+    current_path: list[str] = []
+
+    def heading_has_inline_body(value: str) -> bool:
+        match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", value.strip())
+        if not match:
+            return False
+        title = match.group(2).strip()
+        title_core = re.sub(
+            r"^[0-9一二三四五六七八九十①②③④⑤⑥⑦⑧⑨⑩()（）\s\-.．、]+",
+            "",
+            title,
+        ).strip()
+        if len(title_core) >= 20:
+            return True
+        return any(
+            token in title_core
+            for token in ("适用于", "采用", "具有", "可以", "可实现", "用于", "应", "必须", "不得")
+        )
+
+    def flush() -> None:
+        if not current_lines:
+            return
+        content_lines = [line for line in current_lines if line.strip()]
+        content = "\n".join(content_lines).strip()
+        if not content:
+            return
+        body_lines = [
+            line.strip()
+            for line in content_lines[1:]
+            if line.strip() and not re.match(r"^\s*\[H[1-4]\]\s+.+$", line.strip())
+        ]
+        has_image_body = any("[IMG " in line for line in content_lines[1:])
+        has_inline_body = any(heading_has_inline_body(line) for line in content_lines)
+        if not body_lines and not has_image_body and not has_inline_body:
+            return
+        sections.append(
+            {
+                "heading_path": list(current_path),
+                "heading_context": current_path[-1] if current_path else "",
+                "semantic_group": infer_semantic_group(content, current_path),
+                "text": content,
+            }
+        )
+
+    for line in lines:
+        stripped = line.strip()
+        match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", stripped)
+        if match:
+            flush()
+            level = int(match.group(1))
+            title = f"[H{level}] {match.group(2).strip()}"
+            while len(path) >= level:
+                path.pop()
+            path.append(title)
+            current_path = list(path)
+            current_lines = [title]
+            continue
+        if not current_lines and stripped:
+            current_lines = list(path)
+            current_path = list(path)
+        if current_lines or stripped:
+            current_lines.append(line)
+    flush()
+    return sections
+
+
+def _merge_semantic_sections(
+    sections: list[dict[str, Any]], chunk_size: int
+) -> list[dict[str, Any]]:
+    if not sections:
         return []
+    merged: list[dict[str, Any]] = []
+    for section in sections:
+        if not merged:
+            merged.append(section)
+            continue
+        last = merged[-1]
+        same_root = (
+            bool(last["heading_path"])
+            and bool(section["heading_path"])
+            and last["heading_path"][:1] == section["heading_path"][:1]
+        )
+        same_group = last["semantic_group"] == section["semantic_group"]
+        combined_len = len(last["text"]) + 2 + len(section["text"])
+        if same_root and same_group and combined_len <= int(chunk_size * 1.15):
+            last["text"] = f"{last['text']}\n\n{section['text']}"
+            last["heading_path"] = (
+                last["heading_path"]
+                if len(last["heading_path"]) >= len(section["heading_path"])
+                else section["heading_path"]
+            )
+            last["heading_context"] = last["heading_path"][-1] if last["heading_path"] else ""
+        else:
+            merged.append(section)
+    return merged
+
+
+def _semantic_family(group: str) -> str:
+    families = {
+        "overview": "overview",
+        "component": "overview",
+        "operation": "overview",
+        "repair": "maintenance",
+        "diagnostic": "maintenance",
+        "fault": "maintenance",
+        "safety": "maintenance",
+        "parameter": "spec",
+        "wiring": "spec",
+    }
+    return families.get(group, group)
+
+
+def _merge_section_pair(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(left)
+    merged["text"] = f"{left['text']}\n\n{right['text']}"
+    merged["heading_path"] = (
+        left["heading_path"]
+        if len(left["heading_path"]) >= len(right["heading_path"])
+        else right["heading_path"]
+    )
+    merged["heading_context"] = (
+        merged["heading_path"][-1] if merged["heading_path"] else ""
+    )
+    if left["semantic_group"] == right["semantic_group"]:
+        merged["semantic_group"] = left["semantic_group"]
+    elif left["semantic_group"] == "overview":
+        merged["semantic_group"] = right["semantic_group"]
+    else:
+        merged["semantic_group"] = left["semantic_group"]
+    return merged
+
+
+def _pack_short_semantic_sections(
+    sections: list[dict[str, Any]],
+    chunk_size: int,
+    min_chunk_size: int,
+) -> list[dict[str, Any]]:
+    if not sections:
+        return []
+
+    packed: list[dict[str, Any]] = []
+    pending: dict[str, Any] | None = None
+    tiny_chunk_size = max(120, int(min_chunk_size * 0.67))
+
+    def same_root(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return bool(left["heading_path"]) and bool(right["heading_path"]) and left["heading_path"][:1] == right["heading_path"][:1]
+
+    def compatible(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return same_root(left, right) and _semantic_family(left["semantic_group"]) == _semantic_family(right["semantic_group"])
+
+    def can_merge(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return compatible(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+
+    def can_merge_tiny(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return same_root(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+
+    for section in sections:
+        if pending is None:
+            pending = section
+            continue
+        if len(pending["text"]) < min_chunk_size and can_merge(pending, section):
+            pending = _merge_section_pair(pending, section)
+            continue
+        packed.append(pending)
+        pending = section
+
+    if pending is not None:
+        packed.append(pending)
+
+    changed = True
+    while changed:
+        changed = False
+        refined: list[dict[str, Any]] = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < min_chunk_size
+                and can_merge(refined[-1], section)
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
+    changed = True
+    while changed:
+        changed = False
+        refined = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < tiny_chunk_size
+                and can_merge_tiny(refined[-1], section)
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
+    return packed
+
+
+def _split_large_semantic_section(
+    section: dict[str, Any], chunk_size: int, chunk_overlap: int
+) -> list[dict[str, Any]]:
+    text = section["text"].strip()
+    if len(text) <= chunk_size:
+        return [section]
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
         length_function=len,
+        separators=["\n\n", "\n", "。", "；", "，", " "],
     )
-    lines = [line.rstrip() for line in value.splitlines()]
-    # Only split on major section headings. H4-H6 stay inside the chunk to avoid over-fragmentation.
-    heading_re = re.compile(r"^\s*\[H([1-3])\]\s+.+$")
-
-    blocks: list[list[str]] = []
-    current: list[str] = []
-    for line in lines:
-        if heading_re.match(line):
-            if current:
-                blocks.append(current)
-            current = [line]
+    heading_prefix = "\n".join(section.get("heading_path", []))
+    result: list[dict[str, Any]] = []
+    for part in splitter.split_text(text):
+        normalized = part.strip()
+        if not normalized:
             continue
-        if current or line.strip():
-            current.append(line)
-    if current:
-        blocks.append(current)
+        if heading_prefix and not normalized.startswith(heading_prefix):
+            normalized = f"{heading_prefix}\n{normalized}"
+        item = dict(section)
+        item["text"] = normalized
+        result.append(item)
+    return result
 
-    if len(blocks) <= 1:
-        return [part.strip() for part in splitter.split_text(value) if len(part.strip()) >= 20]
 
-    chunks: list[str] = []
-    for block in blocks:
-        content = "\n".join(line for line in block if line.strip()).strip()
-        if not content:
-            continue
-        if len(content) <= chunk_size:
-            chunks.append(content)
-            continue
-        chunks.extend(part.strip() for part in splitter.split_text(content) if len(part.strip()) >= 20)
-    return [chunk for chunk in chunks if len(chunk.strip()) >= 20]
+def build_semantic_chunks(
+    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
+) -> list[dict[str, Any]]:
+    value = str(text or "").strip()
+    if not value:
+        return []
+    sections = _build_sections_from_headings(value)
+    if not sections:
+        return []
+    merged = _merge_semantic_sections(sections, chunk_size=chunk_size)
+    merged = _pack_short_semantic_sections(
+        merged,
+        chunk_size=chunk_size,
+        min_chunk_size=max(180, int(chunk_size * 0.2)),
+    )
+    chunks: list[dict[str, Any]] = []
+    for section in merged:
+        chunks.extend(
+            _split_large_semantic_section(
+                section,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
+            )
+        )
+    return [chunk for chunk in chunks if len(chunk["text"].strip()) >= 20]
+
+
+def split_text_by_heading_tags(
+    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
+) -> list[str]:
+    return [
+        item["text"]
+        for item in build_semantic_chunks(
+            text,
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+        )
+    ]
 
 
 def chunk_documents(
@@ -271,21 +966,25 @@ def chunk_documents(
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
-        valid_chunks = split_text_by_heading_tags(
+        semantic_chunks = build_semantic_chunks(
             text,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
         )
-        for index, chunk_text in enumerate(valid_chunks):
+        for index, chunk in enumerate(semantic_chunks):
+            normalized_chunk_text, attachments = extract_chunk_attachments(chunk["text"])
             chunks.append(
                 {
                     "chunk_id": f"{doc_id}::chunk_{index}",
                     "doc_id": doc_id,
                     "chunk_index": index,
-                    "text": chunk_text,
+                    "text": normalized_chunk_text,
                     "source": source.name,
-                    "char_count": len(chunk_text),
-                    "heading_context": extract_heading_context(chunk_text),
+                    "char_count": len(normalized_chunk_text),
+                    "heading_context": chunk.get("heading_context") or extract_heading_context(normalized_chunk_text),
+                    "heading_path": chunk.get("heading_path", extract_heading_path(normalized_chunk_text)),
+                    "semantic_group": chunk.get("semantic_group", infer_semantic_group(normalized_chunk_text, extract_heading_path(normalized_chunk_text))),
+                    "attachments": attachments,
                 }
             )
         doc_source_map.append(
@@ -293,7 +992,7 @@ def chunk_documents(
                 "doc_id": doc_id,
                 "source": source.name,
                 "path": f"data/KG/raw/{source.name}",
-                "num_chunks": len(valid_chunks),
+                "num_chunks": len(semantic_chunks),
             }
         )
 
@@ -378,6 +1077,83 @@ def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) 
     return "\n".join(payload)
 
 
+def extract_score_json(text: str) -> dict[str, Any]:
+    data = extract_json_from_response(text)
+    score = data.get("score", 0)
+    try:
+        score = int(score)
+    except (TypeError, ValueError):
+        score = 0
+    decision = str(data.get("decision", "")).strip().lower()
+    if decision not in {"extract", "skip"}:
+        decision = "extract" if score >= LLM_QUALITY_SCORE_THRESHOLD else "skip"
+    reasons = data.get("reasons", [])
+    if not isinstance(reasons, list):
+        reasons = []
+    return {
+        "score": max(0, min(100, score)),
+        "decision": decision,
+        "category": str(data.get("category", "")).strip(),
+        "reasons": [str(item).strip() for item in reasons if str(item).strip()],
+    }
+
+
+def heuristic_chunk_score(chunk: dict[str, Any]) -> dict[str, Any]:
+    text = str(chunk.get("text", ""))
+    heading_path = chunk.get("heading_path", [])
+    semantic_group = str(chunk.get("semantic_group", "overview"))
+    score = 25
+    bonuses = {
+        "fault": 35,
+        "repair": 35,
+        "diagnostic": 32,
+        "wiring": 28,
+        "parameter": 25,
+        "component": 22,
+        "safety": 25,
+        "operation": 18,
+        "overview": 0,
+    }
+    score += bonuses.get(semantic_group, 0)
+    if chunk.get("attachments"):
+        score += 8
+    if any(keyword in text for keyword in ("故障", "报警", "维修", "接线", "参数", "诊断", "注意", "更换")):
+        score += 12
+    if any(keyword in text for keyword in ("概述", "简介", "公司", "产品说明书")):
+        score -= 18
+    if len(text) < 120:
+        score -= 12
+    return {
+        "score": max(0, min(100, score)),
+        "decision": "extract" if score >= LLM_QUALITY_SCORE_THRESHOLD else "skip",
+        "category": semantic_group or (heading_path[-1] if heading_path else ""),
+        "reasons": ["heuristic_fallback"],
+    }
+
+
+def build_quality_score_request(chunk: dict[str, Any]) -> str:
+    parts = ["请判断以下 chunk 是否值得进入 KG 抽取。"]
+    if chunk.get("heading_path"):
+        parts.append("章节路径：\n" + "\n".join(chunk["heading_path"]))
+    if chunk.get("semantic_group"):
+        parts.append(f"推断系群：{chunk['semantic_group']}")
+    attachments = chunk.get("attachments", [])
+    if attachments:
+        parts.append(
+            "图片附件："
+            + json.dumps(
+                [
+                    {"path": item.get("path", ""), "alt": item.get("alt", "")}
+                    for item in attachments
+                ],
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+        )
+    parts.append(f"chunk文本：\n{chunk.get('text', '')}")
+    return "\n\n".join(parts)
+
+
 def _fix_trailing_commas(text: str) -> str:
     return re.sub(r",\s*([\]\}])", r"\1", text)
 
@@ -458,6 +1234,21 @@ def _resolve_api_key(paths: PipelinePaths) -> str:
     return api_key
 
 
+def _resolve_api_base_url(paths: PipelinePaths) -> str:
+    apply_local_envs(paths.env_paths)
+    base_url = os.environ.get(LLM_BASE_URL_ENV, LLM_BASE_URL).strip()
+    if not base_url:
+        raise RuntimeError(
+            f"{LLM_BASE_URL_ENV} 未设置，请在环境变量、Project/.env 或 Project/rag_app/.env 中配置"
+        )
+    return base_url
+
+
+def _resolve_api_model(paths: PipelinePaths) -> str:
+    apply_local_envs(paths.env_paths)
+    return os.environ.get(LLM_MODEL_ENV, LLM_MODEL).strip() or LLM_MODEL
+
+
 def extract_kg(
     paths: PipelinePaths,
     only_doc_id: str | None = None,
@@ -465,11 +1256,12 @@ def extract_kg(
     checkpoint_enabled: bool = True,
 ) -> dict[str, Any]:
     api_key = _resolve_api_key(paths)
+    base_url = _resolve_api_base_url(paths)
+    model = _resolve_api_model(paths)
     client = OpenAI(
         api_key=api_key or "ollama",
-        base_url=os.environ.get("DEEPSEEK_BASE_URL", LLM_BASE_URL),
+        base_url=base_url,
     )
-    model = os.environ.get("DEEPSEEK_MODEL", LLM_MODEL)
     all_chunks = read_json(paths.chunks_path, [])
     target_chunks = (
         [chunk for chunk in all_chunks if chunk["doc_id"] == only_doc_id]
@@ -548,6 +1340,27 @@ def extract_kg(
             user_parts.append(f"待抽取文本：\n{chunk['text']}")
             user_content = "\n\n".join(user_parts)
             doc_entity_names = {entity["name"] for entity in doc_entities}
+
+            quality_payload = heuristic_chunk_score(chunk)
+            if os.environ.get(LLM_MOCK_ENV, "0") != "1":
+                try:
+                    quality_response = client.chat.completions.create(
+                        model=model,
+                        messages=[
+                            {"role": "system", "content": QUALITY_SCORE_PROMPT},
+                            {"role": "user", "content": build_quality_score_request(chunk)},
+                        ],
+                        temperature=0,
+                        max_tokens=LLM_QUALITY_MAX_TOKENS,
+                    )
+                    quality_payload = extract_score_json(
+                        quality_response.choices[0].message.content or ""
+                    )
+                except Exception:
+                    pass
+            if quality_payload.get("decision") != "extract":
+                done_chunk_ids.add(chunk_id)
+                continue
 
             retries = 0
             while retries < LLM_RETRY_LIMIT:

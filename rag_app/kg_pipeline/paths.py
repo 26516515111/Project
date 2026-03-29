@@ -12,7 +12,9 @@ class PipelinePaths:
     docs_dir: Path
     kg_dir: Path
     backups_dir: Path
+    archives_dir: Path
     cleaned_backups_dir: Path
+    images_dir: Path
     logs_dir: Path
     raw_dir: Path
     cleaned_dir: Path
@@ -35,7 +37,9 @@ class PipelinePaths:
             docs_dir=data_dir / "docs",
             kg_dir=kg_dir,
             backups_dir=kg_dir / "backups",
+            archives_dir=kg_dir / "backups" / "archives",
             cleaned_backups_dir=kg_dir / "backups" / "cleaned",
+            images_dir=kg_dir / "images",
             logs_dir=kg_dir / "logs",
             raw_dir=kg_dir / "raw",
             cleaned_dir=kg_dir / "cleaned",
@@ -75,6 +79,10 @@ class PipelinePaths:
         return self.extracted_dir / "kg_raw_checkpoint.json"
 
     @property
+    def state_path(self) -> Path:
+        return self.kg_dir / "kg_state.json"
+
+    @property
     def kg_merged_path(self) -> Path:
         return self.delivery_dir / "kg_merged.json"
 
@@ -106,7 +114,9 @@ class PipelinePaths:
         self.docs_dir.mkdir(parents=True, exist_ok=True)
         self.kg_dir.mkdir(parents=True, exist_ok=True)
         self.backups_dir.mkdir(parents=True, exist_ok=True)
+        self.archives_dir.mkdir(parents=True, exist_ok=True)
         self.cleaned_backups_dir.mkdir(parents=True, exist_ok=True)
+        self.images_dir.mkdir(parents=True, exist_ok=True)
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.cleaned_dir.mkdir(parents=True, exist_ok=True)

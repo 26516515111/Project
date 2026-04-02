@@ -16,8 +16,12 @@ RELATION_TYPES = [
     "CAUSED_BY",
     "DIAGNOSED_BY",
     "REPAIRED_BY",
-    "RELATED_TO",
     "HAS_PARAMETER",
     "HAS_SAFETY_NOTE",
     "BELONGS_TO",
+    "REQUIRES",
+    "PREVENTS",
+    "CONTROLS",
+    "MONITORS",
+    "CONNECTS_TO"
 ]

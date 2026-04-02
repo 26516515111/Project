@@ -81,7 +81,7 @@ LABEL_COLORS = {
 }
 DEFAULT_COLOR = "#aaaaaa"
 
-SYSTEM_PROMPT = f"""你是船舶电气设备维护与故障检修领域的知识图谱专家。请从给定文本中抽取高价值实体和关系三元组。
+SYSTEM_PROMPT = f"""你是船舶电气设备维护与故障检修领域的知识图谱专家。本次任务包含解决系统级图谱层级与颗粒度混乱的专项要求。请从给定文本中抽取高价值实体和关系三元组。
 
 实体标签（label）必须从以下选取：
 {", ".join(ENTITY_LABELS)}
@@ -89,47 +89,46 @@ SYSTEM_PROMPT = f"""你是船舶电气设备维护与故障检修领域的知识
 关系类型（relation）必须从以下选取：
 {", ".join(RELATION_TYPES)}
 
-抽取优先级要求：
-1. 优先抽取故障检修核心实体，尤其是：
-   - 故障现象（FaultPhenomenon）
-   - 故障原因（FaultCause）
-   - 诊断方法、检测方法、判断方法（DiagnosticMethod）
-   - 维修步骤、处理措施、排除方法、调整方法（RepairMethod）
-   - 零部件、器件、模块、开关、继电器、传感器、接触器、保险丝等（Component）
-   - 操作禁忌、安全要求、维护注意事项（SafetyNote）
-2. 只有当文本明确提到设备、系统、参数并且它们对故障诊断或维修关系有实际意义时，才抽取 Equipment、System、Parameter。
-3. 不要为了凑数量抽取泛化、空泛、重复的实体，例如“设备”“系统”“方法”“故障”“原因”这种脱离上下文的宽泛词。
+【重要】避免细粒度爆炸与冗杂零件：
+- 【强制底线】：禁止抽取任何细碎的基础支撑元器件、接口或外围引脚。坚决丢弃所有的“继电器”、“保险丝”、“电阻器”、“接线端子”、“各个插头(如J8/COM1)”、“指示灯”或“单一开关/按钮”等微观零件名称。
+- 只有具备独立运算、控制或完整封装的【单板】、【控制箱】或【核心模块】才能被提取为节点。
+- 所有低于单板/模块级别的零件维修信息（比如XX继电器损坏），必须折叠塞入所属单板节点（或者故障节点）的 `description` 描述文本内，绝不允许建立独立的树枝状子节点，以此降低图谱的密集度并提升检索性能！
+
+【重要】清晰划分层级系统边界（消歧）：
+- [System] 即整体大系统（如“机舱总线制监测报警系统”、“驾驶台航行值班报警系统”）。
+- [Equipment] 是系统内独立成套的主体设备（如“控制箱”、“灯箱”）。
+- [Component] 是设备内的关键部件（如“主控制板”、“电源模块”）。
+- 绝不允许“大系统”和“内部组件”平级出现。在提取所有设备和组件名时，**必须带上其所属的上一级环境前缀**。例如不要提取孤立的“继电器”、“数据采集板”，必须提取为“机舱微机监测系统_数据采集板”、“控制箱_继电器”。这对于消灭成环、防毛线球极度重要！
 
 标签判定要求：
-- 具体设备整体，如“船舶舵机”“自动开关”“变压器”，优先标注为 Equipment。
-- 设备内部部件、元器件、模块、接点、线圈、触头、熔断器等，优先标注为 Component。
-- 明确描述异常表现、症状、报警、不能启动、温升过高、噪声大等，标注为 FaultPhenomenon。
-- 明确描述故障成因、诱因、损坏原因、失效原因，标注为 FaultCause。
-- 明确描述检测、测量、诊断、检查、判别步骤，标注为 DiagnosticMethod。
-- 明确描述维修、处理、排除、调整、更换、修复步骤，标注为 RepairMethod。
-- 明确描述警示、禁忌、注意、必须、严禁等内容，标注为 SafetyNote。
+- [System] 和 [Equipment]：用于整套系统或独立箱体。
+- [Component]：用于单板、核心元器件或内部模块。
+- [FaultPhenomenon]：明确描述异常症状、报警。
+- [FaultCause]：诱发故障的原因。
+- [DiagnosticMethod], [RepairMethod], [SafetyNote] 分别为检测诊断、维修处理和安全禁忌事宜。
 
-关系抽取要求：
-- 优先建立 Equipment / Component / System 与 FaultPhenomenon / FaultCause / DiagnosticMethod / RepairMethod / SafetyNote 之间的关系。
-- 如果文本表达“某故障由某原因引起”，优先用 CAUSED_BY。
-- 如果文本表达“某故障/设备通过某方法诊断”，优先用 DIAGNOSED_BY。
-- 如果文本表达“某故障/设备通过某步骤维修或排除”，优先用 REPAIRED_BY。
-- 如果文本表达“设备/系统包含零部件”，优先用 HAS_COMPONENT。
-- 如果文本表达“设备/系统具有某故障”，优先用 HAS_FAULT。
+关系抽取要求与语义丰富性：
+- `BELONGS_TO` / `HAS_COMPONENT`：用于表示【System -> Equipment -> Component】的严格组成树结构，**绝不能出现互相包含或子包父的逻辑悖论（成环）**！
+- `CAUSED_BY`：故障现象由某个原因导致。
+- `DIAGNOSED_BY` / `REPAIRED_BY`：故障/设备的诊断和修复方法。
+- `REQUIRES`：系统或设备“必须依赖”某项环境或参数才能工作。
+- `PREVENTS`：某项安全措施或修补“防止”了某个故障。
+- `CONTROLS` / `MONITORS`：用于表达逻辑上某主控设备“控制”或“监测”另一设备。
+- `CONNECTS_TO`：用于设备模块之间的物理、电气或通讯链接。
 
 输出约束：
 - 只输出文本中明确出现或可以直接落地到维修语义的实体。
-- 实体名称尽量具体、可复用、可去重，不要输出模糊短语。
-- description 用一句中文短语说明该实体或关系在检修语境中的含义。
-- 输出严格 JSON 格式，不要输出任何其他文字、解释或 markdown 代码块。
+- 实体名称尽量具体、带有所属系统层级前缀、可复用。
+- description 用一句中文短语说明该实体或关系在检修语境中的含义（请勿在此字段里塞入标签、度数或id等死数据）。
+- 输出严格 JSON 格式，不要输出任何文字、解释或 markdown 代码块。
 
 输出格式：
 {{
   "entities": [
-    {{"name": "实体名", "label": "标签", "description": "简要描述"}}
+    {{"name": "带有前缀的规范实体名", "label": "标签", "description": "纯文字简要描述"}}
   ],
   "relations": [
-    {{"head": "头实体名", "head_label": "头标签", "relation": "关系类型", "tail": "尾实体名", "tail_label": "尾标签", "description": "关系描述"}}
+    {{"head": "头实体名", "head_label": "头标签", "relation": "关系类型", "tail": "尾实体名", "tail_label": "尾标签", "description": "精准的业务级描述，而非简单重复标签"}}
   ]
 }}
 """
@@ -625,8 +624,8 @@ def make_doc_id(filename: str) -> str:
 
 
 def extract_heading_context(text: str) -> str:
-    matches = re.findall(r"^\[H\d\] .+$", text, flags=re.MULTILINE)
-    return matches[-1] if matches else ""
+    path = extract_heading_path(text)
+    return " -> ".join(path) if path else ""
 
 
 def extract_heading_path(text: str) -> list[str]:
@@ -722,7 +721,7 @@ def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
         sections.append(
             {
                 "heading_path": list(current_path),
-                "heading_context": current_path[-1] if current_path else "",
+                "heading_context": " -> ".join(current_path) if current_path else "",
                 "semantic_group": infer_semantic_group(content, current_path),
                 "text": content,
             }
@@ -775,7 +774,7 @@ def _merge_semantic_sections(
                 if len(last["heading_path"]) >= len(section["heading_path"])
                 else section["heading_path"]
             )
-            last["heading_context"] = last["heading_path"][-1] if last["heading_path"] else ""
+            last["heading_context"] = " -> ".join(last["heading_path"]) if last["heading_path"] else ""
         else:
             merged.append(section)
     return merged
@@ -805,7 +804,7 @@ def _merge_section_pair(left: dict[str, Any], right: dict[str, Any]) -> dict[str
         else right["heading_path"]
     )
     merged["heading_context"] = (
-        merged["heading_path"][-1] if merged["heading_path"] else ""
+        " -> ".join(merged["heading_path"]) if merged["heading_path"] else ""
     )
     if left["semantic_group"] == right["semantic_group"]:
         merged["semantic_group"] = left["semantic_group"]
@@ -1723,6 +1722,56 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
         if relation["head"] in valid_names and relation["tail"] in valid_names
     ]
 
+    import networkx as nx
+    G = nx.Graph()
+    for entity in merged_entities:
+        G.add_node(entity["name"])
+    for relation in clean_relations:
+        G.add_edge(relation["head"], relation["tail"])
+
+    names_to_keep = set()
+    for component in nx.connected_components(G):
+        if len(component) >= 5:  # 保留节点数>=5的实质性连通分量
+            names_to_keep.update(component)
+        else:
+            merge_log.append({
+                "step": "prune_isolated",
+                "pruned_nodes": list(component)
+            })
+
+    # 第二道清除非主流或细碎子节点的规则
+    fine_grained_keywords = {"继电器", "保险", "端子", "引脚", "接线", "二极管", "触头", "插头", "插座", "电源接口", "COM", "电阻", "电容", "螺丝", "指示灯", "开关", "按钮", "旋钮", "针脚", "线嘴", "跳线"}
+    names_to_prune_fine = set()
+
+    for node in list(names_to_keep):
+        # 仅针对“主机遥控系统”相关的边缘细碎零件进行裁剪，不要误伤“监测报警系统”等别的部分
+        if "遥控" not in str(node) and "CDQY2A" not in str(node):
+            continue
+
+        # 1. 如果包含敏感细碎词汇，且它不是系统的"箱"/"台"/"系统"/"柜"等主体设备
+        if any(kw in str(node) for kw in fine_grained_keywords):
+            if not any(safe_kw in str(node) for safe_kw in ["箱", "系统", "柜", "总成", "台", "面板", "控制模块"]):
+                names_to_prune_fine.add(node)
+                names_to_keep.remove(node)
+                continue
+        # 2. 如果度数为1，且名字太细碎或者只是补充属性（例如含有“档位”、“值”、“状态”）
+        degree = G.degree[node]
+        if degree == 1 and any(fw in str(node) for fw in ["值", "状态", "档位", "类型", "测试", "能力", "参数"]):
+            names_to_prune_fine.add(node)
+            names_to_keep.remove(node)
+
+    if names_to_prune_fine:
+        merge_log.append({
+            "step": "prune_fine_grained",
+            "pruned_nodes": list(names_to_prune_fine)
+        })
+
+    merged_entities = [entity for entity in merged_entities if entity["name"] in names_to_keep]
+    clean_relations = [
+        relation for relation in clean_relations
+        if relation["head"] in names_to_keep and relation["tail"] in names_to_keep
+    ]
+
     merged_entities.sort(key=lambda entity: (entity.get("label", ""), entity["name"]))
     clean_relations.sort(
         key=lambda relation: (relation["head"], relation["relation"], relation["tail"])
@@ -1867,8 +1916,6 @@ def generate_neo4j_artifacts(
                 SET n.entity_id = row.entity_id,
                     n.label = row.label,
                     n.description = row.description,
-                    n.doc_id = row.doc_id,
-                    n.chunk_id = row.chunk_id,
                     n.all_labels = row.all_labels,
                     n.source = row.source
                 """,
@@ -1878,10 +1925,8 @@ def generate_neo4j_artifacts(
                         "name": entity["name"],
                         "label": entity.get("label", ""),
                         "description": entity.get("description", ""),
-                        "doc_id": _serialize(entity.get("doc_id", "")),
-                        "chunk_id": _serialize(entity.get("chunk_id", "")),
                         "all_labels": _serialize(entity.get("all_labels", [])),
-                        "source": entity.get("source", ""),
+                        "source": str(entity.get("source", "")),
                     }
                     for entity in entities
                 ],
@@ -1894,8 +1939,6 @@ def generate_neo4j_artifacts(
                         "head": relation["head"],
                         "tail": relation["tail"],
                         "description": relation.get("description", ""),
-                        "doc_id": _serialize(relation.get("doc_id", "")),
-                        "chunk_id": _serialize(relation.get("chunk_id", "")),
                     }
                 )
             for relation_type, rows in grouped_relations.items():
@@ -1908,9 +1951,7 @@ def generate_neo4j_artifacts(
                     MATCH (t:Entity {{name: row.tail}})
                     CREATE (h)-[r:`{relation_type}`]->(t)
                     SET r.rel_id = row.rel_id,
-                        r.description = row.description,
-                        r.doc_id = row.doc_id,
-                        r.chunk_id = row.chunk_id
+                        r.description = row.description
                     """,
                     rows=rows,
                 )
@@ -1931,6 +1972,9 @@ def generate_neo4j_artifacts(
         neo4j_admin_cmd = _neo4j_executable("neo4j-admin")
         subprocess.run([neo4j_cmd, "stop"], check=False, env=env)
         time.sleep(3)
+        dump_target = paths.delivery_dir / "neo4j.dump"
+        if dump_target.exists():
+            dump_target.unlink()
         subprocess.run(
             [
                 neo4j_admin_cmd,
@@ -2014,8 +2058,6 @@ def visualize_kg(
             f"<b>{html.escape(name)}</b><br>"
             f"标签: {html.escape(entity.get('label', ''))}<br>"
             f"描述: {html.escape(entity.get('description', '')[:200])}<br>"
-            f"doc_id: {html.escape(_serialize(entity.get('doc_id', '')))}<br>"
-            f"chunk_id: {html.escape(_serialize(entity.get('chunk_id', '')))}<br>"
             f"度数: {degree}"
         )
         net.add_node(

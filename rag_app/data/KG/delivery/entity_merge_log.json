@@ -1,513 +1,93 @@
 [
   {
     "step": "exact_dedup",
-    "merged_into": "CDQY2A-PC2-6 型船用主柴油机电气遥控系统",
-    "merged_from": "CDQY2A-PC2-6 型船用主柴油机电气遥控系统"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CDQY2A-PC2-6 型船用主柴油机电气遥控系统",
-    "merged_from": "CDQY2A-PC2-6 型船用主柴油机电气遥控系统"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "遥控台",
-    "merged_from": "遥控台"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "阀箱",
-    "merged_from": "阀箱"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "遥控操纵器（MH）",
-    "merged_from": "遥控操纵器（MH）"
+    "merged_into": "船舶_主推进系统_气控换向齿轮箱",
+    "merged_from": "船舶_主推进系统_气控换向齿轮箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "防护等级 IP22",
-    "merged_from": "防护等级 IP22"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "操纵档位九档制",
-    "merged_from": "操纵档位九档制"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "遥控显示控制板（ICP）",
-    "merged_from": "遥控显示控制板（ICP）"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "辅车钟单元（ATE）",
-    "merged_from": "辅车钟单元（ATE）"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "遥控控制站",
-    "merged_from": "遥控控制站"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "中央集控站",
-    "merged_from": "中央集控站"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "机旁",
-    "merged_from": "机旁"
+    "merged_into": "船舶_主推进系统_气控换向齿轮箱",
+    "merged_from": "船舶_主推进系统_气控换向齿轮箱"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "主推进装置",
-    "merged_from": "主推进装置"
+    "merged_into": "驾驶室_应急车钟",
+    "merged_from": "驾驶室_应急车钟"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "驾控",
-    "merged_from": "驾控"
+    "merged_into": "船舶_主推进系统_陕柴 PC2-6 型船用主机",
+    "merged_from": "船舶_主推进系统_陕柴 PC2-6 型船用主机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "转速测量显示单元（SM）",
-    "merged_from": "转速测量显示单元（SM）"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "辅车钟单元（ATE）",
-    "merged_from": "辅车钟单元（ATE）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱阀箱",
-    "merged_from": "机舱阀箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "气源处理装置",
-    "merged_from": "气源处理装置"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱阀箱",
-    "merged_from": "机舱阀箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控系统",
-    "merged_from": "遥控系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "倒顺离合器齿轮箱",
-    "merged_from": "倒顺离合器齿轮箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控系统",
-    "merged_from": "遥控系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "齿轮箱油压检测板",
-    "merged_from": "齿轮箱油压检测板"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控系统",
-    "merged_from": "遥控系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "辅车钟单元（ATE）",
-    "merged_from": "辅车钟单元（ATE）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控显示控制板（ICP）",
-    "merged_from": "遥控显示控制板（ICP）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "两位置转换气阀",
-    "merged_from": "两位置转换气阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机调速器",
-    "merged_from": "主机调速器"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控操纵器（MH）",
-    "merged_from": "遥控操纵器（MH）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "转速指令设定值",
-    "merged_from": "转速指令设定值"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机遥控控制单元（RCU）",
-    "merged_from": "主机遥控控制单元（RCU）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "PLC 微机",
-    "merged_from": "PLC 微机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱阀箱",
-    "merged_from": "机舱阀箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "正倒车控制电磁阀",
-    "merged_from": "正倒车控制电磁阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "倒顺离合器齿轮箱",
-    "merged_from": "倒顺离合器齿轮箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "安全系统",
-    "merged_from": "安全系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "调节旋钮",
-    "merged_from": "调节旋钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机遥控装置",
-    "merged_from": "主机遥控装置"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "安全系统",
-    "merged_from": "安全系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "停车电磁阀",
-    "merged_from": "停车电磁阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "复位按钮",
-    "merged_from": "复位按钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "故障停车",
-    "merged_from": "故障停车"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "故障降速",
-    "merged_from": "故障降速"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "引起故障停车的参数恢复正常",
-    "merged_from": "引起故障停车的参数恢复正常"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机重新起动并已达到空车转速",
-    "merged_from": "主机重新起动并已达到空车转速"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "人工确认按下复位",
-    "merged_from": "人工确认按下复位"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机旁控制单元",
-    "merged_from": "机旁控制单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "液压离合器",
-    "merged_from": "液压离合器"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "调速器",
-    "merged_from": "调速器"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "控制方式选择阀",
-    "merged_from": "控制方式选择阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "膜式执行器",
-    "merged_from": "膜式执行器"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "空车",
-    "merged_from": "空车"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机旁",
-    "merged_from": "机旁"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机旁显示箱",
-    "merged_from": "机旁显示箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "控制方式选择阀",
-    "merged_from": "控制方式选择阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机旁",
-    "merged_from": "机旁"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控操纵器（MH）",
-    "merged_from": "遥控操纵器（MH）"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "空车",
-    "merged_from": "空车"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "应急车钟",
-    "merged_from": "应急车钟"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "操作试验",
-    "merged_from": "操作试验"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "备车前",
-    "merged_from": "备车前"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "起动主机",
-    "merged_from": "起动主机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "将转速调至怠速",
-    "merged_from": "将转速调至怠速"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "驾控",
-    "merged_from": "驾控"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控装置",
-    "merged_from": "遥控装置"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "齿轮箱",
-    "merged_from": "齿轮箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "控制齿轮箱的合排和脱排",
-    "merged_from": "控制齿轮箱的合排和脱排"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "完车前",
-    "merged_from": "完车前"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控系统",
-    "merged_from": "遥控系统"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "试灯按钮",
-    "merged_from": "试灯按钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "指示灯",
-    "merged_from": "指示灯"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "消音按钮",
-    "merged_from": "消音按钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "阀箱",
-    "merged_from": "阀箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "旋钮",
-    "merged_from": "旋钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "声光报警",
-    "merged_from": "声光报警"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "遥控、机旁开关",
-    "merged_from": "遥控、机旁开关"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "机舱控制箱",
-    "merged_from": "机舱控制箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "“遥控”灯",
-    "merged_from": "“遥控”灯"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "“机旁”灯",
-    "merged_from": "“机旁”灯"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "报警声响",
-    "merged_from": "报警声响"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "阀箱",
-    "merged_from": "阀箱"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "控制阀",
-    "merged_from": "控制阀"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "操纵台",
-    "merged_from": "操纵台"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "失气",
-    "merged_from": "失气"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "声光报警",
-    "merged_from": "声光报警"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "消音按钮",
-    "merged_from": "消音按钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "失气指示灯",
-    "merged_from": "失气指示灯"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "错向",
-    "merged_from": "错向"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "延时 15S",
-    "merged_from": "延时 15S"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "PLC 微机",
-    "merged_from": "PLC 微机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "阀箱",
-    "merged_from": "阀箱"
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀"
   },
   {
     "step": "exact_dedup",
@@ -516,98 +96,93 @@
   },
   {
     "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统_主控单元",
+    "merged_from": "驾驶台航行值班报警系统_主控单元"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统_输出接线单元",
+    "merged_from": "驾驶台航行值班报警系统_输出接线单元"
+  },
+  {
+    "step": "exact_dedup",
     "merged_into": "驾驶台航行值班报警系统",
     "merged_from": "驾驶台航行值班报警系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "左右翼复位单元",
-    "merged_from": "左右翼复位单元"
+    "merged_into": "驾驶台航行值班报警系统_左右翼复位单元",
+    "merged_from": "驾驶台航行值班报警系统_左右翼复位单元"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "防护等级 IP22",
-    "merged_from": "防护等级 IP22"
+    "merged_into": "驾驶台航行值班报警系统",
+    "merged_from": "驾驶台航行值班报警系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "VDR",
-    "merged_from": "VDR"
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "主机",
-    "merged_from": "主机"
+    "merged_into": "船舶监测报警系统_主机",
+    "merged_from": "船舶监测报警系统_主机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "LCD/CRT",
-    "merged_from": "LCD/CRT"
+    "merged_into": "船舶监测报警系统_备用主机",
+    "merged_from": "船舶监测报警系统_备用主机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "电源",
-    "merged_from": "电源"
+    "merged_into": "船舶监测报警系统_显示单元",
+    "merged_from": "船舶监测报警系统_显示单元"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "主电源",
-    "merged_from": "主电源"
+    "merged_into": "船舶监测报警系统_打印设备",
+    "merged_from": "船舶监测报警系统_打印设备"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "指示灯",
-    "merged_from": "指示灯"
+    "merged_into": "船舶监测报警系统_主机_电子存储器",
+    "merged_from": "船舶监测报警系统_主机_电子存储器"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "采集模块",
-    "merged_from": "采集模块"
+    "merged_into": "船舶监测报警系统_主机_看门狗模块",
+    "merged_from": "船舶监测报警系统_主机_看门狗模块"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "工业控制计算机系统",
-    "merged_from": "工业控制计算机系统"
+    "merged_into": "船舶监测报警系统_主机_报警检测参数",
+    "merged_from": "船舶监测报警系统_主机_报警检测参数"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "VDR",
-    "merged_from": "VDR"
+    "merged_into": "船舶监测报警系统_主机_存储器容量",
+    "merged_from": "船舶监测报警系统_主机_存储器容量"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "RS-485 通讯方式",
-    "merged_from": "RS-485 通讯方式"
+    "merged_into": "船舶监测报警系统_主机_主机故障",
+    "merged_from": "船舶监测报警系统_主机_主机故障"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "显示器",
-    "merged_from": "显示器"
+    "merged_into": "船舶监测报警系统_主机_操作权限安全限制",
+    "merged_from": "船舶监测报警系统_主机_操作权限安全限制"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "打印机",
-    "merged_from": "打印机"
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "指示灯",
-    "merged_from": "指示灯"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "试验按钮",
-    "merged_from": "试验按钮"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "蜂鸣器",
-    "merged_from": "蜂鸣器"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "声光报警",
-    "merged_from": "声光报警"
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统"
   },
   {
     "step": "exact_dedup",
@@ -616,229 +191,1459 @@
   },
   {
     "step": "exact_dedup",
-    "merged_into": "防护等级 IP22",
-    "merged_from": "防护等级 IP22"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主控单元",
-    "merged_from": "主控单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "报警显示单元",
-    "merged_from": "报警显示单元"
-  },
-  {
-    "step": "exact_dedup",
     "merged_into": "机舱总线制监测报警系统",
     "merged_from": "机舱总线制监测报警系统"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "LCD",
-    "merged_from": "LCD"
+    "merged_into": "机舱总线制监测报警系统_报警显示单元",
+    "merged_from": "机舱总线制监测报警系统_报警显示单元"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "设置地址码",
-    "merged_from": "设置地址码"
+    "merged_into": "机舱总线制监测报警系统_报警数据采集模块",
+    "merged_from": "机舱总线制监测报警系统_报警数据采集模块"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "报警数据采集模块",
-    "merged_from": "报警数据采集模块"
+    "merged_into": "机舱总线制监测报警系统_数据总线",
+    "merged_from": "机舱总线制监测报警系统_数据总线"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "16 路报警显示单元",
-    "merged_from": "16 路报警显示单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "24 路报警显示单元",
-    "merged_from": "24 路报警显示单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "主控单元",
-    "merged_from": "主控单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "S1",
-    "merged_from": "S1"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "报警数据采集模块",
-    "merged_from": "报警数据采集模块"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "16 路报警显示单元",
-    "merged_from": "16 路报警显示单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "24 路报警显示单元",
-    "merged_from": "24 路报警显示单元"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "防振防潮湿防盐雾防霉菌措施",
-    "merged_from": "防振防潮湿防盐雾防霉菌措施"
-  },
-  {
-    "step": "label_unify",
-    "name": "安全越控",
-    "labels_merged": [
-      "FaultPhenomenon",
-      "SafetyNote"
-    ]
-  },
-  {
-    "step": "label_unify",
-    "name": "电源系统",
-    "labels_merged": [
-      "Component",
-      "System"
-    ]
-  },
-  {
-    "step": "label_unify",
-    "name": "防振防潮湿防盐雾防霉菌措施",
-    "labels_merged": [
-      "Parameter",
-      "SafetyNote"
-    ]
-  },
-  {
-    "step": "label_unify",
-    "name": "VDR",
-    "labels_merged": [
-      "Equipment",
-      "System"
-    ]
-  },
-  {
-    "step": "label_unify",
-    "name": "参数越限",
-    "labels_merged": [
-      "FaultCause",
-      "FaultPhenomenon"
-    ]
-  },
-  {
-    "step": "label_unify",
-    "name": "电源",
-    "labels_merged": [
-      "Component",
-      "Equipment"
-    ]
+    "merged_into": "船舶电气控制设备",
+    "merged_from": "船舶电气控制设备"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "遥控系统指示灯",
-    "entity_b": "遥控指示灯",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9755
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9645
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9623
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9656
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气动逻辑阀箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9751
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_主机",
+    "entity_b": "船舶监测报警系统_备用主机",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9751
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_显示单元",
+    "entity_b": "船舶监测报警系统_操作单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9633
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9675
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9823
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_气控换向齿轮箱_机旁换向阀",
+    "entity_b": "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀",
     "label": "Component",
     "threshold": 0.96,
-    "similarity": 0.9628
+    "similarity": 0.9814
   },
   {
     "step": "semantic_merge",
-    "entity_a": "紧急停车按钮",
-    "entity_b": "应急停车按钮",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
     "label": "Component",
     "threshold": 0.96,
-    "similarity": 0.9626
+    "similarity": 0.9609
   },
   {
     "step": "semantic_merge",
-    "entity_a": "主控制单元",
-    "entity_b": "主控单元",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9641
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_精密压力阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9606
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_遥控指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9671
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9734
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_联络指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9654
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_空气过滤器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_过滤器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9634
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_比例阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9633
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_失气压力控制器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9633
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_气压转速设定机构",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9637
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_PG（WOODWORD）型调速器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9749
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_气动执行器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9776
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀",
+    "entity_b": "船舶_主推进系统_气控换向齿轮箱_液压离合器控制导阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9603
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_安全越控按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9748
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_试灯按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9756
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9735
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_试验按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9847
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_消音按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9763
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_遥控指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9891
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9772
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_失气指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.97
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_联络按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9874
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_膜片气缸",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9604
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_机械连杆",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9733
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_开关阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9627
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_减压阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9618
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_滤气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9745
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_油雾器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9771
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9678
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_应急停车按钮",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_安全越控按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9621
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_尾轴测速探头",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9865
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头盒",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9869
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_尾轴测速探头盒",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9744
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9743
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_报警指示灯板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9715
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_复位按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9635
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9653
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_控制位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.984
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_机旁控制阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9711
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_两位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9742
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_过滤器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9701
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9783
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_正倒车控制电磁阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9687
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_控制位置转换气阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9674
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_三位置气动操纵阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_两位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9712
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_失气自保阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9618
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
     "label": "Component",
     "threshold": 0.96,
     "similarity": 0.9625
   },
   {
     "step": "semantic_merge",
-    "entity_a": "J1 报警输入口",
-    "entity_b": "J2 报警输入口",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车操纵阀",
     "label": "Component",
     "threshold": 0.96,
-    "similarity": 0.9614
+    "similarity": 0.9873
   },
   {
     "step": "semantic_merge",
-    "entity_a": "J2 报警输入口",
-    "entity_b": "J3 报警输入口",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择开关",
     "label": "Component",
     "threshold": 0.96,
-    "similarity": 0.9617
+    "similarity": 0.9622
   },
   {
     "step": "semantic_merge",
-    "entity_a": "相对湿度 ≤ RH95%",
-    "entity_b": "相对湿度 ≤RH95% (+40℃)",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9711
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源转换开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9847
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源转换开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9663
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_报警指示灯",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元_通讯灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9713
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_报警指示灯",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元_LED 指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9785
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警控制单元_通讯模块",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9736
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_采集单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.991
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_主控单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.994
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警数据采集模块_拨码开关组",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_地址设置开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9628
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_正常工作温度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_极限温度",
     "label": "Parameter",
     "threshold": 0.95,
-    "similarity": 0.9595
+    "similarity": 0.9641
   },
   {
     "step": "semantic_merge",
-    "entity_a": "符合钢质海船舶入级与建造规范及船级社规定",
-    "entity_b": "钢质海船入级建造规范",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9223
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_极限温度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温低湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526
   },
   {
     "step": "semantic_merge",
-    "entity_a": "符合 IEC-92-230 标准",
-    "entity_b": "IEC-92-230 标准",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9668
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作湿度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温高湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9515
   },
   {
     "step": "semantic_merge",
-    "entity_a": "发出报警声响",
-    "entity_b": "报警声响",
-    "label": "FaultPhenomenon",
-    "threshold": 0.93,
-    "similarity": 0.9696
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作湿度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温低湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9564
   },
   {
     "step": "semantic_merge",
-    "entity_a": "发出报警声响",
-    "entity_b": "声响报警",
-    "label": "FaultPhenomenon",
-    "threshold": 0.93,
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_振动环境条件_一般处所",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_振动环境条件_往复机械处所",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9811
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9645
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主电源规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9506
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9539
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_防护等级",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9796
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速设定值保持时间",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9511
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9524
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9513
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9505
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_单机功耗",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9507
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_结构形式",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9544
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_操作模式",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9562
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9549
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_工作状态显示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速范围",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速起始输出压力 0.05MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
     "similarity": 0.9529
   },
   {
     "step": "semantic_merge",
-    "entity_a": "主机转速高于超速设定值",
-    "entity_b": "主机转速超过超速设定值",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_指令档位配置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9794
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_遥控位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9559
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_空车位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9619
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9508
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9523
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_输入电压 AC220V",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9599
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_输出电压 DC24V",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.959
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输入气压 1MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9588
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速起始输出压力 0.05MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9573
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主电源规格",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_自动转换功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9577
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间 6-8 秒",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9868
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_操纵手柄旋转角度",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9511
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_转速指令设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9619
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器_输出位移量",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器_输出力矩",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9761
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_失气压力控制器_动作值",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9618
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_转速指令设定值",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.952
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_尾轴转向指示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.981
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_故障应急状态指示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.974
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_机旁位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9505
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_最大合排时间 2 秒",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间 6-8 秒",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.952
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_临界转速上限",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_临界转速下限",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9928
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_空车位置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_机旁位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9716
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱脱排指令",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱接排指令",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9688
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱脱排指令",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱换向指令",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9518
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_通信协议报警名称",
+    "entity_b": "驾驶台航行值班报警系统_通信协议报警状态指示位",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9574
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_主机_电源输入电压",
+    "entity_b": "船舶监测报警系统_主机_电源电压波动",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9581
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_过程变送器_电流信号标准",
+    "entity_b": "船舶监测报警系统_过程变送器_电压信号标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.97
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9814
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_数据输出模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9786
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_通讯标准",
+    "entity_b": "船舶监测报警系统_数据采集模块_产品系列",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9504
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_通讯标准",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块_通讯转换标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.971
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集通讯模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_VDR 数据通讯模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9604
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_24 路系统标准配置",
+    "entity_b": "机舱总线制监测报警系统_16 路系统标准配置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9577
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_通讯电缆选型规格",
+    "entity_b": "机舱总线制监测报警系统_电源电缆选型规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9687
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9261
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9321
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防震安装要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9447
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后防护要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9528
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源自动投入要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9338
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_安装位置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9238
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁优先控制原则",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9341
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况直接操纵要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9339
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后一般检查要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.938
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台驾驶室布置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9217
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_关键按钮布置位置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9239
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵部位转换应答确认要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.934
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_禁止擅自修改 PLC 程序",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9215
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源独立互不干扰要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9324
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_极性保护",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9254
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源独立互不干扰要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_完车前关闭遥控电源要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9221
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源自动投入要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9219
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵部位转换应答确认要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁控制_完车前复位要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9203
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况直接操纵要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_应急车钟操纵试验要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9324
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁控制_应急车钟试验要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_应急车钟操纵试验要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.977
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后一般检查要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路接头密封性检查要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9253
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路吹净维护",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_清理气路杂质和水份",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9293
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路吹净维护",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9264
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_更换阀件",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9367
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9336
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_试灯功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9248
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9246
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_失气报警试验",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9327
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查气源控制空气压力",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9426
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9354
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_可动件手动检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9356
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_调光功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9512
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_消音功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9363
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_机旁操纵功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9441
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_换向程序调整",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9278
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_调速机构调整",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9251
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查遥控面板显示",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.926
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_紧急停车功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9266
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查阀件动作灵活性",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9279
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_可动件手动检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_辅车钟联络检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9302
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_装置表面损坏",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9602
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_错向故障",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9356
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_报警显示",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9309
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作气源失气",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9437
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9383
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_错向故障",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9336
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_装置表面损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控系统失效",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9375
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主机自动降速",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9341
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主机立即停车",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9349
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速停车",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9303
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_报警显示",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9318
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_视觉报警",
+    "entity_b": "驾驶台航行值班报警系统_声音报警",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9388
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_声音报警",
+    "entity_b": "驾驶台航行值班报警系统_紧急呼叫",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9327
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_参数越限报警",
+    "entity_b": "机舱总线制监测报警系统_声光报警",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9303
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_指示灯闪频",
+    "entity_b": "机舱总线制监测报警系统_通讯灯不闪烁",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9356
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源中断",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_重要参数故障",
     "label": "FaultCause",
     "threshold": 0.93,
-    "similarity": 0.9737
+    "similarity": 0.9533
   },
   {
     "step": "semantic_merge",
-    "entity_a": "操作消音按钮",
-    "entity_b": "按动消音按钮",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9223
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "操作消音按钮",
-    "entity_b": "按消音按钮",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9444
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源中断",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源失压",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9603
   }
 ]

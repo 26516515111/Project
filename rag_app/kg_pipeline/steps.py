@@ -89,9 +89,10 @@ SYSTEM_PROMPT = f"""你是船舶电气设备维护与故障检修领域的知识
 关系类型（relation）必须从以下选取：
 {", ".join(RELATION_TYPES)}
 
-【重要】避免细粒度爆炸：
-- 严禁抽取低价值的细碎接口或引脚：不要把 "COM1", "J8", "24V电源接口", "接线端子6" 这种物理通讯针脚、电缆编号独立作为节点抽取！
-- 实体应停留在“成独立功能的单板、模块或核心零部件”级别。
+【重要】避免细粒度爆炸与冗杂零件：
+- 【强制底线】：禁止抽取任何细碎的基础支撑元器件、接口或外围引脚。坚决丢弃所有的“继电器”、“保险丝”、“电阻器”、“接线端子”、“各个插头(如J8/COM1)”、“指示灯”或“单一开关/按钮”等微观零件名称。
+- 只有具备独立运算、控制或完整封装的【单板】、【控制箱】或【核心模块】才能被提取为节点。
+- 所有低于单板/模块级别的零件维修信息（比如XX继电器损坏），必须折叠塞入所属单板节点（或者故障节点）的 `description` 描述文本内，绝不允许建立独立的树枝状子节点，以此降低图谱的密集度并提升检索性能！
 
 【重要】清晰划分层级系统边界（消歧）：
 - [System] 即整体大系统（如“机舱总线制监测报警系统”、“驾驶台航行值班报警系统”）。
@@ -1737,6 +1738,33 @@ def merge_kg(paths: PipelinePaths) -> dict[str, Any]:
                 "step": "prune_isolated",
                 "pruned_nodes": list(component)
             })
+
+    # 第二道清除非主流或细碎子节点的规则
+    fine_grained_keywords = {"继电器", "保险", "端子", "引脚", "接线", "二极管", "触头", "插头", "插座", "电源接口", "COM", "电阻", "电容", "螺丝", "指示灯", "开关", "按钮", "旋钮", "针脚", "线嘴", "跳线"}
+    names_to_prune_fine = set()
+
+    for node in list(names_to_keep):
+        # 仅针对“主机遥控系统”相关的边缘细碎零件进行裁剪，不要误伤“监测报警系统”等别的部分
+        if "遥控" not in str(node) and "CDQY2A" not in str(node):
+            continue
+
+        # 1. 如果包含敏感细碎词汇，且它不是系统的"箱"/"台"/"系统"/"柜"等主体设备
+        if any(kw in str(node) for kw in fine_grained_keywords):
+            if not any(safe_kw in str(node) for safe_kw in ["箱", "系统", "柜", "总成", "台", "面板", "控制模块"]):
+                names_to_prune_fine.add(node)
+                names_to_keep.remove(node)
+                continue
+        # 2. 如果度数为1，且名字太细碎或者只是补充属性（例如含有“档位”、“值”、“状态”）
+        degree = G.degree[node]
+        if degree == 1 and any(fw in str(node) for fw in ["值", "状态", "档位", "类型", "测试", "能力", "参数"]):
+            names_to_prune_fine.add(node)
+            names_to_keep.remove(node)
+
+    if names_to_prune_fine:
+        merge_log.append({
+            "step": "prune_fine_grained",
+            "pruned_nodes": list(names_to_prune_fine)
+        })
 
     merged_entities = [entity for entity in merged_entities if entity["name"] in names_to_keep]
     clean_relations = [

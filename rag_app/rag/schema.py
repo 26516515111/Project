@@ -23,6 +23,8 @@ class Answer(BaseModel):
     question: str
     answer: str
     citations: List[Passage] = Field(default_factory=list)
+    retrieved_chunks: List[Passage] = Field(default_factory=list)
+    kg_chunks: List[Passage] = Field(default_factory=list)
     kg_triplets: List[Dict[str, str]] = Field(default_factory=list)
     meta: Dict[str, str] = Field(default_factory=dict)
 

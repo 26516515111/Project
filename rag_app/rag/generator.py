@@ -1,8 +1,9 @@
-from typing import List, Dict
+from typing import Dict, Iterable, List
 import re
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnableWithMessageHistory
+from langchain_core.messages import AIMessage, HumanMessage
 
 from .schema import Passage
 from .config import SETTINGS
@@ -190,3 +191,50 @@ def generate_answer(
     if not use_llm:
         print("[llm] provider=none status=disabled")
     return extractive_answer(question, passages, kg_triplets)
+
+
+def stream_answer(
+    question: str,
+    passages: List[Passage],
+    kg_triplets: List[Dict[str, str]],
+    use_llm: bool = True,
+    use_history: bool = True,
+    session_id: str = "default",
+) -> Iterable[str]:
+    if use_llm:
+        context_text = _build_context(passages)
+        kg_context_text = build_kg_text(kg_triplets)
+        prompt = _build_prompt()
+        llm = build_chat_llm()
+        chain = prompt | llm
+        stream_input = {
+            "question": question,
+            "context": context_text,
+            "kg_context": kg_context_text,
+        }
+        history = None
+        if use_history and SETTINGS.use_history:
+            history = get_history(session_id)
+            stream_input["history"] = list(history.messages)
+        pieces: List[str] = []
+        try:
+            for chunk in chain.stream(stream_input):
+                token = str(getattr(chunk, "content", chunk) or "")
+                if not token:
+                    continue
+                pieces.append(token)
+                yield token
+            if history is not None:
+                final_text = "".join(pieces).strip()
+                if final_text:
+                    history.add_message(HumanMessage(content=question))
+                    history.add_message(AIMessage(content=final_text))
+            print("[llm] provider=ollama status=stream_ok")
+            return
+        except Exception as exc:
+            print(
+                f"[llm] provider=ollama status=stream_fallback error={type(exc).__name__}"
+            )
+    else:
+        print("[llm] provider=none status=disabled")
+    yield extractive_answer(question, passages, kg_triplets)

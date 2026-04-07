@@ -1,4 +1,4 @@
-from typing import Dict, List, Set
+from typing import Dict, List, Set, Tuple, Iterable
 import time
 
 from langchain_core.runnables import RunnableLambda, RunnableParallel
@@ -15,7 +15,7 @@ from .indexer import build_or_load_chroma
 from .chunking import TextChunker
 from .bm25 import build_bm25
 from .retriever import hybrid_retrieve
-from .generator import generate_answer
+from .generator import generate_answer, stream_answer
 from .kg_interface import query_knowledge_graph
 from .decomposer import decompose_question
 
@@ -289,6 +289,27 @@ class RagPipeline:
             Answer: 生成的答案对象。
         """
         return self._chain.invoke(req)
+
+    def stream_query(self, req: QueryRequest):
+        stream, _ = self.stream_query_with_payload(req)
+        return stream
+
+    def stream_query_with_payload(
+        self, req: QueryRequest
+    ) -> Tuple[Iterable[str], Dict]:
+        payload = self._prepare_request(req)
+        payload = self._run_retrieve(payload)
+        payload = self._run_kg(payload)
+        payload = self._merge_prompt(payload)
+        stream = stream_answer(
+            req.question,
+            payload["context"].passages,
+            payload.get("kg_triplets") or [],
+            use_llm=True,
+            use_history=req.use_history,
+            session_id=req.session_id or "default",
+        )
+        return stream, payload
 
     def export_answer(self, answer: Answer) -> Dict:
         """导出答案为可序列化的字典。

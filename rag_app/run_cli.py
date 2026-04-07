@@ -1,7 +1,10 @@
+from langchain_community.chat_models import ChatOpenAI
+
 from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
 from rag.store_history import get_history
 from rag.generator import get_system_prompt_text, render_user_prompt_text
+from rag.model import build_chat_llm
 
 
 def _print_dialogue_messages(
@@ -52,4 +55,8 @@ if __name__ == "__main__":
     Returns:
         None
     """
+    model = build_chat_llm()
+    print(model.invoke("Hello, world!"))
     main()
+
+

@@ -77,10 +77,13 @@ class Settings:
     )
 
     # LLM模块（可选）
-    # RAG_LLM_PROVIDER：ollama|none
-    llm_provider = env("RAG_LLM_PROVIDER", "ollama")  # ollama|none
+    # RAG_LLM_PROVIDER：ollama|modelscope|none
+    llm_provider = env("RAG_LLM_PROVIDER", "modelscope")  # ollama|modelscope|none
     # RAG_LLM_MODEL：聊天模型名称
     llm_model_name = env("RAG_LLM_MODEL", "qwen2.5:3b")
+    # RAG_MODELSCOPE_MODEL：ModelScope聊天模型名称
+    llm_modelscope_model = env("RAG_MODELSCOPE_MODEL", "Qwen/Qwen3-VL-8B-Instruct")
+    # llm_model_name = env("RAG_LLM_MODEL", "Qwen/Qwen3-4B")
     # 兼容旧命名
     llm_model = llm_model_name
     # RAG_LLM_MAX_TOKENS：最大输出token数
@@ -98,10 +101,18 @@ class Settings:
     # LLM连接模块
     # RAG_OLLAMA_BASE_URL：Ollama服务地址（历史兼容）
     llm_base_url = env("RAG_OLLAMA_BASE_URL", "http://localhost:11434")
+    # RAG_MODELSCOPE_BASE_URL：ModelScope OpenAI兼容服务地址
+    llm_modelscope_base_url = env(
+        "RAG_MODELSCOPE_BASE_URL", "https://api-inference.modelscope.cn/v1"
+    )
+
     # 兼容旧命名
     ollama_base_url = llm_base_url
 
-    llm_api_key = env("LLM_API_KEY",None)
+    # RAG_LLM_API_KEY / MODELSCOPE_API_KEY / LLM_API_KEY：LLM鉴权密钥
+    llm_api_key = env(
+        "RAG_LLM_API_KEY", env("MODELSCOPE_API_KEY", env("LLM_API_KEY", ""))
+    )
 
     # Neo4j模块
     # NEO4J_URI：Neo4j连接地址
@@ -119,7 +130,7 @@ class Settings:
 
     # 重排序模块
     # RAG_USE_RERANKER：是否启用交叉编码器重排序
-    use_reranker = env("RAG_USE_RERANKER", "true").lower() in {"1", "true", "yes", "y"}
+    use_reranker = env("RAG_USE_RERANKER", "false").lower() in {"1", "true", "yes", "y"}
     # RAG_RERANKER_MODEL：重排序模型名称
     reranker_model = env("RAG_RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
     # RAG_RERANKER_TOP_K：重排序后保留的passage数量

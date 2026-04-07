@@ -149,10 +149,10 @@ def generate_answer(
     Returns:
         str: 生成的答案文本。
     """
-    if not _is_domain_related(question):
-        return "与本系统内容无关，请重新输入"
+    # if not _is_domain_related(question):
+    #     return "与本系统内容无关，请重新输入"
 
-    if use_llm and SETTINGS.llm_provider == "ollama":
+    if use_llm:
         context_text = _build_context(passages)
         kg_context_text = build_kg_text(kg_triplets)
         prompt = _build_prompt()
@@ -187,8 +187,6 @@ def generate_answer(
         except Exception as exc:
             print(f"[llm] provider=ollama status=fallback error={type(exc).__name__}")
             return extractive_answer(question, passages, kg_triplets)
-    if use_llm and SETTINGS.llm_provider != "ollama":
-        print(f"[llm] provider={SETTINGS.llm_provider} status=disabled")
     if not use_llm:
         print("[llm] provider=none status=disabled")
     return extractive_answer(question, passages, kg_triplets)

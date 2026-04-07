@@ -60,6 +60,7 @@ def _prepare_payload(
     top_k: int,
     max_subqueries: int = None,
     per_query_top_k: int = None,
+    use_reranker: bool = True,
 ) -> Dict:
     queries = query if isinstance(query, list) else [query]
     queries = [q for q in queries if str(q).strip()]
@@ -71,6 +72,7 @@ def _prepare_payload(
         "queries": queries,
         "top_k": top_k,
         "per_query_top_k": per_query_top_k,
+        "use_reranker": use_reranker,
     }
 
 
@@ -227,6 +229,8 @@ def _apply_rerank(payload: Dict) -> RetrievedContext:
     queries = payload["queries"]
     if not queries:
         return RetrievedContext(passages=[])
+    if not payload.get("use_reranker", True):
+        return context
     reranker = get_reranker()
     if reranker:
         logger.info("Applying reranking...")
@@ -241,6 +245,7 @@ def hybrid_retrieve(
     top_k: int,
     max_subqueries: int = None,
     per_query_top_k: int = None,
+    use_reranker: bool = True,
 ) -> RetrievedContext:
     """融合dense与sparse分数，返回排序后的检索上下文。
 
@@ -262,6 +267,7 @@ def hybrid_retrieve(
                 top_k,
                 max_subqueries=max_subqueries,
                 per_query_top_k=per_query_top_k,
+                use_reranker=use_reranker,
             )
         )
         | RunnableLambda(_run_search)

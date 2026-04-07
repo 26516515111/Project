@@ -59,8 +59,10 @@ curl -X POST "http://localhost:8000/rag/incremental/upload" \
 - `question`（string，必填）：用户问题
 - `top_k`（number，可选，默认 5）：检索数量
 - `use_kg`（boolean，可选，默认 true）：是否启用知识图谱
+- `use_llm`（boolean，可选，默认 true）：是否启用 LLM 生成（关闭后使用抽取式回答）
 - `use_history`（boolean，可选，默认 true）：是否启用历史对话
 - `enable_decompose`（boolean，可选）：是否启用问题分解
+- `enable_retrieval_optimization`（boolean，可选，默认 true）：是否启用检索增强（前检索分解 + 后检索重排）
 
 请求示例：
 
@@ -70,6 +72,8 @@ curl -X POST "http://localhost:8000/rag/incremental/upload" \
   "question": "主柴油机报警如何排查？",
   "top_k": 5,
   "use_kg": true,
+  "use_llm": true,
+  "enable_retrieval_optimization": true,
   "use_history": true
 }
 ```

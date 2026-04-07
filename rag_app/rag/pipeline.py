@@ -171,11 +171,18 @@ class RagPipeline:
 
     def _prepare_request(self, req: QueryRequest) -> Dict:
         top_k = req.top_k or SETTINGS.top_k
+        retrieval_optimization_enabled = (
+            req.enable_retrieval_optimization
+            if req.enable_retrieval_optimization is not None
+            else True
+        )
+        default_decompose = SETTINGS.use_query_decomposition
         use_decompose = (
             req.enable_decompose
             if req.enable_decompose is not None
-            else SETTINGS.use_query_decomposition
-        )
+            else default_decompose
+        ) and retrieval_optimization_enabled
+        use_reranker = SETTINGS.use_reranker and retrieval_optimization_enabled
         questions = [req.question]
         if use_decompose:
             sub_questions = decompose_question(req.question)
@@ -185,7 +192,9 @@ class RagPipeline:
             "req": req,
             "top_k": top_k,
             "hybrid_top_k": SETTINGS.hybrid_top_k,
+            "use_reranker": use_reranker,
             "use_decompose": use_decompose,
+            "enable_retrieval_optimization": retrieval_optimization_enabled,
             "questions": questions,
             "timing": {"t0": time.perf_counter()},
         }
@@ -198,6 +207,7 @@ class RagPipeline:
             payload["hybrid_top_k"],
             max_subqueries=SETTINGS.decompose_max_subqueries,
             per_query_top_k=SETTINGS.decompose_per_query_top_k,
+            use_reranker=payload["use_reranker"],
         )
         payload["context"] = context
         payload["retrieved_chunks"] = list(context.passages)
@@ -239,7 +249,7 @@ class RagPipeline:
             req.question,
             context.passages,
             kg_triplets,
-            use_llm=True,
+            use_llm=req.use_llm,
             use_history=req.use_history,
             session_id=req.session_id or "default",
         )
@@ -276,6 +286,11 @@ class RagPipeline:
                 "top_k": str(top_k),
                 "hybrid_top_k": str(hybrid_top_k),
                 "decompose": str(use_decompose),
+                "retrieval_optimization": str(
+                    payload.get("enable_retrieval_optimization", True)
+                ),
+                "reranker": str(payload.get("use_reranker", False)),
+                "llm": str(req.use_llm),
             },
         )
 
@@ -305,7 +320,7 @@ class RagPipeline:
             req.question,
             payload["context"].passages,
             payload.get("kg_triplets") or [],
-            use_llm=True,
+            use_llm=req.use_llm,
             use_history=req.use_history,
             session_id=req.session_id or "default",
         )

@@ -60,8 +60,10 @@ def _run_query(payload: dict) -> dict:
         session_id=user_id,
         top_k=payload.get("top_k"),
         use_kg=payload.get("use_kg", True),
+        use_llm=payload.get("use_llm", True),
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
+        enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
     )
     with _pipeline_lock:
         pipeline = _get_pipeline()
@@ -79,8 +81,10 @@ def _build_query_request(payload: dict) -> QueryRequest:
         session_id=user_id,
         top_k=payload.get("top_k"),
         use_kg=payload.get("use_kg", True),
+        use_llm=payload.get("use_llm", True),
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
+        enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
     )
 
 

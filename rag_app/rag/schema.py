@@ -35,6 +35,8 @@ class QueryRequest(BaseModel):
     question: str
     top_k: Optional[int] = None
     use_kg: bool = True
+    use_llm: bool = True
     use_history: bool = True
     session_id: Optional[str] = None
     enable_decompose: Optional[bool] = None
+    enable_retrieval_optimization: Optional[bool] = None

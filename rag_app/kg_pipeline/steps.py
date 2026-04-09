@@ -1499,7 +1499,7 @@ def load_embedding_model(
     paths: PipelinePaths, device: str
 ) -> SentenceTransformer | None:
     os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
-    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-small-zh-v1.5")
+    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-m3")
     try:
         return SentenceTransformer(
             model_name,

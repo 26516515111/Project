@@ -2,19 +2,15 @@
 from __future__ import annotations
 
 import argparse
-import shutil
 from pathlib import Path
 
 from kg_pipeline.graph import build_graph
 from kg_pipeline.paths import PipelinePaths
 from kg_pipeline.pipeline_logging import PipelineLogger, build_run_log_path
 from kg_pipeline.runtime_state import (
-    archive_current_kg,
-    clear_derived_outputs,
     current_raw_files,
     load_kg_state,
     merge_completed_steps,
-    next_incomplete_step,
     save_kg_state,
 )
 from kg_pipeline.steps import migrate_legacy_files
@@ -23,23 +19,10 @@ from kg_pipeline.steps import migrate_legacy_files
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Project 内部 KG LangGraph 流水线")
     parser.add_argument(
-        "--mode",
-        choices=["overwrite", "incremental"],
-        default="incremental",
-        help="KG 运行模式：覆盖或增量",
-    )
-    parser.add_argument(
         "--kg-name",
         type=str,
         default=None,
-        help="当前 KG 名称，用于状态文件和覆盖模式备份名",
-    )
-    parser.add_argument(
-        "--ingest",
-        dest="ingest_path",
-        type=str,
-        default=None,
-        help="增量模式：一次性输入文件路径，自动完成 step1~4",
+        help="当前 KG 名称，用于状态文件",
     )
     parser.add_argument(
         "--from", dest="start", type=int, default=1, help="从第几步开始"
@@ -79,8 +62,6 @@ def parse_args() -> argparse.Namespace:
 
 
 def validate_args(args: argparse.Namespace) -> None:
-    if args.ingest_path:
-        return
     if not (1 <= args.start <= 6 and 1 <= args.end <= 6):
         raise SystemExit("参数错误: --from/--to 必须在 1~6")
     if args.start > args.end and args.only is None:
@@ -108,79 +89,13 @@ def main() -> int:
                 % (len(migration["moved"]), len(migration["removed_duplicates"]))
             )
 
-        if args.ingest_path:
-            source_path = Path(args.ingest_path).expanduser().resolve()
-            if not source_path.exists():
-                raise SystemExit(f"增量文件不存在: {source_path}")
-            if source_path.is_dir():
-                raise SystemExit("增量模式暂不支持目录，请提供单个文件路径")
-            target_path = paths.raw_dir / source_path.name
-            shutil.copy2(source_path, target_path)
-            logger.info(f"增量导入文件: {source_path} -> {target_path}")
-            args.start = 1
-            args.end = 4
-            args.only = None
-            args.only_doc_id = source_path.stem
-
         kg_state = load_kg_state(paths)
         raw_files = current_raw_files(paths)
         current_name = str(args.kg_name or kg_state.get("kg_name") or "KG").strip() or "KG"
-
-        if args.mode == "overwrite":
-            archive_source_name = str(kg_state.get("kg_name") or current_name).strip() or "KG"
-            if args.dry_run:
-                logger.info(
-                    "覆盖模式预演 | kg_name=%s | raw_files=%s | archive_name=%s"
-                    % (current_name, len(raw_files), archive_source_name)
-                )
-            else:
-                archive_path = archive_current_kg(paths, archive_source_name)
-                logger.info(f"覆盖模式备份完成: {archive_path}")
-                clear_derived_outputs(paths)
-                kg_state = {
-                    "kg_name": current_name,
-                    "used_files": raw_files,
-                    "completed_steps": [],
-                    "last_archive": str(archive_path),
-                }
-                save_kg_state(paths, kg_state)
-                logger.info(
-                    "覆盖模式初始化完成 | kg_name=%s | raw_files=%s"
-                    % (current_name, len(raw_files))
-                )
-        else:
-            used_files = set(kg_state.get("used_files", []))
-            new_files = sorted(set(raw_files) - used_files)
-            next_step = next_incomplete_step(kg_state.get("completed_steps", []))
-            logger.info(
-                "增量模式检查 | kg_name=%s | used_files=%s | raw_files=%s | new_files=%s | completed_steps=%s"
-                % (
-                    current_name,
-                    len(used_files),
-                    len(raw_files),
-                    len(new_files),
-                    kg_state.get("completed_steps", []),
-                )
-            )
-            if new_files:
-                if args.dry_run:
-                    logger.info(f"增量模式预演发现新文件: {new_files}")
-                else:
-                    clear_derived_outputs(paths)
-                    kg_state["used_files"] = sorted(set(kg_state.get("used_files", [])) | set(new_files))
-                    kg_state["kg_name"] = current_name
-                    kg_state["completed_steps"] = []
-                    save_kg_state(paths, kg_state)
-                logger.info(f"增量模式发现新文件: {new_files}")
-                args.start = 1
-                args.end = 6
-            elif next_step is not None and args.only is None:
-                args.start = next_step
-                args.end = 6
-                logger.info(f"增量模式续跑未完成步骤: Step {next_step} -> 6")
-            elif next_step is None and args.only is None:
-                logger.info("增量模式无新文件，且流水线已完成，无需执行")
-                return 0
+        logger.info(
+            "标准模式执行 | kg_name=%s | raw_files=%s | selected=%s"
+            % (current_name, len(raw_files), args.only if args.only else f"{args.start}-{args.end}")
+        )
 
         app = build_graph()
         state = app.invoke(

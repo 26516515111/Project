@@ -4,15 +4,9 @@ import re
 from typing import List
 
 from .config import SETTINGS
+from .model import build_chat_llm, ollama_available
 
 logger = logging.getLogger(__name__)
-
-try:
-    from langchain_community.chat_models import ChatOllama
-
-    OLLAMA_AVAILABLE = True
-except Exception:
-    OLLAMA_AVAILABLE = False
 
 
 def _normalize(text: str) -> str:
@@ -54,18 +48,16 @@ def _heuristic_decompose(question: str) -> List[str]:
 
 
 def _llm_decompose(question: str) -> List[str]:
-    if not OLLAMA_AVAILABLE or SETTINGS.llm_provider != "ollama":
+    if not ollama_available() or SETTINGS.llm_provider != "ollama":
         return []
     prompt = (
         "请将用户问题拆解为最多{n}个子问题，便于检索。"
         "要求：1) 子问题要简短可检索；2) 不能重复；3) 只输出JSON数组。\n"
         "问题：{q}"
     )
-    llm = ChatOllama(
-        model=SETTINGS.llm_model,
-        base_url=SETTINGS.ollama_base_url,
+    llm = build_chat_llm(
         temperature=SETTINGS.decompose_llm_temperature,
-        model_kwargs={"num_predict": SETTINGS.decompose_llm_max_tokens},
+        max_tokens=SETTINGS.decompose_llm_max_tokens,
     )
     try:
         response = llm.invoke(

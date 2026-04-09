@@ -113,22 +113,35 @@ class TextChunker:
         splitter: RecursiveCharacterTextSplitter,
     ) -> List[str]:
         lines = [line.rstrip() for line in str(text or "").splitlines()]
-        heading_re = re.compile(
-            r"^\s*(?:#+\s+|\[[A-Za-z0-9]+\]\s*)?(\d+(?:\.\d+)+)\s+.+"
-        )
+        
+        # 匹配 [H1], [H2] 或 Markdown 标题 #, ## 等，以及传统的 1.1, 1.2 标题
         blocks: List[List[str]] = []
         current: List[str] = []
         current_level: int | None = None
         for line in lines:
-            match = heading_re.match(line)
-            if match:
+            level = None
+            
+            # 1. 尝试匹配 [H1] 标签
+            h_match = re.match(r"^\s*\[H(\d)\]\s*", line)
+            # 2. 尝试匹配 Markdown 标题
+            md_match = re.match(r"^\s*(#+)\s+", line)
+            # 3. 尝试匹配数字分级标题 (例如: 1.1, 1.2.3)
+            num_match = re.match(r"^\s*(?:\[[A-Za-z0-9]+\]\s*)?(\d+(?:\.\d+)+)\s+.+", line)
+
+            if h_match:
+                level = int(h_match.group(1))
+            elif md_match:
+                level = len(md_match.group(1))
+            elif num_match:
+                level = len(num_match.group(1).split("."))
+
+            if level is not None:
                 if not SETTINGS.heading_merge_enabled:
                     if current:
                         blocks.append(current)
                     current = [line]
                     current_level = None
                     continue
-                level = len(match.group(1).split("."))
                 merge_level = SETTINGS.heading_merge_level
                 if level <= merge_level:
                     if current:

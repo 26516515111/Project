@@ -1,6084 +1,1706 @@
 {
   "chunks": [
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_0",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
       "chunk_index": 0,
-      "kg_entities": [
-        "ENT_000001",
-        "ENT_000002",
-        "ENT_000003",
-        "ENT_000004",
-        "ENT_000005",
-        "ENT_000006",
-        "ENT_000007",
-        "ENT_000008",
-        "ENT_000009",
-        "ENT_000010",
-        "ENT_000011",
-        "ENT_000012",
-        "ENT_000013",
-        "ENT_000014",
-        "ENT_000015"
-      ],
-      "kg_relations": [
-        "REL_000007",
-        "REL_000019",
-        "REL_000025",
-        "REL_000043"
-      ]
-    },
-    {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 1,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_1",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 1,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温高湿环境条件",
+        "船舶_主推进系统",
+        "船舶_主推进系统_气控换向齿轮箱",
+        "船舶_主推进系统_气控换向齿轮箱_液压离合器控制导阀",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机",
+        "驾驶室_主车钟",
+        "驾驶室_应急车钟"
+      ],
+      "kg_entity_ids": [
+        "ENT_000003",
+        "ENT_000029",
+        "ENT_000057",
+        "ENT_000058",
+        "ENT_000085",
+        "ENT_000086",
+        "ENT_000125",
+        "ENT_000217",
+        "ENT_000219"
+      ],
       "kg_relations": [
+        "REL_000003",
         "REL_000004",
         "REL_000005",
-        "REL_000006",
-        "REL_000007",
-        "REL_000009",
-        "REL_000010",
-        "REL_000019",
-        "REL_000027",
-        "REL_000042",
-        "REL_000043"
+        "REL_000026",
+        "REL_000031",
+        "REL_000203",
+        "REL_000204",
+        "REL_000206"
       ]
     },
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_2",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 2,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_倾斜摇摆环境条件",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_振动环境条件_往复机械处所",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温高湿环境条件"
+      ],
+      "kg_entity_ids": [
+        "ENT_000046",
+        "ENT_000050",
+        "ENT_000109",
+        "ENT_000111",
+        "ENT_000113",
+        "ENT_000125"
+      ],
       "kg_relations": [
         "REL_000009",
-        "REL_000017",
-        "REL_000018",
-        "REL_000019",
-        "REL_000020",
-        "REL_000027"
-      ]
-    },
-    {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_4",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000011",
-        "REL_000012",
         "REL_000013",
-        "REL_000017",
-        "REL_000018",
-        "REL_000019",
         "REL_000020",
         "REL_000022",
-        "REL_000045"
+        "REL_000047",
+        "REL_000089"
       ]
     },
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_5",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_3",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 3,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱设备便于观察与单人操车要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "船舶_机舱遥控专用低压气瓶"
+      ],
+      "kg_entity_ids": [
+        "ENT_000003",
+        "ENT_000046",
+        "ENT_000050",
+        "ENT_000059",
+        "ENT_000202",
+        "ENT_000203",
+        "ENT_000217"
+      ],
+      "kg_relations": [
+        "REL_000029",
+        "REL_000033",
+        "REL_000048",
+        "REL_000056",
+        "REL_000090"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_4",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 4,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_1.25 倍额定气压试验值",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_减震橡胶垫规格",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路堵塞",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紫铜管规格",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常"
+      ],
+      "kg_entity_ids": [
+        "ENT_000041",
+        "ENT_000097",
+        "ENT_000098",
+        "ENT_000107",
+        "ENT_000110",
+        "ENT_000116",
+        "ENT_000198",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000017",
+        "REL_000018",
+        "REL_000024",
+        "REL_000032",
+        "REL_000046",
+        "REL_000059",
+        "REL_000060",
+        "REL_000061",
+        "REL_000091",
+        "REL_000092",
+        "REL_000120"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_5",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
       "chunk_index": 5,
       "kg_entities": [
-        "ENT_000016",
-        "ENT_000017",
-        "ENT_000018",
-        "ENT_000019",
-        "ENT_000020",
-        "ENT_000021",
-        "ENT_000022",
-        "ENT_000023",
-        "ENT_000024",
-        "ENT_000025",
-        "ENT_000026",
-        "ENT_000027",
-        "ENT_000028",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_减速停车预报警",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000098",
+        "ENT_000111",
+        "ENT_000200"
+      ],
+      "kg_relations": [
+        "REL_000006",
+        "REL_000021",
+        "REL_000028",
+        "REL_000030",
+        "REL_000087"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_6",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 6,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_空气过滤精度",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000111",
+        "ENT_000115",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000054",
+        "REL_000055",
+        "REL_000108"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_7",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 7,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_最大合排时间 2 秒",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_绝缘电阻",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_比例阀_输出压力",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器_输出位移量"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000012",
+        "ENT_000111",
+        "ENT_000114",
+        "ENT_000117",
+        "ENT_000123",
+        "ENT_000124"
+      ],
+      "kg_relations": [
+        "REL_000023",
+        "REL_000025",
+        "REL_000044",
+        "REL_000045",
+        "REL_000107",
+        "REL_000109",
+        "REL_000127"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_8",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 8,
+      "kg_entities": [
+        "船舶_主推进系统_气控换向齿轮箱_液压离合器控制导阀",
+        "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀_三口气源同时失气",
+        "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀_失气保位特性",
+        "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀_控制口配置",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_PG（WOODWORD）型调速器"
+      ],
+      "kg_entity_ids": [
         "ENT_000029",
-        "ENT_000030",
-        "ENT_000031",
         "ENT_000032",
-        "ENT_000033",
-        "ENT_000034",
-        "ENT_000035",
-        "ENT_000036",
-        "ENT_000037",
-        "ENT_000038",
-        "ENT_000039",
-        "ENT_000040",
-        "ENT_000041",
-        "ENT_000042",
-        "ENT_000043",
-        "ENT_000045",
-        "ENT_000046",
-        "ENT_000047",
+        "ENT_000101",
+        "ENT_000147",
+        "ENT_000210"
+      ],
+      "kg_relations": [
+        "REL_000208",
+        "REL_000209",
+        "REL_000210",
+        "REL_000211",
+        "REL_000213",
+        "REL_000215",
+        "REL_000216"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_9",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 9,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_膜片气缸",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱油压检测板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000003",
+        "ENT_000010",
+        "ENT_000011",
+        "ENT_000013",
         "ENT_000048",
         "ENT_000049",
         "ENT_000050",
-        "ENT_000051"
+        "ENT_000203"
       ],
       "kg_relations": [
-        "REL_000006",
-        "REL_000007",
-        "REL_000009",
+        "REL_000010",
         "REL_000011",
-        "REL_000019",
-        "REL_000020",
-        "REL_000021",
-        "REL_000022",
-        "REL_000023",
-        "REL_000025",
-        "REL_000026",
-        "REL_000027",
-        "REL_000028",
-        "REL_000029",
-        "REL_000030",
-        "REL_000031",
-        "REL_000042",
-        "REL_000043"
+        "REL_000012",
+        "REL_000014",
+        "REL_000015",
+        "REL_000016",
+        "REL_000095",
+        "REL_000110"
       ]
     },
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_6",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 6,
-      "kg_entities": [],
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_10",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 10,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "船舶_主推进系统_气控换向齿轮箱"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000057",
+        "ENT_000111"
+      ],
       "kg_relations": [
+        "REL_000098"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_11",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 11,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000111",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000104"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_12",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 12,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元_切换开关",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元_切换开关档位设置",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元_工作角色模式",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元_联络信号内容"
+      ],
+      "kg_entity_ids": [
+        "ENT_000008",
+        "ENT_000049",
+        "ENT_000119",
+        "ENT_000120",
+        "ENT_000121"
+      ],
+      "kg_relations": [
+        "REL_000075",
+        "REL_000077",
+        "REL_000078",
+        "REL_000079",
+        "REL_000080",
+        "REL_000081",
+        "REL_000082"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_13",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 13,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头盒",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_测速齿盘",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机_主机飞轮"
+      ],
+      "kg_entity_ids": [
+        "ENT_000006",
+        "ENT_000007",
+        "ENT_000031"
+      ],
+      "kg_relations": [
+        "REL_000070",
+        "REL_000071",
+        "REL_000072",
+        "REL_000073",
+        "REL_000074",
+        "REL_000212"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_14",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 14,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000111",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000040",
+        "REL_000041",
+        "REL_000049",
+        "REL_000050"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_15",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 15,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_一体化开关电源",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_蓄电池",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000004",
+        "ENT_000005",
+        "ENT_000010",
+        "ENT_000111",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000039",
+        "REL_000084",
+        "REL_000085"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_16",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 16,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_膜片气缸"
+      ],
+      "kg_entity_ids": [
+        "ENT_000003",
+        "ENT_000011",
+        "ENT_000111"
+      ],
+      "kg_relations": [
+        "REL_000051",
+        "REL_000053",
+        "REL_000058",
+        "REL_000113",
+        "REL_000114"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_17",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 17,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱油压检测板_配置类型",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱油压检测板_顺倒车合排信号",
+        "船舶_主推进系统_气控换向齿轮箱_油压传感器"
+      ],
+      "kg_entity_ids": [
+        "ENT_000028",
+        "ENT_000126",
+        "ENT_000127"
+      ],
+      "kg_relations": [
+        "REL_000128",
+        "REL_000129",
+        "REL_000130",
+        "REL_000205",
+        "REL_000207"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_18",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 18,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_独立车钟系统",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_重要参数故障",
+        "船舶_主推进系统_气控换向齿轮箱_液压离合器控制导阀",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_PG（WOODWORD）型调速器"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000029",
+        "ENT_000032",
+        "ENT_000045",
+        "ENT_000047",
+        "ENT_000088",
+        "ENT_000098",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000001",
+        "REL_000002",
         "REL_000019",
-        "REL_000020",
-        "REL_000022",
-        "REL_000023",
-        "REL_000025",
-        "REL_000026",
-        "REL_000027",
-        "REL_000030",
-        "REL_000031",
-        "REL_000032",
-        "REL_000033",
+        "REL_000042",
+        "REL_000076",
+        "REL_000099",
+        "REL_000101",
+        "REL_000117"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_19",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 19,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_临界转速上限",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_最大合排时间 2 秒",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_重要参数故障"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001",
+        "ENT_000010",
+        "ENT_000046",
+        "ENT_000088",
+        "ENT_000098",
+        "ENT_000108",
+        "ENT_000114"
+      ],
+      "kg_relations": [
         "REL_000035",
         "REL_000036",
         "REL_000037",
-        "REL_000038",
-        "REL_000039",
-        "REL_000040",
-        "REL_000041"
+        "REL_000088",
+        "REL_000097",
+        "REL_000112"
       ]
     },
     {
-      "chunk_id": "16558_1-2009-gbt-e-300::chunk_7",
-      "doc_id": "16558_1-2009-gbt-e-300",
-      "source": "16558_1-2009-gbt-e-300.md",
-      "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000007",
-        "REL_000019",
-        "REL_000020",
-        "REL_000042",
-        "REL_000043",
-        "REL_000044",
-        "REL_000045",
-        "REL_000047",
-        "REL_000048",
-        "REL_000049",
-        "REL_000050",
-        "REL_000051",
-        "REL_000052"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 0,
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_20",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 20,
       "kg_entities": [
-        "ENT_000052",
-        "ENT_000053",
-        "ENT_000054",
-        "ENT_000055",
-        "ENT_000056",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁合排转速差限制",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_蜂鸣器",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_重要参数故障",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_错向保护时间 15S",
+        "船舶_主推进系统_气控换向齿轮箱_齿轮箱离合器"
+      ],
+      "kg_entity_ids": [
+        "ENT_000002",
+        "ENT_000010",
+        "ENT_000030",
+        "ENT_000046",
+        "ENT_000088",
+        "ENT_000098",
+        "ENT_000111",
+        "ENT_000122",
+        "ENT_000201"
+      ],
+      "kg_relations": [
+        "REL_000038",
+        "REL_000043",
+        "REL_000093",
+        "REL_000100",
+        "REL_000102",
+        "REL_000115",
+        "REL_000122",
+        "REL_000124",
+        "REL_000125"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_21",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 21,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵命令与齿轮箱转向不一致"
+      ],
+      "kg_entity_ids": [
+        "ENT_000087",
+        "ENT_000111"
+      ],
+      "kg_relations": [
+        "REL_000116",
+        "REL_000118",
+        "REL_000119",
+        "REL_000121",
+        "REL_000123"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_22",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 22,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器",
+        "船舶_主推进系统_气控换向齿轮箱",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机",
+        "船舶_主推进系统_陕柴 PC2-6 型船用主机_怠速",
+        "驾驶室_应急车钟"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000012",
+        "ENT_000046",
         "ENT_000057",
         "ENT_000058",
-        "ENT_000059",
-        "ENT_000060",
-        "ENT_000061",
-        "ENT_000062",
-        "ENT_000063",
-        "ENT_000064"
+        "ENT_000086",
+        "ENT_000111",
+        "ENT_000148",
+        "ENT_000203",
+        "ENT_000217"
       ],
       "kg_relations": [
-        "REL_000062"
+        "REL_000126",
+        "REL_000214",
+        "REL_000331"
       ]
     },
     {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000062"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000062",
-        "REL_000063"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000057",
-        "REL_000058",
-        "REL_000059",
-        "REL_000060",
-        "REL_000062",
-        "REL_000064"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_4",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_5",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_6",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 6,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_7",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_8",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 8,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_9",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 9,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_10",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 10,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_11",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 11,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_12",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 12,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_13",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 13,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_14",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 14,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_15",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 15,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_16",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 16,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_17",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 17,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_18",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 18,
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_23",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 23,
       "kg_entities": [
-        "ENT_000065",
-        "ENT_000066",
-        "ENT_000067"
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱脱排指令"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000111",
+        "ENT_000128",
+        "ENT_000203"
       ],
       "kg_relations": [
+        "REL_000007",
+        "REL_000027",
+        "REL_000094"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_24",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 24,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_调光旋钮",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000009",
+        "ENT_000010",
+        "ENT_000041",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000008",
+        "REL_000067",
+        "REL_000083",
+        "REL_000086"
+      ]
+    },
+    {
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_25",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+      "chunk_index": 25,
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_失气报警阈值 0.45MPa",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_最大合排时间 2 秒",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_脱排延时 2 秒",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板"
+      ],
+      "kg_entity_ids": [
+        "ENT_000001",
+        "ENT_000010",
+        "ENT_000041",
+        "ENT_000111",
+        "ENT_000112",
+        "ENT_000114",
+        "ENT_000118"
+      ],
+      "kg_relations": [
+        "REL_000062",
+        "REL_000063",
+        "REL_000064",
+        "REL_000065",
+        "REL_000066",
         "REL_000068",
         "REL_000069",
-        "REL_000070"
+        "REL_000096"
       ]
     },
     {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_19",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 19,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000057",
-        "REL_000058",
-        "REL_000059",
-        "REL_000060"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_20",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 20,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_21",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 21,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000057",
-        "REL_000058"
-      ]
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_22",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 22,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_23",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 23,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_24",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 24,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_25",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 25,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_26",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_26",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
       "chunk_index": 26,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_27",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_27",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
       "chunk_index": 27,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_PLC 微机工作不正常",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+        "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常"
+      ],
+      "kg_entity_ids": [
+        "ENT_000010",
+        "ENT_000041",
+        "ENT_000096",
+        "ENT_000098",
+        "ENT_000198",
+        "ENT_000203"
+      ],
+      "kg_relations": [
+        "REL_000034",
+        "REL_000052",
+        "REL_000057",
+        "REL_000103",
+        "REL_000105",
+        "REL_000106",
+        "REL_000111",
+        "REL_000217"
+      ]
     },
     {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_28",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
+      "chunk_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书::chunk_28",
+      "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+      "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
       "chunk_index": 28,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_29",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 29,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_30",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 30,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_31",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 31,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_32",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 32,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_33",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 33,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_34",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 34,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_35",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 35,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_36",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 36,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_37",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 37,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_38",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 38,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_39",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 39,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_40",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 40,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_41",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 41,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_42",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 42,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_43",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 43,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_44",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 44,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_45",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 45,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_46",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 46,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_47",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 47,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_48",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 48,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_49",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 49,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_50",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 50,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_51",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 51,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_52",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 52,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_53",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 53,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_54",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 54,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_55",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 55,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_56",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 56,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_57",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 57,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_58",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 58,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_59",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 59,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_60",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 60,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_61",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 61,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_62",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 62,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_63",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 63,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_64",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 64,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_65",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 65,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_66",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 66,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_67",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 67,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_68",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 68,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_69",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 69,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_70",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 70,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_71",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 71,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_72",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 72,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_73",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 73,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_74",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 74,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_75",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 75,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_76",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 76,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_77",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 77,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_78",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 78,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_79",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 79,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_80",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 80,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_81",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 81,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_82",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 82,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_83",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 83,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_84",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 84,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_85",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 85,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_86",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 86,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_87",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 87,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_88",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 88,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_89",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 89,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_90",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 90,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_91",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 91,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_92",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 92,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_93",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 93,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_94",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 94,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_95",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 95,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_96",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 96,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_97",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 97,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_98",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 98,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_99",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 99,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_100",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 100,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_101",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 101,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_102",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 102,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_103",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 103,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_104",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 104,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_105",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 105,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_106",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 106,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_107",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 107,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_108",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 108,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_109",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 109,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_110",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 110,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_111",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 111,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_112",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 112,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_113",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 113,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_114",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 114,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_115",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 115,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_116",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 116,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_117",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 117,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_118",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 118,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_119",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 119,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_120",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 120,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_121",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 121,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_122",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 122,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_123",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 123,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_124",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 124,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_125",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 125,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_126",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 126,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_127",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 127,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_128",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 128,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_129",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 129,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_130",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 130,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_131",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 131,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_132",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 132,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_133",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 133,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_134",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 134,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_135",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 135,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_136",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 136,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_137",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 137,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_138",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 138,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_139",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 139,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_140",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 140,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_141",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 141,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_142",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 142,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_143",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 143,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_144",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 144,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_145",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 145,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_146",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 146,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_147",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 147,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_148",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 148,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_149",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 149,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_150",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 150,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_151",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 151,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_152",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 152,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_153",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 153,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_154",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 154,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_155",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 155,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_156",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 156,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_157",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 157,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_158",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 158,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_159",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 159,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_160",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 160,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_161",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 161,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_162",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 162,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_163",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 163,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_164",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 164,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_165",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 165,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_166",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 166,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_167",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 167,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_168",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 168,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_169",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 169,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_170",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 170,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_171",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 171,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_172",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 172,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_173",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 173,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_174",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 174,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_175",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 175,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_176",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 176,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_177",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 177,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_178",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 178,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_179",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 179,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_180",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 180,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_181",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 181,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_182",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 182,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_183",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 183,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_184",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 184,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_185",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 185,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_186",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 186,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_187",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 187,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_188",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 188,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_189",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 189,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_190",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 190,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_191",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 191,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_2-2009-gbt-e-300::chunk_192",
-      "doc_id": "16558_2-2009-gbt-e-300",
-      "source": "16558_2-2009-gbt-e-300.md",
-      "chunk_index": 192,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_3-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_3-2009-gbt-e-300",
-      "source": "16558_3-2009-gbt-e-300.md",
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_0",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
       "chunk_index": 0,
+      "kg_entities": [],
+      "kg_entity_ids": [],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_1",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 1,
+      "kg_entities": [],
+      "kg_entity_ids": [],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_2",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 2,
+      "kg_entities": [],
+      "kg_entity_ids": [],
+      "kg_relations": []
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_3",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 3,
       "kg_entities": [
-        "ENT_000068",
-        "ENT_000069",
-        "ENT_000070",
-        "ENT_000071",
-        "ENT_000072",
-        "ENT_000073",
-        "ENT_000074",
-        "ENT_000075",
-        "ENT_000076",
+        "驾驶台航行值班报警系统",
+        "驾驶台航行值班报警系统_主控单元",
+        "驾驶台航行值班报警系统_值班官员延伸单元",
+        "驾驶台航行值班报警系统_左右翼复位单元",
+        "驾驶台航行值班报警系统_报警延伸选择单元",
+        "驾驶台航行值班报警系统_热释传感器自动复位单元",
+        "驾驶台航行值班报警系统_电源单元",
+        "驾驶台航行值班报警系统_电源单元_电源接线模块",
+        "驾驶台航行值班报警系统_输出接线单元",
+        "驾驶台航行值班报警系统_驾驶室复位单元"
+      ],
+      "kg_entity_ids": [
+        "ENT_000040",
         "ENT_000077",
         "ENT_000078",
         "ENT_000079",
         "ENT_000080",
         "ENT_000081",
         "ENT_000082",
-        "ENT_000083"
-      ],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_3-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_3-2009-gbt-e-300",
-      "source": "16558_3-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000072",
-        "REL_000073",
-        "REL_000074",
-        "REL_000075",
-        "REL_000076"
-      ]
-    },
-    {
-      "chunk_id": "16558_3-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_3-2009-gbt-e-300",
-      "source": "16558_3-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000074",
-        "REL_000080",
-        "REL_000082"
-      ]
-    },
-    {
-      "chunk_id": "16558_3-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_3-2009-gbt-e-300",
-      "source": "16558_3-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000085",
-        "REL_000086"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 0,
-      "kg_entities": [
+        "ENT_000083",
         "ENT_000084",
-        "ENT_000085",
-        "ENT_000086",
-        "ENT_000088",
-        "ENT_000089",
-        "ENT_000090",
-        "ENT_000091",
-        "ENT_000092",
-        "ENT_000093",
-        "ENT_000094",
-        "ENT_000095",
-        "ENT_000096",
-        "ENT_000097",
-        "ENT_000098",
-        "ENT_000099",
-        "ENT_000100",
-        "ENT_000101",
-        "ENT_000102",
-        "ENT_000103",
-        "ENT_000104"
+        "ENT_000221"
       ],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
       "kg_relations": [
-        "REL_000087",
-        "REL_000088",
-        "REL_000089",
-        "REL_000090",
-        "REL_000091",
-        "REL_000099"
+        "REL_000300",
+        "REL_000301",
+        "REL_000302",
+        "REL_000303",
+        "REL_000304",
+        "REL_000305",
+        "REL_000306",
+        "REL_000307",
+        "REL_000325"
       ]
     },
     {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_4",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_4",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
       "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000089",
-        "REL_000090",
-        "REL_000091",
-        "REL_000093",
-        "REL_000094",
-        "REL_000095",
-        "REL_000096",
-        "REL_000097",
-        "REL_000098",
-        "REL_000099",
-        "REL_000113",
-        "REL_000116",
-        "REL_000128",
-        "REL_000129",
-        "REL_000130",
-        "REL_000131",
-        "REL_000132"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_5",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000093",
-        "REL_000094",
-        "REL_000100",
-        "REL_000101",
-        "REL_000102",
-        "REL_000103",
-        "REL_000104",
-        "REL_000105",
-        "REL_000106",
-        "REL_000107",
-        "REL_000108",
-        "REL_000109",
-        "REL_000110"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_6",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 6,
       "kg_entities": [
-        "ENT_000105",
-        "ENT_000106",
-        "ENT_000107",
-        "ENT_000108",
-        "ENT_000109",
-        "ENT_000110",
-        "ENT_000111",
-        "ENT_000112",
-        "ENT_000113",
-        "ENT_000114",
-        "ENT_000115",
-        "ENT_000116",
-        "ENT_000117",
-        "ENT_000118",
-        "ENT_000119",
-        "ENT_000120",
-        "ENT_000121",
-        "ENT_000122",
-        "ENT_000123",
-        "ENT_000124",
-        "ENT_000125",
-        "ENT_000126",
-        "ENT_000127",
-        "ENT_000128",
-        "ENT_000129",
-        "ENT_000130",
-        "ENT_000131"
+        "驾驶台航行值班报警系统",
+        "驾驶台航行值班报警系统_主控单元",
+        "驾驶台航行值班报警系统_导航自动复位信号输入通道数",
+        "驾驶台航行值班报警系统_工作环境温度",
+        "驾驶台航行值班报警系统_工作电压",
+        "驾驶台航行值班报警系统_环境防护性能",
+        "驾驶台航行值班报警系统_电磁兼容性能",
+        "驾驶台航行值班报警系统_相对湿度",
+        "驾驶台航行值班报警系统_自动舵遥控启动输入信号",
+        "驾驶台航行值班报警系统_输出接线单元",
+        "驾驶台航行值班报警系统_驾驶室复位输入输出通道数"
       ],
-      "kg_relations": [
-        "REL_000094",
-        "REL_000096",
-        "REL_000097",
-        "REL_000107",
-        "REL_000108",
-        "REL_000109",
-        "REL_000110",
-        "REL_000111",
-        "REL_000112",
-        "REL_000113"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_7",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000113",
-        "REL_000114",
-        "REL_000115",
-        "REL_000116",
-        "REL_000117",
-        "REL_000118",
-        "REL_000119",
-        "REL_000120",
-        "REL_000121",
-        "REL_000122",
-        "REL_000123",
-        "REL_000124",
-        "REL_000125",
-        "REL_000126",
-        "REL_000129",
-        "REL_000140"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_8",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 8,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000116",
-        "REL_000126",
-        "REL_000129",
-        "REL_000132",
-        "REL_000139",
-        "REL_000140",
-        "REL_000141"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_9",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 9,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000088",
-        "REL_000089",
-        "REL_000098",
-        "REL_000108",
-        "REL_000109",
-        "REL_000127",
-        "REL_000133",
-        "REL_000134",
-        "REL_000135",
-        "REL_000136",
-        "REL_000137"
-      ]
-    },
-    {
-      "chunk_id": "16558_4-2009-gbt-e-300::chunk_10",
-      "doc_id": "16558_4-2009-gbt-e-300",
-      "source": "16558_4-2009-gbt-e-300.md",
-      "chunk_index": 10,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000093",
-        "REL_000094",
-        "REL_000095",
-        "REL_000096",
-        "REL_000097",
-        "REL_000098",
-        "REL_000127",
-        "REL_000128",
-        "REL_000129",
-        "REL_000130",
-        "REL_000131",
-        "REL_000132",
-        "REL_000133",
-        "REL_000134",
-        "REL_000136"
-      ]
-    },
-    {
-      "chunk_id": "16558_5-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_5-2009-gbt-e-300",
-      "source": "16558_5-2009-gbt-e-300.md",
-      "chunk_index": 0,
-      "kg_entities": [
-        "ENT_000132",
-        "ENT_000133",
-        "ENT_000134",
-        "ENT_000135",
-        "ENT_000136",
-        "ENT_000137",
-        "ENT_000138",
-        "ENT_000139",
-        "ENT_000140",
-        "ENT_000141",
-        "ENT_000142",
-        "ENT_000143",
-        "ENT_000144",
-        "ENT_000145",
-        "ENT_000146",
-        "ENT_000147",
-        "ENT_000148"
-      ],
-      "kg_relations": [
-        "REL_000158"
-      ]
-    },
-    {
-      "chunk_id": "16558_5-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_5-2009-gbt-e-300",
-      "source": "16558_5-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_5-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_5-2009-gbt-e-300",
-      "source": "16558_5-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000143",
-        "REL_000144",
-        "REL_000145",
-        "REL_000146",
-        "REL_000147"
-      ]
-    },
-    {
-      "chunk_id": "16558_5-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_5-2009-gbt-e-300",
-      "source": "16558_5-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000155",
-        "REL_000156",
-        "REL_000157",
-        "REL_000158",
-        "REL_000159",
-        "REL_000160",
-        "REL_000161"
-      ]
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 0,
-      "kg_entities": [
-        "ENT_000149",
-        "ENT_000150",
-        "ENT_000151",
-        "ENT_000152",
-        "ENT_000153",
-        "ENT_000154",
-        "ENT_000155",
-        "ENT_000156",
-        "ENT_000157",
-        "ENT_000158",
-        "ENT_000159",
-        "ENT_000160",
-        "ENT_000161",
-        "ENT_000162"
-      ],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000162",
-        "REL_000163"
-      ]
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000163",
-        "REL_000164",
-        "REL_000165",
-        "REL_000166",
-        "REL_000167",
-        "REL_000168",
-        "REL_000169",
-        "REL_000172",
-        "REL_000173",
-        "REL_000178"
-      ]
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_4",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000164",
-        "REL_000174"
-      ]
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_5",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000174",
-        "REL_000175",
-        "REL_000176",
-        "REL_000177"
-      ]
-    },
-    {
-      "chunk_id": "16558_6-2009-gbt-e-300::chunk_6",
-      "doc_id": "16558_6-2009-gbt-e-300",
-      "source": "16558_6-2009-gbt-e-300.md",
-      "chunk_index": 6,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_0",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 0,
-      "kg_entities": [
-        "ENT_000087",
-        "ENT_000163",
-        "ENT_000164",
-        "ENT_000165",
-        "ENT_000166",
-        "ENT_000167",
-        "ENT_000168",
-        "ENT_000169",
-        "ENT_000170",
-        "ENT_000171",
-        "ENT_000172",
-        "ENT_000173",
-        "ENT_000174",
-        "ENT_000175",
-        "ENT_000176",
-        "ENT_000177",
-        "ENT_000178",
+      "kg_entity_ids": [
+        "ENT_000077",
+        "ENT_000083",
         "ENT_000179",
         "ENT_000180",
         "ENT_000181",
-        "ENT_000182",
-        "ENT_000183",
-        "ENT_000184",
-        "ENT_000185",
         "ENT_000186",
         "ENT_000187",
         "ENT_000188",
         "ENT_000189",
-        "ENT_000190",
-        "ENT_000191",
-        "ENT_000192",
-        "ENT_000193",
-        "ENT_000194",
+        "ENT_000197",
+        "ENT_000221"
+      ],
+      "kg_relations": [
+        "REL_000311",
+        "REL_000312",
+        "REL_000314",
+        "REL_000315",
+        "REL_000316",
+        "REL_000323",
+        "REL_000326",
+        "REL_000330"
+      ]
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_5",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 5,
+      "kg_entities": [
+        "驾驶台航行值班报警系统_延伸输出到公共区域报警通道数",
+        "驾驶台航行值班报警系统_延伸输出到官员舱室报警通道数",
+        "驾驶台航行值班报警系统_通用报警输出接口类型"
+      ],
+      "kg_entity_ids": [
+        "ENT_000183",
+        "ENT_000184",
         "ENT_000195"
       ],
       "kg_relations": [
-        "REL_000181",
-        "REL_000182",
-        "REL_000183",
-        "REL_000184",
-        "REL_000185",
-        "REL_000186",
-        "REL_000187",
-        "REL_000188",
-        "REL_000189",
-        "REL_000190",
-        "REL_000191",
-        "REL_000236"
+        "REL_000327",
+        "REL_000328",
+        "REL_000329"
       ]
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_1",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 1,
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_6",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 6,
+      "kg_entities": [
+        "驾驶台航行值班报警系统",
+        "驾驶台航行值班报警系统_VDR 输出接口类型",
+        "驾驶台航行值班报警系统_左右翼复位单元",
+        "驾驶台航行值班报警系统_左右翼复位单元_防护等级",
+        "驾驶台航行值班报警系统_无源触点最大容量",
+        "驾驶台航行值班报警系统_通信协议数据头格式",
+        "驾驶台航行值班报警系统_防护等级"
+      ],
+      "kg_entity_ids": [
+        "ENT_000079",
+        "ENT_000178",
+        "ENT_000182",
+        "ENT_000185",
+        "ENT_000193",
+        "ENT_000196",
+        "ENT_000221"
+      ],
+      "kg_relations": [
+        "REL_000310",
+        "REL_000313",
+        "REL_000320",
+        "REL_000322",
+        "REL_000324"
+      ]
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_7",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 7,
+      "kg_entities": [
+        "驾驶台航行值班报警系统",
+        "驾驶台航行值班报警系统_通信协议报警状态指示位"
+      ],
+      "kg_entity_ids": [
+        "ENT_000192",
+        "ENT_000221"
+      ],
+      "kg_relations": [
+        "REL_000319"
+      ]
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_8",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 8,
+      "kg_entities": [
+        "驾驶台航行值班报警系统_航行值班故障",
+        "驾驶台航行值班报警系统_视觉报警",
+        "驾驶台航行值班报警系统_通信协议 ASC 码",
+        "驾驶台航行值班报警系统_通信协议异或校验和",
+        "驾驶台航行值班报警系统_通信协议运行模式参数"
+      ],
+      "kg_entity_ids": [
+        "ENT_000105",
+        "ENT_000106",
+        "ENT_000190",
+        "ENT_000191",
+        "ENT_000194"
+      ],
+      "kg_relations": [
+        "REL_000308",
+        "REL_000309",
+        "REL_000317",
+        "REL_000318",
+        "REL_000321"
+      ]
+    },
+    {
+      "chunk_id": "GC WAS-01 驾驶室船舶值班报警系统说明书::chunk_9",
+      "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+      "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+      "chunk_index": 9,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_2",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 2,
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_0",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 0,
       "kg_entities": [],
-      "kg_relations": [
-        "REL_000180",
-        "REL_000217",
-        "REL_000218"
-      ]
+      "kg_entity_ids": [],
+      "kg_relations": []
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_3",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000181",
-        "REL_000189",
-        "REL_000190",
-        "REL_000191"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_4",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000181",
-        "REL_000182",
-        "REL_000192",
-        "REL_000193",
-        "REL_000194",
-        "REL_000195",
-        "REL_000196",
-        "REL_000197",
-        "REL_000198",
-        "REL_000199",
-        "REL_000200",
-        "REL_000201",
-        "REL_000202",
-        "REL_000203",
-        "REL_000204",
-        "REL_000205",
-        "REL_000206",
-        "REL_000207",
-        "REL_000210"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_5",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000183"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_6",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 6,
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_1",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 1,
       "kg_entities": [
-        "ENT_000196",
-        "ENT_000197",
-        "ENT_000198",
-        "ENT_000199",
-        "ENT_000200",
-        "ENT_000201",
-        "ENT_000202",
-        "ENT_000203",
-        "ENT_000204",
-        "ENT_000205",
-        "ENT_000206",
-        "ENT_000207",
-        "ENT_000208",
-        "ENT_000209",
-        "ENT_000210",
-        "ENT_000211",
-        "ENT_000212",
-        "ENT_000213",
-        "ENT_000214",
+        "船舶监测报警系统",
+        "船舶监测报警系统_主机_主机故障",
+        "船舶监测报警系统_主机_存储器容量",
+        "船舶监测报警系统_主机_报警检测参数",
+        "船舶监测报警系统_主机_操作权限安全限制",
+        "船舶监测报警系统_主机_电子存储器",
+        "船舶监测报警系统_主机_看门狗模块",
+        "船舶监测报警系统_备用主机",
+        "船舶监测报警系统_打印设备",
+        "船舶监测报警系统_显示单元"
+      ],
+      "kg_entity_ids": [
+        "ENT_000035",
+        "ENT_000036",
+        "ENT_000064",
+        "ENT_000067",
+        "ENT_000070",
+        "ENT_000103",
+        "ENT_000157",
+        "ENT_000159",
         "ENT_000215",
-        "ENT_000216",
-        "ENT_000217",
-        "ENT_000218",
-        "ENT_000219",
-        "ENT_000220",
-        "ENT_000221",
-        "ENT_000222",
-        "ENT_000223"
+        "ENT_000220"
       ],
       "kg_relations": [
-        "REL_000183",
-        "REL_000184",
-        "REL_000219",
-        "REL_000220",
-        "REL_000221",
-        "REL_000223"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_7",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000184",
-        "REL_000185",
-        "REL_000186",
-        "REL_000219",
-        "REL_000220",
-        "REL_000221",
-        "REL_000222",
-        "REL_000223",
-        "REL_000224",
-        "REL_000225",
-        "REL_000226",
-        "REL_000227",
-        "REL_000228",
-        "REL_000229",
-        "REL_000230",
         "REL_000231",
-        "REL_000232",
-        "REL_000233",
-        "REL_000236"
+        "REL_000234",
+        "REL_000237",
+        "REL_000254",
+        "REL_000255",
+        "REL_000256",
+        "REL_000258",
+        "REL_000264",
+        "REL_000265",
+        "REL_000266",
+        "REL_000297"
       ]
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_8",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 8,
-      "kg_entities": [],
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_2",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 2,
+      "kg_entities": [
+        "船舶监测报警系统",
+        "船舶监测报警系统_VDR 数据记录设备",
+        "船舶监测报警系统_主机_主机故障",
+        "船舶监测报警系统_主机_参数越限报警",
+        "船舶监测报警系统_主机_外界谐波干扰",
+        "船舶监测报警系统_主机_存储器容量",
+        "船舶监测报警系统_主机_报警历史查询",
+        "船舶监测报警系统_主机_报警检测参数",
+        "船舶监测报警系统_主机_操作权限安全限制",
+        "船舶监测报警系统_主机_检测点参数越限",
+        "船舶监测报警系统_主机_电子存储器",
+        "船舶监测报警系统_主机_看门狗模块",
+        "船舶监测报警系统_备用主机",
+        "船舶监测报警系统_打印设备",
+        "船舶监测报警系统_显示单元",
+        "船舶监测报警系统_轮机长室报警延伸单元",
+        "船舶监测报警系统_驾控台报警延伸单元"
+      ],
+      "kg_entity_ids": [
+        "ENT_000035",
+        "ENT_000036",
+        "ENT_000044",
+        "ENT_000062",
+        "ENT_000064",
+        "ENT_000067",
+        "ENT_000070",
+        "ENT_000074",
+        "ENT_000076",
+        "ENT_000094",
+        "ENT_000095",
+        "ENT_000103",
+        "ENT_000104",
+        "ENT_000157",
+        "ENT_000159",
+        "ENT_000215",
+        "ENT_000220"
+      ],
       "kg_relations": [
-        "REL_000186",
-        "REL_000188",
-        "REL_000232",
+        "REL_000253",
+        "REL_000257",
+        "REL_000261",
+        "REL_000262",
+        "REL_000263",
+        "REL_000267",
+        "REL_000275",
+        "REL_000296"
+      ]
+    },
+    {
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_3",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 3,
+      "kg_entities": [
+        "船舶监测报警系统_主机_工作温度范围",
+        "船舶监测报警系统_主机_测量精度",
+        "船舶监测报警系统_主机_电源纹波系数",
+        "船舶监测报警系统_主机_电源自动切换功能",
+        "船舶监测报警系统_主机_电源输入电压",
+        "船舶监测报警系统_主机_额定功率",
+        "船舶监测报警系统_打印设备_额定功率",
+        "船舶监测报警系统_显示单元_额定功率",
+        "船舶监测报警系统_环境适应性要求"
+      ],
+      "kg_entity_ids": [
+        "ENT_000158",
+        "ENT_000161",
+        "ENT_000162",
+        "ENT_000163",
+        "ENT_000164",
+        "ENT_000165",
+        "ENT_000171",
+        "ENT_000175",
+        "ENT_000216"
+      ],
+      "kg_relations": [
+        "REL_000242",
+        "REL_000268",
+        "REL_000270",
+        "REL_000271",
+        "REL_000272",
+        "REL_000273",
+        "REL_000274",
+        "REL_000283",
+        "REL_000295"
+      ]
+    },
+    {
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_4",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 4,
+      "kg_entities": [
+        "船舶监测报警系统",
+        "船舶监测报警系统_开关量传感器",
+        "船舶监测报警系统_测速传感器",
+        "船舶监测报警系统_热电偶传感器",
+        "船舶监测报警系统_热电阻传感器",
+        "船舶监测报警系统_过程变送器",
+        "船舶监测报警系统_过程变送器_电流信号标准",
+        "船舶监测报警系统_过程变送器_电阻信号类型"
+      ],
+      "kg_entity_ids": [
+        "ENT_000066",
+        "ENT_000071",
+        "ENT_000072",
+        "ENT_000073",
+        "ENT_000075",
+        "ENT_000176",
+        "ENT_000177",
+        "ENT_000220"
+      ],
+      "kg_relations": [
         "REL_000233",
-        "REL_000234",
-        "REL_000235",
-        "REL_000236",
-        "REL_000237",
         "REL_000238",
         "REL_000239",
         "REL_000240",
         "REL_000241",
-        "REL_000244",
-        "REL_000247"
+        "REL_000298",
+        "REL_000299"
       ]
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_9",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 9,
-      "kg_entities": [],
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_5",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 5,
+      "kg_entities": [
+        "船舶监测报警系统_主机_接口标准",
+        "船舶监测报警系统_操作单元_轨迹球",
+        "船舶监测报警系统_操作单元_键盘",
+        "船舶监测报警系统_数据采集通讯模块",
+        "船舶监测报警系统_显示单元"
+      ],
+      "kg_entity_ids": [
+        "ENT_000037",
+        "ENT_000038",
+        "ENT_000069",
+        "ENT_000070",
+        "ENT_000160"
+      ],
       "kg_relations": [
-        "REL_000188",
-        "REL_000189",
-        "REL_000190",
-        "REL_000242",
+        "REL_000260",
+        "REL_000269",
+        "REL_000285",
+        "REL_000290",
+        "REL_000291",
+        "REL_000292"
+      ]
+    },
+    {
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_6",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 6,
+      "kg_entities": [
+        "船舶监测报警系统",
+        "船舶监测报警系统_UPS 电源单元",
+        "船舶监测报警系统_UPS 电源单元_断电关闭要求",
+        "船舶监测报警系统_UPS 电源单元_未及时关闭",
+        "船舶监测报警系统_UPS 电源单元_电池耗尽损坏",
+        "船舶监测报警系统_UPS 电源单元_输入电压",
+        "船舶监测报警系统_UPS 电源单元_额定功率"
+      ],
+      "kg_entity_ids": [
+        "ENT_000061",
+        "ENT_000093",
+        "ENT_000102",
+        "ENT_000154",
+        "ENT_000155",
+        "ENT_000214",
+        "ENT_000220"
+      ],
+      "kg_relations": [
+        "REL_000229",
         "REL_000243",
         "REL_000244",
         "REL_000245",
         "REL_000246",
         "REL_000247",
         "REL_000248",
-        "REL_000249",
+        "REL_000249"
+      ]
+    },
+    {
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_7",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 7,
+      "kg_entities": [
+        "船舶监测报警系统_延伸报警灯板",
+        "船舶监测报警系统_延伸报警灯板_尺寸规格",
+        "船舶监测报警系统_延伸报警灯板_报警点数",
+        "船舶监测报警系统_延伸报警灯板_通讯标准"
+      ],
+      "kg_entity_ids": [
+        "ENT_000065",
+        "ENT_000166",
+        "ENT_000167",
+        "ENT_000168"
+      ],
+      "kg_relations": [
+        "REL_000232",
+        "REL_000259",
+        "REL_000276",
+        "REL_000277",
+        "REL_000278",
+        "REL_000279"
+      ]
+    },
+    {
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_8",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 8,
+      "kg_entities": [
+        "船舶监测报警系统_VDR 数据通讯模块",
+        "船舶监测报警系统_VDR 数据通讯模块_电源输入电压",
+        "船舶监测报警系统_数据输出模块",
+        "船舶监测报警系统_数据采集模块_内部数据处理单元",
+        "船舶监测报警系统_数据采集通讯模块",
+        "船舶监测报警系统_数据采集通讯模块_通讯转换标准"
+      ],
+      "kg_entity_ids": [
+        "ENT_000039",
+        "ENT_000063",
+        "ENT_000068",
+        "ENT_000069",
+        "ENT_000156",
+        "ENT_000172"
+      ],
+      "kg_relations": [
+        "REL_000230",
+        "REL_000235",
+        "REL_000236",
         "REL_000250",
         "REL_000251",
         "REL_000252",
-        "REL_000253",
-        "REL_000254",
-        "REL_000255",
-        "REL_000256",
-        "REL_000257",
-        "REL_000258"
+        "REL_000284",
+        "REL_000286",
+        "REL_000287",
+        "REL_000288",
+        "REL_000289"
       ]
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_10",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 10,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000190",
-        "REL_000191",
-        "REL_000259",
-        "REL_000260",
-        "REL_000261",
-        "REL_000262",
-        "REL_000263",
-        "REL_000264",
-        "REL_000265"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_11",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 11,
+      "chunk_id": "机舱微机监测报警系统说明书::chunk_9",
+      "doc_id": "机舱微机监测报警系统说明书",
+      "source": "机舱微机监测报警系统说明书.md",
+      "chunk_index": 9,
       "kg_entities": [
-        "ENT_000224",
-        "ENT_000225",
-        "ENT_000226",
-        "ENT_000227",
-        "ENT_000228",
-        "ENT_000229",
-        "ENT_000230",
-        "ENT_000231",
-        "ENT_000232",
-        "ENT_000233",
-        "ENT_000234",
-        "ENT_000235",
-        "ENT_000236",
-        "ENT_000237",
-        "ENT_000238",
-        "ENT_000239",
-        "ENT_000240",
-        "ENT_000241",
-        "ENT_000242",
-        "ENT_000243",
-        "ENT_000244",
-        "ENT_000245",
-        "ENT_000246"
+        "船舶监测报警系统_打印设备_产品系列",
+        "船舶监测报警系统_打印设备_纸张类型",
+        "船舶监测报警系统_显示单元_屏幕尺寸规格",
+        "船舶监测报警系统_显示单元_显示技术类型"
+      ],
+      "kg_entity_ids": [
+        "ENT_000169",
+        "ENT_000170",
+        "ENT_000173",
+        "ENT_000174"
       ],
       "kg_relations": [
-        "REL_000266",
-        "REL_000267",
-        "REL_000274",
-        "REL_000275",
-        "REL_000282",
-        "REL_000283",
-        "REL_000287",
-        "REL_000289",
-        "REL_000358"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_12",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 12,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000276",
-        "REL_000277",
-        "REL_000278",
-        "REL_000279",
-        "REL_000290",
-        "REL_000291",
-        "REL_000292",
-        "REL_000293",
-        "REL_000360",
-        "REL_000361",
-        "REL_000362",
-        "REL_000363"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_13",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 13,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000279",
         "REL_000280",
         "REL_000281",
-        "REL_000284",
-        "REL_000285",
-        "REL_000286",
-        "REL_000288",
+        "REL_000282",
         "REL_000293",
-        "REL_000294",
-        "REL_000351",
-        "REL_000363",
-        "REL_000364",
-        "REL_000365"
+        "REL_000294"
       ]
     },
     {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_14",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 14,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_15",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 15,
-      "kg_entities": [
-        "ENT_000247",
-        "ENT_000248",
-        "ENT_000249",
-        "ENT_000250",
-        "ENT_000251",
-        "ENT_000252",
-        "ENT_000253",
-        "ENT_000254",
-        "ENT_000255",
-        "ENT_000256",
-        "ENT_000257",
-        "ENT_000258",
-        "ENT_000259",
-        "ENT_000260",
-        "ENT_000261",
-        "ENT_000262",
-        "ENT_000263",
-        "ENT_000264",
-        "ENT_000265",
-        "ENT_000266"
-      ],
-      "kg_relations": [
-        "REL_000311",
-        "REL_000312",
-        "REL_000313",
-        "REL_000314",
-        "REL_000315",
-        "REL_000316",
-        "REL_000365"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_16",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 16,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000317",
-        "REL_000318",
-        "REL_000319"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_17",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 17,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000320",
-        "REL_000321",
-        "REL_000322",
-        "REL_000323",
-        "REL_000324",
-        "REL_000325",
-        "REL_000326",
-        "REL_000327",
-        "REL_000355",
-        "REL_000366",
-        "REL_000367",
-        "REL_000368",
-        "REL_000369",
-        "REL_000371"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_18",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 18,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000323",
-        "REL_000324",
-        "REL_000325",
-        "REL_000326",
-        "REL_000327",
-        "REL_000367",
-        "REL_000368",
-        "REL_000369",
-        "REL_000371"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_19",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 19,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000328",
-        "REL_000329",
-        "REL_000333"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_20",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 20,
-      "kg_entities": [
-        "ENT_000267",
-        "ENT_000268",
-        "ENT_000269",
-        "ENT_000270",
-        "ENT_000271",
-        "ENT_000272",
-        "ENT_000273",
-        "ENT_000274"
-      ],
-      "kg_relations": [
-        "REL_000274",
-        "REL_000275",
-        "REL_000287",
-        "REL_000289",
-        "REL_000337",
-        "REL_000338",
-        "REL_000353",
-        "REL_000356",
-        "REL_000357",
-        "REL_000358",
-        "REL_000359"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_21",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 21,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000275",
-        "REL_000276",
-        "REL_000277",
-        "REL_000278",
-        "REL_000279",
-        "REL_000280",
-        "REL_000285",
-        "REL_000289",
-        "REL_000290",
-        "REL_000291",
-        "REL_000292",
-        "REL_000293",
-        "REL_000353",
-        "REL_000359",
-        "REL_000360",
-        "REL_000361",
-        "REL_000362",
-        "REL_000363",
-        "REL_000364"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_22",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 22,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000280",
-        "REL_000284",
-        "REL_000285",
-        "REL_000294",
-        "REL_000321",
-        "REL_000351",
-        "REL_000352",
-        "REL_000354",
-        "REL_000355",
-        "REL_000364",
-        "REL_000365",
-        "REL_000366"
-      ]
-    },
-    {
-      "chunk_id": "16558_7-2009-gbt-e-300::chunk_23",
-      "doc_id": "16558_7-2009-gbt-e-300",
-      "source": "16558_7-2009-gbt-e-300.md",
-      "chunk_index": 23,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000320",
-        "REL_000321",
-        "REL_000322",
-        "REL_000324",
-        "REL_000325",
-        "REL_000355",
-        "REL_000366",
-        "REL_000367",
-        "REL_000368",
-        "REL_000369",
-        "REL_000370",
-        "REL_000371"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_0",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 0,
-      "kg_entities": [
-        "ENT_000000",
-        "ENT_000275",
-        "ENT_000276",
-        "ENT_000277",
-        "ENT_000278",
-        "ENT_000279",
-        "ENT_000280",
-        "ENT_000281",
-        "ENT_000282",
-        "ENT_000283",
-        "ENT_000284",
-        "ENT_000285",
-        "ENT_000286",
-        "ENT_000287",
-        "ENT_000288",
-        "ENT_000289",
-        "ENT_000290",
-        "ENT_000291",
-        "ENT_000292"
-      ],
-      "kg_relations": [
-        "REL_000400"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_1",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000419"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_2",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000379",
-        "REL_000380",
-        "REL_000381",
-        "REL_000382",
-        "REL_000383",
-        "REL_000384",
-        "REL_000387"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_3",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000392",
-        "REL_000393",
-        "REL_000395",
-        "REL_000396",
-        "REL_000419"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_4",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_5",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000389",
-        "REL_000421"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_6",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 6,
-      "kg_entities": [
-        "ENT_000293",
-        "ENT_000294",
-        "ENT_000295",
-        "ENT_000296",
-        "ENT_000297",
-        "ENT_000298",
-        "ENT_000299",
-        "ENT_000300",
-        "ENT_000301",
-        "ENT_000302",
-        "ENT_000303",
-        "ENT_000304",
-        "ENT_000305",
-        "ENT_000306",
-        "ENT_000307",
-        "ENT_000308",
-        "ENT_000309",
-        "ENT_000310",
-        "ENT_000311",
-        "ENT_000312",
-        "ENT_000313",
-        "ENT_000314"
-      ],
-      "kg_relations": [
-        "REL_000397",
-        "REL_000398",
-        "REL_000399",
-        "REL_000401",
-        "REL_000402",
-        "REL_000403",
-        "REL_000404",
-        "REL_000405",
-        "REL_000406"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_7",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000400",
-        "REL_000412",
-        "REL_000414",
-        "REL_000420",
-        "REL_000421"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_8",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 8,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000400",
-        "REL_000417",
-        "REL_000418",
-        "REL_000419"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_9",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 9,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_10",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 10,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_11",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 11,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_12",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 12,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_13",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 13,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_14",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 14,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_15",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 15,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_16",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 16,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_17",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 17,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_18",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 18,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_19",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 19,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_20",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 20,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_21",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 21,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_22",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 22,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_23",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 23,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_24",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 24,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_25",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 25,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_26",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 26,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_27",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 27,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_28",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 28,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_29",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 29,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_30",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 30,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_31",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 31,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_32",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 32,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_33",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 33,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_34",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 34,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_35",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 35,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_36",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 36,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_37",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 37,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_38",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 38,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_39",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 39,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_40",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 40,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_41",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 41,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_42",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 42,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_43",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 43,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000379",
-        "REL_000395"
-      ]
-    },
-    {
-      "chunk_id": "23438-2009-gbt-e-300::chunk_44",
-      "doc_id": "23438-2009-gbt-e-300",
-      "source": "23438-2009-gbt-e-300.md",
-      "chunk_index": 44,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_0",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_0",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 0,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_1",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_1",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 1,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统",
+        "机舱总线制监测报警系统_参数越限报警",
+        "机舱总线制监测报警系统_报警控制单元_声响器",
+        "机舱总线制监测报警系统_报警控制单元_外控声光继电器",
+        "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+        "机舱总线制监测报警系统_报警控制单元_消音键",
+        "机舱总线制监测报警系统_报警控制单元_试验按钮",
+        "机舱总线制监测报警系统_报警控制单元_调光按键",
+        "机舱总线制监测报警系统_报警显示单元",
+        "机舱总线制监测报警系统_报警显示单元_LED 指示灯",
+        "机舱总线制监测报警系统_接收器最小灵敏度",
+        "机舱总线制监测报警系统_最大传输速率",
+        "机舱总线制监测报警系统_最大连接节点数",
+        "机舱总线制监测报警系统_最大采集点数",
+        "机舱总线制监测报警系统_消音键复位操作",
+        "机舱总线制监测报警系统_试验按钮全亮测试",
+        "机舱总线制监测报警系统_通讯传输距离",
+        "机舱总线制监测报警系统_通讯灯不闪烁",
+        "水油气超温超压",
+        "水油液位超限",
+        "电网绝缘故障"
+      ],
+      "kg_entity_ids": [
+        "ENT_000014",
+        "ENT_000015",
+        "ENT_000016",
+        "ENT_000017",
+        "ENT_000018",
+        "ENT_000019",
+        "ENT_000024",
+        "ENT_000043",
+        "ENT_000053",
+        "ENT_000090",
+        "ENT_000091",
+        "ENT_000092",
+        "ENT_000099",
+        "ENT_000100",
+        "ENT_000138",
+        "ENT_000141",
+        "ENT_000142",
+        "ENT_000143",
+        "ENT_000144",
+        "ENT_000199",
+        "ENT_000218"
+      ],
+      "kg_relations": [
+        "REL_000132",
+        "REL_000137",
+        "REL_000138",
+        "REL_000139",
+        "REL_000142",
+        "REL_000143",
+        "REL_000144",
+        "REL_000145",
+        "REL_000146",
+        "REL_000147",
+        "REL_000148",
+        "REL_000149",
+        "REL_000150",
+        "REL_000172",
+        "REL_000173",
+        "REL_000174",
+        "REL_000175",
+        "REL_000176",
+        "REL_000177",
+        "REL_000179",
+        "REL_000200",
+        "REL_000201",
+        "REL_000202"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_2",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_2",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 2,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统_三防保护要求",
+        "机舱总线制监测报警系统_工作环境温度",
+        "机舱总线制监测报警系统_工作环境湿度",
+        "机舱总线制监测报警系统_工作电压",
+        "机舱总线制监测报警系统_电磁兼容性措施",
+        "机舱总线制监测报警系统_符合造船规范标准",
+        "机舱总线制监测报警系统_防护等级"
+      ],
+      "kg_entity_ids": [
+        "ENT_000132",
+        "ENT_000133",
+        "ENT_000134",
+        "ENT_000146",
+        "ENT_000204",
+        "ENT_000207",
+        "ENT_000208"
+      ],
+      "kg_relations": [
+        "REL_000136",
+        "REL_000183",
+        "REL_000184",
+        "REL_000185",
+        "REL_000188",
+        "REL_000189",
+        "REL_000190",
+        "REL_000191",
+        "REL_000198"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_3",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_3",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 3,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统",
+        "机舱总线制监测报警系统_32 路开关量采集能力",
+        "机舱总线制监测报警系统_地址设置通电短接要求",
+        "机舱总线制监测报警系统_报警延时 2-5 秒",
+        "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+        "机舱总线制监测报警系统_报警数据采集模块",
+        "机舱总线制监测报警系统_报警数据采集模块_地址设置开关",
+        "机舱总线制监测报警系统_报警显示单元",
+        "机舱总线制监测报警系统_报警显示单元_LED 指示灯",
+        "机舱总线制监测报警系统_数据总线",
+        "机舱总线制监测报警系统_显示路数配置",
+        "机舱总线制监测报警系统_未收到主控单元信息",
+        "机舱总线制监测报警系统_电源系统",
+        "机舱总线制监测报警系统_航行数据记录仪",
+        "机舱总线制监测报警系统_计算机监控系统",
+        "机舱总线制监测报警系统_通讯灯不闪烁"
+      ],
+      "kg_entity_ids": [
+        "ENT_000016",
+        "ENT_000020",
+        "ENT_000024",
+        "ENT_000027",
+        "ENT_000052",
+        "ENT_000053",
+        "ENT_000054",
+        "ENT_000055",
+        "ENT_000056",
+        "ENT_000089",
+        "ENT_000100",
+        "ENT_000130",
+        "ENT_000135",
+        "ENT_000140",
+        "ENT_000205",
+        "ENT_000218"
+      ],
+      "kg_relations": [
+        "REL_000131",
+        "REL_000133",
+        "REL_000134",
+        "REL_000141",
+        "REL_000152",
+        "REL_000154",
+        "REL_000155",
+        "REL_000157",
+        "REL_000158",
+        "REL_000162",
+        "REL_000164",
+        "REL_000167",
+        "REL_000187",
+        "REL_000199"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_4",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_4",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 4,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统",
+        "机舱总线制监测报警系统_24 路系统标准配置",
+        "机舱总线制监测报警系统_报警数据采集模块",
+        "机舱总线制监测报警系统_报警显示单元",
+        "机舱总线制监测报警系统_报警显示单元_LCD 液晶显示屏",
+        "机舱总线制监测报警系统_报警显示单元_LED 指示灯",
+        "机舱总线制监测报警系统_报警显示单元_地址设置开关",
+        "机舱总线制监测报警系统_数据总线",
+        "机舱总线制监测报警系统_显示单元推荐安装位置"
+      ],
+      "kg_entity_ids": [
+        "ENT_000023",
+        "ENT_000024",
+        "ENT_000025",
+        "ENT_000027",
+        "ENT_000052",
+        "ENT_000053",
+        "ENT_000129",
+        "ENT_000139",
+        "ENT_000218"
+      ],
+      "kg_relations": [
+        "REL_000135",
+        "REL_000151",
+        "REL_000171",
+        "REL_000178",
+        "REL_000180",
+        "REL_000186",
+        "REL_000192"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_5",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_5",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 5,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统_RS-485 通讯接口",
+        "机舱总线制监测报警系统_地址设置与主控短接调试",
+        "机舱总线制监测报警系统_报警数据采集模块_扫描状态灯",
+        "机舱总线制监测报警系统_报警数据采集模块_调试跳线",
+        "机舱总线制监测报警系统_报警显示单元_通讯航空插头"
+      ],
+      "kg_entity_ids": [
+        "ENT_000021",
+        "ENT_000022",
+        "ENT_000026",
+        "ENT_000042",
+        "ENT_000131"
+      ],
+      "kg_relations": [
+        "REL_000140",
+        "REL_000156",
+        "REL_000159",
+        "REL_000160",
+        "REL_000163",
+        "REL_000169",
+        "REL_000170",
+        "REL_000181"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_6",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_6",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 6,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统_屏蔽层可靠接壳要求",
+        "机舱总线制监测报警系统_线路极性禁止接反要求",
+        "机舱总线制监测报警系统_通讯电缆选型规格"
+      ],
+      "kg_entity_ids": [
+        "ENT_000145",
+        "ENT_000206",
+        "ENT_000209"
+      ],
+      "kg_relations": [
+        "REL_000168",
+        "REL_000182",
+        "REL_000193",
+        "REL_000194",
+        "REL_000195",
+        "REL_000196",
+        "REL_000197"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_7",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_7",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 7,
-      "kg_entities": [],
-      "kg_relations": []
+      "kg_entities": [
+        "机舱总线制监测报警系统_报警数据采集模块_外部接口功能说明",
+        "机舱总线制监测报警系统_报警数据采集模块_输入公共端分组说明"
+      ],
+      "kg_entity_ids": [
+        "ENT_000136",
+        "ENT_000137"
+      ],
+      "kg_relations": [
+        "REL_000153",
+        "REL_000161",
+        "REL_000165",
+        "REL_000166"
+      ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_8",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
+      "chunk_id": "机舱总线制监测报警使用说明书::chunk_8",
+      "doc_id": "机舱总线制监测报警使用说明书",
+      "source": "机舱总线制监测报警使用说明书.md",
       "chunk_index": 8,
       "kg_entities": [],
-      "kg_relations": [
-        "REL_000733",
-        "REL_000749"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_9",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 9,
-      "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_10",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 10,
+      "chunk_id": "柴油机智能延伸检测单元说明书::chunk_0",
+      "doc_id": "柴油机智能延伸检测单元说明书",
+      "source": "柴油机智能延伸检测单元说明书.md",
+      "chunk_index": 0,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_11",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 11,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_12",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 12,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_13",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 13,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_14",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 14,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_15",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 15,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_16",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 16,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_17",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 17,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_18",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 18,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_19",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 19,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_20",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 20,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000608"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_21",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 21,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_22",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 22,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_23",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 23,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_24",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 24,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_25",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 25,
+      "chunk_id": "柴油机智能延伸检测单元说明书::chunk_1",
+      "doc_id": "柴油机智能延伸检测单元说明书",
+      "source": "柴油机智能延伸检测单元说明书.md",
+      "chunk_index": 1,
       "kg_entities": [
-        "ENT_000044",
-        "ENT_000315",
-        "ENT_000316",
-        "ENT_000317",
-        "ENT_000318",
-        "ENT_000319",
-        "ENT_000320",
-        "ENT_000321",
-        "ENT_000322",
-        "ENT_000323",
-        "ENT_000324",
-        "ENT_000325",
-        "ENT_000326",
-        "ENT_000327",
-        "ENT_000328",
-        "ENT_000329",
-        "ENT_000330",
-        "ENT_000331",
-        "ENT_000332",
-        "ENT_000333",
-        "ENT_000334",
-        "ENT_000335",
-        "ENT_000336",
-        "ENT_000338",
-        "ENT_000339",
-        "ENT_000340",
-        "ENT_000341",
-        "ENT_000342",
-        "ENT_000343",
-        "ENT_000344",
-        "ENT_000345",
-        "ENT_000346",
-        "ENT_000347",
-        "ENT_000348",
-        "ENT_000349",
-        "ENT_000350",
-        "ENT_000351",
-        "ENT_000352",
-        "ENT_000353",
-        "ENT_000354",
-        "ENT_000355"
+        "船舶电气控制设备",
+        "船舶电气控制设备_合规标准",
+        "船舶电气控制设备_工作电压",
+        "船舶电气控制设备_环境温度",
+        "船舶电气控制设备_环境防护措施",
+        "船舶电气控制设备_电磁兼容措施",
+        "船舶电气控制设备_相对湿度",
+        "船舶电气控制设备_防护等级"
+      ],
+      "kg_entity_ids": [
+        "ENT_000060",
+        "ENT_000149",
+        "ENT_000150",
+        "ENT_000151",
+        "ENT_000152",
+        "ENT_000211",
+        "ENT_000212",
+        "ENT_000213"
       ],
       "kg_relations": [
-        "REL_000423",
-        "REL_000424",
-        "REL_000425",
-        "REL_000426",
-        "REL_000427",
-        "REL_000428",
-        "REL_000429",
-        "REL_000430"
+        "REL_000220",
+        "REL_000221",
+        "REL_000222",
+        "REL_000223",
+        "REL_000225",
+        "REL_000226",
+        "REL_000227"
       ]
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_26",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 26,
+      "chunk_id": "柴油机智能延伸检测单元说明书::chunk_2",
+      "doc_id": "柴油机智能延伸检测单元说明书",
+      "source": "柴油机智能延伸检测单元说明书.md",
+      "chunk_index": 2,
       "kg_entities": [],
-      "kg_relations": [
-        "REL_000432",
-        "REL_000433",
-        "REL_000434",
-        "REL_000435",
-        "REL_000436",
-        "REL_000437"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_27",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 27,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000437",
-        "REL_000438",
-        "REL_000440",
-        "REL_000442",
-        "REL_000443"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_28",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 28,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000442",
-        "REL_000443",
-        "REL_000454",
-        "REL_000455",
-        "REL_000456",
-        "REL_000457",
-        "REL_000458"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_29",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 29,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000448",
-        "REL_000449",
-        "REL_000450",
-        "REL_000451",
-        "REL_000452",
-        "REL_000453"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_30",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 30,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000432",
-        "REL_000446",
-        "REL_000447",
-        "REL_000478"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_31",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 31,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000432",
-        "REL_000459",
-        "REL_000463",
-        "REL_000478",
-        "REL_000480",
-        "REL_000537",
-        "REL_000604"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_32",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 32,
-      "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_33",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 33,
+      "chunk_id": "柴油机智能延伸检测单元说明书::chunk_3",
+      "doc_id": "柴油机智能延伸检测单元说明书",
+      "source": "柴油机智能延伸检测单元说明书.md",
+      "chunk_index": 3,
       "kg_entities": [],
+      "kg_entity_ids": [],
       "kg_relations": []
     },
     {
-      "chunk_id": "船舶电气设备维护及检测::chunk_34",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 34,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_35",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 35,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_36",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 36,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000472"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_37",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 37,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_38",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 38,
+      "chunk_id": "柴油机智能延伸检测单元说明书::chunk_4",
+      "doc_id": "柴油机智能延伸检测单元说明书",
+      "source": "柴油机智能延伸检测单元说明书.md",
+      "chunk_index": 4,
       "kg_entities": [
-        "ENT_000337",
-        "ENT_000356",
-        "ENT_000357",
-        "ENT_000358",
-        "ENT_000359",
-        "ENT_000360",
-        "ENT_000361",
-        "ENT_000362",
-        "ENT_000363",
-        "ENT_000364",
-        "ENT_000365",
-        "ENT_000366",
-        "ENT_000367",
-        "ENT_000368",
-        "ENT_000369",
-        "ENT_000370",
-        "ENT_000371",
-        "ENT_000372",
-        "ENT_000373",
-        "ENT_000374",
-        "ENT_000375",
-        "ENT_000376",
-        "ENT_000377",
-        "ENT_000378",
-        "ENT_000379",
-        "ENT_000380",
-        "ENT_000381",
-        "ENT_000382",
-        "ENT_000383",
-        "ENT_000384",
-        "ENT_000385"
+        "主机_机旁控制箱",
+        "船舶电气控制设备",
+        "船舶电气控制设备_开关量输出模块",
+        "船舶电气控制设备_通讯模块",
+        "船舶电气控制设备_额定工作电压_24V"
+      ],
+      "kg_entity_ids": [
+        "ENT_000033",
+        "ENT_000034",
+        "ENT_000051",
+        "ENT_000060",
+        "ENT_000153"
       ],
       "kg_relations": [
-        "REL_000466",
-        "REL_000467",
-        "REL_000468",
-        "REL_000471"
+        "REL_000218",
+        "REL_000219",
+        "REL_000224",
+        "REL_000228"
       ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_39",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 39,
-      "kg_entities": [
-        "ENT_000337",
-        "ENT_000356",
-        "ENT_000357",
-        "ENT_000358",
-        "ENT_000359",
-        "ENT_000360",
-        "ENT_000361",
-        "ENT_000362",
-        "ENT_000363",
-        "ENT_000364",
-        "ENT_000365",
-        "ENT_000366",
-        "ENT_000367",
-        "ENT_000368",
-        "ENT_000369",
-        "ENT_000370",
-        "ENT_000371",
-        "ENT_000372",
-        "ENT_000373",
-        "ENT_000374",
-        "ENT_000375",
-        "ENT_000376",
-        "ENT_000377",
-        "ENT_000378",
-        "ENT_000379",
-        "ENT_000380",
-        "ENT_000381",
-        "ENT_000382",
-        "ENT_000383",
-        "ENT_000384",
-        "ENT_000385"
-      ],
-      "kg_relations": [
-        "REL_000459",
-        "REL_000460",
-        "REL_000461",
-        "REL_000462",
-        "REL_000463"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_40",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 40,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000464",
-        "REL_000465",
-        "REL_000466",
-        "REL_000467",
-        "REL_000468"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_41",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 41,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000461",
-        "REL_000463",
-        "REL_000469",
-        "REL_000470",
-        "REL_000471",
-        "REL_000472",
-        "REL_000473",
-        "REL_000474",
-        "REL_000475"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_42",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 42,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000460",
-        "REL_000461",
-        "REL_000475",
-        "REL_000476",
-        "REL_000477",
-        "REL_000478",
-        "REL_000479"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_43",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 43,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000463",
-        "REL_000476",
-        "REL_000477",
-        "REL_000478",
-        "REL_000479",
-        "REL_000480"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_44",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 44,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000463",
-        "REL_000480",
-        "REL_000604"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_45",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 45,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000463",
-        "REL_000604"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_46",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 46,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_47",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 47,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_48",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 48,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_49",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 49,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_50",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 50,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000459",
-        "REL_000468"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_51",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 51,
-      "kg_entities": [
-        "ENT_000386",
-        "ENT_000387",
-        "ENT_000388",
-        "ENT_000389",
-        "ENT_000390",
-        "ENT_000391",
-        "ENT_000392",
-        "ENT_000393",
-        "ENT_000394",
-        "ENT_000395",
-        "ENT_000396",
-        "ENT_000397",
-        "ENT_000398",
-        "ENT_000399",
-        "ENT_000400",
-        "ENT_000401",
-        "ENT_000402",
-        "ENT_000403",
-        "ENT_000404",
-        "ENT_000405",
-        "ENT_000406",
-        "ENT_000407",
-        "ENT_000408",
-        "ENT_000409",
-        "ENT_000410"
-      ],
-      "kg_relations": [
-        "REL_000459",
-        "REL_000485",
-        "REL_000486",
-        "REL_000487"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_52",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 52,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000485",
-        "REL_000486",
-        "REL_000487"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_53",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 53,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463",
-        "REL_000488",
-        "REL_000489",
-        "REL_000490",
-        "REL_000491",
-        "REL_000492",
-        "REL_000493",
-        "REL_000494",
-        "REL_000495",
-        "REL_000496",
-        "REL_000497",
-        "REL_000498",
-        "REL_000499",
-        "REL_000500",
-        "REL_000501",
-        "REL_000502",
-        "REL_000503"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_54",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 54,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_55",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 55,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_56",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 56,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000511",
-        "REL_000512"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_57",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 57,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000512"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_58",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 58,
-      "kg_entities": [
-        "ENT_000411",
-        "ENT_000412",
-        "ENT_000413",
-        "ENT_000414",
-        "ENT_000415",
-        "ENT_000416",
-        "ENT_000417",
-        "ENT_000418",
-        "ENT_000419",
-        "ENT_000420",
-        "ENT_000421",
-        "ENT_000422",
-        "ENT_000423",
-        "ENT_000424",
-        "ENT_000425",
-        "ENT_000426",
-        "ENT_000427",
-        "ENT_000428",
-        "ENT_000429",
-        "ENT_000430",
-        "ENT_000431",
-        "ENT_000432",
-        "ENT_000433",
-        "ENT_000434",
-        "ENT_000435",
-        "ENT_000436",
-        "ENT_000437",
-        "ENT_000438",
-        "ENT_000439",
-        "ENT_000440",
-        "ENT_000441",
-        "ENT_000442",
-        "ENT_000443",
-        "ENT_000444",
-        "ENT_000445",
-        "ENT_000446",
-        "ENT_000447",
-        "ENT_000448",
-        "ENT_000449"
-      ],
-      "kg_relations": [
-        "REL_000512",
-        "REL_000513",
-        "REL_000514",
-        "REL_000515",
-        "REL_000516",
-        "REL_000522",
-        "REL_000523",
-        "REL_000528"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_59",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 59,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463",
-        "REL_000526",
-        "REL_000527",
-        "REL_000528"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_60",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 60,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000459",
-        "REL_000462",
-        "REL_000526",
-        "REL_000527",
-        "REL_000528"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_61",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 61,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000459",
-        "REL_000462",
-        "REL_000539"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_62",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 62,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000539",
-        "REL_000540"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_63",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 63,
-      "kg_entities": [
-        "ENT_000450",
-        "ENT_000451",
-        "ENT_000452",
-        "ENT_000453",
-        "ENT_000454",
-        "ENT_000455",
-        "ENT_000456",
-        "ENT_000457",
-        "ENT_000458",
-        "ENT_000459",
-        "ENT_000460",
-        "ENT_000461",
-        "ENT_000462",
-        "ENT_000463",
-        "ENT_000464",
-        "ENT_000465",
-        "ENT_000466",
-        "ENT_000467",
-        "ENT_000468",
-        "ENT_000469",
-        "ENT_000470",
-        "ENT_000471",
-        "ENT_000472",
-        "ENT_000473",
-        "ENT_000474",
-        "ENT_000475",
-        "ENT_000476",
-        "ENT_000477",
-        "ENT_000478",
-        "ENT_000479",
-        "ENT_000480",
-        "ENT_000481",
-        "ENT_000482",
-        "ENT_000483",
-        "ENT_000484"
-      ],
-      "kg_relations": [
-        "REL_000463",
-        "REL_000547"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_64",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 64,
-      "kg_entities": [
-        "ENT_000450",
-        "ENT_000451",
-        "ENT_000452",
-        "ENT_000453",
-        "ENT_000454",
-        "ENT_000455",
-        "ENT_000456",
-        "ENT_000457",
-        "ENT_000458",
-        "ENT_000459",
-        "ENT_000460",
-        "ENT_000461",
-        "ENT_000462",
-        "ENT_000463",
-        "ENT_000464",
-        "ENT_000465",
-        "ENT_000466",
-        "ENT_000467",
-        "ENT_000468",
-        "ENT_000469",
-        "ENT_000470",
-        "ENT_000471",
-        "ENT_000472",
-        "ENT_000473",
-        "ENT_000474",
-        "ENT_000475",
-        "ENT_000476",
-        "ENT_000477",
-        "ENT_000478",
-        "ENT_000479",
-        "ENT_000480",
-        "ENT_000481",
-        "ENT_000482",
-        "ENT_000483",
-        "ENT_000484"
-      ],
-      "kg_relations": [
-        "REL_000551",
-        "REL_000552",
-        "REL_000553",
-        "REL_000554",
-        "REL_000555",
-        "REL_000556",
-        "REL_000557"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_65",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 65,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000558"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_66",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 66,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000512",
-        "REL_000578",
-        "REL_000579"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_67",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 67,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000569",
-        "REL_000570",
-        "REL_000571"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_68",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 68,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000572",
-        "REL_000573",
-        "REL_000574",
-        "REL_000575",
-        "REL_000576",
-        "REL_000577",
-        "REL_000580"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_69",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 69,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000511",
-        "REL_000564",
-        "REL_000565",
-        "REL_000566",
-        "REL_000567",
-        "REL_000568",
-        "REL_000580"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_70",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 70,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_71",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 71,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_72",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 72,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_73",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 73,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_74",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 74,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_75",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 75,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_76",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 76,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_77",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 77,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_78",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 78,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_79",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 79,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_80",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 80,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_81",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 81,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_82",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 82,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_83",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 83,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_84",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 84,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_85",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 85,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_86",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 86,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_87",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 87,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463",
-        "REL_000604"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_88",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 88,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_89",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 89,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000463",
-        "REL_000604"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_90",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 90,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_91",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 91,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_92",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 92,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_93",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 93,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_94",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 94,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_95",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 95,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_96",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 96,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_97",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 97,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_98",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 98,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_99",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 99,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_100",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 100,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000663",
-        "REL_000664"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_101",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 101,
-      "kg_entities": [
-        "ENT_000485",
-        "ENT_000486",
-        "ENT_000487",
-        "ENT_000488",
-        "ENT_000489",
-        "ENT_000490",
-        "ENT_000491",
-        "ENT_000492",
-        "ENT_000493",
-        "ENT_000494",
-        "ENT_000495",
-        "ENT_000496",
-        "ENT_000497",
-        "ENT_000498",
-        "ENT_000499",
-        "ENT_000500",
-        "ENT_000501",
-        "ENT_000502",
-        "ENT_000503",
-        "ENT_000504",
-        "ENT_000505",
-        "ENT_000506",
-        "ENT_000507",
-        "ENT_000508",
-        "ENT_000509",
-        "ENT_000510",
-        "ENT_000511",
-        "ENT_000512",
-        "ENT_000513",
-        "ENT_000514",
-        "ENT_000515",
-        "ENT_000516",
-        "ENT_000517",
-        "ENT_000518",
-        "ENT_000519",
-        "ENT_000520",
-        "ENT_000521",
-        "ENT_000522"
-      ],
-      "kg_relations": [
-        "REL_000581",
-        "REL_000582",
-        "REL_000663",
-        "REL_000664"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_102",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 102,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000587",
-        "REL_000588",
-        "REL_000589",
-        "REL_000590",
-        "REL_000591",
-        "REL_000592",
-        "REL_000593",
-        "REL_000594",
-        "REL_000595"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_103",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 103,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000596",
-        "REL_000597",
-        "REL_000598",
-        "REL_000600",
-        "REL_000601",
-        "REL_000603"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_104",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 104,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000463",
-        "REL_000604",
-        "REL_000607",
-        "REL_000608"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_105",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 105,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_106",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 106,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000605",
-        "REL_000606",
-        "REL_000607",
-        "REL_000608",
-        "REL_000609"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_107",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 107,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000607",
-        "REL_000608",
-        "REL_000612"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_108",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 108,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000462",
-        "REL_000463",
-        "REL_000605",
-        "REL_000607",
-        "REL_000608",
-        "REL_000612"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_109",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 109,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_110",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 110,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000632"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_111",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 111,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_112",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 112,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_113",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 113,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_114",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 114,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_115",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 115,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_116",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 116,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_117",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 117,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_118",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 118,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_119",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 119,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_120",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 120,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_121",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 121,
-      "kg_entities": [
-        "ENT_000523",
-        "ENT_000524",
-        "ENT_000525",
-        "ENT_000526",
-        "ENT_000527",
-        "ENT_000528",
-        "ENT_000529",
-        "ENT_000530",
-        "ENT_000531",
-        "ENT_000532",
-        "ENT_000533",
-        "ENT_000534",
-        "ENT_000535",
-        "ENT_000536",
-        "ENT_000537",
-        "ENT_000538",
-        "ENT_000539",
-        "ENT_000540",
-        "ENT_000541",
-        "ENT_000542",
-        "ENT_000543",
-        "ENT_000544",
-        "ENT_000545",
-        "ENT_000546",
-        "ENT_000547",
-        "ENT_000548",
-        "ENT_000549",
-        "ENT_000550",
-        "ENT_000551",
-        "ENT_000552",
-        "ENT_000553",
-        "ENT_000554",
-        "ENT_000555",
-        "ENT_000556",
-        "ENT_000557"
-      ],
-      "kg_relations": [
-        "REL_000614"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_122",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 122,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000616",
-        "REL_000617",
-        "REL_000618",
-        "REL_000634"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_123",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 123,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000623"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_124",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 124,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000623"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_125",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 125,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000627",
-        "REL_000628"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_126",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 126,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000630",
-        "REL_000631"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_127",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 127,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_128",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 128,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_129",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 129,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_130",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 130,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_131",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 131,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_132",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 132,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_133",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 133,
-      "kg_entities": [
-        "ENT_000558",
-        "ENT_000559",
-        "ENT_000560",
-        "ENT_000561",
-        "ENT_000562",
-        "ENT_000563",
-        "ENT_000564",
-        "ENT_000565",
-        "ENT_000566",
-        "ENT_000567",
-        "ENT_000568",
-        "ENT_000569",
-        "ENT_000570",
-        "ENT_000571",
-        "ENT_000572",
-        "ENT_000573",
-        "ENT_000574",
-        "ENT_000575",
-        "ENT_000576",
-        "ENT_000577",
-        "ENT_000578",
-        "ENT_000579",
-        "ENT_000580",
-        "ENT_000581",
-        "ENT_000582",
-        "ENT_000583",
-        "ENT_000584",
-        "ENT_000585",
-        "ENT_000586",
-        "ENT_000588",
-        "ENT_000589",
-        "ENT_000590",
-        "ENT_000591",
-        "ENT_000592",
-        "ENT_000593",
-        "ENT_000594",
-        "ENT_000595",
-        "ENT_000596",
-        "ENT_000597",
-        "ENT_000598"
-      ],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_134",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 134,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_135",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 135,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000639",
-        "REL_000640",
-        "REL_000749"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_136",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 136,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000639",
-        "REL_000640",
-        "REL_000643",
-        "REL_000645",
-        "REL_000646",
-        "REL_000648",
-        "REL_000649",
-        "REL_000650",
-        "REL_000651",
-        "REL_000652",
-        "REL_000667"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_137",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 137,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000653",
-        "REL_000654",
-        "REL_000655",
-        "REL_000656",
-        "REL_000658",
-        "REL_000659",
-        "REL_000660",
-        "REL_000661",
-        "REL_000662",
-        "REL_000754"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_138",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 138,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000663",
-        "REL_000664",
-        "REL_000666",
-        "REL_000744",
-        "REL_000754"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_139",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 139,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000773"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_140",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 140,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000733",
-        "REL_000749",
-        "REL_000768"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_141",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 141,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000768"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_142",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 142,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000674",
-        "REL_000677",
-        "REL_000773",
-        "REL_000774"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_143",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 143,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000673",
-        "REL_000674"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_144",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 144,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_145",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 145,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_146",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 146,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_147",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 147,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_148",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 148,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_149",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 149,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_150",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 150,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_151",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 151,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_152",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 152,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_153",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 153,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_154",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 154,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_155",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 155,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_156",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 156,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000671"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_157",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 157,
-      "kg_entities": [
-        "ENT_000599",
-        "ENT_000600",
-        "ENT_000601",
-        "ENT_000602",
-        "ENT_000603",
-        "ENT_000604",
-        "ENT_000605",
-        "ENT_000606",
-        "ENT_000607",
-        "ENT_000608",
-        "ENT_000609",
-        "ENT_000610",
-        "ENT_000611",
-        "ENT_000612",
-        "ENT_000613",
-        "ENT_000614",
-        "ENT_000615",
-        "ENT_000616",
-        "ENT_000617",
-        "ENT_000618",
-        "ENT_000619",
-        "ENT_000620",
-        "ENT_000621",
-        "ENT_000622",
-        "ENT_000623",
-        "ENT_000624",
-        "ENT_000625",
-        "ENT_000626",
-        "ENT_000627",
-        "ENT_000628",
-        "ENT_000629",
-        "ENT_000630",
-        "ENT_000631",
-        "ENT_000632",
-        "ENT_000633",
-        "ENT_000634",
-        "ENT_000635",
-        "ENT_000636",
-        "ENT_000637",
-        "ENT_000638",
-        "ENT_000639",
-        "ENT_000640",
-        "ENT_000641",
-        "ENT_000642",
-        "ENT_000643",
-        "ENT_000644"
-      ],
-      "kg_relations": [
-        "REL_000668",
-        "REL_000669",
-        "REL_000671",
-        "REL_000672"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_158",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 158,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000674",
-        "REL_000675",
-        "REL_000676",
-        "REL_000677",
-        "REL_000678",
-        "REL_000679"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_159",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 159,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_160",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 160,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000744"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_161",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 161,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000690",
-        "REL_000691",
-        "REL_000692",
-        "REL_000693",
-        "REL_000694",
-        "REL_000695",
-        "REL_000747",
-        "REL_000754"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_162",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 162,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000696",
-        "REL_000706",
-        "REL_000707",
-        "REL_000708",
-        "REL_000747",
-        "REL_000754"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_163",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 163,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000697",
-        "REL_000698",
-        "REL_000699",
-        "REL_000700",
-        "REL_000701",
-        "REL_000702",
-        "REL_000703",
-        "REL_000704",
-        "REL_000708",
-        "REL_000709"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_164",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 164,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000704"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_165",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 165,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000744",
-        "REL_000761",
-        "REL_000768",
-        "REL_000773",
-        "REL_000774"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_166",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 166,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000761",
-        "REL_000773"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_167",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 167,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_168",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 168,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_169",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 169,
-      "kg_entities": [
-        "ENT_000645",
-        "ENT_000646",
-        "ENT_000647",
-        "ENT_000648",
-        "ENT_000649",
-        "ENT_000650",
-        "ENT_000651",
-        "ENT_000652",
-        "ENT_000653",
-        "ENT_000654",
-        "ENT_000655",
-        "ENT_000656",
-        "ENT_000657",
-        "ENT_000658",
-        "ENT_000659",
-        "ENT_000661",
-        "ENT_000662",
-        "ENT_000663",
-        "ENT_000664",
-        "ENT_000665",
-        "ENT_000666",
-        "ENT_000667",
-        "ENT_000668",
-        "ENT_000669"
-      ],
-      "kg_relations": [
-        "REL_000710",
-        "REL_000712"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_170",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 170,
-      "kg_entities": [
-        "ENT_000645",
-        "ENT_000646",
-        "ENT_000647",
-        "ENT_000648",
-        "ENT_000649",
-        "ENT_000650",
-        "ENT_000651",
-        "ENT_000652",
-        "ENT_000653",
-        "ENT_000654",
-        "ENT_000655",
-        "ENT_000656",
-        "ENT_000657",
-        "ENT_000658",
-        "ENT_000659",
-        "ENT_000661",
-        "ENT_000662",
-        "ENT_000663",
-        "ENT_000664",
-        "ENT_000665",
-        "ENT_000666",
-        "ENT_000667",
-        "ENT_000668",
-        "ENT_000669"
-      ],
-      "kg_relations": [
-        "REL_000710",
-        "REL_000711",
-        "REL_000712",
-        "REL_000714",
-        "REL_000715",
-        "REL_000716",
-        "REL_000717",
-        "REL_000718"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_171",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 171,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000719",
-        "REL_000720",
-        "REL_000721",
-        "REL_000722"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_172",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 172,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000723",
-        "REL_000724",
-        "REL_000725",
-        "REL_000733",
-        "REL_000749"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_173",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 173,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000725",
-        "REL_000726",
-        "REL_000727",
-        "REL_000733",
-        "REL_000749"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_174",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 174,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000673",
-        "REL_000674",
-        "REL_000728"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_175",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 175,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_176",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 176,
-      "kg_entities": [
-        "ENT_000587",
-        "ENT_000660",
-        "ENT_000670",
-        "ENT_000671",
-        "ENT_000672",
-        "ENT_000673",
-        "ENT_000674",
-        "ENT_000675",
-        "ENT_000676",
-        "ENT_000677",
-        "ENT_000678",
-        "ENT_000679",
-        "ENT_000680",
-        "ENT_000681",
-        "ENT_000682",
-        "ENT_000683",
-        "ENT_000684",
-        "ENT_000685",
-        "ENT_000686",
-        "ENT_000687",
-        "ENT_000688",
-        "ENT_000689",
-        "ENT_000690",
-        "ENT_000691",
-        "ENT_000692",
-        "ENT_000693",
-        "ENT_000694",
-        "ENT_000695",
-        "ENT_000696",
-        "ENT_000697"
-      ],
-      "kg_relations": [
-        "REL_000731",
-        "REL_000734",
-        "REL_000735",
-        "REL_000736",
-        "REL_000758"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_177",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 177,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000608",
-        "REL_000758",
-        "REL_000759",
-        "REL_000760"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_178",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 178,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000608",
-        "REL_000740",
-        "REL_000741",
-        "REL_000742",
-        "REL_000743"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_179",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 179,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000637",
-        "REL_000727",
-        "REL_000744",
-        "REL_000745",
-        "REL_000749",
-        "REL_000752",
-        "REL_000753",
-        "REL_000768",
-        "REL_000773"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_180",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 180,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000663",
-        "REL_000664",
-        "REL_000744",
-        "REL_000745",
-        "REL_000746",
-        "REL_000754",
-        "REL_000763",
-        "REL_000768",
-        "REL_000769",
-        "REL_000773"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_181",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 181,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000663",
-        "REL_000744",
-        "REL_000745",
-        "REL_000746",
-        "REL_000749",
-        "REL_000754",
-        "REL_000755",
-        "REL_000756",
-        "REL_000757",
-        "REL_000763"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_182",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 182,
-      "kg_entities": [
-        "ENT_000698",
-        "ENT_000699",
-        "ENT_000700",
-        "ENT_000701",
-        "ENT_000702",
-        "ENT_000703",
-        "ENT_000704",
-        "ENT_000705",
-        "ENT_000706",
-        "ENT_000707",
-        "ENT_000708",
-        "ENT_000709",
-        "ENT_000710",
-        "ENT_000711",
-        "ENT_000712",
-        "ENT_000713",
-        "ENT_000714",
-        "ENT_000715",
-        "ENT_000716",
-        "ENT_000717",
-        "ENT_000718",
-        "ENT_000719",
-        "ENT_000720",
-        "ENT_000721",
-        "ENT_000722",
-        "ENT_000723",
-        "ENT_000724",
-        "ENT_000726",
-        "ENT_000727",
-        "ENT_000728",
-        "ENT_000729",
-        "ENT_000730",
-        "ENT_000731",
-        "ENT_000732",
-        "ENT_000733",
-        "ENT_000734",
-        "ENT_000735",
-        "ENT_000736",
-        "ENT_000737",
-        "ENT_000738",
-        "ENT_000739",
-        "ENT_000740",
-        "ENT_000741"
-      ],
-      "kg_relations": [
-        "REL_000754",
-        "REL_000761",
-        "REL_000800"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_183",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 183,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000664",
-        "REL_000747",
-        "REL_000763",
-        "REL_000765",
-        "REL_000768",
-        "REL_000769",
-        "REL_000770",
-        "REL_000772",
-        "REL_000800",
-        "REL_000801"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_184",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 184,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000768",
-        "REL_000773",
-        "REL_000774",
-        "REL_000775",
-        "REL_000776"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_185",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 185,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000777",
-        "REL_000778"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_186",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 186,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000784",
-        "REL_000785",
-        "REL_000786"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_187",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 187,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000790",
-        "REL_000791",
-        "REL_000794",
-        "REL_000795",
-        "REL_000796",
-        "REL_000797"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_188",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 188,
-      "kg_entities": [
-        "ENT_000725",
-        "ENT_000742",
-        "ENT_000743",
-        "ENT_000744",
-        "ENT_000745",
-        "ENT_000746",
-        "ENT_000747",
-        "ENT_000748",
-        "ENT_000749",
-        "ENT_000750",
-        "ENT_000751",
-        "ENT_000752",
-        "ENT_000753",
-        "ENT_000754",
-        "ENT_000755",
-        "ENT_000756",
-        "ENT_000758",
-        "ENT_000759",
-        "ENT_000760",
-        "ENT_000761",
-        "ENT_000762",
-        "ENT_000763",
-        "ENT_000764",
-        "ENT_000765",
-        "ENT_000766",
-        "ENT_000767",
-        "ENT_000768"
-      ],
-      "kg_relations": [
-        "REL_000795",
-        "REL_000796",
-        "REL_000797",
-        "REL_000798",
-        "REL_000799"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_189",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 189,
-      "kg_entities": [
-        "ENT_000725",
-        "ENT_000742",
-        "ENT_000743",
-        "ENT_000744",
-        "ENT_000745",
-        "ENT_000746",
-        "ENT_000747",
-        "ENT_000748",
-        "ENT_000749",
-        "ENT_000750",
-        "ENT_000751",
-        "ENT_000752",
-        "ENT_000753",
-        "ENT_000754",
-        "ENT_000755",
-        "ENT_000756",
-        "ENT_000758",
-        "ENT_000759",
-        "ENT_000760",
-        "ENT_000761",
-        "ENT_000762",
-        "ENT_000763",
-        "ENT_000764",
-        "ENT_000765",
-        "ENT_000766",
-        "ENT_000767",
-        "ENT_000768"
-      ],
-      "kg_relations": [
-        "REL_000795",
-        "REL_000802",
-        "REL_000803",
-        "REL_000804",
-        "REL_000806",
-        "REL_000807"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_190",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 190,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000733",
-        "REL_000749",
-        "REL_000810",
-        "REL_000811"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_191",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 191,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000733",
-        "REL_000749"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_192",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 192,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000814"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_193",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 193,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000817",
-        "REL_000818",
-        "REL_000819",
-        "REL_000820"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_194",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 194,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000820",
-        "REL_000821",
-        "REL_000823",
-        "REL_000824"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_195",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 195,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000798",
-        "REL_000817",
-        "REL_000818"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_196",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 196,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_197",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 197,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_198",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 198,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_199",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 199,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000846"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_200",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 200,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_201",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 201,
-      "kg_entities": [
-        "ENT_000757",
-        "ENT_000769",
-        "ENT_000770",
-        "ENT_000771",
-        "ENT_000772",
-        "ENT_000773",
-        "ENT_000774",
-        "ENT_000775",
-        "ENT_000776",
-        "ENT_000777",
-        "ENT_000778",
-        "ENT_000779",
-        "ENT_000780",
-        "ENT_000781",
-        "ENT_000782",
-        "ENT_000783",
-        "ENT_000784",
-        "ENT_000785",
-        "ENT_000786",
-        "ENT_000787",
-        "ENT_000788",
-        "ENT_000789",
-        "ENT_000790",
-        "ENT_000791",
-        "ENT_000792",
-        "ENT_000793",
-        "ENT_000794",
-        "ENT_000795"
-      ],
-      "kg_relations": [
-        "REL_000846",
-        "REL_000847"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_202",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 202,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_203",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 203,
-      "kg_entities": [],
-      "kg_relations": [
-        "REL_000835"
-      ]
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_204",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 204,
-      "kg_entities": [],
-      "kg_relations": []
-    },
-    {
-      "chunk_id": "船舶电气设备维护及检测::chunk_205",
-      "doc_id": "船舶电气设备维护及检测",
-      "source": "船舶电气设备维护及检测.md",
-      "chunk_index": 205,
-      "kg_entities": [],
-      "kg_relations": []
     }
   ]
 }

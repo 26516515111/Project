@@ -1,10 +1,174 @@
-# chat.py
+"""Chat UI rendering with KG-aware rich chunk formatting."""
+
 import html
+import base64
 import time
+import re
+from pathlib import Path
+
 import streamlit as st
 import streamlit.components.v1 as components
 from rag.schema import QueryRequest
 import uuid
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+HEADING_PATTERN = re.compile(r"^\[(H[1-6])\]\s*(.+?)\s*$")
+IMAGE_ATTACHMENT_PATTERN = re.compile(r"^\[(?:IMG|图片附件)\s*(.+?)\]\s*$")
+
+
+def _resolve_attachment_path(raw_ref: str) -> Path | None:
+    ref = (raw_ref or "").strip()
+    if not ref:
+        return None
+    if ref.startswith("path="):
+        parts = ref.split(" alt=", 1)
+        ref = parts[0].split("=", 1)[1].strip()
+    candidate = Path(ref)
+    if candidate.is_absolute():
+        return candidate if candidate.exists() else None
+    normalized = ref[2:] if ref.startswith("./") else ref
+    resolved = PROJECT_ROOT / normalized
+    if resolved.exists():
+        return resolved
+    if normalized.startswith("images/"):
+        image_name = Path(normalized).name
+        image_roots = [
+            PROJECT_ROOT / "rag_app" / "data" / "KG" / "images",
+            PROJECT_ROOT / "data" / "KG" / "images",
+        ]
+        for root in image_roots:
+            if root.exists():
+                matches = list(root.rglob(image_name))
+                if matches:
+                    return matches[0]
+    return None
+
+
+def _image_data_uri(image_path: Path) -> str | None:
+    suffix = image_path.suffix.lower()
+    mime = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".gif": "image/gif",
+        ".webp": "image/webp",
+    }.get(suffix)
+    if not mime:
+        return None
+    try:
+        encoded = base64.b64encode(image_path.read_bytes()).decode("ascii")
+    except OSError:
+        return None
+    return f"data:{mime};base64,{encoded}"
+
+
+def _looks_like_table_row(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped or stripped.startswith("[H"):
+        return False
+    if stripped.count("|") < 1:
+        return False
+    parts = [part.strip() for part in stripped.split("|")]
+    non_empty = [part for part in parts if part]
+    return len(non_empty) >= 2
+
+
+def _render_table(lines: list[str]) -> str:
+    rows = []
+    for idx, raw_line in enumerate(lines):
+        cells = [html.escape(cell.strip()) for cell in raw_line.split("|")]
+        rows.append((idx == 0, cells))
+    header_cells = "".join(f"<th>{cell}</th>" for cell in rows[0][1])
+    body_rows = []
+    for _, cells in rows[1:]:
+        body_rows.append("<tr>" + "".join(f"<td>{cell}</td>" for cell in cells) + "</tr>")
+    body_html = "".join(body_rows)
+    return (
+        '<div class="chunk-table-wrap"><table class="chunk-table">'
+        f"<thead><tr>{header_cells}</tr></thead>"
+        f"<tbody>{body_html}</tbody></table></div>"
+    )
+
+
+def _render_attachment_block(ref: str) -> str:
+    display_ref = html.escape(ref)
+    image_path = _resolve_attachment_path(ref)
+    if image_path:
+        data_uri = _image_data_uri(image_path)
+        if data_uri:
+            return (
+                '<div class="chunk-attachment">'
+                f'<div class="chunk-attachment-label">图片附件</div>'
+                f'<img class="chunk-image" src="{data_uri}" alt="{display_ref}" />'
+                f'<div class="chunk-attachment-path">{display_ref}</div>'
+                "</div>"
+            )
+    return (
+        '<div class="chunk-attachment chunk-attachment-fallback">'
+        '<div class="chunk-attachment-label">图片附件</div>'
+        f'<div class="chunk-attachment-path">{display_ref}</div>'
+        "</div>"
+    )
+
+
+def _render_structured_content(content: str) -> str:
+    lines = content.splitlines()
+    parts: list[str] = []
+    paragraph_buffer: list[str] = []
+    table_buffer: list[str] = []
+
+    def flush_paragraph() -> None:
+        nonlocal paragraph_buffer
+        if not paragraph_buffer:
+            return
+        text = "<br>".join(html.escape(line) for line in paragraph_buffer)
+        parts.append(f'<div class="chunk-paragraph">{text}</div>')
+        paragraph_buffer = []
+
+    def flush_table() -> None:
+        nonlocal table_buffer
+        if not table_buffer:
+            return
+        parts.append(_render_table(table_buffer))
+        table_buffer = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            flush_table()
+            flush_paragraph()
+            continue
+
+        heading_match = HEADING_PATTERN.match(stripped)
+        if heading_match:
+            flush_table()
+            flush_paragraph()
+            level, title = heading_match.groups()
+            parts.append(
+                f'<div class="chunk-heading {level.lower()}">{html.escape(title)}</div>'
+            )
+            continue
+
+        attachment_match = IMAGE_ATTACHMENT_PATTERN.match(stripped)
+        if attachment_match:
+            flush_table()
+            flush_paragraph()
+            parts.append(_render_attachment_block(attachment_match.group(1).strip()))
+            continue
+
+        if _looks_like_table_row(stripped):
+            flush_paragraph()
+            table_buffer.append(stripped)
+            continue
+
+        flush_table()
+        paragraph_buffer.append(line)
+
+    flush_table()
+    flush_paragraph()
+    return "".join(parts) or '<div class="chunk-paragraph"></div>'
+
 
 def _save_current_session():
     """将当前对话保存到会话列表中"""
@@ -35,7 +199,11 @@ def _save_current_session():
 def _render_bubble(role: str, content: str, user_avatar: str = "👤", bot_avatar: str = "⚓"):
     cls = "user" if role == "user" else "bot"
     avatar = user_avatar if cls == "user" else bot_avatar
-    safe = html.escape(content).replace("\n", "<br>")
+    safe = (
+        html.escape(content).replace("\n", "<br>")
+        if cls == "user"
+        else _render_structured_content(content)
+    )
 
     if cls == "user":
         body = f"""
@@ -51,7 +219,7 @@ def _render_bubble(role: str, content: str, user_avatar: str = "👤", bot_avata
         <div class="chat-wrap">
             <div class="msg-row bot">
                 <div class="msg-avatar bot">{avatar}</div>
-                <div class="msg-bubble bot">{safe}</div>
+                <div class="msg-bubble bot rich-content">{safe}</div>
             </div>
         </div>
         """
@@ -239,6 +407,79 @@ def render_chat():
             background: #f8fafc;
             color: #111827;
         }
+        .msg-bubble.rich-content .chunk-heading {
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0.35rem 0 0.45rem 0;
+            line-height: 1.35;
+        }
+        .msg-bubble.rich-content .h1 { font-size: 1.1rem; color: #0c4a6e; }
+        .msg-bubble.rich-content .h2 { font-size: 1.02rem; color: #075985; }
+        .msg-bubble.rich-content .h3 { font-size: 0.98rem; color: #0369a1; }
+        .msg-bubble.rich-content .h4,
+        .msg-bubble.rich-content .h5,
+        .msg-bubble.rich-content .h6 {
+            font-size: 0.94rem;
+            color: #334155;
+        }
+        .msg-bubble.rich-content .chunk-paragraph {
+            margin: 0.28rem 0 0.55rem 0;
+        }
+        .msg-bubble.rich-content .chunk-table-wrap {
+            overflow-x: auto;
+            margin: 0.45rem 0 0.7rem 0;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+        .msg-bubble.rich-content .chunk-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.93rem;
+        }
+        .msg-bubble.rich-content .chunk-table th,
+        .msg-bubble.rich-content .chunk-table td {
+            padding: 0.45rem 0.6rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            text-align: left;
+        }
+        .msg-bubble.rich-content .chunk-table th {
+            background: #eff6ff;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .msg-bubble.rich-content .chunk-table tr:last-child td {
+            border-bottom: none;
+        }
+        .msg-bubble.rich-content .chunk-attachment {
+            margin: 0.45rem 0 0.8rem 0;
+            padding: 0.55rem;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            background: #ffffff;
+        }
+        .msg-bubble.rich-content .chunk-attachment-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 0.35rem;
+        }
+        .msg-bubble.rich-content .chunk-image {
+            display: block;
+            max-width: 100%;
+            max-height: 320px;
+            margin: 0 auto;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+        }
+        .msg-bubble.rich-content .chunk-attachment-path {
+            margin-top: 0.35rem;
+            color: #64748b;
+            font-size: 0.78rem;
+            word-break: break-all;
+        }
 
         .hero-wrap { text-align: center; margin-bottom: 2rem; margin-top: 15vh;}
         .hero-logo {
@@ -412,6 +653,19 @@ def render_chat():
                                     st.markdown(f"- {source} (相关度: {score:.2f})")
                                 else:
                                     st.markdown(f"- {source}")
+                                passage_text = getattr(c, "text", "") or ""
+                                if passage_text:
+                                    st.markdown(
+                                        (
+                                            '<div class="chat-wrap" style="width:100%; margin:0.35rem 0 0.8rem 0;">'
+                                            '<div class="msg-row bot">'
+                                            '<div class="msg-bubble bot rich-content" '
+                                            'style="max-width:100%; width:100%;">'
+                                            f"{_render_structured_content(passage_text)}"
+                                            "</div></div></div>"
+                                        ),
+                                        unsafe_allow_html=True,
+                                    )
                         
                         # 新增：展示 Meta 元数据信息
                         if hasattr(ans_obj, "meta") and ans_obj.meta:

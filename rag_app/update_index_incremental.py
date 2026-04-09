@@ -109,8 +109,9 @@ def _update_doc_source_map(
 def main() -> None:
     docs_dir = SETTINGS.docs_dir
     index_dir = SETTINGS.index_dir
-    chunks_path = os.path.join(docs_dir, "chunks.json")
-    doc_map_path = os.path.join(docs_dir, "doc_source_map.json")
+    chunks_path = os.path.join(SETTINGS.data_dir, "chunks.json")
+    doc_map_path = os.path.join(SETTINGS.data_dir, "doc_source_map.json")
+    os.makedirs(SETTINGS.data_dir, exist_ok=True)
 
     all_docs = load_documents(docs_dir)
     chunker = TextChunker.from_settings(SETTINGS)
@@ -119,7 +120,7 @@ def main() -> None:
     existing_chunk_ids = {
         str(item.get("chunk_id", "")).strip() for item in existing_chunks_raw
     }
-    existing_chunks_norm = load_chunks_json(docs_dir)
+    existing_chunks_norm = load_chunks_json(SETTINGS.data_dir)
     existing_doc_map = _read_doc_source_map(doc_map_path)
     existing_doc_ids = {
         str(item.get("doc_id", "")).strip() for item in existing_doc_map

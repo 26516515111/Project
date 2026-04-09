@@ -34,6 +34,11 @@ def _normalize_text(text: str) -> str:
     return " ".join(str(text or "").strip().split())
 
 
+def _normalize_for_match(text: str) -> str:
+    value = _normalize_text(text).lower()
+    return re.sub(r"\s+", "", value)
+
+
 def _is_kg_id(text: str) -> bool:
     return re.fullmatch(r"(ENT|REL)_\d+", str(text or "").strip()) is not None
 
@@ -68,9 +73,20 @@ def _tokenize(text: str) -> List[str]:
     return deduped
 
 
+def _resolve_kg_merged_path() -> str:
+    candidates = [
+        os.path.join(SETTINGS.kg_dir, "kg_merged.json"),
+        os.path.join(SETTINGS.kg_dir, "delivery", "kg_merged.json"),
+    ]
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    return ""
+
+
 def _load_entity_name_map() -> Dict[str, str]:
-    path = os.path.join(SETTINGS.kg_dir, "kg_merged.json")
-    if not os.path.isfile(path):
+    path = _resolve_kg_merged_path()
+    if not path:
         return {}
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -83,7 +99,7 @@ def _load_entity_name_map() -> Dict[str, str]:
         name = _normalize_text(ent.get("name", ""))
         if not name:
             continue
-        ent_id = _normalize_text(ent.get("id", ""))
+        ent_id = _normalize_text(ent.get("entity_id", ""))
         if not ent_id:
             ent_id = f"ENT_{idx:06d}"
         mapping[ent_id] = name
@@ -115,6 +131,80 @@ def _extract_entities(
     return list(candidates)
 
 
+def _collect_entity_names(
+    ent_name_map: Dict[str, str], chunk_kg_map: Optional[Dict[str, dict]]
+) -> List[str]:
+    names = set()
+    for name in ent_name_map.values():
+        n = _normalize_text(name)
+        if len(n) >= 2:
+            names.add(n)
+    if chunk_kg_map:
+        for item in chunk_kg_map.values():
+            for ent in item.get("kg_entities", []) or []:
+                ent_text = _normalize_text(ent)
+                if not ent_text:
+                    continue
+                if _is_kg_id(ent_text):
+                    ent_text = _normalize_text(ent_name_map.get(ent_text, ""))
+                if len(ent_text) >= 2:
+                    names.add(ent_text)
+    return list(names)
+
+
+def _extract_exact_entities(
+    question: str, ent_name_map: Dict[str, str], chunk_kg_map: Optional[Dict[str, dict]]
+) -> List[str]:
+    q_match = _normalize_for_match(question)
+    if not q_match:
+        return []
+    candidates = []
+    for name in _collect_entity_names(ent_name_map, chunk_kg_map):
+        n_match = _normalize_for_match(name)
+        if not n_match:
+            continue
+        pos = q_match.find(n_match)
+        if pos < 0:
+            continue
+        candidates.append((name, len(n_match), pos))
+    candidates.sort(key=lambda x: (-x[1], x[2]))
+    deduped: List[str] = []
+    seen = set()
+    for name, _, _ in candidates:
+        if name in seen:
+            continue
+        seen.add(name)
+        deduped.append(name)
+    return deduped[:5]
+
+
+def _extract_intent_terms(question: str, entities: List[str]) -> List[str]:
+    q = _normalize_text(question)
+    if not q:
+        return []
+    remainder = q
+    for ent in entities:
+        if not ent:
+            continue
+        remainder = remainder.replace(ent, " ")
+    remainder = re.sub(r"[\s,，。；;：:、()（）\[\]【】'\"“”]+", " ", remainder)
+    tokens = _tokenize(remainder)
+    stopwords = {
+        "什么",
+        "如何",
+        "怎么",
+        "怎样",
+        "以及",
+        "有关",
+        "关于",
+        "的",
+        "和",
+        "与",
+        "及",
+    }
+    return [t for t in tokens if t not in stopwords]
+
+
 def query_knowledge_graph(
     question: str,
     doc_source_map: Optional[Dict[str, dict]] = None,
@@ -138,6 +228,8 @@ def query_knowledge_graph(
     chunk_rel_ids: List[str] = []
     entities: List[str] = []
     ent_name_map = _load_entity_name_map()
+    exact_entities = _extract_exact_entities(question, ent_name_map, chunk_kg_map)
+    intent_terms = _extract_intent_terms(question, exact_entities)
     query_terms = _tokenize(question)
     if chunk_kg_map and chunk_text_map:
         query_tokens = set(query_terms)
@@ -165,7 +257,48 @@ def query_knowledge_graph(
     try:
         with driver.session() as session:
             rel_id_field = _pick_rel_id_field(session)
-            if chunk_rel_ids and rel_id_field:
+            if exact_entities:
+                rel_id_expr = (
+                    f"coalesce(r.`{rel_id_field}`, '')" if rel_id_field else "''"
+                )
+                cypher = (
+                    "MATCH (seed) "
+                    "WHERE coalesce(seed.name, '') IN $entities "
+                    "MATCH p=(seed)-[*1..2]-(x) "
+                    "UNWIND relationships(p) AS r "
+                    "WITH DISTINCT r, seed, startNode(r) AS h, endNode(r) AS t "
+                    "WITH r, seed, h, t, "
+                    "reduce(s = 0, tn IN $intent_terms | s + CASE "
+                    "WHEN coalesce(h.name, '') CONTAINS tn THEN 1 "
+                    "WHEN coalesce(t.name, '') CONTAINS tn THEN 1 "
+                    "WHEN type(r) CONTAINS tn THEN 1 "
+                    "WHEN coalesce(r.description, '') CONTAINS tn THEN 1 "
+                    "ELSE 0 END) AS intent_score, "
+                    "CASE WHEN h = seed OR t = seed THEN 2 ELSE 1 END AS hop_score "
+                    "WHERE size($intent_terms) = 0 OR intent_score > 0 "
+                    "RETURN "
+                    "h.name AS head, "
+                    "coalesce(head(labels(h)), '') AS head_label, "
+                    "type(r) AS rel, "
+                    "t.name AS tail, "
+                    "coalesce(head(labels(t)), '') AS tail_label, "
+                    "coalesce(r.description, '') AS description, "
+                    "coalesce(h.source_section, '') AS head_source_section, "
+                    "coalesce(t.source_section, '') AS tail_source_section, "
+                    "coalesce(h.doc_id, '') AS head_doc_id, "
+                    "coalesce(t.doc_id, '') AS tail_doc_id, "
+                    "coalesce(r.doc_id, '') AS rel_doc_id, "
+                    f"{rel_id_expr} AS rel_id "
+                    "ORDER BY intent_score DESC, hop_score DESC "
+                    "LIMIT $limit"
+                )
+                rows = session.run(
+                    cypher,
+                    entities=exact_entities,
+                    intent_terms=intent_terms,
+                    limit=min(top_k, SETTINGS.kg_rel_limit),
+                )
+            elif chunk_rel_ids and rel_id_field:
                 cypher = (
                     "MATCH (h)-[r]->(t) "
                     f"WHERE coalesce(r.`{rel_id_field}`, '') IN $rel_ids "
@@ -276,6 +409,12 @@ def query_knowledge_graph(
                 head_doc_id = str(row.get("head_doc_id", "") or "").strip()
                 tail_doc_id = str(row.get("tail_doc_id", "") or "").strip()
                 rel_doc_id = str(row.get("rel_doc_id", "") or "").strip()
+                if head_doc_id:
+                    item["head_doc_id"] = head_doc_id
+                if tail_doc_id:
+                    item["tail_doc_id"] = tail_doc_id
+                if rel_doc_id:
+                    item["rel_doc_id"] = rel_doc_id
                 if doc_source_map:
                     if head_doc_id in doc_source_map:
                         item["head_source"] = doc_source_map[head_doc_id].get(

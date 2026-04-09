@@ -1,14 +1,32 @@
 [
   {
-    "doc_id": "船舶电气设备及系统",
-    "source": "船舶电气设备及系统.md",
-    "path": "data/raw/船舶电气设备及系统.md",
-    "num_chunks": 335
+    "doc_id": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书",
+    "source": "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+    "path": "data/KG/raw/CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
+    "num_chunks": 29
   },
   {
-    "doc_id": "船舶电气设备维护及检测",
-    "source": "船舶电气设备维护及检测.md",
-    "path": "data/raw/船舶电气设备维护及检测.md",
-    "num_chunks": 148
+    "doc_id": "GC WAS-01 驾驶室船舶值班报警系统说明书",
+    "source": "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+    "path": "data/KG/raw/GC WAS-01 驾驶室船舶值班报警系统说明书.md",
+    "num_chunks": 10
+  },
+  {
+    "doc_id": "机舱微机监测报警系统说明书",
+    "source": "机舱微机监测报警系统说明书.md",
+    "path": "data/KG/raw/机舱微机监测报警系统说明书.md",
+    "num_chunks": 10
+  },
+  {
+    "doc_id": "机舱总线制监测报警使用说明书",
+    "source": "机舱总线制监测报警使用说明书.md",
+    "path": "data/KG/raw/机舱总线制监测报警使用说明书.md",
+    "num_chunks": 9
+  },
+  {
+    "doc_id": "柴油机智能延伸检测单元说明书",
+    "source": "柴油机智能延伸检测单元说明书.md",
+    "path": "data/KG/raw/柴油机智能延伸检测单元说明书.md",
+    "num_chunks": 5
   }
 ]

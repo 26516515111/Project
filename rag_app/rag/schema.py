@@ -23,6 +23,8 @@ class Answer(BaseModel):
     question: str
     answer: str
     citations: List[Passage] = Field(default_factory=list)
+    retrieved_chunks: List[Passage] = Field(default_factory=list)
+    kg_chunks: List[Passage] = Field(default_factory=list)
     kg_triplets: List[Dict[str, str]] = Field(default_factory=list)
     meta: Dict[str, str] = Field(default_factory=dict)
 
@@ -33,6 +35,8 @@ class QueryRequest(BaseModel):
     question: str
     top_k: Optional[int] = None
     use_kg: bool = True
+    use_llm: bool = True
     use_history: bool = True
     session_id: Optional[str] = None
     enable_decompose: Optional[bool] = None
+    enable_retrieval_optimization: Optional[bool] = None

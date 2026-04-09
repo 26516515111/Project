@@ -53,17 +53,56 @@ def _load_pdf_pages(path: str) -> List[dict]:
     return pages
 
 
-def load_chunks_json(docs_dir: str) -> List[dict]:
+def _resolve_chunks_path(base_dir: str) -> str:
+    candidates = [
+        os.path.join(base_dir, "chunk.json"),
+        os.path.join(base_dir, "chunks.json"),
+        os.path.join(base_dir, "chunks", "chunk.json"),
+        os.path.join(base_dir, "chunks", "chunks.json"),
+        os.path.join(base_dir, "KG", "chunks", "chunk.json"),
+        os.path.join(base_dir, "KG", "chunks", "chunks.json"),
+    ]
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    return ""
+
+
+def _resolve_doc_source_map_path(base_dir: str) -> str:
+    candidates = [
+        os.path.join(base_dir, "doc_source_map.json"),
+        os.path.join(base_dir, "chunks", "doc_source_map.json"),
+        os.path.join(base_dir, "KG", "chunks", "doc_source_map.json"),
+    ]
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    return ""
+
+
+def _resolve_chunk_to_kg_path(base_dir: str) -> str:
+    candidates = [
+        os.path.join(base_dir, "chunk_to_kg.json"),
+        os.path.join(base_dir, "chunks", "chunk_to_kg.json"),
+        os.path.join(base_dir, "KG", "chunks", "chunk_to_kg.json"),
+    ]
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    return ""
+
+
+def load_chunks_json(base_dir: str) -> List[dict]:
     """读取chunks.json并规范化为chunk列表。
 
     Args:
-        docs_dir: 文档目录路径。
+        base_dir: chunks所在目录路径。
 
     Returns:
         List[dict]: chunk列表。
     """
-    path = os.path.join(docs_dir, "chunks.json")
-    if not os.path.isfile(path):
+    path = _resolve_chunks_path(base_dir)
+    if not path:
         return []
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -92,17 +131,17 @@ def load_chunks_json(docs_dir: str) -> List[dict]:
     return chunks
 
 
-def load_doc_source_map(docs_dir: str) -> Dict[str, dict]:
+def load_doc_source_map(base_dir: str) -> Dict[str, dict]:
     """读取doc_source_map.json并构建doc_id到来源信息的映射。
 
     Args:
-        docs_dir: 文档目录路径。
+        base_dir: doc_source_map.json所在目录路径。
 
     Returns:
         Dict[str, dict]: doc_id到来源信息的映射。
     """
-    path = os.path.join(docs_dir, "doc_source_map.json")
-    if not os.path.isfile(path):
+    path = _resolve_doc_source_map_path(base_dir)
+    if not path:
         return {}
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -124,17 +163,17 @@ def load_doc_source_map(docs_dir: str) -> Dict[str, dict]:
     return mapping
 
 
-def load_chunk_to_kg(docs_dir: str) -> Dict[str, dict]:
+def load_chunk_to_kg(base_dir: str) -> Dict[str, dict]:
     """读取chunk_to_kg.json并构建chunk_id到KG映射。
 
     Args:
-        docs_dir: 文档目录路径。
+        base_dir: chunk_to_kg.json所在目录路径。
 
     Returns:
         Dict[str, dict]: chunk_id到KG实体/关系映射。
     """
-    path = os.path.join(docs_dir, "chunk_to_kg.json")
-    if not os.path.isfile(path):
+    path = _resolve_chunk_to_kg_path(base_dir)
+    if not path:
         return {}
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)

@@ -1,6 +1,28 @@
-import json
+from langchain_community.chat_models import ChatOpenAI
+
 from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
+from rag.store_history import get_history
+from rag.generator import get_system_prompt_text, render_user_prompt_text
+from rag.model import build_chat_llm
+
+
+def _print_dialogue_messages(
+    session_id: str, question: str, passages, kg_triplets
+) -> None:
+    print("\nDialogue Messages:")
+    print(f"[System] {get_system_prompt_text()}")
+    print(f"[Human] {render_user_prompt_text(question, passages, kg_triplets)}")
+    history = get_history(session_id)
+    ai_text = ""
+    messages = list(history.messages)
+    for msg in reversed(messages):
+        if getattr(msg, "type", "") == "ai":
+            ai_text = str(getattr(msg, "content", "") or "").strip()
+            break
+    if not ai_text:
+        ai_text = "(no ai message recorded)"
+    print(f"[AI] {ai_text}")
 
 
 def main():
@@ -21,13 +43,7 @@ def main():
             break
         req = QueryRequest(question=q, session_id=session_id)
         ans = pipeline.query(req)
-        print("\nAnswer:\n")
-        print(ans.answer)
-        print("\nCitations:")
-        for p in ans.citations:
-            print(f"- {p.source} ({p.score:.3f})")
-        print("\nJSON:\n")
-        print(json.dumps(ans.model_dump(), ensure_ascii=False, indent=2))
+        _print_dialogue_messages(session_id, q, ans.citations, ans.kg_triplets)
 
 
 if __name__ == "__main__":
@@ -39,4 +55,8 @@ if __name__ == "__main__":
     Returns:
         None
     """
+    model = build_chat_llm()
+    print(model.invoke("Hello, world!"))
     main()
+
+

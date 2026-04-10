@@ -111,11 +111,19 @@ def load_chunks_json(base_dir: str) -> List[dict]:
         text = str(item.get("text", "")).strip()
         if not text:
             continue
-        source_doc_id = str(item.get("doc_id", "")).strip()
+        source_doc_id = str(item.get("source_doc_id", "") or "").strip()
+        if not source_doc_id:
+            source_doc_id = str(item.get("doc_id", "") or "").strip()
         chunk_index = item.get("chunk_index")
         chunk_id = str(item.get("chunk_id", "")).strip()
         if not chunk_id and source_doc_id and chunk_index is not None:
             chunk_id = f"{source_doc_id}::chunk_{chunk_index}"
+        if not source_doc_id and "::chunk_" in chunk_id:
+            source_doc_id = chunk_id.split("::chunk_", 1)[0].strip()
+        if not source_doc_id:
+            source = str(item.get("source", "") or "").strip()
+            if source.lower().endswith(".md"):
+                source_doc_id = source[:-3]
         if not chunk_id:
             continue
         chunks.append(
@@ -126,6 +134,7 @@ def load_chunks_json(base_dir: str) -> List[dict]:
                 "chunk_index": chunk_index,
                 "text": text,
                 "source": str(item.get("source", "")).strip(),
+                "heading_context": str(item.get("heading_context", "") or "").strip(),
             }
         )
     return chunks

@@ -1,4 +1,4 @@
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 import logging
 import re
 
@@ -53,6 +53,29 @@ def _count_entity_hits(text: str, entities: List[str]) -> int:
     return hits
 
 
+def _is_technical_question(query: str) -> bool:
+    q = str(query or "").strip().lower()
+    if not q:
+        return False
+    keywords = (
+        "技术",
+        "参数",
+        "规格",
+        "配置",
+        "电源",
+        "电压",
+        "电流",
+        "功率",
+        "接口",
+        "协议",
+        "防护",
+        "等级",
+        "温度",
+        "湿度",
+    )
+    return any(k in q for k in keywords)
+
+
 def _prepare_payload(
     store,
     bm25,
@@ -61,6 +84,7 @@ def _prepare_payload(
     max_subqueries: int = None,
     per_query_top_k: int = None,
     use_reranker: bool = True,
+    allowed_source_doc_ids: Optional[List[str]] = None,
 ) -> Dict:
     queries = query if isinstance(query, list) else [query]
     queries = [q for q in queries if str(q).strip()]
@@ -73,6 +97,7 @@ def _prepare_payload(
         "top_k": top_k,
         "per_query_top_k": per_query_top_k,
         "use_reranker": use_reranker,
+        "allowed_source_doc_ids": allowed_source_doc_ids or [],
     }
 
 
@@ -83,6 +108,7 @@ def _run_search(payload: Dict) -> Dict:
         return payload
     merged: Dict[str, dict] = {}
     per_k = payload["per_query_top_k"] or max(1, payload["top_k"])
+    allowed_source_doc_ids = set(payload.get("allowed_source_doc_ids") or [])
     vector_retriever = payload["store"].as_retriever(search_kwargs={"k": per_k})
     bm25_retriever = payload.get("bm25")
     if bm25_retriever is not None:
@@ -96,18 +122,34 @@ def _run_search(payload: Dict) -> Dict:
 
     for q in queries:
         docs = retriever.invoke(q)
+        if allowed_source_doc_ids:
+            filtered_docs = []
+            for d in docs:
+                metadata = d.metadata or {}
+                source_doc_id = str(metadata.get("source_doc_id", "") or "").strip()
+                if not source_doc_id:
+                    doc_id = str(metadata.get("doc_id", "") or "").strip()
+                    if "::chunk_" in doc_id:
+                        source_doc_id = doc_id.split("::chunk_", 1)[0].strip()
+                if source_doc_id in allowed_source_doc_ids:
+                    filtered_docs.append(d)
+            docs = filtered_docs
         total = max(1, len(docs))
         for idx, doc in enumerate(docs):
             metadata = doc.metadata or {}
             doc_id = str(metadata.get("doc_id", "") or "")
             if not doc_id:
                 continue
+            source_doc_id = str(metadata.get("source_doc_id", "") or "").strip()
+            if not source_doc_id and "::chunk_" in doc_id:
+                source_doc_id = doc_id.split("::chunk_", 1)[0].strip()
             score = float((total - idx) / total)
             item = {
                 "doc_id": doc_id,
                 "text": str(doc.page_content or ""),
                 "source": str(metadata.get("source", "") or ""),
-                "source_doc_id": str(metadata.get("source_doc_id", "") or ""),
+                "source_doc_id": source_doc_id,
+                "heading_context": str(metadata.get("heading_context", "") or ""),
                 "score": score,
             }
             entry = merged.get(doc_id)
@@ -164,6 +206,27 @@ def _apply_entity_priority(payload: Dict) -> Dict:
                 item.get("score", 0.0)
             ) + SETTINGS.entity_boost * float(hits)
 
+    payload["merged"] = merged
+    return payload
+
+
+def _apply_technical_heading_boost(payload: Dict) -> Dict:
+    if not SETTINGS.tech_heading_boost_enabled:
+        return payload
+    queries = payload.get("queries") or []
+    merged = payload.get("merged") or {}
+    if not queries or not merged:
+        return payload
+    if not _is_technical_question(queries[0]):
+        return payload
+
+    boost = float(getattr(SETTINGS, "tech_heading_boost", 0.0) or 0.0)
+    if boost <= 0.0:
+        return payload
+    for item in merged.values():
+        heading_context = str(item.get("heading_context", "") or "")
+        if "技术" in heading_context:
+            item["score"] = float(item.get("score", 0.0)) + boost
     payload["merged"] = merged
     return payload
 
@@ -246,6 +309,7 @@ def hybrid_retrieve(
     max_subqueries: int = None,
     per_query_top_k: int = None,
     use_reranker: bool = True,
+    allowed_source_doc_ids: Optional[List[str]] = None,
 ) -> RetrievedContext:
     """融合dense与sparse分数，返回排序后的检索上下文。
 
@@ -268,10 +332,12 @@ def hybrid_retrieve(
                 max_subqueries=max_subqueries,
                 per_query_top_k=per_query_top_k,
                 use_reranker=use_reranker,
+                allowed_source_doc_ids=allowed_source_doc_ids,
             )
         )
         | RunnableLambda(_run_search)
         | RunnableLambda(_apply_entity_priority)
+        | RunnableLambda(_apply_technical_heading_boost)
         | RunnableLambda(_build_context)
         | RunnableLambda(_apply_rerank)
     )

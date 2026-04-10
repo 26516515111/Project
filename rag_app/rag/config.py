@@ -68,6 +68,27 @@ class Settings:
         "yes",
         "y",
     }
+    # RAG_TECH_HEADING_BOOST_ENABLED：技术性问题是否提升标题含“技术”的chunk
+    tech_heading_boost_enabled = env(
+        "RAG_TECH_HEADING_BOOST_ENABLED", "true"
+    ).lower() in {"1", "true", "yes", "y"}
+    # RAG_TECH_HEADING_BOOST：技术性问题的标题匹配加分系数
+    tech_heading_boost = float(env("RAG_TECH_HEADING_BOOST", "0.35"))
+    # RAG_NEIGHBOR_CONTEXT_ENABLED：是否为命中chunk补充后续相邻chunk
+    neighbor_context_enabled = env("RAG_NEIGHBOR_CONTEXT_ENABLED", "false").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_NEIGHBOR_CONTEXT_WINDOW：每个命中chunk向后补充的相邻窗口大小
+    neighbor_context_window = int(env("RAG_NEIGHBOR_CONTEXT_WINDOW", "1"))
+    # RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW：参数/规格类问题时的相邻补充窗口大小
+    neighbor_context_param_window = int(env("RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW", "3"))
+    # RAG_NEIGHBOR_CONTEXT_SEED_LIMIT：最多对前N个高分命中chunk做相邻扩展
+    neighbor_context_seed_limit = int(env("RAG_NEIGHBOR_CONTEXT_SEED_LIMIT", "3"))
+    # RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS：单次查询最多补充的相邻chunk数量
+    neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "6"))
 
     # 向量嵌入模块
     # RAG_EMBEDDING_MODEL：向量模型名称
@@ -75,10 +96,19 @@ class Settings:
         "RAG_EMBEDDING_MODEL",
         "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
     )
+    # RAG_EMBEDDING_LOCAL_ONLY：是否强制仅从本地加载embedding模型
+    embedding_local_only = env("RAG_EMBEDDING_LOCAL_ONLY", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_EMBEDDING_CACHE_DIR：embedding模型缓存目录（可选）
+    embedding_cache_dir = env("RAG_EMBEDDING_CACHE_DIR", "").strip()
 
     # LLM模块（可选）
     # RAG_LLM_PROVIDER：ollama|modelscope|none
-    llm_provider = env("RAG_LLM_PROVIDER", "modelscope")  # ollama|modelscope|none
+    llm_provider = env("RAG_LLM_PROVIDER", "ollama")  # ollama|modelscope|none
     # RAG_LLM_MODEL：聊天模型名称
     llm_model_name = env("RAG_LLM_MODEL", "qwen2.5:3b")
     # RAG_MODELSCOPE_MODEL：ModelScope聊天模型名称
@@ -127,6 +157,24 @@ class Settings:
     kg_rel_limit = int(env("RAG_KG_REL_LIMIT", "50"))
     # RAG_KG_SCORE_THRESHOLD：KG检索的chunk相关性阈值
     kg_score_threshold = float(env("RAG_KG_SCORE_THRESHOLD", "0.1"))
+    # RAG_KG_ENTITY_ALIASES：KG实体别名映射，格式 alias=canonical，逗号分隔
+    kg_entity_aliases = env_list(
+        "RAG_KG_ENTITY_ALIASES",
+        "GCWJ-01=船舶监测报警系统,GCWJ01=船舶监测报警系统,GCJB0-5=机舱总线制监测报警系统,GCJB-0-5=机舱总线制监测报警系统,GCJB24=机舱总线制监测报警系统,GCJB-24=机舱总线制监测报警系统,GC WAS-01=驾驶台航行值班报警系统,WAS-01=驾驶台航行值班报警系统,GC WAS-01-03=驾驶台航行值班报警系统,WAS-01-03=驾驶台航行值班报警系统,CDQY2A-PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,CDQY2A-PC2=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,GCJB-1=船舶监测报警系统,GCJB1=船舶监测报警系统",
+    )
+    # RAG_USE_PARENT_RETRIEVER：是否启用父子索引（父文档预检索）
+    use_parent_retriever = env("RAG_USE_PARENT_RETRIEVER", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_PARENT_RETRIEVER_K：父文档预检索数量
+    parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "3"))
+    # RAG_PARENT_PROMPT_MODE：父子检索结果合并到Prompt的模式 route|hybrid
+    parent_prompt_mode = env("RAG_PARENT_PROMPT_MODE", "hybrid").strip().lower()
+    # RAG_PARENT_PROMPT_TOP_K：混合模式下最多加入的父文档片段数
+    parent_prompt_top_k = int(env("RAG_PARENT_PROMPT_TOP_K", "2"))
 
     # 重排序模块
     # RAG_USE_RERANKER：是否启用交叉编码器重排序
@@ -145,7 +193,7 @@ class Settings:
         "y",
     }
     # RAG_DECOMPOSER_METHOD：heuristic|llm
-    decomposer_method = env("RAG_DECOMPOSER_METHOD", "heuristic")
+    decomposer_method = env("RAG_DECOMPOSER_METHOD", "llm")
     # RAG_DECOMPOSE_MIN_LENGTH：触发问题分解的最小长度
     decompose_min_length = int(env("RAG_DECOMPOSE_MIN_LENGTH", "8"))
     # RAG_DECOMPOSE_MAX_SUBQUESTIONS：最大子问题数量

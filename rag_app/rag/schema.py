@@ -40,3 +40,4 @@ class QueryRequest(BaseModel):
     session_id: Optional[str] = None
     enable_decompose: Optional[bool] = None
     enable_retrieval_optimization: Optional[bool] = None
+    enable_parent_retriever: Optional[bool] = None

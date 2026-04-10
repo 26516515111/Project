@@ -1,4 +1,5 @@
 from typing import Dict, List, Optional
+from collections import Counter
 import re
 import os
 import json
@@ -7,6 +8,117 @@ from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable
 
 from .config import SETTINGS
+
+
+def _parse_alias_pairs(raw_pairs: List[str]) -> Dict[str, str]:
+    mapping: Dict[str, str] = {}
+    for raw in raw_pairs:
+        line = str(raw or "").strip()
+        if not line or "=" not in line:
+            continue
+        alias, canonical = line.split("=", 1)
+        alias = _normalize_text(alias)
+        canonical = _normalize_text(canonical)
+        if not alias or not canonical:
+            continue
+        mapping[alias] = canonical
+    return mapping
+
+
+def _build_alias_map_from_chunks(
+    chunk_kg_map: Optional[Dict[str, dict]], chunk_text_map: Optional[Dict[str, str]]
+) -> Dict[str, str]:
+    if not chunk_kg_map or not chunk_text_map:
+        return {}
+    roots_by_doc: Dict[str, List[str]] = {}
+    for item in chunk_kg_map.values():
+        doc_id = _normalize_text(item.get("doc_id", ""))
+        if not doc_id:
+            continue
+        for ent in item.get("kg_entities", []) or []:
+            ent_text = _normalize_text(ent)
+            if not ent_text:
+                continue
+            root = ent_text.split("_", 1)[0].strip()
+            if not root:
+                continue
+            roots_by_doc.setdefault(doc_id, []).append(root)
+
+    canonical_by_doc: Dict[str, str] = {}
+    for doc_id, roots in roots_by_doc.items():
+        if not roots:
+            continue
+        counts = Counter(roots)
+        canonical_by_doc[doc_id] = sorted(
+            counts.items(), key=lambda x: (-x[1], -len(x[0]), x[0])
+        )[0][0]
+
+    alias_map: Dict[str, str] = {}
+    pat = re.compile(
+        r"\b[A-Za-z]{2,}[A-Za-z0-9]*(?:\s+[A-Za-z0-9]{1,})*-[A-Za-z0-9][A-Za-z0-9-]*\b"
+        r"|\b[A-Za-z]{2,}\d+[A-Za-z0-9-]*\b"
+    )
+    blocked_prefixes = {
+        "IP",
+        "DC",
+        "AC",
+        "RH",
+        "PT",
+        "OUT",
+        "SK",
+        "YV",
+        "CO",
+        "IMG",
+        "VDR",
+        "RS",
+        "IEC",
+        "SOLAS",
+        "EIA",
+        "LCD",
+        "MPU",
+        "PLC",
+        "CCS",
+    }
+    for chunk_id, item in chunk_kg_map.items():
+        doc_id = _normalize_text(item.get("doc_id", ""))
+        canonical = canonical_by_doc.get(doc_id)
+        if not canonical:
+            continue
+        text = _normalize_text(chunk_text_map.get(chunk_id, ""))
+        if not text:
+            continue
+        for alias in set(pat.findall(text)):
+            alias = _normalize_text(alias)
+            if len(alias) < 4 or len(alias) > 40:
+                continue
+            alias_key = _normalize_for_match(alias)
+            if not alias_key:
+                continue
+            prefix = alias_key.split("-", 1)[0].upper()
+            if prefix in blocked_prefixes:
+                continue
+            alias_map[alias] = canonical
+    return alias_map
+
+
+def _expand_entities_with_aliases(
+    entities: List[str], question: str, extra_alias_map: Optional[Dict[str, str]] = None
+) -> List[str]:
+    q_norm = _normalize_text(question)
+    if not q_norm:
+        return entities
+    alias_map = _parse_alias_pairs(getattr(SETTINGS, "kg_entity_aliases", []))
+    if extra_alias_map:
+        alias_map.update(extra_alias_map)
+    if not alias_map:
+        return entities
+    resolved = list(entities)
+    seen = {e for e in entities if e}
+    for alias, canonical in alias_map.items():
+        if alias in q_norm and canonical not in seen:
+            resolved.append(canonical)
+            seen.add(canonical)
+    return resolved
 
 
 def _get_driver():
@@ -229,6 +341,10 @@ def query_knowledge_graph(
     entities: List[str] = []
     ent_name_map = _load_entity_name_map()
     exact_entities = _extract_exact_entities(question, ent_name_map, chunk_kg_map)
+    chunk_alias_map = _build_alias_map_from_chunks(chunk_kg_map, chunk_text_map)
+    exact_entities = _expand_entities_with_aliases(
+        exact_entities, question, extra_alias_map=chunk_alias_map
+    )[:5]
     intent_terms = _extract_intent_terms(question, exact_entities)
     query_terms = _tokenize(question)
     if chunk_kg_map and chunk_text_map:
@@ -399,6 +515,7 @@ def query_knowledge_graph(
                     "head": row.get("head", ""),
                     "head_label": row.get("head_label", ""),
                     "rel": row.get("rel", ""),
+                    "relation": row.get("rel", ""),
                     "tail": row.get("tail", ""),
                     "tail_label": row.get("tail_label", ""),
                     "description": row.get("description", ""),

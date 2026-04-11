@@ -1,4 +1,4 @@
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Optional
 import re
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -138,6 +138,10 @@ def generate_answer(
     use_llm: bool = True,
     use_history: bool = True,
     session_id: str = "default",
+    llm_provider: Optional[str] = None,
+    llm_model: Optional[str] = None,
+    llm_api_key: Optional[str] = None,
+    llm_api_base: Optional[str] = None,
 ) -> str:
     """根据配置选择LLM或抽取式策略生成答案。
 
@@ -157,7 +161,12 @@ def generate_answer(
         context_text = _build_context(passages)
         kg_context_text = build_kg_text(kg_triplets)
         prompt = _build_prompt()
-        llm = build_chat_llm()
+        llm = build_chat_llm(
+            provider=llm_provider,
+            model_name=llm_model,
+            base_url=llm_api_base,
+            api_key=llm_api_key,
+        )
         chain = prompt | llm
         try:
             if use_history and SETTINGS.use_history:
@@ -200,12 +209,21 @@ def stream_answer(
     use_llm: bool = True,
     use_history: bool = True,
     session_id: str = "default",
+    llm_provider: Optional[str] = None,
+    llm_model: Optional[str] = None,
+    llm_api_key: Optional[str] = None,
+    llm_api_base: Optional[str] = None,
 ) -> Iterable[str]:
     if use_llm:
         context_text = _build_context(passages)
         kg_context_text = build_kg_text(kg_triplets)
         prompt = _build_prompt()
-        llm = build_chat_llm()
+        llm = build_chat_llm(
+            provider=llm_provider,
+            model_name=llm_model,
+            base_url=llm_api_base,
+            api_key=llm_api_key,
+        )
         chain = prompt | llm
         stream_input = {
             "question": question,

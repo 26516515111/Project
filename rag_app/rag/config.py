@@ -111,7 +111,7 @@ class Settings:
 
     # RAG_LLM_API_KEY / MODELSCOPE_API_KEY / LLM_API_KEY：LLM鉴权密钥
     llm_api_key = env(
-        "RAG_LLM_API_KEY", env("MODELSCOPE_API_KEY", env("LLM_API_KEY", ""))
+        "RAG_LLM_API_KEY", env("MODELSCOPE_API_KEY", env("LLM_API_KEY", "ms-49891fe4-7e57-48d8-836e-1160b8f89ac9"))
     )
 
     # Neo4j模块

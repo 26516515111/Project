@@ -252,6 +252,10 @@ class RagPipeline:
             use_llm=req.use_llm,
             use_history=req.use_history,
             session_id=req.session_id or "default",
+            llm_provider=req.llm_provider,
+            llm_model=req.llm_model,
+            llm_api_key=req.llm_api_key,
+            llm_api_base=req.llm_api_base,
         )
         payload["answer_text"] = answer_text
         payload["timing"]["t3"] = time.perf_counter()
@@ -323,6 +327,10 @@ class RagPipeline:
             use_llm=req.use_llm,
             use_history=req.use_history,
             session_id=req.session_id or "default",
+            llm_provider=req.llm_provider,
+            llm_model=req.llm_model,
+            llm_api_key=req.llm_api_key,
+            llm_api_base=req.llm_api_base,
         )
         return stream, payload
 

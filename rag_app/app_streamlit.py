@@ -1,14 +1,13 @@
 import streamlit as st
+import requests
 
-from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
 
+API_URL = "http://localhost:8000"
 
 st.set_page_config(page_title="Ship Fault RAG", layout="wide")
 
-if "pipeline" not in st.session_state:
-    st.session_state.pipeline = RagPipeline()
-
+# 移除本地 pipeline 初始化，改为直接通过 API 请求
 if "history" not in st.session_state:
     st.session_state.history = []
 if "session_id" not in st.session_state:
@@ -30,8 +29,26 @@ if st.button("查询") and question.strip():
         use_kg=use_kg,
         session_id=st.session_state.session_id,
     )
-    ans = st.session_state.pipeline.query(req)
-    st.session_state.history.append(ans)
+    
+    # 替换为 API 接口请求
+    try:
+        response = requests.post(f"{API_URL}/rag/query", json=req.model_dump())
+        response.raise_for_status()
+        
+        # 将返回的 dict 映射回对象，或者直接使用字典（此处根据返回结构做简单兼容）
+        class DotDict(dict):
+            __getattr__ = dict.get
+        
+        ans_data = response.json()
+        ans = DotDict({
+            "question": req.question,
+            "answer": ans_data.get("answer", ""),
+            "citations": [DotDict(c) for c in ans_data.get("citations", [])],
+            "kg_triplets": ans_data.get("kg_triplets", [])
+        })
+        st.session_state.history.append(ans)
+    except Exception as e:
+        st.error(f"请求后台接口失败: {e}")
 
 if st.session_state.history:
     st.subheader("回答")

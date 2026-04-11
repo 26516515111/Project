@@ -5,22 +5,34 @@ import json
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Body
+try:
+    from fastapi.middleware.cors import CORSMiddleware
+except Exception:
+    # 兼容部分环境下 fastapi 子模块解析异常
+    from starlette.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from langchain_core.runnables import RunnableLambda
-from langserve import add_routes
+
+_LANGSERVE_ERR = None
+try:
+    from langserve import add_routes
+    _LANGSERVE_OK = True
+except Exception as _e:
+    add_routes = None
+    _LANGSERVE_OK = False
+    _LANGSERVE_ERR = str(_e)
 
 from rag.config import SETTINGS
 from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
 from update_index_incremental import main as run_incremental_update
 
-
 app = FastAPI(title="RAG LangServe Backend", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    # 不要 allow_origins=["*"] + allow_credentials=True
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -64,6 +76,10 @@ def _run_query(payload: dict) -> dict:
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
+        llm_provider=payload.get("llm_provider"),
+        llm_model=payload.get("llm_model"),
+        llm_api_key=payload.get("llm_api_key"),
+        llm_api_base=payload.get("llm_api_base"),
     )
     with _pipeline_lock:
         pipeline = _get_pipeline()
@@ -85,6 +101,10 @@ def _build_query_request(payload: dict) -> QueryRequest:
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
+        llm_provider=payload.get("llm_provider"),
+        llm_model=payload.get("llm_model"),
+        llm_api_key=payload.get("llm_api_key"),
+        llm_api_base=payload.get("llm_api_base"),
     )
 
 
@@ -93,7 +113,20 @@ def _sse_json(event: str, payload: dict) -> str:
 
 
 rag_runnable = RunnableLambda(_run_query).with_types(input_type=dict, output_type=dict)
-add_routes(app, rag_runnable, path="/rag")
+if _LANGSERVE_OK:
+    add_routes(app, rag_runnable, path="/rag")
+
+
+@app.get("/health")
+def health():
+    return {
+        "ok": True,
+        "langserve": _LANGSERVE_OK,
+        "langserve_error": None if _LANGSERVE_OK else _LANGSERVE_ERR,
+        "llm_provider": SETTINGS.llm_provider,
+        "llm_model": SETTINGS.llm_model,
+        "llm_api_key_set": bool(str(SETTINGS.llm_api_key or "").strip()),
+    }
 
 
 @app.post("/rag/query")
@@ -105,7 +138,7 @@ def query_rag(req: QueryRequest):
 
 
 @app.post("/rag/query/stream")
-def query_rag_stream(payload: dict):
+def query_rag_stream(payload: dict = Body(...)):
     try:
         req = _build_query_request(payload)
     except ValueError as exc:
@@ -113,60 +146,40 @@ def query_rag_stream(payload: dict):
 
     def event_stream():
         started = time.perf_counter()
-        yield _sse_json(
-            "meta",
-            {
-                "user_id": req.session_id,
-                "question": req.question,
-                "stream": True,
-            },
-        )
+        yield _sse_json("meta", {"user_id": req.session_id, "question": req.question, "stream": True})
+
+        payload_ctx = {}
         try:
             with _pipeline_lock:
                 pipeline = _get_pipeline()
                 token_stream, payload_ctx = pipeline.stream_query_with_payload(req)
                 for token in token_stream:
-                    if not token:
-                        continue
-                    chunk = str(token).replace("\r", "")
-                    yield _sse_json("token", {"text": chunk})
+                    if token:
+                        yield _sse_json("token", {"text": str(token).replace("\r", "")})
         except Exception as exc:
-            yield _sse_json(
-                "error",
-                {
-                    "message": str(exc),
-                    "type": type(exc).__name__,
-                },
-            )
+            yield _sse_json("error", {"message": str(exc), "type": type(exc).__name__})
             return
+
         references = []
-        for passage in (
-            payload_ctx.get("context", {}).passages
-            if payload_ctx.get("context")
-            else []
-        ):
-            references.append(
-                {
-                    "doc_id": passage.doc_id,
-                    "source": passage.source,
-                    "score": passage.score,
-                    "text": passage.text,
-                }
-            )
+        context = payload_ctx.get("context") if isinstance(payload_ctx, dict) else None
+        passages = getattr(context, "passages", []) if context else []
+        for p in passages:
+            references.append({
+                "doc_id": getattr(p, "doc_id", ""),
+                "source": getattr(p, "source", ""),
+                "score": getattr(p, "score", None),
+                "text": getattr(p, "text", ""),
+            })
+
         if references:
             yield _sse_json("references", {"citations": references})
-        kg_triplets = payload_ctx.get("kg_triplets") or []
+
+        kg_triplets = payload_ctx.get("kg_triplets") if isinstance(payload_ctx, dict) else []
         if kg_triplets:
             yield _sse_json("kg", {"triplets": kg_triplets})
+
         elapsed_ms = int((time.perf_counter() - started) * 1000)
-        yield _sse_json(
-            "done",
-            {
-                "finish_reason": "stop",
-                "elapsed_ms": elapsed_ms,
-                "citation_count": len(references),
-            },
-        )
+        yield _sse_json("done", {"finish_reason": "stop", "elapsed_ms": elapsed_ms, "citation_count": len(references)})
 
     return StreamingResponse(
         event_stream(),

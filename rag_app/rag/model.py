@@ -68,6 +68,7 @@ def build_chat_llm(
     provider: Optional[str] = None,
     model_name: Optional[str] = None,
     base_url: Optional[str] = None,
+    api_key: Optional[str] = None,
     temperature: Optional[float] = None,
     max_tokens: Optional[int] = None,
 ):
@@ -113,7 +114,9 @@ def build_chat_llm(
                 "ModelScope requires langchain-openai. "
                 "Please install it with: pip install -U langchain-openai"
             )
-        if not SETTINGS.llm_api_key:
+        
+        resolved_api_key = api_key or SETTINGS.llm_api_key
+        if not resolved_api_key:
             raise RuntimeError(
                 "Missing LLM API key. Set RAG_LLM_API_KEY or MODELSCOPE_API_KEY."
             )
@@ -127,7 +130,7 @@ def build_chat_llm(
         return ChatOpenAI(
             model=resolved_model,
             base_url=resolved_base_url,
-            api_key=SETTINGS.llm_api_key,
+            api_key=resolved_api_key,
             temperature=resolved_temperature,
             max_tokens=resolved_max_tokens,
         )

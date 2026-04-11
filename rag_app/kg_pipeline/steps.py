@@ -17,6 +17,7 @@ from typing import Any
 import networkx as nx
 import torch
 from bs4 import BeautifulSoup
+from huggingface_hub import snapshot_download
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from neo4j import GraphDatabase
 from openai import OpenAI
@@ -40,6 +41,9 @@ from .config import (
     LLM_CHECKPOINT_EVERY_CHUNKS,
     LLM_MOCK_ENV,
     LLM_REQUIRE_API_KEY,
+    KG_CHUNK_SIZE,
+    KG_CHUNK_OVERLAP,
+    KG_MIN_CHUNK_SIZE,
 )
 from .constants import ENTITY_LABELS, RELATION_TYPES
 from .paths import PipelinePaths
@@ -328,6 +332,8 @@ def _rebalance_heading_levels(text: str) -> str:
     lines = text.splitlines()
     result: list[str] = []
     seen_real_h1 = False
+    warning_titles = {"重要事项", "注意事项", "注意", "警告", "危险", "小心"}
+    preface_titles = {"欢迎", "欢迎!", "前言", "preface", "introduction"}
 
     for line in lines:
         match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", line.strip())
@@ -339,6 +345,10 @@ def _rebalance_heading_levels(text: str) -> str:
         title = match.group(2).strip()
         new_level = level
 
+        if title in warning_titles:
+            new_level = max(level, 3)
+        if title.lower() in preface_titles:
+            new_level = 2
         if level == 1:
             if _is_real_chapter_heading(title):
                 seen_real_h1 = True
@@ -430,7 +440,8 @@ def _trim_manual_front_matter(text: str) -> str:
         if heading_has_body(index):
             start_index = index
             break
-    if first_h1_candidate is not None:
+    if first_h1_candidate is not None and start_index == 0:
+        # 仅在无法识别有效正文标题时，才退化到首个 H1
         return "\n".join(lines[first_h1_candidate:]).strip()
     return "\n".join(lines[start_index:]).strip()
 
@@ -444,6 +455,8 @@ def _trim_to_first_real_content_heading(text: str) -> str:
             re.match(r"^\[H1\]\s*[一二三四五六七八九十]+、.+$", stripped)
             or re.match(r"^\[H1\]\s*第[一二三四五六七八九十0-9]+[章节部分篇].+$", stripped)
             or re.match(r"^\[H1\]\s*[0-9]+[、\.．].+$", stripped)
+            or re.search(r"^\[H1\]\s*(introduction|overview|installation|operation|maintenance|troubleshooting|specification)s?\b", stripped, flags=re.IGNORECASE)
+            or re.search(r"^\[H1\].*(hydraulic\s+system|diesel\s+engine|steering\s+gear|stabilizer|thruster)", stripped, flags=re.IGNORECASE)
         )
 
     for index, line in enumerate(lines[:400]):
@@ -513,6 +526,200 @@ def _trim_leading_toc_sections(text: str) -> str:
             probe += 1
         index = probe
     return "\n".join(lines[index:]).strip()
+
+
+def _looks_like_toc_entry(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return False
+    if re.match(r"^\[H[1-6]\]\s+", stripped):
+        stripped = re.sub(r"^\[H[1-6]\]\s+", "", stripped).strip()
+    compact = stripped.replace(" ", "")
+    if "..." in stripped and re.search(r"\d+\s*$", stripped):
+        return True
+    if re.search(r"[\.。·]{8,}", stripped) and re.search(r"\d+\s*$", stripped):
+        return True
+    if re.match(r"^[^\n]{1,80}\.{5,}\s*\d+\s*$", stripped):
+        return True
+    if re.match(r"^[^\n]{1,80}…{3,}\s*\d+\s*$", stripped):
+        return True
+    if re.match(r"^[A-Za-z\u4e00-\u9fff（）()0-9,，、\- /]{1,80}\s+\d{1,4}$", compact):
+        return True
+    return False
+
+
+def _drop_toc_blocks(text: str) -> str:
+    lines = text.splitlines()
+    kept: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        if not stripped:
+            kept.append(line)
+            i += 1
+            continue
+
+        heading_plain = re.sub(r"^\[H[1-6]\]\s+", "", stripped).strip()
+        is_toc_heading = heading_plain in {"目录", "内容", "目次", "索引", "Contents", "CONTENTS", "Index", "INDEX"}
+        toc_run = 0
+        probe = i + 1 if is_toc_heading else i
+        while probe < len(lines):
+            candidate = lines[probe].strip()
+            if not candidate:
+                probe += 1
+                continue
+            if _looks_like_toc_entry(candidate):
+                toc_run += 1
+                probe += 1
+                continue
+            break
+
+        if is_toc_heading and toc_run >= 3:
+            i = probe
+            continue
+        if not is_toc_heading and toc_run >= 8:
+            i = probe
+            continue
+
+        kept.append(line)
+        i += 1
+    return "\n".join(kept).strip()
+
+
+def _drop_index_tail(text: str) -> str:
+    lines = text.splitlines()
+    cutoff: int | None = None
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        plain = re.sub(r"^\[H[1-6]\]\s+", "", stripped).strip()
+        if plain not in {"索引", "Index", "INDEX"}:
+            continue
+        score = 0
+        for probe in range(idx + 1, min(len(lines), idx + 80)):
+            candidate = lines[probe].strip()
+            if not candidate:
+                continue
+            if _looks_like_toc_entry(candidate):
+                score += 2
+                continue
+            if re.match(r"^[A-Za-z\u4e00-\u9fff]$", candidate):
+                score += 1
+                continue
+            if re.match(r"^\[H[2-6]\]\s*[A-Za-z\u4e00-\u9fff]$", candidate):
+                score += 1
+                continue
+        if score >= 8:
+            cutoff = idx
+            break
+    if cutoff is None:
+        return text.strip()
+    return "\n".join(lines[:cutoff]).strip()
+
+
+def _is_foreign_dominant_line(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return False
+    if "[IMG " in stripped:
+        return False
+    plain = re.sub(r"^\[H[1-6]\]\s+", "", stripped).strip()
+    swedish_markers = (
+        "allmänt",
+        "säkerhetsinformation",
+        "denna",
+        "motorn",
+        "service",
+        "underhåll",
+        "varning",
+        "för",
+        "och",
+        "inte",
+        "använd",
+        "volvo penta",
+    )
+    lowered = plain.lower()
+    if any(marker in lowered for marker in swedish_markers):
+        return True
+    if len(plain) < 20:
+        return False
+
+    chinese = len(re.findall(r"[\u4e00-\u9fff]", plain))
+    latin = len(re.findall(r"[A-Za-zÅÄÖåäö]", plain))
+    digits = len(re.findall(r"\d", plain))
+    return latin >= 12 and chinese <= 2 and (latin + digits) > chinese * 6
+
+
+def _drop_foreign_language_noise(text: str) -> str:
+    lines = text.splitlines()
+    kept: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if kept and kept[-1] != "":
+                kept.append("")
+            continue
+        if _is_foreign_dominant_line(stripped):
+            continue
+        kept.append(line)
+    return "\n".join(kept).strip()
+
+
+def _inject_leading_context_heading(text: str) -> str:
+    lines = text.splitlines()
+    if not lines:
+        return text
+    first_nonempty = next((line.strip() for line in lines if line.strip()), "")
+    if re.match(r"^\[H[1-6]\]\s+", first_nonempty):
+        return text
+    leading_blob = "\n".join(line.strip() for line in lines[:20] if line.strip())
+    if any(token in leading_blob for token in ("安全", "警告", "危险", "注意事项", "务必遵守当地的安全说明")):
+        return "[H2] 安全信息\n" + text.strip()
+    return text
+
+
+def _drop_leading_preface_sections(text: str) -> str:
+    lines = text.splitlines()
+    if not lines:
+        return text
+    preface_titles = {"欢迎", "欢迎!", "前言", "preface", "introduction"}
+    first_heading_index: int | None = None
+    first_heading_title = ""
+    first_heading_level = 0
+    next_real_heading_index: int | None = None
+    next_real_heading_title = ""
+
+    for idx, line in enumerate(lines[:120]):
+        match = re.match(r"^\s*\[H([1-6])\]\s+(.+)$", line.strip())
+        if not match:
+            continue
+        title = match.group(2).strip()
+        if first_heading_index is None:
+            first_heading_index = idx
+            first_heading_title = title
+            first_heading_level = int(match.group(1))
+            continue
+        next_real_heading_index = idx
+        next_real_heading_title = title
+        break
+
+    if first_heading_index is None or next_real_heading_index is None:
+        return text
+
+    if first_heading_title.lower() in preface_titles and (
+        "安全信息" in next_real_heading_title
+        or "一般信息" in next_real_heading_title
+        or "介绍" in next_real_heading_title
+    ):
+        return "\n".join(lines[next_real_heading_index:]).strip()
+
+    if first_heading_level >= 3 and "安全信息" in next_real_heading_title and (
+        "欢迎" in first_heading_title or "前言" in first_heading_title
+    ):
+        return "\n".join(lines[next_real_heading_index:]).strip()
+
+    return text
 
 
 def _drop_preface_before_first_h1(text: str) -> str:
@@ -586,12 +793,19 @@ def clean_text(text: str, paths: PipelinePaths, doc_id: str) -> tuple[str, list[
             continue
         lines.append(line.rstrip())
     cleaned = re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+    cleaned = _drop_toc_blocks(cleaned)
     anchored = _trim_to_first_real_content_heading(cleaned)
     used_anchor = anchored != cleaned
     cleaned = anchored if used_anchor else _trim_manual_front_matter(cleaned)
     if not used_anchor:
         cleaned = _trim_leading_toc_sections(cleaned)
+    cleaned = _drop_foreign_language_noise(cleaned)
+    cleaned = _drop_toc_blocks(cleaned)
+    cleaned = _drop_index_tail(cleaned)
     cleaned = _trim_manual_tail_matter(cleaned)
+    cleaned = _drop_leading_preface_sections(cleaned)
+    cleaned = _inject_leading_context_heading(cleaned)
+    cleaned = _rebalance_heading_levels(cleaned)
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned).strip()
     return cleaned, saved_images
 
@@ -663,19 +877,205 @@ def extract_chunk_attachments(text: str) -> tuple[str, list[dict[str, str]]]:
 def infer_semantic_group(text: str, heading_path: list[str]) -> str:
     value = "\n".join(heading_path) + "\n" + text
     rules = [
-        ("fault", ("故障", "异常", "报警", "不能", "失效", "原因", "现象")),
-        ("repair", ("维修", "排除", "更换", "调整", "检修", "处理步骤")),
-        ("diagnostic", ("检测", "诊断", "测量", "检查", "判别", "测试")),
-        ("safety", ("注意", "警告", "严禁", "必须", "安全")),
-        ("wiring", ("接线", "端子", "通讯线", "接口", "RS-485", "输入信号", "输出信号")),
-        ("parameter", ("参数", "规格", "电压", "电流", "温度", "压力", "防护等级")),
-        ("component", ("组成", "部件", "模块", "单元", "控制计算机", "显示器", "打印机")),
-        ("operation", ("操作", "使用", "调试", "启动", "运行", "显示内容")),
+        ("fault", ("故障", "异常", "报警", "不能", "失效", "原因", "现象", "fault", "alarm", "failure", "cause")),
+        ("repair", ("维修", "排除", "更换", "调整", "检修", "处理步骤", "repair", "replace", "overhaul", "service")),
+        ("diagnostic", ("检测", "诊断", "测量", "检查", "判别", "测试", "diagnos", "inspection", "test", "measurement")),
+        ("safety", ("注意", "警告", "严禁", "必须", "安全", "warning", "caution", "safety", "danger")),
+        ("wiring", ("接线", "端子", "通讯线", "接口", "RS-485", "输入信号", "输出信号", "wiring", "terminal", "connector", "interface")),
+        ("parameter", ("参数", "规格", "电压", "电流", "温度", "压力", "防护等级", "specification", "parameter", "pressure", "temperature", "voltage", "current")),
+        ("component", ("组成", "部件", "模块", "单元", "控制计算机", "显示器", "打印机", "component", "module", "valve", "pump", "cylinder", "thruster", "stabilizer")),
+        ("operation", ("操作", "使用", "调试", "启动", "运行", "显示内容", "operation", "procedure", "startup", "commissioning", "manual")),
     ]
     for name, keywords in rules:
         if any(keyword in value for keyword in keywords):
             return name
     return "overview"
+
+
+def infer_system_root(heading_path: list[str], text: str) -> str:
+    """推断 chunk 所属系统根，避免跨系统混拼。"""
+    for heading in heading_path:
+        raw = re.sub(r"^\[H\d\]\s+", "", heading).strip()
+        if not raw:
+            continue
+        if any(
+            key in raw
+            for key in (
+                "系统",
+                "主机",
+                "柴油机",
+                "液压",
+                "舵",
+                "减摇",
+                "稳性",
+                "推进",
+                "控制",
+                "Hydraulic",
+                "hydraulic",
+                "Engine",
+                "engine",
+                "Steering",
+                "steering",
+                "Stabilizer",
+                "stabilizer",
+                "Thruster",
+                "thruster",
+            )
+        ):
+            return raw[:80]
+
+    value = "\n".join(heading_path) + "\n" + text
+    system_patterns = [
+        r"([\w\-（）()\u4e00-\u9fff]{2,40}系统)",
+        r"([\w\-（）()\u4e00-\u9fff]{2,40}柴油机)",
+        r"([\w\-（）()\u4e00-\u9fff]{2,40}液压[\w\-（）()\u4e00-\u9fff]{0,20})",
+        r"([\w\-（）()\u4e00-\u9fff]{2,40}舵[\w\-（）()\u4e00-\u9fff]{0,20})",
+        r"([A-Za-z0-9\- ]{3,60}(Hydraulic System|Steering System|Stabilizer|Thruster|Diesel Engine))",
+        r"((Hydraulic|Steering|Stabilizer|Thruster|Diesel Engine)[A-Za-z0-9\- ]{0,40})",
+    ]
+    for pattern in system_patterns:
+        match = re.search(pattern, value)
+        if match:
+            return match.group(1).strip()[:80]
+
+    if heading_path:
+        return re.sub(r"^\[H\d\]\s+", "", heading_path[0]).strip()[:80]
+    return "global"
+
+
+def _heading_depth(heading_path: list[str]) -> int:
+    return len(heading_path or [])
+
+
+def _is_low_value_chunk(text: str, heading_path: list[str], semantic_group: str) -> bool:
+    lowered = text.lower()
+    heading_text = " ".join(heading_path or [])
+
+    # 目录/封面/联系方式等结构性噪声
+    noisy_tokens = (
+        "目录",
+        "contents",
+        "table of content",
+        "owner",
+        "handbook",
+        "preface",
+        "版权",
+        "版权所有",
+        "地址",
+        "电话",
+        "传真",
+        "email",
+        "www.",
+        "thank you",
+    )
+    if any(token in lowered or token in heading_text for token in noisy_tokens):
+        return True
+
+    contact_hits = 0
+    for line in text.splitlines():
+        stripped = line.strip().lower()
+        if not stripped:
+            continue
+        if re.search(r"(tel\.?|fax|www\.|@|\+[0-9]{1,3}\s?[0-9]{2,}|mail)", stripped):
+            contact_hits += 1
+        if stripped in {"usa", "united kingdom", "netherlands", "france", "asia pacific"}:
+            contact_hits += 1
+    if contact_hits >= 3:
+        return True
+
+    # 仅标题、几乎无正文
+    body_lines = [
+        line.strip()
+        for line in text.splitlines()
+        if line.strip() and not re.match(r"^\[H[1-6]\]\s+.+$", line.strip())
+    ]
+    if len(body_lines) <= 1 and len(text) < 220:
+        return True
+
+    # 过短且无技术词，直接丢弃
+    tech_tokens = (
+        "压力",
+        "阀",
+        "泵",
+        "液压",
+        "接线",
+        "参数",
+        "报警",
+        "故障",
+        "维修",
+        "诊断",
+        "柴油机",
+        "发动机",
+        "转速",
+        "油压",
+        "温度",
+    )
+    if len(text) < 160 and not any(token in text for token in tech_tokens):
+        return True
+
+    # overview 且技术信号弱，优先舍弃
+    if semantic_group == "overview":
+        signal = sum(1 for token in tech_tokens if token in text)
+        if signal == 0 and len(text) < 700:
+            return True
+
+    return False
+
+
+def _chunk_keep_score(chunk: dict[str, Any]) -> int:
+    text = str(chunk.get("text", ""))
+    heading_path = chunk.get("heading_path", [])
+    semantic_group = str(chunk.get("semantic_group", "overview"))
+    score = 30
+
+    group_bonus = {
+        "fault": 30,
+        "repair": 30,
+        "diagnostic": 28,
+        "wiring": 25,
+        "parameter": 22,
+        "component": 18,
+        "safety": 20,
+        "operation": 16,
+        "overview": 0,
+    }
+    score += group_bonus.get(semantic_group, 0)
+
+    if _heading_depth(heading_path) >= 2:
+        score += 8
+    if _heading_depth(heading_path) >= 3:
+        score += 6
+
+    high_value_terms = (
+        "故障",
+        "报警",
+        "维修",
+        "排除",
+        "诊断",
+        "接线",
+        "输入",
+        "输出",
+        "参数",
+        "阈值",
+        "压力",
+        "温度",
+        "转速",
+        "油压",
+        "液压",
+        "柴油机",
+        "发动机",
+    )
+    score += min(25, sum(1 for term in high_value_terms if term in text) * 3)
+
+    if len(text) < 180:
+        score -= 12
+    if len(text) > 1400:
+        score -= 6
+
+    if _is_low_value_chunk(text, heading_path, semantic_group):
+        score -= 40
+
+    return max(0, min(100, score))
 
 
 def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
@@ -684,6 +1084,53 @@ def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
     path: list[str] = []
     current_lines: list[str] = []
     current_path: list[str] = []
+
+    warning_titles = {
+        "重要事项",
+        "注意事项",
+        "注意",
+        "警告",
+        "危险",
+        "小心",
+        "危险!",
+        "警告!",
+        "注意!",
+    }
+    section_keywords = (
+        "系统",
+        "计划",
+        "程序",
+        "步骤",
+        "检查",
+        "更换",
+        "保养",
+        "维护",
+        "润滑",
+        "冷却",
+        "燃油",
+        "排气",
+        "电气",
+        "参数",
+        "标贴",
+        "部件",
+        "元件",
+        "控制",
+        "操纵",
+        "安装",
+        "拆卸",
+        "清洁",
+        "概述",
+        "简介",
+        "故障",
+        "诊断",
+        "修理",
+        "修复",
+        "发动机",
+        "变速箱",
+        "仪表",
+        "技术",
+        "化学产品",
+    )
 
     def heading_has_inline_body(value: str) -> bool:
         match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", value.strip())
@@ -701,6 +1148,60 @@ def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
             token in title_core
             for token in ("适用于", "采用", "具有", "可以", "可实现", "用于", "应", "必须", "不得")
         )
+
+    def heading_title_core(title: str) -> str:
+        return re.sub(
+            r"^[0-9一二三四五六七八九十①②③④⑤⑥⑦⑧⑨⑩()（）\s\-.．、•]+",
+            "",
+            title.strip(),
+        ).strip()
+
+    def is_figure_or_code_heading(title: str) -> bool:
+        normalized = title.strip()
+        if re.match(r"^(图|表|Figure|P\d{5,}|图\s*\d+)", normalized, re.IGNORECASE):
+            return True
+        if re.match(r"^[A-Z][A-Z0-9/,\- ]{2,20}$", normalized):
+            return True
+        return False
+
+    def is_step_like_heading(title: str) -> bool:
+        normalized = title.strip()
+        if re.match(r"^[0-9]+[、.．)]", normalized) and len(normalized) > 12:
+            return True
+        if re.match(r"^[①②③④⑤⑥⑦⑧⑨⑩]", normalized):
+            return True
+        return False
+
+    def is_soft_heading(level: int, title: str, active_path: list[str]) -> bool:
+        core = heading_title_core(title)
+        if not core:
+            return True
+        if (
+            level == 2
+            and active_path
+            and active_path[0].startswith("[H2] 安全信息")
+            and "安全信息" not in core
+        ):
+            return True
+        if core in warning_titles:
+            return True
+        if is_figure_or_code_heading(core):
+            return True
+        if is_step_like_heading(title):
+            return True
+        if core.startswith("图 ") or core.startswith("表 "):
+            return True
+        if core in {"有关发动机的信息", "个人安全设备", "保护您的眼睛", "保护您的皮肤"}:
+            return True
+        if level >= 4:
+            return True
+        if level == 3:
+            has_section_keyword = any(keyword in core for keyword in section_keywords)
+            if not has_section_keyword:
+                return True
+            if len(core) <= 4:
+                return True
+        return False
 
     def flush() -> None:
         if not current_lines:
@@ -723,6 +1224,7 @@ def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
                 "heading_path": list(current_path),
                 "heading_context": " -> ".join(current_path) if current_path else "",
                 "semantic_group": infer_semantic_group(content, current_path),
+                "system_root": infer_system_root(current_path, content),
                 "text": content,
             }
         )
@@ -731,9 +1233,16 @@ def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
         stripped = line.strip()
         match = re.match(r"^\s*\[H([1-4])\]\s+(.+)$", stripped)
         if match:
-            flush()
             level = int(match.group(1))
-            title = f"[H{level}] {match.group(2).strip()}"
+            title_text = match.group(2).strip()
+            title = f"[H{level}] {title_text}"
+            if is_soft_heading(level, title_text, path):
+                if not current_lines:
+                    current_lines = list(path)
+                    current_path = list(path)
+                current_lines.append(title)
+                continue
+            flush()
             while len(path) >= level:
                 path.pop()
             path.append(title)
@@ -765,9 +1274,18 @@ def _merge_semantic_sections(
             and bool(section["heading_path"])
             and last["heading_path"][:1] == section["heading_path"][:1]
         )
-        same_group = last["semantic_group"] == section["semantic_group"]
+        left_system = (last.get("system_root") or "").strip().lower()
+        right_system = (section.get("system_root") or "").strip().lower()
+        same_system = (
+            left_system == right_system
+            or not left_system
+            or not right_system
+            or left_system == "global"
+            or right_system == "global"
+        )
+        same_family = _semantic_family(last["semantic_group"]) == _semantic_family(section["semantic_group"])
         combined_len = len(last["text"]) + 2 + len(section["text"])
-        if same_root and same_group and combined_len <= int(chunk_size * 1.15):
+        if same_root and same_system and same_family and combined_len <= int(chunk_size * 1.8):
             last["text"] = f"{last['text']}\n\n{section['text']}"
             last["heading_path"] = (
                 last["heading_path"]
@@ -775,6 +1293,8 @@ def _merge_semantic_sections(
                 else section["heading_path"]
             )
             last["heading_context"] = " -> ".join(last["heading_path"]) if last["heading_path"] else ""
+            if not last.get("system_root"):
+                last["system_root"] = section.get("system_root", "")
         else:
             merged.append(section)
     return merged
@@ -812,6 +1332,7 @@ def _merge_section_pair(left: dict[str, Any], right: dict[str, Any]) -> dict[str
         merged["semantic_group"] = right["semantic_group"]
     else:
         merged["semantic_group"] = left["semantic_group"]
+    merged["system_root"] = left.get("system_root") or right.get("system_root") or "global"
     return merged
 
 
@@ -825,19 +1346,46 @@ def _pack_short_semantic_sections(
 
     packed: list[dict[str, Any]] = []
     pending: dict[str, Any] | None = None
-    tiny_chunk_size = max(120, int(min_chunk_size * 0.67))
+    tiny_chunk_size = max(180, int(min_chunk_size * 0.72))
+    soft_chunk_size = max(260, int(min_chunk_size * 0.82))
 
     def same_root(left: dict[str, Any], right: dict[str, Any]) -> bool:
         return bool(left["heading_path"]) and bool(right["heading_path"]) and left["heading_path"][:1] == right["heading_path"][:1]
 
+    def same_system(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        left_system = (left.get("system_root") or "").strip().lower()
+        right_system = (right.get("system_root") or "").strip().lower()
+        return (
+            left_system == right_system
+            or not left_system
+            or not right_system
+            or left_system == "global"
+            or right_system == "global"
+        )
+
     def compatible(left: dict[str, Any], right: dict[str, Any]) -> bool:
-        return same_root(left, right) and _semantic_family(left["semantic_group"]) == _semantic_family(right["semantic_group"])
+        return (
+            same_root(left, right)
+            and same_system(left, right)
+            and _semantic_family(left["semantic_group"]) == _semantic_family(right["semantic_group"])
+        )
 
     def can_merge(left: dict[str, Any], right: dict[str, Any]) -> bool:
-        return compatible(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+        return compatible(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.65)
 
     def can_merge_tiny(left: dict[str, Any], right: dict[str, Any]) -> bool:
-        return same_root(left, right) and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.1)
+        return (
+            same_root(left, right)
+            and same_system(left, right)
+            and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.45)
+        )
+
+    def can_merge_soft(left: dict[str, Any], right: dict[str, Any]) -> bool:
+        return (
+            same_root(left, right)
+            and same_system(left, right)
+            and len(left["text"]) + 2 + len(right["text"]) <= int(chunk_size * 1.7)
+        )
 
     for section in sections:
         if pending is None:
@@ -884,6 +1432,63 @@ def _pack_short_semantic_sections(
             refined.append(section)
         packed = refined
 
+    changed = True
+    while changed:
+        changed = False
+        refined = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < soft_chunk_size
+                and can_merge_soft(refined[-1], section)
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
+    # Final rescue pass: aggressively attach remaining small sections to neighbors
+    rescue_min = min_chunk_size
+    max_rescue_len = int(chunk_size * 2.0)
+    if len(packed) >= 2:
+        forward: list[dict[str, Any]] = []
+        idx = 0
+        while idx < len(packed):
+            current = packed[idx]
+            if (
+                len(current["text"]) < rescue_min
+                and idx + 1 < len(packed)
+                and same_root(current, packed[idx + 1])
+                and same_system(current, packed[idx + 1])
+                and len(current["text"]) + 2 + len(packed[idx + 1]["text"]) <= max_rescue_len
+            ):
+                merged = _merge_section_pair(current, packed[idx + 1])
+                forward.append(merged)
+                idx += 2
+                continue
+            forward.append(current)
+            idx += 1
+        packed = forward
+
+    changed = True
+    while changed:
+        changed = False
+        refined = []
+        for section in packed:
+            if (
+                refined
+                and len(section["text"]) < rescue_min
+                and same_root(refined[-1], section)
+                and same_system(refined[-1], section)
+                and len(refined[-1]["text"]) + 2 + len(section["text"]) <= max_rescue_len
+            ):
+                refined[-1] = _merge_section_pair(refined[-1], section)
+                changed = True
+                continue
+            refined.append(section)
+        packed = refined
+
     return packed
 
 
@@ -915,7 +1520,7 @@ def _split_large_semantic_section(
 
 
 def build_semantic_chunks(
-    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
+    text: str, chunk_size: int = KG_CHUNK_SIZE, chunk_overlap: int = KG_CHUNK_OVERLAP
 ) -> list[dict[str, Any]]:
     value = str(text or "").strip()
     if not value:
@@ -927,7 +1532,7 @@ def build_semantic_chunks(
     merged = _pack_short_semantic_sections(
         merged,
         chunk_size=chunk_size,
-        min_chunk_size=max(180, int(chunk_size * 0.2)),
+        min_chunk_size=max(KG_MIN_CHUNK_SIZE, int(chunk_size * 0.24)),
     )
     chunks: list[dict[str, Any]] = []
     for section in merged:
@@ -942,7 +1547,7 @@ def build_semantic_chunks(
 
 
 def split_text_by_heading_tags(
-    text: str, chunk_size: int = 1200, chunk_overlap: int = 150
+    text: str, chunk_size: int = KG_CHUNK_SIZE, chunk_overlap: int = KG_CHUNK_OVERLAP
 ) -> list[str]:
     return [
         item["text"]
@@ -955,13 +1560,17 @@ def split_text_by_heading_tags(
 
 
 def chunk_documents(
-    paths: PipelinePaths, chunk_size: int = 1200, chunk_overlap: int = 150
+    paths: PipelinePaths,
+    chunk_size: int = KG_CHUNK_SIZE,
+    chunk_overlap: int = KG_CHUNK_OVERLAP,
 ) -> dict[str, Any]:
     chunks = []
     doc_source_map = []
     cleaned_files = sorted(paths.cleaned_dir.glob("*.md")) + sorted(
         paths.cleaned_dir.glob("*.txt")
     )
+    dropped_total = 0
+    dropped_by_doc: dict[str, int] = {}
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
@@ -970,6 +1579,23 @@ def chunk_documents(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
         )
+        ranked_chunks: list[tuple[int, dict[str, Any]]] = []
+        for chunk in semantic_chunks:
+            fast_score = _chunk_keep_score(chunk)
+            chunk["pre_prune_score"] = fast_score
+            if _is_low_value_chunk(chunk.get("text", ""), chunk.get("heading_path", []), chunk.get("semantic_group", "overview")) and fast_score < 55:
+                dropped_total += 1
+                dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + 1
+                continue
+            ranked_chunks.append((fast_score, chunk))
+
+        # 文档规模过大时按得分裁剪，避免实体爆炸（优先保留深层结构+高信息密度块）
+        if len(ranked_chunks) > 320:
+            keep = max(220, int(len(ranked_chunks) * 0.62))
+            ranked_chunks = sorted(ranked_chunks, key=lambda item: item[0], reverse=True)[:keep]
+            ranked_chunks = sorted(ranked_chunks, key=lambda item: item[1].get("chunk_index", 0))
+
+        semantic_chunks = [item[1] for item in ranked_chunks]
         for index, chunk in enumerate(semantic_chunks):
             normalized_chunk_text, attachments = extract_chunk_attachments(chunk["text"])
             chunks.append(
@@ -983,6 +1609,8 @@ def chunk_documents(
                     "heading_context": chunk.get("heading_context") or extract_heading_context(normalized_chunk_text),
                     "heading_path": chunk.get("heading_path", extract_heading_path(normalized_chunk_text)),
                     "semantic_group": chunk.get("semantic_group", infer_semantic_group(normalized_chunk_text, extract_heading_path(normalized_chunk_text))),
+                    "system_root": chunk.get("system_root", infer_system_root(chunk.get("heading_path", []), normalized_chunk_text)),
+                    "pre_prune_score": int(chunk.get("pre_prune_score", _chunk_keep_score(chunk))),
                     "attachments": attachments,
                 }
             )
@@ -992,6 +1620,7 @@ def chunk_documents(
                 "source": source.name,
                 "path": f"data/KG/raw/{source.name}",
                 "num_chunks": len(semantic_chunks),
+                "dropped_chunks": dropped_by_doc.get(doc_id, 0),
             }
         )
 
@@ -1001,7 +1630,12 @@ def chunk_documents(
 
     write_json(paths.chunks_path, chunks)
     write_json(paths.doc_map_path, doc_source_map)
-    return {"documents": len(doc_source_map), "chunks": len(chunks)}
+    return {
+        "documents": len(doc_source_map),
+        "chunks": len(chunks),
+        "dropped_chunks": dropped_total,
+        "dropped_by_doc": dropped_by_doc,
+    }
 
 
 def build_context_snapshot(doc_entities: list[dict], doc_relations: list[dict]) -> str:
@@ -1498,26 +2132,110 @@ def merge_entities(member_entities: list[dict]) -> dict:
 def load_embedding_model(
     paths: PipelinePaths, device: str
 ) -> SentenceTransformer | None:
-    os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
-    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-m3")
-    try:
-        return SentenceTransformer(
-            model_name,
-            device=device,
-            cache_folder=str(paths.cache_dir),
-            local_files_only=True,
-        )
-    except Exception:
-        pass
-    if os.environ.get("ALLOW_ONLINE_MODEL_DOWNLOAD", "1") != "1":
-        return None
-    try:
-        return SentenceTransformer(
-            model_name, device=device, cache_folder=str(paths.cache_dir)
-        )
-    except Exception:
+    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-m3").strip()
+    allow_online = os.environ.get("ALLOW_ONLINE_MODEL_DOWNLOAD", "0").strip() == "1"
+
+    def _dedupe_paths(items: list[Path]) -> list[Path]:
+        seen: set[str] = set()
+        ordered: list[Path] = []
+        for item in items:
+            key = str(item.expanduser())
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            ordered.append(item.expanduser())
+        return ordered
+
+    def _resolve_snapshot_from_dir(path: Path) -> Path | None:
+        if not path.exists():
+            return None
+        if (path / "modules.json").exists():
+            return path
+        snapshots_dir = path / "snapshots"
+        if snapshots_dir.exists():
+            snapshot_candidates = sorted(
+                [child for child in snapshots_dir.iterdir() if child.is_dir()],
+                key=lambda child: child.stat().st_mtime,
+                reverse=True,
+            )
+            for candidate in snapshot_candidates:
+                if (candidate / "modules.json").exists():
+                    return candidate
         return None
 
+    def _resolve_repo_snapshot(repo_id: str, cache_root: Path) -> Path | None:
+        try:
+            snapshot_path = snapshot_download(
+                repo_id=repo_id,
+                cache_dir=str(cache_root),
+                local_files_only=True,
+            )
+        except Exception:
+            return None
+        candidate = Path(snapshot_path)
+        return candidate if (candidate / "modules.json").exists() else None
+
+    candidate_paths: list[Path] = []
+    if model_name:
+        candidate_paths.append(Path(model_name).expanduser())
+
+    env_cache = os.environ.get("BGE_CACHE_DIR", "").strip()
+    cache_root_candidates: list[Path] = [paths.cache_dir]
+    if env_cache:
+        cache_root_candidates.insert(0, Path(env_cache).expanduser())
+    cache_roots = _dedupe_paths(cache_root_candidates)
+
+    model_path: Path | None = None
+    resolved_from_cache: Path | None = None
+    if candidate_paths and candidate_paths[0].exists():
+        model_path = _resolve_snapshot_from_dir(candidate_paths[0])
+
+    if model_path is None:
+        for cache_root in cache_roots:
+            if not str(cache_root):
+                continue
+            if cache_root.exists():
+                direct = _resolve_snapshot_from_dir(cache_root)
+                if direct is not None:
+                    model_path = direct
+                    resolved_from_cache = cache_root
+                    break
+            if "/" in model_name and cache_root.exists():
+                snapshot = _resolve_repo_snapshot(model_name, cache_root)
+                if snapshot is not None:
+                    model_path = snapshot
+                    resolved_from_cache = cache_root
+                    break
+
+    if model_path is None and not allow_online:
+        searched = ", ".join(str(path) for path in cache_roots if str(path))
+        raise RuntimeError(
+            "离线加载嵌入模型失败：未在本地缓存中找到可用快照。"
+            f" model={model_name}; searched_cache_roots=[{searched}]"
+        )
+
+    if model_path is None:
+        primary_cache = str(cache_roots[0]) if cache_roots else None
+        return SentenceTransformer(
+            model_name_or_path=model_name,
+            device=device,
+            cache_folder=primary_cache,
+            local_files_only=False,
+            model_kwargs={"use_safetensors": False},
+        )
+
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
+    return SentenceTransformer(
+        model_name_or_path=str(model_path),
+        device=device,
+        cache_folder=str(resolved_from_cache) if resolved_from_cache else None,
+        local_files_only=True,
+        model_kwargs={"use_safetensors": False, "local_files_only": True},
+        tokenizer_kwargs={"local_files_only": True},
+        config_kwargs={"local_files_only": True},
+    )
 
 class UnionFind:
     def __init__(self, size: int):

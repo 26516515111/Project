@@ -1,0 +1,658 @@
+[
+  {
+    "step": "exact_dedup",
+    "merged_into": "FuelSystem_FuelFilter",
+    "merged_from": "FuelSystem_FuelFilter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem_Turbocharger",
+    "merged_from": "EngineSystem_Turbocharger"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ExhaustSystem",
+    "merged_from": "ExhaustSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FuelSystem",
+    "merged_from": "FuelSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem",
+    "merged_from": "EngineSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem",
+    "merged_from": "CoolingSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem",
+    "merged_from": "EngineSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem",
+    "merged_from": "ElectricalSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_ExpansionTank",
+    "merged_from": "CoolingSystem_ExpansionTank"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_SeawaterImpellerPump",
+    "merged_from": "CoolingSystem_SeawaterImpellerPump"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem_DriveBelt",
+    "merged_from": "EngineSystem_DriveBelt"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem_Alternator",
+    "merged_from": "ElectricalSystem_Alternator"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_CoolantConcentration",
+    "merged_from": "CoolingSystem_CoolantConcentration"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Corrosion",
+    "merged_from": "FaultPhenomenon_Corrosion"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SafetyNote_CoolantMixingProhibition",
+    "merged_from": "SafetyNote_CoolantMixingProhibition"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SafetyNote_CloseSeaCocksBeforeWork",
+    "merged_from": "SafetyNote_CloseSeaCocksBeforeWork"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem",
+    "merged_from": "CoolingSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem",
+    "merged_from": "EngineSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FuelSystem",
+    "merged_from": "FuelSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem",
+    "merged_from": "ElectricalSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "DriveSystem",
+    "merged_from": "DriveSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem_ChargeAirCooler",
+    "merged_from": "EngineSystem_ChargeAirCooler"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem_Battery",
+    "merged_from": "ElectricalSystem_Battery"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FuelSystem_FuelFilter",
+    "merged_from": "FuelSystem_FuelFilter"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultCause_CoolingSystemDebris",
+    "merged_from": "FaultCause_CoolingSystemDebris"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_ElectronicComponentDamage",
+    "merged_from": "FaultPhenomenon_ElectronicComponentDamage"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SafetyNote_CloseSeaCocksBeforeWork",
+    "merged_from": "SafetyNote_CloseSeaCocksBeforeWork"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "EngineSystem",
+    "merged_from": "EngineSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "RepairMethod_EngineLongTermStorage",
+    "merged_from": "RepairMethod_EngineLongTermStorage"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem_Battery",
+    "merged_from": "ElectricalSystem_Battery"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SafetyNote_DoNotDisconnectWhileRunning",
+    "merged_from": "SafetyNote_DoNotDisconnectWhileRunning"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_BatteryFreezeDamage",
+    "merged_from": "FaultPhenomenon_BatteryFreezeDamage"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SafetyNote_BatteryChargePreventFreeze",
+    "merged_from": "SafetyNote_BatteryChargePreventFreeze"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "ElectricalSystem_Alternator",
+    "merged_from": "ElectricalSystem_Alternator"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_WaterIngress",
+    "merged_from": "FaultPhenomenon_WaterIngress"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem",
+    "merged_from": "CoolingSystem"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_CoolantConcentration",
+    "merged_from": "CoolingSystem_CoolantConcentration"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_SeawaterImpellerPump",
+    "merged_from": "CoolingSystem_SeawaterImpellerPump"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CoolingSystem_Impeller",
+    "merged_from": "CoolingSystem_Impeller"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统",
+    "merged_from": "船舶发动机系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_润滑系统",
+    "merged_from": "船舶发动机系统_润滑系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_机械损坏",
+    "merged_from": "船舶发动机系统_机械损坏"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_沃尔沃遍达 EVC 系统",
+    "merged_from": "船舶发动机系统_沃尔沃遍达 EVC 系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_沃尔沃遍达 EVC 系统",
+    "merged_from": "船舶发动机系统_沃尔沃遍达 EVC 系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_润滑系统",
+    "merged_from": "船舶发动机系统_润滑系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_燃油系统",
+    "merged_from": "船舶发动机系统_燃油系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶发动机系统_冷却系统",
+    "merged_from": "船舶发动机系统_冷却系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统",
+    "merged_from": "沃尔沃遍达发动机系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_发动机本体",
+    "merged_from": "沃尔沃遍达发动机系统_发动机本体"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_机油滤清器",
+    "merged_from": "沃尔沃遍达发动机系统_机油滤清器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_消音器",
+    "merged_from": "沃尔沃遍达发动机系统_消音器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_人身伤害事故",
+    "merged_from": "沃尔沃遍达发动机系统_人身伤害事故"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_润滑系统",
+    "merged_from": "沃尔沃遍达发动机系统_润滑系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_燃油系统",
+    "merged_from": "沃尔沃遍达发动机系统_燃油系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_排气系统",
+    "merged_from": "沃尔沃遍达发动机系统_排气系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_涡轮增压器",
+    "merged_from": "沃尔沃遍达发动机系统_涡轮增压器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_冷却系统",
+    "merged_from": "沃尔沃遍达发动机系统_冷却系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_海水泵",
+    "merged_from": "沃尔沃遍达发动机系统_海水泵"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_增压空气冷却器",
+    "merged_from": "沃尔沃遍达发动机系统_增压空气冷却器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_膨胀箱",
+    "merged_from": "沃尔沃遍达发动机系统_膨胀箱"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_发动机过热",
+    "merged_from": "沃尔沃遍达发动机系统_发动机过热"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_传动装置",
+    "merged_from": "沃尔沃遍达发动机系统_传动装置"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_电动操舵器",
+    "merged_from": "沃尔沃遍达发动机系统_电动操舵器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_螺旋桨轴",
+    "merged_from": "沃尔沃遍达发动机系统_螺旋桨轴"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_机油滤清器",
+    "merged_from": "沃尔沃遍达发动机系统_机油滤清器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_量油尺",
+    "merged_from": "沃尔沃遍达发动机系统_量油尺"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统",
+    "merged_from": "沃尔沃遍达发动机系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_海水泵",
+    "merged_from": "沃尔沃遍达发动机系统_海水泵"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统",
+    "merged_from": "沃尔沃遍达发动机系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_冷却系统",
+    "merged_from": "沃尔沃遍达发动机系统_冷却系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_润滑系统",
+    "merged_from": "沃尔沃遍达发动机系统_润滑系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_电池",
+    "merged_from": "沃尔沃遍达发动机系统_电池"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_SCR 系统",
+    "merged_from": "沃尔沃遍达发动机系统_SCR 系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_长期存储前机油更换",
+    "merged_from": "沃尔沃遍达发动机系统_长期存储前机油更换"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_长期存储前电池维护",
+    "merged_from": "沃尔沃遍达发动机系统_长期存储前电池维护"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_交流发电机",
+    "merged_from": "沃尔沃遍达发动机系统_交流发电机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统",
+    "merged_from": "沃尔沃遍达发动机系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_电池",
+    "merged_from": "沃尔沃遍达发动机系统_电池"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_传动装置",
+    "merged_from": "沃尔沃遍达发动机系统_传动装置"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "沃尔沃遍达发动机系统_运行中禁止断开电池规范",
+    "merged_from": "沃尔沃遍达发动机系统_运行中禁止断开电池规范"
+  },
+  {
+    "step": "label_unify",
+    "name": "船舶发动机系统_电气系统",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ]
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_交流发电机",
+    "entity_b": "船舶发动机系统_电气系统_交流发电机",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9635
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_电压表",
+    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_油压表",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9784
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_操纵杆转向功能模块",
+    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_操纵杆驾驶功能模块",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9759
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_海水系统_海水过滤器",
+    "entity_b": "船舶发动机系统_海水系统_海水过滤泵",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9713
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_起动马达",
+    "entity_b": "沃尔沃遍达发动机系统_起动机",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.962
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_电气作业断电须知",
+    "entity_b": "船舶发动机系统_焊接作业断电须知",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9338
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_电池电解质防护须知",
+    "entity_b": "船舶发动机系统_电气系统_电池电解液防护须知",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9329
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_防火防爆安全规范",
+    "entity_b": "沃尔沃遍达发动机系统_燃油系统防火规范",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9497
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_热冷却液防烫伤规范",
+    "entity_b": "沃尔沃遍达发动机系统_热油防烫伤规范",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9538
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_燃油高压检测防护",
+    "entity_b": "沃尔沃遍达发动机系统_燃油高压防护规范",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.935
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_塑料部分禁止涂漆",
+    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_涂料使用禁忌规范",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9224
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "FaultPhenomenon_OilLeak",
+    "entity_b": "FaultPhenomenon_FuelLeak",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9412
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_燃油泄漏",
+    "entity_b": "船舶发动机系统_机油泄漏",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9446
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_功能故障",
+    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_故障消息",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9619
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_燃油泄漏",
+    "entity_b": "沃尔沃遍达发动机系统_机油泄漏",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9703
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_电池冷冻破裂",
+    "entity_b": "沃尔沃遍达发动机系统_发动机冷却系统冷冻破裂",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9348
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_机油油位过高",
+    "entity_b": "沃尔沃遍达发动机系统_机油油位过低",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9612
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "RepairMethod_BleedFuelFilter",
+    "entity_b": "RepairMethod_BleedFuelSystem",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9401
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_发动机大修",
+    "entity_b": "沃尔沃遍达发动机系统_传动装置大修",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9549
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置更换",
+    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_变速器油更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9234
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
+    "entity_b": "沃尔沃遍达发动机系统_机油过滤器更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9571
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
+    "entity_b": "沃尔沃遍达发动机系统_双联过滤器滤芯更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.922
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
+    "entity_b": "沃尔沃遍达发动机系统_AdBlue 过滤器更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9299
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_发动机机油更换",
+    "entity_b": "沃尔沃遍达发动机系统_机油过滤器更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9339
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_发动机机油更换",
+    "entity_b": "沃尔沃遍达发动机系统_传动装置机油更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9613
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_油质量传感器清洁",
+    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_油质量传感器校准",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9555
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_长期存储前机油更换",
+    "entity_b": "沃尔沃遍达发动机系统_长期存储前燃油系统保护",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9207
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_长期存储前冷却系统排水",
+    "entity_b": "沃尔沃遍达发动机系统_长期存储前海水冷却系统循环",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9318
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_排气板检查",
+    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_油位检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9216
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "EngineSystem_OilWaterContent",
+    "entity_b": "EngineSystem_OilFuelContent",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9515
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_发动机转速",
+    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_船速",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9591
+  }
+]

@@ -410,6 +410,12 @@ class RagPipeline:
                 payload["questions"][0],
                 top_k=max(1, SETTINGS.parent_retriever_k),
             )
+        route_mode = str(
+            getattr(SETTINGS, "parent_retriever_route_mode", "soft") or "soft"
+        ).lower()
+        hard_allowed_source_doc_ids = (
+            parent_source_doc_ids if route_mode == "hard" else []
+        )
         context = hybrid_retrieve(
             self.store,
             self.bm25,
@@ -418,11 +424,15 @@ class RagPipeline:
             max_subqueries=SETTINGS.decompose_max_subqueries,
             per_query_top_k=SETTINGS.decompose_per_query_top_k,
             use_reranker=payload["use_reranker"],
-            allowed_source_doc_ids=parent_source_doc_ids,
+            allowed_source_doc_ids=hard_allowed_source_doc_ids,
+            parent_source_doc_ids=parent_source_doc_ids,
+            parent_route_mode=route_mode,
+            parent_source_soft_boost=getattr(SETTINGS, "parent_source_soft_boost", 0.0),
         )
         payload["context"] = context
         payload["retrieved_chunks"] = list(context.passages)
         payload["parent_source_doc_ids"] = parent_source_doc_ids
+        payload["parent_route_mode"] = route_mode
         payload["timing"]["t1"] = time.perf_counter()
         return payload
 
@@ -504,6 +514,7 @@ class RagPipeline:
                 ),
                 "reranker": str(payload.get("use_reranker", False)),
                 "parent_retriever": str(payload.get("use_parent_retriever", True)),
+                "parent_route_mode": str(payload.get("parent_route_mode", "soft")),
                 "parent_prompt_mode": str(
                     getattr(SETTINGS, "parent_prompt_mode", "route")
                 ),

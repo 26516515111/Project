@@ -8,8 +8,83 @@ from langchain_core.runnables import RunnableLambda
 from .schema import Passage, RetrievedContext
 from .config import SETTINGS
 from .reranker import get_reranker
+from .model import build_embeddings
 
 logger = logging.getLogger(__name__)
+
+_COMPRESSION_RETRIEVER_CACHE = None
+
+try:
+    from langchain.retrievers.contextual_compression import (
+        ContextualCompressionRetriever,
+    )
+    from langchain.retrievers.document_compressors import (
+        DocumentCompressorPipeline,
+        EmbeddingsFilter,
+        EmbeddingsRedundantFilter,
+    )
+    from langchain_text_splitters import CharacterTextSplitter
+
+    _CONTEXT_COMPRESSION_AVAILABLE = True
+except Exception:
+    ContextualCompressionRetriever = None
+    DocumentCompressorPipeline = None
+    EmbeddingsFilter = None
+    EmbeddingsRedundantFilter = None
+    CharacterTextSplitter = None
+    _CONTEXT_COMPRESSION_AVAILABLE = False
+
+
+def _get_compression_retriever(base_retriever):
+    global _COMPRESSION_RETRIEVER_CACHE
+    if not _CONTEXT_COMPRESSION_AVAILABLE:
+        raise RuntimeError("Context compression dependencies are not available")
+    cache_key = (
+        id(base_retriever),
+        SETTINGS.embedding_model,
+        SETTINGS.context_compression_chunk_size,
+        SETTINGS.context_compression_chunk_overlap,
+        SETTINGS.context_compression_separator,
+        SETTINGS.context_compression_similarity_threshold,
+    )
+    if _COMPRESSION_RETRIEVER_CACHE and _COMPRESSION_RETRIEVER_CACHE[0] == cache_key:
+        return _COMPRESSION_RETRIEVER_CACHE[1]
+    embeddings_model = build_embeddings(SETTINGS.embedding_model)
+    splitter = CharacterTextSplitter(
+        chunk_size=max(1, SETTINGS.context_compression_chunk_size),
+        chunk_overlap=max(0, SETTINGS.context_compression_chunk_overlap),
+        separator=SETTINGS.context_compression_separator,
+    )
+    redundant_filter = EmbeddingsRedundantFilter(embeddings=embeddings_model)
+    relevant_filter = EmbeddingsFilter(
+        embeddings=embeddings_model,
+        similarity_threshold=SETTINGS.context_compression_similarity_threshold,
+    )
+    pipeline_compressor = DocumentCompressorPipeline(
+        transformers=[splitter, redundant_filter, relevant_filter]
+    )
+    compression_retriever = ContextualCompressionRetriever(
+        base_compressor=pipeline_compressor,
+        base_retriever=base_retriever,
+    )
+    _COMPRESSION_RETRIEVER_CACHE = (cache_key, compression_retriever)
+    return compression_retriever
+
+
+def _should_enable_context_compression(queries: List[str]) -> bool:
+    if not SETTINGS.context_compression_enabled:
+        return False
+    non_empty_queries = [
+        str(q or "").strip() for q in (queries or []) if str(q or "").strip()
+    ]
+    if not non_empty_queries:
+        return False
+    min_query_count = max(1, SETTINGS.context_compression_min_query_count)
+    if len(non_empty_queries) >= min_query_count:
+        return True
+    first_query = non_empty_queries[0]
+    min_query_length = max(1, SETTINGS.context_compression_min_query_length)
+    return len(first_query) >= min_query_length
 
 
 def _normalize_for_match(text: str) -> str:
@@ -85,6 +160,9 @@ def _prepare_payload(
     per_query_top_k: int = None,
     use_reranker: bool = True,
     allowed_source_doc_ids: Optional[List[str]] = None,
+    parent_source_doc_ids: Optional[List[str]] = None,
+    parent_route_mode: str = "hard",
+    parent_source_soft_boost: float = 0.0,
 ) -> Dict:
     queries = query if isinstance(query, list) else [query]
     queries = [q for q in queries if str(q).strip()]
@@ -98,6 +176,9 @@ def _prepare_payload(
         "per_query_top_k": per_query_top_k,
         "use_reranker": use_reranker,
         "allowed_source_doc_ids": allowed_source_doc_ids or [],
+        "parent_source_doc_ids": parent_source_doc_ids or [],
+        "parent_route_mode": str(parent_route_mode or "hard").strip().lower(),
+        "parent_source_soft_boost": float(parent_source_soft_boost or 0.0),
     }
 
 
@@ -108,7 +189,12 @@ def _run_search(payload: Dict) -> Dict:
         return payload
     merged: Dict[str, dict] = {}
     per_k = payload["per_query_top_k"] or max(1, payload["top_k"])
+    parent_route_mode = str(payload.get("parent_route_mode", "hard") or "hard").lower()
     allowed_source_doc_ids = set(payload.get("allowed_source_doc_ids") or [])
+    parent_source_doc_ids = set(payload.get("parent_source_doc_ids") or [])
+    parent_source_soft_boost = float(
+        payload.get("parent_source_soft_boost", 0.0) or 0.0
+    )
     vector_retriever = payload["store"].as_retriever(search_kwargs={"k": per_k})
     bm25_retriever = payload.get("bm25")
     if bm25_retriever is not None:
@@ -120,9 +206,21 @@ def _run_search(payload: Dict) -> Dict:
     else:
         retriever = vector_retriever
 
+    use_context_compression = _should_enable_context_compression(queries)
+
     for q in queries:
-        docs = retriever.invoke(q)
-        if allowed_source_doc_ids:
+        active_retriever = retriever
+        if use_context_compression:
+            try:
+                active_retriever = _get_compression_retriever(retriever)
+            except Exception as exc:
+                logger.warning(
+                    "Init context compression retriever failed: %s",
+                    type(exc).__name__,
+                )
+                active_retriever = retriever
+        docs = active_retriever.invoke(q)
+        if parent_route_mode == "hard" and allowed_source_doc_ids:
             filtered_docs = []
             for d in docs:
                 metadata = d.metadata or {}
@@ -144,6 +242,13 @@ def _run_search(payload: Dict) -> Dict:
             if not source_doc_id and "::chunk_" in doc_id:
                 source_doc_id = doc_id.split("::chunk_", 1)[0].strip()
             score = float((total - idx) / total)
+            if (
+                parent_route_mode == "soft"
+                and parent_source_soft_boost > 0.0
+                and source_doc_id
+                and source_doc_id in parent_source_doc_ids
+            ):
+                score += parent_source_soft_boost
             item = {
                 "doc_id": doc_id,
                 "text": str(doc.page_content or ""),
@@ -310,6 +415,9 @@ def hybrid_retrieve(
     per_query_top_k: int = None,
     use_reranker: bool = True,
     allowed_source_doc_ids: Optional[List[str]] = None,
+    parent_source_doc_ids: Optional[List[str]] = None,
+    parent_route_mode: str = "hard",
+    parent_source_soft_boost: float = 0.0,
 ) -> RetrievedContext:
     """融合dense与sparse分数，返回排序后的检索上下文。
 
@@ -333,6 +441,9 @@ def hybrid_retrieve(
                 per_query_top_k=per_query_top_k,
                 use_reranker=use_reranker,
                 allowed_source_doc_ids=allowed_source_doc_ids,
+                parent_source_doc_ids=parent_source_doc_ids,
+                parent_route_mode=parent_route_mode,
+                parent_source_soft_boost=parent_source_soft_boost,
             )
         )
         | RunnableLambda(_run_search)

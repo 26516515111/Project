@@ -89,6 +89,32 @@ class Settings:
     neighbor_context_seed_limit = int(env("RAG_NEIGHBOR_CONTEXT_SEED_LIMIT", "3"))
     # RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS：单次查询最多补充的相邻chunk数量
     neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "6"))
+    # RAG_CONTEXT_COMPRESSION_ENABLED：是否启用上下文压缩检索
+    context_compression_enabled = env(
+        "RAG_CONTEXT_COMPRESSION_ENABLED", "false"
+    ).lower() in {"1", "true", "yes", "y"}
+    # RAG_CONTEXT_COMPRESSION_CHUNK_SIZE：压缩前切分块大小
+    context_compression_chunk_size = int(
+        env("RAG_CONTEXT_COMPRESSION_CHUNK_SIZE", "300")
+    )
+    # RAG_CONTEXT_COMPRESSION_CHUNK_OVERLAP：压缩前切分块重叠
+    context_compression_chunk_overlap = int(
+        env("RAG_CONTEXT_COMPRESSION_CHUNK_OVERLAP", "0")
+    )
+    # RAG_CONTEXT_COMPRESSION_SEPARATOR：压缩切分分隔符
+    context_compression_separator = env("RAG_CONTEXT_COMPRESSION_SEPARATOR", ". ")
+    # RAG_CONTEXT_COMPRESSION_SIMILARITY_THRESHOLD：相关性过滤阈值
+    context_compression_similarity_threshold = float(
+        env("RAG_CONTEXT_COMPRESSION_SIMILARITY_THRESHOLD", "0.66")
+    )
+    # RAG_CONTEXT_COMPRESSION_MIN_QUERY_LENGTH：触发压缩的最小查询长度
+    context_compression_min_query_length = int(
+        env("RAG_CONTEXT_COMPRESSION_MIN_QUERY_LENGTH", "20")
+    )
+    # RAG_CONTEXT_COMPRESSION_MIN_QUERY_COUNT：触发压缩的最小查询数量
+    context_compression_min_query_count = int(
+        env("RAG_CONTEXT_COMPRESSION_MIN_QUERY_COUNT", "2")
+    )
 
     # 向量嵌入模块
     # RAG_EMBEDDING_MODEL：向量模型名称
@@ -171,6 +197,12 @@ class Settings:
     }
     # RAG_PARENT_RETRIEVER_K：父文档预检索数量
     parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "3"))
+    # RAG_PARENT_RETRIEVER_ROUTE_MODE：父检索路由模式 hard|soft
+    parent_retriever_route_mode = (
+        env("RAG_PARENT_RETRIEVER_ROUTE_MODE", "soft").strip().lower()
+    )
+    # RAG_PARENT_SOURCE_SOFT_BOOST：soft路由时父来源加分系数
+    parent_source_soft_boost = float(env("RAG_PARENT_SOURCE_SOFT_BOOST", "0.2"))
     # RAG_PARENT_PROMPT_MODE：父子检索结果合并到Prompt的模式 route|hybrid
     parent_prompt_mode = env("RAG_PARENT_PROMPT_MODE", "hybrid").strip().lower()
     # RAG_PARENT_PROMPT_TOP_K：混合模式下最多加入的父文档片段数

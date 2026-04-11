@@ -27,7 +27,16 @@ def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
             collection_name="rag_chunks",
         )
     texts = [c["text"] for c in chunks]
-    metadatas = [{"doc_id": c["doc_id"], "source": c["source"]} for c in chunks]
+    metadatas = [
+        {
+            "doc_id": c["doc_id"],
+            "source": c["source"],
+            "source_doc_id": c.get("source_doc_id", ""),
+            "chunk_index": c.get("chunk_index", -1),
+            "heading_context": c.get("heading_context", ""),
+        }
+        for c in chunks
+    ]
     store = Chroma.from_texts(
         texts=texts,
         embedding=embeddings,

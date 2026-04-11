@@ -64,6 +64,7 @@ def _run_query(payload: dict) -> dict:
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
+        enable_parent_retriever=payload.get("enable_parent_retriever"),
     )
     with _pipeline_lock:
         pipeline = _get_pipeline()
@@ -85,6 +86,7 @@ def _build_query_request(payload: dict) -> QueryRequest:
         use_history=payload.get("use_history", True),
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
+        enable_parent_retriever=payload.get("enable_parent_retriever"),
     )
 
 

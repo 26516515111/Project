@@ -74,7 +74,8 @@ def main() -> int:
     args = parse_args()
     validate_args(args)
 
-    paths = PipelinePaths.discover()
+    current_name = PipelinePaths.normalize_kg_name(args.kg_name or "default")
+    paths = PipelinePaths.discover(current_name)
     paths.ensure_dirs()
     log_path = build_run_log_path(paths.logs_dir)
     logger = PipelineLogger(log_path)
@@ -91,7 +92,6 @@ def main() -> int:
 
         kg_state = load_kg_state(paths)
         raw_files = current_raw_files(paths)
-        current_name = str(args.kg_name or kg_state.get("kg_name") or "KG").strip() or "KG"
         logger.info(
             "标准模式执行 | kg_name=%s | raw_files=%s | selected=%s"
             % (current_name, len(raw_files), args.only if args.only else f"{args.start}-{args.end}")

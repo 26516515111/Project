@@ -67,8 +67,13 @@ def next_incomplete_step(completed_steps: list[int]) -> int | None:
 
 
 def clear_derived_outputs(paths: PipelinePaths) -> None:
-    for directory_name in DERIVED_DIR_NAMES:
-        directory = paths.kg_dir / directory_name
+    derived_directories = [
+        paths.cleaned_dir,
+        paths.chunks_dir,
+        paths.extracted_dir,
+        paths.delivery_dir,
+    ]
+    for directory in derived_directories:
         if directory.exists():
             shutil.rmtree(directory)
         directory.mkdir(parents=True, exist_ok=True)
@@ -79,13 +84,7 @@ def archive_current_kg(paths: PipelinePaths, archive_name: str) -> Path:
     target = numbered_path(paths.archives_dir / f"{safe_name}.tar.gz")
     exclude_roots = {paths.backups_dir.resolve()}
     include_paths = [
-        paths.raw_dir,
-        paths.cleaned_dir,
-        paths.chunks_dir,
-        paths.extracted_dir,
-        paths.delivery_dir,
-        paths.logs_dir,
-        paths.state_path,
+        paths.build_dir,
     ]
     with tarfile.open(target, "w:gz") as tar:
         for item in include_paths:
@@ -96,7 +95,7 @@ def archive_current_kg(paths: PipelinePaths, archive_name: str) -> Path:
                 resolved == root or root in resolved.parents for root in exclude_roots
             ):
                 continue
-            arcname = item.relative_to(paths.kg_dir.parent)
+            arcname = item.relative_to(paths.data_dir)
             tar.add(item, arcname=str(arcname))
     return target
 

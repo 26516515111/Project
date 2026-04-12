@@ -1,0 +1,15 @@
+2026-04-11 15:33:31 | INFO | 日志文件: /home/shahanshah/work/ship/Project/rag_app/data/KG/logs/pipeline_20260411_153331.log
+2026-04-11 15:33:31 | INFO | 启动 KG LangGraph 流水线
+2026-04-11 15:33:31 | INFO | 标准模式执行 | kg_name=发动机 | raw_files=3 | selected=1-2
+2026-04-11 15:33:31 | INFO | 执行步骤: [1, 2]
+2026-04-11 15:33:31 | INFO | 开始 Step 1: 语料清洗
+2026-04-11 15:33:33 | INFO | 完成 Step 1: 语料清洗 | 耗时 1.96s | documents=3, files=3, moved_stale_cleaned=0
+2026-04-11 15:33:33 | INFO | 开始 Step 2: 文本切块
+2026-04-11 16:05:19 | INFO | 完成 Step 2: 文本切块 | 耗时 1897.78s | documents=3, chunks=284, dropped_chunks=87
+2026-04-11 16:05:19 | INFO | 跳过 Step 3: KG 三元组抽取
+2026-04-11 16:05:19 | INFO | 跳过 Step 4: 实体合并
+2026-04-11 16:05:19 | INFO | 跳过 Step 5: Neo4j 导入与导出
+2026-04-11 16:05:19 | INFO | 跳过 Step 6: 图谱可视化
+2026-04-11 16:05:20 | INFO | 流水线执行完成
+2026-04-11 16:05:20 | INFO | 状态文件已更新 | kg_name=发动机 | used_files=3 | completed_steps=[1, 2]
+2026-04-11 16:05:20 | INFO | 退出码: 0

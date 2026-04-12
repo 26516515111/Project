@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import re
 
 
 @dataclass(frozen=True)
@@ -10,6 +11,9 @@ class PipelinePaths:
     app_root: Path
     data_dir: Path
     docs_dir: Path
+    build_root_dir: Path
+    build_dir: Path
+    kg_name: str
     kg_dir: Path
     backups_dir: Path
     archives_dir: Path
@@ -24,28 +28,43 @@ class PipelinePaths:
     env_path: Path
     cache_dir: Path
 
+    @staticmethod
+    def normalize_kg_name(name: str | None) -> str:
+        value = (name or "").strip()
+        if not value:
+            return "default"
+        value = re.sub(r"[\\/]+", "_", value)
+        value = re.sub(r"\s+", " ", value).strip()
+        return value or "default"
+
     @classmethod
-    def discover(cls) -> "PipelinePaths":
+    def discover(cls, kg_name: str | None = None) -> "PipelinePaths":
         app_root = Path(__file__).resolve().parents[1]
         project_root = app_root.parent
         data_dir = app_root / "data"
+        build_root_dir = data_dir / "KG_Build"
+        normalized_kg_name = cls.normalize_kg_name(kg_name)
+        build_dir = build_root_dir / normalized_kg_name
         kg_dir = data_dir / "KG"
         return cls(
             project_root=project_root,
             app_root=app_root,
             data_dir=data_dir,
             docs_dir=data_dir / "docs",
+            build_root_dir=build_root_dir,
+            build_dir=build_dir,
+            kg_name=normalized_kg_name,
             kg_dir=kg_dir,
             backups_dir=kg_dir / "backups",
             archives_dir=kg_dir / "backups" / "archives",
             cleaned_backups_dir=kg_dir / "backups" / "cleaned",
-            images_dir=kg_dir / "images",
-            logs_dir=kg_dir / "logs",
-            raw_dir=kg_dir / "raw",
-            cleaned_dir=kg_dir / "cleaned",
-            chunks_dir=kg_dir / "chunks",
-            extracted_dir=kg_dir / "extracted",
-            delivery_dir=kg_dir / "delivery",
+            images_dir=build_dir / "images",
+            logs_dir=build_dir / "logs",
+            raw_dir=build_dir / "raw",
+            cleaned_dir=build_dir / "cleaned",
+            chunks_dir=build_dir / "chunks",
+            extracted_dir=build_dir / "extracted",
+            delivery_dir=build_dir / "delivery",
             env_path=project_root / ".env",
             cache_dir=app_root / ".cache",
         )
@@ -80,7 +99,7 @@ class PipelinePaths:
 
     @property
     def state_path(self) -> Path:
-        return self.kg_dir / "kg_state.json"
+        return self.build_dir / "kg_state.json"
 
     @property
     def kg_merged_path(self) -> Path:
@@ -116,6 +135,8 @@ class PipelinePaths:
 
     def ensure_dirs(self) -> None:
         self.docs_dir.mkdir(parents=True, exist_ok=True)
+        self.build_root_dir.mkdir(parents=True, exist_ok=True)
+        self.build_dir.mkdir(parents=True, exist_ok=True)
         self.kg_dir.mkdir(parents=True, exist_ok=True)
         self.backups_dir.mkdir(parents=True, exist_ok=True)
         self.archives_dir.mkdir(parents=True, exist_ok=True)

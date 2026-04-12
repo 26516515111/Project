@@ -1,0 +1,23 @@
+[
+  {
+    "doc_id": "D16维护保养手册",
+    "source": "D16维护保养手册.md",
+    "path": "data/KG/raw/D16维护保养手册.md",
+    "num_chunks": 34,
+    "dropped_chunks": 8
+  },
+  {
+    "doc_id": "D8操作手册",
+    "source": "D8操作手册.md",
+    "path": "data/KG/raw/D8操作手册.md",
+    "num_chunks": 27,
+    "dropped_chunks": 9
+  },
+  {
+    "doc_id": "D8维护保养手册",
+    "source": "D8维护保养手册.md",
+    "path": "data/KG/raw/D8维护保养手册.md",
+    "num_chunks": 30,
+    "dropped_chunks": 6
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "output_name": "test_union",
+  "kg_names": [
+    "发动机",
+    "电气"
+  ],
+  "entities": 956,
+  "relations": 1135,
+  "chunks": 154
+}

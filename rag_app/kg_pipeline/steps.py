@@ -186,7 +186,8 @@ def migrate_legacy_files(paths: PipelinePaths) -> dict[str, Any]:
         source = paths.kg_dir / legacy_name
         if not source.exists():
             continue
-        target = paths.kg_dir / relative_target
+        target_root = paths.kg_dir if relative_target.startswith("delivery/") else paths.build_dir
+        target = target_root / relative_target
         target.parent.mkdir(parents=True, exist_ok=True)
         if target.exists():
             if same_file_content(source, target):
@@ -195,7 +196,7 @@ def migrate_legacy_files(paths: PipelinePaths) -> dict[str, Any]:
                 continue
             target = numbered_path(target)
         shutil.move(str(source), str(target))
-        moved.append({"from": legacy_name, "to": str(target.relative_to(paths.kg_dir))})
+        moved.append({"from": legacy_name, "to": str(target.relative_to(paths.data_dir))})
     return {"moved": moved, "removed_duplicates": removed_duplicates}
 
 

@@ -1,0 +1,174 @@
+2026-04-11 16:50:00 | INFO | 日志文件: /home/shahanshah/work/ship/Project/rag_app/data/KG/logs/pipeline_20260411_165000.log
+2026-04-11 16:50:00 | INFO | 启动 KG LangGraph 流水线
+2026-04-11 16:50:00 | INFO | 标准模式执行 | kg_name=发动机 | raw_files=3 | selected=3
+2026-04-11 16:50:00 | INFO | 执行步骤: [3]
+2026-04-11 16:50:00 | INFO | 跳过 Step 1: 语料清洗
+2026-04-11 16:50:00 | INFO | 跳过 Step 2: 文本切块
+2026-04-11 16:50:00 | INFO | 开始 Step 3: KG 三元组抽取
+2026-04-11 16:50:00 | INFO | Step 3 准备完成 | docs=3 | chunks=91 | checkpoint_enabled=False | resumed_done_chunks=0 | base_url=mock://local | model=mock
+2026-04-11 16:50:00 | INFO | Step 3 切换文档 | doc_id=D16维护保养手册 | doc_index=1/3 | doc_chunks=34
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=1/91 | doc_id=D16维护保养手册 | doc_chunk=1/34 | chunk_ids=['D16维护保养手册::chunk_0'] | text_chars=2400 | request_chars=2442 | context_entities=0 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=1/91 | chunk_ids=['D16维护保养手册::chunk_0'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=1/91 | chunk_ids=['D16维护保养手册::chunk_0'] | new_entities=1 | new_relations=0 | total_entities=1 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=2/91 | doc_id=D16维护保养手册 | doc_chunk=2/34 | chunk_ids=['D16维护保养手册::chunk_1'] | text_chars=1791 | request_chars=1935 | context_entities=1 | context_relations=0 | semantic_group=safety
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=2/91 | chunk_ids=['D16维护保养手册::chunk_1'] | score=70 | decision=extract | category=safety | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=2/91 | chunk_ids=['D16维护保养手册::chunk_1'] | new_entities=1 | new_relations=0 | total_entities=2 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=3/91 | doc_id=D16维护保养手册 | doc_chunk=3/34 | chunk_ids=['D16维护保养手册::chunk_2', 'D16维护保养手册::chunk_3', 'D16维护保养手册::chunk_4', 'D16维护保养手册::chunk_5'] | text_chars=1916 | request_chars=2411 | context_entities=2 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=3/91 | chunk_ids=['D16维护保养手册::chunk_2', 'D16维护保养手册::chunk_3', 'D16维护保养手册::chunk_4', 'D16维护保养手册::chunk_5'] | score=54 | decision=skip | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk(batched) | chunk=3/91 | chunk_ids=['D16维护保养手册::chunk_2', 'D16维护保养手册::chunk_3', 'D16维护保养手册::chunk_4', 'D16维护保养手册::chunk_5'] | score=54 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=7/91 | doc_id=D16维护保养手册 | doc_chunk=7/34 | chunk_ids=['D16维护保养手册::chunk_6'] | text_chars=62 | request_chars=168 | context_entities=2 | context_relations=0 | semantic_group=overview
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=7/91 | chunk_ids=['D16维护保养手册::chunk_6'] | score=21 | decision=skip | category=overview | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk | chunk=7/91 | chunk_ids=['D16维护保养手册::chunk_6'] | score=21 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=8/91 | doc_id=D16维护保养手册 | doc_chunk=8/34 | chunk_ids=['D16维护保养手册::chunk_7', 'D16维护保养手册::chunk_8'] | text_chars=1724 | request_chars=2022 | context_entities=2 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=8/91 | chunk_ids=['D16维护保养手册::chunk_7', 'D16维护保养手册::chunk_8'] | score=62 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=8/91 | chunk_ids=['D16维护保养手册::chunk_7', 'D16维护保养手册::chunk_8'] | new_entities=1 | new_relations=0 | total_entities=3 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=10/91 | doc_id=D16维护保养手册 | doc_chunk=10/34 | chunk_ids=['D16维护保养手册::chunk_9'] | text_chars=170 | request_chars=265 | context_entities=3 | context_relations=0 | semantic_group=safety
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=10/91 | chunk_ids=['D16维护保养手册::chunk_9'] | score=70 | decision=extract | category=safety | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=10/91 | chunk_ids=['D16维护保养手册::chunk_9'] | new_entities=1 | new_relations=0 | total_entities=4 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=11/91 | doc_id=D16维护保养手册 | doc_chunk=11/34 | chunk_ids=['D16维护保养手册::chunk_10'] | text_chars=1297 | request_chars=1406 | context_entities=4 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=11/91 | chunk_ids=['D16维护保养手册::chunk_10'] | score=69 | decision=extract | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=11/91 | chunk_ids=['D16维护保养手册::chunk_10'] | new_entities=1 | new_relations=0 | total_entities=5 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=12/91 | doc_id=D16维护保养手册 | doc_chunk=12/34 | chunk_ids=['D16维护保养手册::chunk_11'] | text_chars=795 | request_chars=888 | context_entities=5 | context_relations=0 | semantic_group=overview
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=12/91 | chunk_ids=['D16维护保养手册::chunk_11'] | score=33 | decision=skip | category=overview | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk | chunk=12/91 | chunk_ids=['D16维护保养手册::chunk_11'] | score=33 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=13/91 | doc_id=D16维护保养手册 | doc_chunk=13/34 | chunk_ids=['D16维护保养手册::chunk_12'] | text_chars=149 | request_chars=241 | context_entities=5 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=13/91 | chunk_ids=['D16维护保养手册::chunk_12'] | score=77 | decision=extract | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=13/91 | chunk_ids=['D16维护保养手册::chunk_12'] | new_entities=1 | new_relations=0 | total_entities=6 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=14/91 | doc_id=D16维护保养手册 | doc_chunk=14/34 | chunk_ids=['D16维护保养手册::chunk_13'] | text_chars=1721 | request_chars=1820 | context_entities=6 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=14/91 | chunk_ids=['D16维护保养手册::chunk_13'] | score=62 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=14/91 | chunk_ids=['D16维护保养手册::chunk_13'] | new_entities=1 | new_relations=0 | total_entities=7 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=15/91 | doc_id=D16维护保养手册 | doc_chunk=15/34 | chunk_ids=['D16维护保养手册::chunk_14', 'D16维护保养手册::chunk_15', 'D16维护保养手册::chunk_16'] | text_chars=545 | request_chars=936 | context_entities=7 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=15/91 | chunk_ids=['D16维护保养手册::chunk_14', 'D16维护保养手册::chunk_15', 'D16维护保养手册::chunk_16'] | score=51 | decision=skip | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk(batched) | chunk=15/91 | chunk_ids=['D16维护保养手册::chunk_14', 'D16维护保养手册::chunk_15', 'D16维护保养手册::chunk_16'] | score=51 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=18/91 | doc_id=D16维护保养手册 | doc_chunk=18/34 | chunk_ids=['D16维护保养手册::chunk_17'] | text_chars=2239 | request_chars=2360 | context_entities=7 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=18/91 | chunk_ids=['D16维护保养手册::chunk_17'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=18/91 | chunk_ids=['D16维护保养手册::chunk_17'] | new_entities=1 | new_relations=0 | total_entities=8 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=19/91 | doc_id=D16维护保养手册 | doc_chunk=19/34 | chunk_ids=['D16维护保养手册::chunk_18', 'D16维护保养手册::chunk_19', 'D16维护保养手册::chunk_20', 'D16维护保养手册::chunk_21'] | text_chars=1337 | request_chars=1919 | context_entities=8 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=19/91 | chunk_ids=['D16维护保养手册::chunk_18', 'D16维护保养手册::chunk_19', 'D16维护保养手册::chunk_20', 'D16维护保养手册::chunk_21'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=19/91 | chunk_ids=['D16维护保养手册::chunk_18', 'D16维护保养手册::chunk_19', 'D16维护保养手册::chunk_20', 'D16维护保养手册::chunk_21'] | new_entities=1 | new_relations=0 | total_entities=9 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=23/91 | doc_id=D16维护保养手册 | doc_chunk=23/34 | chunk_ids=['D16维护保养手册::chunk_22', 'D16维护保养手册::chunk_23', 'D16维护保养手册::chunk_24', 'D16维护保养手册::chunk_25'] | text_chars=1289 | request_chars=1908 | context_entities=9 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=23/91 | chunk_ids=['D16维护保养手册::chunk_22', 'D16维护保养手册::chunk_23', 'D16维护保养手册::chunk_24', 'D16维护保养手册::chunk_25'] | score=72 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=23/91 | chunk_ids=['D16维护保养手册::chunk_22', 'D16维护保养手册::chunk_23', 'D16维护保养手册::chunk_24', 'D16维护保养手册::chunk_25'] | new_entities=1 | new_relations=0 | total_entities=10 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=27/91 | doc_id=D16维护保养手册 | doc_chunk=27/34 | chunk_ids=['D16维护保养手册::chunk_26', 'D16维护保养手册::chunk_27', 'D16维护保养手册::chunk_28', 'D16维护保养手册::chunk_29'] | text_chars=2930 | request_chars=3565 | context_entities=10 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=27/91 | chunk_ids=['D16维护保养手册::chunk_26', 'D16维护保养手册::chunk_27', 'D16维护保养手册::chunk_28', 'D16维护保养手册::chunk_29'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=27/91 | chunk_ids=['D16维护保养手册::chunk_26', 'D16维护保养手册::chunk_27', 'D16维护保养手册::chunk_28', 'D16维护保养手册::chunk_29'] | new_entities=1 | new_relations=0 | total_entities=11 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=31/91 | doc_id=D16维护保养手册 | doc_chunk=31/34 | chunk_ids=['D16维护保养手册::chunk_30', 'D16维护保养手册::chunk_31', 'D16维护保养手册::chunk_32', 'D16维护保养手册::chunk_33'] | text_chars=3550 | request_chars=4175 | context_entities=11 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=31/91 | chunk_ids=['D16维护保养手册::chunk_30', 'D16维护保养手册::chunk_31', 'D16维护保养手册::chunk_32', 'D16维护保养手册::chunk_33'] | score=72 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=31/91 | chunk_ids=['D16维护保养手册::chunk_30', 'D16维护保养手册::chunk_31', 'D16维护保养手册::chunk_32', 'D16维护保养手册::chunk_33'] | new_entities=1 | new_relations=0 | total_entities=12 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 切换文档 | doc_id=D8操作手册 | doc_index=2/3 | doc_chunks=27
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=35/91 | doc_id=D8操作手册 | doc_chunk=1/27 | chunk_ids=['D8操作手册::chunk_0'] | text_chars=2364 | request_chars=2406 | context_entities=0 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=35/91 | chunk_ids=['D8操作手册::chunk_0'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=35/91 | chunk_ids=['D8操作手册::chunk_0'] | new_entities=1 | new_relations=0 | total_entities=13 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=36/91 | doc_id=D8操作手册 | doc_chunk=2/27 | chunk_ids=['D8操作手册::chunk_1', 'D8操作手册::chunk_2', 'D8操作手册::chunk_3', 'D8操作手册::chunk_4'] | text_chars=1166 | request_chars=1731 | context_entities=1 | context_relations=0 | semantic_group=safety
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=36/91 | chunk_ids=['D8操作手册::chunk_1', 'D8操作手册::chunk_2', 'D8操作手册::chunk_3', 'D8操作手册::chunk_4'] | score=58 | decision=skip | category=safety | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk(batched) | chunk=36/91 | chunk_ids=['D8操作手册::chunk_1', 'D8操作手册::chunk_2', 'D8操作手册::chunk_3', 'D8操作手册::chunk_4'] | score=58 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=40/91 | doc_id=D8操作手册 | doc_chunk=6/27 | chunk_ids=['D8操作手册::chunk_5', 'D8操作手册::chunk_6'] | text_chars=618 | request_chars=959 | context_entities=1 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=40/91 | chunk_ids=['D8操作手册::chunk_5', 'D8操作手册::chunk_6'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=40/91 | chunk_ids=['D8操作手册::chunk_5', 'D8操作手册::chunk_6'] | new_entities=1 | new_relations=0 | total_entities=14 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=42/91 | doc_id=D8操作手册 | doc_chunk=8/27 | chunk_ids=['D8操作手册::chunk_7'] | text_chars=1987 | request_chars=2115 | context_entities=2 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=42/91 | chunk_ids=['D8操作手册::chunk_7'] | score=62 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=42/91 | chunk_ids=['D8操作手册::chunk_7'] | new_entities=1 | new_relations=0 | total_entities=15 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=43/91 | doc_id=D8操作手册 | doc_chunk=9/27 | chunk_ids=['D8操作手册::chunk_8', 'D8操作手册::chunk_9', 'D8操作手册::chunk_10'] | text_chars=1732 | request_chars=2189 | context_entities=3 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=43/91 | chunk_ids=['D8操作手册::chunk_8', 'D8操作手册::chunk_9', 'D8操作手册::chunk_10'] | score=72 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=43/91 | chunk_ids=['D8操作手册::chunk_8', 'D8操作手册::chunk_9', 'D8操作手册::chunk_10'] | new_entities=1 | new_relations=0 | total_entities=16 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=46/91 | doc_id=D8操作手册 | doc_chunk=12/27 | chunk_ids=['D8操作手册::chunk_11'] | text_chars=3737 | request_chars=3866 | context_entities=4 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=46/91 | chunk_ids=['D8操作手册::chunk_11'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=46/91 | chunk_ids=['D8操作手册::chunk_11'] | new_entities=1 | new_relations=0 | total_entities=17 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=47/91 | doc_id=D8操作手册 | doc_chunk=13/27 | chunk_ids=['D8操作手册::chunk_12'] | text_chars=4509 | request_chars=4638 | context_entities=5 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=47/91 | chunk_ids=['D8操作手册::chunk_12'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=47/91 | chunk_ids=['D8操作手册::chunk_12'] | new_entities=1 | new_relations=0 | total_entities=18 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=48/91 | doc_id=D8操作手册 | doc_chunk=14/27 | chunk_ids=['D8操作手册::chunk_13'] | text_chars=2959 | request_chars=3088 | context_entities=6 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=48/91 | chunk_ids=['D8操作手册::chunk_13'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=48/91 | chunk_ids=['D8操作手册::chunk_13'] | new_entities=1 | new_relations=0 | total_entities=19 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=49/91 | doc_id=D8操作手册 | doc_chunk=15/27 | chunk_ids=['D8操作手册::chunk_14'] | text_chars=2518 | request_chars=2647 | context_entities=7 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=49/91 | chunk_ids=['D8操作手册::chunk_14'] | score=50 | decision=skip | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk | chunk=49/91 | chunk_ids=['D8操作手册::chunk_14'] | score=50 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=50/91 | doc_id=D8操作手册 | doc_chunk=16/27 | chunk_ids=['D8操作手册::chunk_15'] | text_chars=4044 | request_chars=4173 | context_entities=7 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=50/91 | chunk_ids=['D8操作手册::chunk_15'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=50/91 | chunk_ids=['D8操作手册::chunk_15'] | new_entities=1 | new_relations=0 | total_entities=20 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=51/91 | doc_id=D8操作手册 | doc_chunk=17/27 | chunk_ids=['D8操作手册::chunk_16'] | text_chars=3382 | request_chars=3511 | context_entities=8 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=51/91 | chunk_ids=['D8操作手册::chunk_16'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=51/91 | chunk_ids=['D8操作手册::chunk_16'] | new_entities=1 | new_relations=0 | total_entities=21 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=52/91 | doc_id=D8操作手册 | doc_chunk=18/27 | chunk_ids=['D8操作手册::chunk_17'] | text_chars=566 | request_chars=691 | context_entities=9 | context_relations=0 | semantic_group=safety
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=52/91 | chunk_ids=['D8操作手册::chunk_17'] | score=70 | decision=extract | category=safety | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=52/91 | chunk_ids=['D8操作手册::chunk_17'] | new_entities=1 | new_relations=0 | total_entities=22 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=53/91 | doc_id=D8操作手册 | doc_chunk=19/27 | chunk_ids=['D8操作手册::chunk_18'] | text_chars=1854 | request_chars=1985 | context_entities=10 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=53/91 | chunk_ids=['D8操作手册::chunk_18'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=53/91 | chunk_ids=['D8操作手册::chunk_18'] | new_entities=1 | new_relations=0 | total_entities=23 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=54/91 | doc_id=D8操作手册 | doc_chunk=20/27 | chunk_ids=['D8操作手册::chunk_19'] | text_chars=453 | request_chars=578 | context_entities=11 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=54/91 | chunk_ids=['D8操作手册::chunk_19'] | score=68 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=54/91 | chunk_ids=['D8操作手册::chunk_19'] | new_entities=1 | new_relations=0 | total_entities=24 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=55/91 | doc_id=D8操作手册 | doc_chunk=21/27 | chunk_ids=['D8操作手册::chunk_20'] | text_chars=4637 | request_chars=4763 | context_entities=12 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=55/91 | chunk_ids=['D8操作手册::chunk_20'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=55/91 | chunk_ids=['D8操作手册::chunk_20'] | new_entities=1 | new_relations=0 | total_entities=25 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=56/91 | doc_id=D8操作手册 | doc_chunk=22/27 | chunk_ids=['D8操作手册::chunk_21'] | text_chars=493 | request_chars=619 | context_entities=13 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=56/91 | chunk_ids=['D8操作手册::chunk_21'] | score=62 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=56/91 | chunk_ids=['D8操作手册::chunk_21'] | new_entities=1 | new_relations=0 | total_entities=26 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=57/91 | doc_id=D8操作手册 | doc_chunk=23/27 | chunk_ids=['D8操作手册::chunk_22'] | text_chars=2171 | request_chars=2297 | context_entities=14 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=57/91 | chunk_ids=['D8操作手册::chunk_22'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=57/91 | chunk_ids=['D8操作手册::chunk_22'] | new_entities=1 | new_relations=0 | total_entities=27 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=58/91 | doc_id=D8操作手册 | doc_chunk=24/27 | chunk_ids=['D8操作手册::chunk_23', 'D8操作手册::chunk_24'] | text_chars=318 | request_chars=651 | context_entities=15 | context_relations=0 | semantic_group=safety
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=58/91 | chunk_ids=['D8操作手册::chunk_23', 'D8操作手册::chunk_24'] | score=70 | decision=extract | category=safety | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=58/91 | chunk_ids=['D8操作手册::chunk_23', 'D8操作手册::chunk_24'] | new_entities=1 | new_relations=0 | total_entities=28 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=60/91 | doc_id=D8操作手册 | doc_chunk=26/27 | chunk_ids=['D8操作手册::chunk_25'] | text_chars=3457 | request_chars=3587 | context_entities=16 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=60/91 | chunk_ids=['D8操作手册::chunk_25'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=60/91 | chunk_ids=['D8操作手册::chunk_25'] | new_entities=1 | new_relations=0 | total_entities=29 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=61/91 | doc_id=D8操作手册 | doc_chunk=27/27 | chunk_ids=['D8操作手册::chunk_26'] | text_chars=4811 | request_chars=4943 | context_entities=17 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=61/91 | chunk_ids=['D8操作手册::chunk_26'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=61/91 | chunk_ids=['D8操作手册::chunk_26'] | new_entities=1 | new_relations=0 | total_entities=30 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 切换文档 | doc_id=D8维护保养手册 | doc_index=3/3 | doc_chunks=30
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=62/91 | doc_id=D8维护保养手册 | doc_chunk=1/30 | chunk_ids=['D8维护保养手册::chunk_0', 'D8维护保养手册::chunk_1', 'D8维护保养手册::chunk_2', 'D8维护保养手册::chunk_3'] | text_chars=1862 | request_chars=2323 | context_entities=0 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=62/91 | chunk_ids=['D8维护保养手册::chunk_0', 'D8维护保养手册::chunk_1', 'D8维护保养手册::chunk_2', 'D8维护保养手册::chunk_3'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=62/91 | chunk_ids=['D8维护保养手册::chunk_0', 'D8维护保养手册::chunk_1', 'D8维护保养手册::chunk_2', 'D8维护保养手册::chunk_3'] | new_entities=1 | new_relations=0 | total_entities=31 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=66/91 | doc_id=D8维护保养手册 | doc_chunk=5/30 | chunk_ids=['D8维护保养手册::chunk_4', 'D8维护保养手册::chunk_5'] | text_chars=1902 | request_chars=2236 | context_entities=1 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=66/91 | chunk_ids=['D8维护保养手册::chunk_4', 'D8维护保养手册::chunk_5'] | score=62 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=66/91 | chunk_ids=['D8维护保养手册::chunk_4', 'D8维护保养手册::chunk_5'] | new_entities=1 | new_relations=0 | total_entities=32 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=68/91 | doc_id=D8维护保养手册 | doc_chunk=7/30 | chunk_ids=['D8维护保养手册::chunk_6'] | text_chars=286 | request_chars=396 | context_entities=2 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=68/91 | chunk_ids=['D8维护保养手册::chunk_6'] | score=62 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=68/91 | chunk_ids=['D8维护保养手册::chunk_6'] | new_entities=1 | new_relations=0 | total_entities=33 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=69/91 | doc_id=D8维护保养手册 | doc_chunk=8/30 | chunk_ids=['D8维护保养手册::chunk_7', 'D8维护保养手册::chunk_8', 'D8维护保养手册::chunk_9'] | text_chars=1509 | request_chars=1919 | context_entities=3 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=69/91 | chunk_ids=['D8维护保养手册::chunk_7', 'D8维护保养手册::chunk_8', 'D8维护保养手册::chunk_9'] | score=62 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=69/91 | chunk_ids=['D8维护保养手册::chunk_7', 'D8维护保养手册::chunk_8', 'D8维护保养手册::chunk_9'] | new_entities=1 | new_relations=0 | total_entities=34 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=72/91 | doc_id=D8维护保养手册 | doc_chunk=11/30 | chunk_ids=['D8维护保养手册::chunk_10'] | text_chars=2120 | request_chars=2231 | context_entities=4 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=72/91 | chunk_ids=['D8维护保养手册::chunk_10'] | score=77 | decision=extract | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=72/91 | chunk_ids=['D8维护保养手册::chunk_10'] | new_entities=1 | new_relations=0 | total_entities=35 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=73/91 | doc_id=D8维护保养手册 | doc_chunk=12/30 | chunk_ids=['D8维护保养手册::chunk_11', 'D8维护保养手册::chunk_12'] | text_chars=1476 | request_chars=1801 | context_entities=5 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=73/91 | chunk_ids=['D8维护保养手册::chunk_11', 'D8维护保养手册::chunk_12'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=73/91 | chunk_ids=['D8维护保养手册::chunk_11', 'D8维护保养手册::chunk_12'] | new_entities=1 | new_relations=0 | total_entities=36 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=75/91 | doc_id=D8维护保养手册 | doc_chunk=14/30 | chunk_ids=['D8维护保养手册::chunk_13'] | text_chars=2865 | request_chars=3001 | context_entities=6 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=75/91 | chunk_ids=['D8维护保养手册::chunk_13'] | score=62 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=75/91 | chunk_ids=['D8维护保养手册::chunk_13'] | new_entities=1 | new_relations=0 | total_entities=37 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=76/91 | doc_id=D8维护保养手册 | doc_chunk=15/30 | chunk_ids=['D8维护保养手册::chunk_14'] | text_chars=3302 | request_chars=3431 | context_entities=7 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=76/91 | chunk_ids=['D8维护保养手册::chunk_14'] | score=59 | decision=skip | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk | chunk=76/91 | chunk_ids=['D8维护保养手册::chunk_14'] | score=59 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=77/91 | doc_id=D8维护保养手册 | doc_chunk=16/30 | chunk_ids=['D8维护保养手册::chunk_15'] | text_chars=2454 | request_chars=2581 | context_entities=7 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=77/91 | chunk_ids=['D8维护保养手册::chunk_15'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=77/91 | chunk_ids=['D8维护保养手册::chunk_15'] | new_entities=1 | new_relations=0 | total_entities=38 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=78/91 | doc_id=D8维护保养手册 | doc_chunk=17/30 | chunk_ids=['D8维护保养手册::chunk_16'] | text_chars=868 | request_chars=980 | context_entities=8 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=78/91 | chunk_ids=['D8维护保养手册::chunk_16'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=78/91 | chunk_ids=['D8维护保养手册::chunk_16'] | new_entities=1 | new_relations=0 | total_entities=39 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=79/91 | doc_id=D8维护保养手册 | doc_chunk=18/30 | chunk_ids=['D8维护保养手册::chunk_17'] | text_chars=1979 | request_chars=2108 | context_entities=9 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=79/91 | chunk_ids=['D8维护保养手册::chunk_17'] | score=80 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk | chunk=79/91 | chunk_ids=['D8维护保养手册::chunk_17'] | new_entities=1 | new_relations=0 | total_entities=40 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=80/91 | doc_id=D8维护保养手册 | doc_chunk=19/30 | chunk_ids=['D8维护保养手册::chunk_18', 'D8维护保养手册::chunk_19', 'D8维护保养手册::chunk_20'] | text_chars=704 | request_chars=1181 | context_entities=10 | context_relations=0 | semantic_group=repair
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=80/91 | chunk_ids=['D8维护保养手册::chunk_18', 'D8维护保养手册::chunk_19', 'D8维护保养手册::chunk_20'] | score=72 | decision=extract | category=repair | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=80/91 | chunk_ids=['D8维护保养手册::chunk_18', 'D8维护保养手册::chunk_19', 'D8维护保养手册::chunk_20'] | new_entities=1 | new_relations=0 | total_entities=41 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=83/91 | doc_id=D8维护保养手册 | doc_chunk=22/30 | chunk_ids=['D8维护保养手册::chunk_21', 'D8维护保养手册::chunk_22'] | text_chars=1136 | request_chars=1427 | context_entities=11 | context_relations=0 | semantic_group=fault
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=83/91 | chunk_ids=['D8维护保养手册::chunk_21', 'D8维护保养手册::chunk_22'] | score=80 | decision=extract | category=fault | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=83/91 | chunk_ids=['D8维护保养手册::chunk_21', 'D8维护保养手册::chunk_22'] | new_entities=1 | new_relations=0 | total_entities=42 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk | chunk=85/91 | doc_id=D8维护保养手册 | doc_chunk=24/30 | chunk_ids=['D8维护保养手册::chunk_23'] | text_chars=158 | request_chars=268 | context_entities=12 | context_relations=0 | semantic_group=overview
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=85/91 | chunk_ids=['D8维护保养手册::chunk_23'] | score=25 | decision=skip | category=overview | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 跳过低价值 chunk | chunk=85/91 | chunk_ids=['D8维护保养手册::chunk_23'] | score=25 | threshold=60
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=86/91 | doc_id=D8维护保养手册 | doc_chunk=25/30 | chunk_ids=['D8维护保养手册::chunk_24', 'D8维护保养手册::chunk_25', 'D8维护保养手册::chunk_26', 'D8维护保养手册::chunk_27'] | text_chars=2129 | request_chars=2684 | context_entities=12 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=86/91 | chunk_ids=['D8维护保养手册::chunk_24', 'D8维护保养手册::chunk_25', 'D8维护保养手册::chunk_26', 'D8维护保养手册::chunk_27'] | score=69 | decision=extract | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=86/91 | chunk_ids=['D8维护保养手册::chunk_24', 'D8维护保养手册::chunk_25', 'D8维护保养手册::chunk_26', 'D8维护保养手册::chunk_27'] | new_entities=1 | new_relations=0 | total_entities=43 | total_relations=0
+2026-04-11 16:50:00 | INFO | Step 3 请求 chunk(batched) | chunk=90/91 | doc_id=D8维护保养手册 | doc_chunk=29/30 | chunk_ids=['D8维护保养手册::chunk_28', 'D8维护保养手册::chunk_29'] | text_chars=1063 | request_chars=1411 | context_entities=13 | context_relations=0 | semantic_group=diagnostic
+2026-04-11 16:50:00 | INFO | Step 3 chunk 评分 | chunk=90/91 | chunk_ids=['D8维护保养手册::chunk_28', 'D8维护保养手册::chunk_29'] | score=69 | decision=extract | category=diagnostic | reasons=heuristic_fallback
+2026-04-11 16:50:00 | INFO | Step 3 完成 chunk(batched) | chunk=90/91 | chunk_ids=['D8维护保养手册::chunk_28', 'D8维护保养手册::chunk_29'] | new_entities=1 | new_relations=0 | total_entities=44 | total_relations=0
+2026-04-11 16:50:00 | INFO | 完成 Step 3: KG 三元组抽取 | 耗时 0.08s | entities=44, relations=0, cross_chunk_relations=0, filtered_entities=0, filtered_relations=0, bundled_extract_requests=16
+2026-04-11 16:50:00 | INFO | 跳过 Step 4: 实体合并
+2026-04-11 16:50:00 | INFO | 跳过 Step 5: Neo4j 导入与导出
+2026-04-11 16:50:00 | INFO | 跳过 Step 6: 图谱可视化
+2026-04-11 16:50:00 | INFO | 流水线执行完成
+2026-04-11 16:50:00 | INFO | 状态文件已更新 | kg_name=发动机 | used_files=3 | completed_steps=[1, 2, 3]
+2026-04-11 16:50:00 | INFO | 退出码: 0

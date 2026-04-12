@@ -1,0 +1,381 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import json
+import tarfile
+from collections import Counter
+from pathlib import Path
+from typing import Any
+
+from kg_pipeline.paths import PipelinePaths
+from kg_pipeline.steps import write_json
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="将多个 KG_Build 子图打包为最终 KG")
+    parser.add_argument(
+        "--kg",
+        dest="kg_names",
+        action="append",
+        default=[],
+        help="要打包的 KG 名称，可重复传入",
+    )
+    parser.add_argument(
+        "--output-name",
+        type=str,
+        default="packaged",
+        help="最终包名称，仅用于 manifest 记录",
+    )
+    parser.add_argument(
+        "--import-backups",
+        action="store_true",
+        help="先将 data/KG/backups 下的 tar.gz 解包到 KG_Build/<kg_name>",
+    )
+    return parser.parse_args()
+
+
+def read_json(path: Path, default: Any) -> Any:
+    if not path.exists():
+        return default
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return default
+
+
+def ensure_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def namespace_doc_id(kg_name: str, doc_id: str) -> str:
+    value = str(doc_id or "").strip()
+    if not value:
+        return ""
+    prefix = f"{kg_name}::"
+    return value if value.startswith(prefix) else f"{prefix}{value}"
+
+
+def namespace_chunk_id(kg_name: str, chunk_id: str) -> str:
+    value = str(chunk_id or "").strip()
+    if not value:
+        return ""
+    prefix = f"{kg_name}::"
+    return value if value.startswith(prefix) else f"{prefix}{value}"
+
+
+def normalize_build_kg_name(name: str) -> str:
+    return PipelinePaths.normalize_kg_name(name)
+
+
+def materialize_backup_kgs(paths: PipelinePaths) -> list[str]:
+    extracted: list[str] = []
+    for archive in sorted(paths.backups_dir.glob("*.tar.gz")):
+        kg_name = archive.name[: -len(".tar.gz")]
+        target_dir = paths.build_root_dir / normalize_build_kg_name(kg_name)
+        if target_dir.exists():
+            continue
+        target_dir.mkdir(parents=True, exist_ok=True)
+        with tarfile.open(archive, "r:gz") as tar:
+            tar.extractall(target_dir)
+        extracted.append(kg_name)
+    return extracted
+
+
+def migrate_flat_build_root(paths: PipelinePaths) -> str | None:
+    legacy_items = ["raw", "cleaned", "chunks", "extracted", "images", "logs", "delivery"]
+    state_path = paths.build_root_dir / "kg_state.json"
+    has_legacy = state_path.exists() or any((paths.build_root_dir / name).exists() for name in legacy_items)
+    if not has_legacy:
+        return None
+    state = read_json(state_path, {})
+    kg_name = normalize_build_kg_name(state.get("kg_name", "legacy"))
+    target_dir = paths.build_root_dir / kg_name
+    target_dir.mkdir(parents=True, exist_ok=True)
+    for name in legacy_items:
+        source = paths.build_root_dir / name
+        target = target_dir / name
+        if not source.exists():
+            continue
+        if target.exists():
+            continue
+        source.rename(target)
+    if state_path.exists():
+        target_state = target_dir / "kg_state.json"
+        if not target_state.exists():
+            state_path.rename(target_state)
+    return kg_name
+
+
+def _collision_key(entity: dict[str, Any]) -> tuple[str, str]:
+    return (str(entity.get("name", "")).strip(), str(entity.get("label", "")).strip())
+
+
+def collect_collision_keys(build_dirs: list[tuple[str, Path]]) -> set[tuple[str, str]]:
+    keys: list[tuple[str, str]] = []
+    for _, build_dir in build_dirs:
+        merged = read_json(build_dir / "delivery" / "kg_merged.json", {"entities": []})
+        for entity in merged.get("entities", []):
+            key = _collision_key(entity)
+            if key[0] and key[1]:
+                keys.append(key)
+    counts = Counter(keys)
+    return {key for key, count in counts.items() if count > 1}
+
+
+def rename_entity_name(
+    kg_name: str,
+    name: str,
+    label: str,
+    collision_keys: set[tuple[str, str]],
+) -> str:
+    key = (str(name or "").strip(), str(label or "").strip())
+    if key in collision_keys:
+        return f"{kg_name}::{key[0]}"
+    return key[0]
+
+
+def transform_chunks(kg_name: str, chunks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for item in chunks:
+        row = dict(item)
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
+        row["source_doc_id"] = namespace_doc_id(kg_name, row.get("source_doc_id", row.get("doc_id", "")))
+        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""))
+        output.append(row)
+    return output
+
+
+def transform_doc_map(kg_name: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for item in items:
+        row = dict(item)
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
+        output.append(row)
+    return output
+
+
+def transform_chunk_to_kg(
+    kg_name: str,
+    data: dict[str, Any] | list[dict[str, Any]],
+    renamed_entities: dict[tuple[str, str], str],
+) -> list[dict[str, Any]]:
+    chunks = data.get("chunks", []) if isinstance(data, dict) else data
+    output: list[dict[str, Any]] = []
+    flat_name_map = {
+        original_name: renamed_name
+        for (_, original_name), renamed_name in renamed_entities.items()
+        if original_name != renamed_name
+    }
+    for item in chunks:
+        row = dict(item)
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
+        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""))
+        row["kg_entities"] = [
+            flat_name_map.get(str(name).strip(), str(name).strip())
+            for name in ensure_list(row.get("kg_entities"))
+        ]
+        row["kg_entity_ids"] = []
+        output.append(row)
+    return output
+
+
+def transform_entities(
+    kg_name: str,
+    entities: list[dict[str, Any]],
+    collision_keys: set[tuple[str, str]],
+) -> tuple[list[dict[str, Any]], dict[tuple[str, str], str]]:
+    renamed: dict[tuple[str, str], str] = {}
+    output: list[dict[str, Any]] = []
+    for item in entities:
+        row = dict(item)
+        original_name = str(row.get("name", "")).strip()
+        label = str(row.get("label", "")).strip()
+        new_name = rename_entity_name(kg_name, original_name, label, collision_keys)
+        renamed[(label, original_name)] = new_name
+        row["name"] = new_name
+        row["doc_id"] = [namespace_doc_id(kg_name, value) for value in ensure_list(row.get("doc_id")) if str(value).strip()]
+        row["chunk_id"] = [namespace_chunk_id(kg_name, value) for value in ensure_list(row.get("chunk_id")) if str(value).strip()]
+        row.pop("entity_id", None)
+        output.append(row)
+    return output, renamed
+
+
+def rename_by_label(name: str, label: str, renamed_entities: dict[tuple[str, str], str]) -> str:
+    return renamed_entities.get((str(label).strip(), str(name).strip()), str(name).strip())
+
+
+def transform_relations(
+    kg_name: str,
+    relations: list[dict[str, Any]],
+    renamed_entities: dict[tuple[str, str], str],
+) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for item in relations:
+        row = dict(item)
+        row["head"] = rename_by_label(row.get("head", ""), row.get("head_label", ""), renamed_entities)
+        row["tail"] = rename_by_label(row.get("tail", ""), row.get("tail_label", ""), renamed_entities)
+        row["doc_id"] = [namespace_doc_id(kg_name, value) for value in ensure_list(row.get("doc_id")) if str(value).strip()]
+        row["chunk_id"] = [namespace_chunk_id(kg_name, value) for value in ensure_list(row.get("chunk_id")) if str(value).strip()]
+        row.pop("rel_id", None)
+        output.append(row)
+    return output
+
+
+def transform_merge_log(kg_name: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for item in items:
+        row = dict(item)
+        row["kg_name"] = kg_name
+        output.append(row)
+    return output
+
+
+def assign_entity_ids(entities: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for index, item in enumerate(entities, start=1):
+        row = dict(item)
+        row["entity_id"] = f"ENT_{index:06d}"
+        output.append(row)
+    return output
+
+
+def assign_relation_ids(relations: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for index, item in enumerate(relations, start=1):
+        row = dict(item)
+        row["rel_id"] = f"REL_{index:06d}"
+        output.append(row)
+    return output
+
+
+def ensure_package_dirs(paths: PipelinePaths) -> None:
+    (paths.kg_dir / "chunks").mkdir(parents=True, exist_ok=True)
+    (paths.kg_dir / "extracted").mkdir(parents=True, exist_ok=True)
+    (paths.kg_dir / "delivery").mkdir(parents=True, exist_ok=True)
+
+
+def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> dict[str, Any]:
+    build_dirs = [
+        (normalize_build_kg_name(name), paths.build_root_dir / normalize_build_kg_name(name))
+        for name in kg_names
+    ]
+    missing = [name for name, directory in build_dirs if not directory.exists()]
+    if missing:
+        raise SystemExit(f"未找到以下 KG_Build 子目录: {', '.join(missing)}")
+
+    collision_keys = collect_collision_keys(build_dirs)
+    merged_chunks: list[dict[str, Any]] = []
+    merged_doc_map: list[dict[str, Any]] = []
+    merged_chunk_to_kg: list[dict[str, Any]] = []
+    merged_raw_entities: list[dict[str, Any]] = []
+    merged_raw_relations: list[dict[str, Any]] = []
+    merged_entities: list[dict[str, Any]] = []
+    merged_relations: list[dict[str, Any]] = []
+    merged_merge_log: list[dict[str, Any]] = []
+
+    for kg_name, build_dir in build_dirs:
+        chunks = read_json(build_dir / "chunks" / "chunks.json", [])
+        doc_map = read_json(build_dir / "chunks" / "doc_source_map.json", [])
+        chunk_to_kg = read_json(build_dir / "chunks" / "chunk_to_kg.json", {"chunks": []})
+        delivery = read_json(build_dir / "delivery" / "kg_merged.json", {"entities": [], "relations": []})
+        merge_log = read_json(build_dir / "delivery" / "entity_merge_log.json", [])
+
+        raw_payload = {"entities": [], "relations": []}
+        extracted_dir = build_dir / "extracted"
+        preferred_raw = extracted_dir / "kg_raw.json"
+        if preferred_raw.exists():
+            raw_payload = read_json(preferred_raw, raw_payload)
+        else:
+            matches = sorted(extracted_dir.glob("kg_raw*.json"))
+            if matches:
+                raw_payload = read_json(matches[0], raw_payload)
+
+        transformed_entities, renamed_entities = transform_entities(
+            kg_name, delivery.get("entities", []), collision_keys
+        )
+        transformed_relations = transform_relations(
+            kg_name, delivery.get("relations", []), renamed_entities
+        )
+        transformed_raw_entities, _ = transform_entities(
+            kg_name, raw_payload.get("entities", []), collision_keys
+        )
+        transformed_raw_relations = transform_relations(
+            kg_name, raw_payload.get("relations", []), renamed_entities
+        )
+
+        merged_chunks.extend(transform_chunks(kg_name, chunks))
+        merged_doc_map.extend(transform_doc_map(kg_name, doc_map))
+        merged_chunk_to_kg.extend(transform_chunk_to_kg(kg_name, chunk_to_kg, renamed_entities))
+        merged_raw_entities.extend(transformed_raw_entities)
+        merged_raw_relations.extend(transformed_raw_relations)
+        merged_entities.extend(transformed_entities)
+        merged_relations.extend(transformed_relations)
+        merged_merge_log.extend(transform_merge_log(kg_name, merge_log))
+
+    merged_raw = {
+        "entities": assign_entity_ids(merged_raw_entities),
+        "relations": assign_relation_ids(merged_raw_relations),
+    }
+    merged_delivery = {
+        "entities": assign_entity_ids(merged_entities),
+        "relations": assign_relation_ids(merged_relations),
+    }
+
+    ensure_package_dirs(paths)
+    write_json(paths.kg_dir / "chunks" / "chunks.json", merged_chunks)
+    write_json(paths.kg_dir / "chunks" / "doc_source_map.json", merged_doc_map)
+    write_json(paths.kg_dir / "chunks" / "chunk_to_kg.json", {"chunks": merged_chunk_to_kg})
+    write_json(paths.kg_dir / "extracted" / "kg_raw.json", merged_raw)
+    write_json(paths.kg_dir / "delivery" / "kg_merged.json", merged_delivery)
+    write_json(paths.kg_dir / "delivery" / "entity_merge_log.json", merged_merge_log)
+    write_json(
+        paths.kg_dir / "package_manifest.json",
+        {
+            "output_name": output_name,
+            "kg_names": [name for name, _ in build_dirs],
+            "entities": len(merged_delivery["entities"]),
+            "relations": len(merged_delivery["relations"]),
+            "chunks": len(merged_chunks),
+        },
+    )
+    return {
+        "kg_names": [name for name, _ in build_dirs],
+        "entities": len(merged_delivery["entities"]),
+        "relations": len(merged_delivery["relations"]),
+        "chunks": len(merged_chunks),
+    }
+
+
+def main() -> int:
+    args = parse_args()
+    paths = PipelinePaths.discover()
+    paths.build_root_dir.mkdir(parents=True, exist_ok=True)
+    paths.kg_dir.mkdir(parents=True, exist_ok=True)
+    paths.backups_dir.mkdir(parents=True, exist_ok=True)
+
+    migrated = migrate_flat_build_root(paths)
+    extracted = materialize_backup_kgs(paths) if args.import_backups else []
+
+    kg_names = [normalize_build_kg_name(name) for name in args.kg_names]
+    if not kg_names:
+        if migrated:
+            kg_names = [migrated]
+        else:
+            raise SystemExit("请至少通过 --kg 传入一个 KG 名称")
+
+    result = package_kgs(paths, kg_names, args.output_name)
+    if migrated:
+        result["migrated_legacy_build"] = migrated
+    if extracted:
+        result["imported_backups"] = extracted
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

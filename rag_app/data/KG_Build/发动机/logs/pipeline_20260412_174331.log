@@ -1,0 +1,11 @@
+2026-04-12 17:43:31 | INFO | 日志文件: /home/shahanshah/work/ship/Project/rag_app/data/KG_Build/发动机/logs/pipeline_20260412_174331.log
+2026-04-12 17:43:31 | INFO | 启动 KG LangGraph 流水线
+2026-04-12 17:43:31 | INFO | 标准模式执行 | kg_name=发动机 | raw_files=3 | selected=3-4 | release_kgs=['发动机']
+2026-04-12 17:43:31 | INFO | 执行步骤: [3, 4]
+2026-04-12 17:43:31 | INFO | 跳过 Step 1: 语料清洗 | kg=发动机
+2026-04-12 17:43:31 | INFO | 跳过 Step 2: 文本切块 | kg=发动机
+2026-04-12 17:43:31 | INFO | 开始 Step 3: KG 三元组抽取 | kg=发动机
+2026-04-12 17:43:31 | ERROR | 失败 Step 3: KG 三元组抽取 | kg=发动机 | 耗时 0.01s | API_KEY 未设置，请在环境变量、Project/.env 或 Project/rag_app/.env 中配置
+2026-04-12 17:43:31 | ERROR | 流水线中断于 Step 3
+2026-04-12 17:43:31 | INFO | 状态文件已更新 | kg_name=发动机 | used_files=3 | completed_steps=[1, 2]
+2026-04-12 17:43:31 | INFO | 退出码: 1

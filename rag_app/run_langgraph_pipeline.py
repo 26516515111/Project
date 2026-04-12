@@ -28,7 +28,7 @@ def parse_args() -> argparse.Namespace:
         "--from", dest="start", type=int, default=1, help="从第几步开始"
     )
     parser.add_argument(
-        "--to", dest="end", type=int, default=6, help="运行到第几步结束"
+        "--to", dest="end", type=int, default=7, help="运行到第几步结束"
     )
     parser.add_argument("--only", type=int, default=None, help="只运行某一步")
     parser.add_argument("--skip-neo4j", action="store_true", help="跳过 step5")
@@ -58,16 +58,35 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--visualize-label", type=str, default=None, help="step6 仅展示指定标签"
     )
+    parser.add_argument(
+        "--release-kg",
+        dest="release_kg_names",
+        action="append",
+        default=[],
+        help="step7 发布时包含的 KG 名称，可重复传入；默认发布当前 kg-name",
+    )
+    parser.add_argument(
+        "--release-name",
+        dest="release_output_name",
+        type=str,
+        default="release",
+        help="step7 发布包名称",
+    )
+    parser.add_argument(
+        "--no-release-import-backups",
+        action="store_true",
+        help="step7 发布前不自动导入 KG/backups 下的 tar.gz",
+    )
     return parser.parse_args()
 
 
 def validate_args(args: argparse.Namespace) -> None:
-    if not (1 <= args.start <= 6 and 1 <= args.end <= 6):
-        raise SystemExit("参数错误: --from/--to 必须在 1~6")
+    if not (1 <= args.start <= 7 and 1 <= args.end <= 7):
+        raise SystemExit("参数错误: --from/--to 必须在 1~7")
     if args.start > args.end and args.only is None:
         raise SystemExit("参数错误: --from 不能大于 --to")
-    if args.only is not None and not (1 <= args.only <= 6):
-        raise SystemExit("参数错误: --only 必须在 1~6")
+    if args.only is not None and not (1 <= args.only <= 7):
+        raise SystemExit("参数错误: --only 必须在 1~7")
 
 
 def main() -> int:
@@ -93,8 +112,13 @@ def main() -> int:
         kg_state = load_kg_state(paths)
         raw_files = current_raw_files(paths)
         logger.info(
-            "标准模式执行 | kg_name=%s | raw_files=%s | selected=%s"
-            % (current_name, len(raw_files), args.only if args.only else f"{args.start}-{args.end}")
+            "标准模式执行 | kg_name=%s | raw_files=%s | selected=%s | release_kgs=%s"
+            % (
+                current_name,
+                len(raw_files),
+                args.only if args.only else f"{args.start}-{args.end}",
+                args.release_kg_names or [current_name],
+            )
         )
 
         app = build_graph()
@@ -113,6 +137,12 @@ def main() -> int:
                 "neo4j_dump": not args.no_neo4j_dump,
                 "visualize_top_n": args.visualize_top,
                 "visualize_label": args.visualize_label,
+                "release_kg_names": [
+                    PipelinePaths.normalize_kg_name(name)
+                    for name in (args.release_kg_names or [current_name])
+                ],
+                "release_output_name": args.release_output_name,
+                "release_import_backups": not args.no_release_import_backups,
                 "logs": [],
                 "logger": logger,
             }

@@ -46,6 +46,7 @@ class RagPipeline:
             self.chunks = TextChunker.from_settings(SETTINGS).split_documents(self.docs)
         self.doc_source_map = load_doc_source_map(SETTINGS.data_dir)
         self.chunk_kg_map = load_chunk_to_kg(SETTINGS.data_dir)
+        self._validate_chunk_kg_alignment(self.chunks, self.chunk_kg_map)
         self.chunk_text_map = {c["chunk_id"]: c.get("text", "") for c in self.chunks}
         self.chunks_by_source_doc_id = self._build_chunks_by_source_doc_id(self.chunks)
         self.chunks_by_chunk_id = {c.get("chunk_id", ""): c for c in self.chunks}
@@ -61,6 +62,35 @@ class RagPipeline:
         )
         self.decomposer = self._build_decomposer()
         self._chain = self._build_chain()
+
+    @staticmethod
+    def _validate_chunk_kg_alignment(
+        chunks: List[dict], chunk_kg_map: Dict[str, dict]
+    ) -> None:
+        if not chunks or not chunk_kg_map:
+            return
+        chunk_ids = {
+            str(item.get("chunk_id", "") or "").strip()
+            for item in chunks
+            if str(item.get("chunk_id", "") or "").strip()
+        }
+        kg_chunk_ids = {
+            str(key or "").strip() for key in chunk_kg_map.keys() if str(key or "").strip()
+        }
+        if not chunk_ids or not kg_chunk_ids:
+            return
+        overlap = chunk_ids & kg_chunk_ids
+        overlap_ratio = len(overlap) / max(1, len(kg_chunk_ids))
+        minimum_overlap = min(len(kg_chunk_ids), max(5, int(len(kg_chunk_ids) * 0.2)))
+        if len(overlap) < minimum_overlap:
+            raise RuntimeError(
+                "RAG chunks 与 chunk_to_kg 映射不一致，已拒绝启动。"
+                f" chunks={len(chunk_ids)}"
+                f" chunk_to_kg={len(kg_chunk_ids)}"
+                f" overlap={len(overlap)}"
+                f" overlap_ratio={overlap_ratio:.3f}"
+                f" data_dir={SETTINGS.data_dir}"
+            )
 
     def _build_decomposer(self) -> Optional[DecompositionQueryRetriever]:
         if SETTINGS.decomposer_method != "llm":

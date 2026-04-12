@@ -31,6 +31,8 @@ from .config import (
     LLM_CHECKPOINT_EVERY_CHUNKS,
     LLM_MOCK_ENV,
     LLM_REQUIRE_API_KEY,
+    KG_CHUNK_SIZE,
+    KG_CHUNK_OVERLAP,
 )
 from .constants import RELATION_TYPES
 from .paths import PipelinePaths
@@ -59,17 +61,42 @@ from .steps import (
     extract_heading_context,
     heuristic_chunk_score,
     infer_semantic_group,
+    infer_system_root,
     load_embedding_model,
     merge_chunk_ids,
     merge_doc_ids,
     merge_entities,
     build_semantic_chunks,
+    _semantic_family,
+    _is_low_value_chunk,
+    _chunk_keep_score,
     split_text_by_heading_tags,
     validate_extracted,
     QUALITY_SCORE_PROMPT,
 )
 from .utils import apply_local_envs, read_json, write_json
 from .utils import numbered_path
+
+
+_CHUNK_FILTER_MODEL: Any | None = None
+_CHUNK_FILTER_MODEL_KEY = ""
+
+
+def _get_chunk_filter_model(paths: PipelinePaths) -> tuple[Any | None, str]:
+    global _CHUNK_FILTER_MODEL
+    global _CHUNK_FILTER_MODEL_KEY
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-m3").strip()
+    cache_dir = os.environ.get("BGE_CACHE_DIR", "").strip()
+    key = f"{model_name}|{cache_dir}|{device}"
+    if _CHUNK_FILTER_MODEL is not None and _CHUNK_FILTER_MODEL_KEY == key:
+        return _CHUNK_FILTER_MODEL, device
+
+    model = load_embedding_model(paths, device)
+    _CHUNK_FILTER_MODEL = model
+    _CHUNK_FILTER_MODEL_KEY = key
+    return model, device
 
 
 class CleanState(TypedDict, total=False):
@@ -86,6 +113,8 @@ class ChunkState(TypedDict, total=False):
     file_cursor: int
     chunks: list[dict]
     doc_source_map: list[dict]
+    dropped_chunks: int
+    dropped_by_doc: dict[str, int]
 
 
 class ExtractState(TypedDict, total=False):
@@ -116,6 +145,7 @@ class ExtractState(TypedDict, total=False):
     total_cross_chunk_relations: int
     skipped_low_value_chunks: int
     chunks_since_checkpoint: int
+    bundled_extract_requests: int
     failed: bool
     error: str | None
 
@@ -289,6 +319,8 @@ def prepare_chunk_node(state: ChunkState) -> ChunkState:
         "file_cursor": 0,
         "chunks": [],
         "doc_source_map": [],
+        "dropped_chunks": 0,
+        "dropped_by_doc": {},
     }
 
 
@@ -306,10 +338,133 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
     source_name = state["cleaned_files"][file_cursor]
     source = paths.cleaned_dir / source_name
     text = source.read_text(encoding="utf-8")
-    semantic_chunks = build_semantic_chunks(text, chunk_size=1200, chunk_overlap=150)
+    semantic_chunks = build_semantic_chunks(
+        text,
+        chunk_size=KG_CHUNK_SIZE,
+        chunk_overlap=KG_CHUNK_OVERLAP,
+    )
     chunks = list(state.get("chunks", []))
     doc_source_map = list(state.get("doc_source_map", []))
+    dropped_chunks = int(state.get("dropped_chunks", 0))
+    dropped_by_doc = dict(state.get("dropped_by_doc", {}))
     doc_id = source.stem
+    ranked_chunks: list[tuple[int, dict[str, Any]]] = []
+    for chunk in semantic_chunks:
+        fast_score = _chunk_keep_score(chunk)
+        chunk["pre_prune_score"] = fast_score
+        if (
+            _is_low_value_chunk(
+                chunk.get("text", ""),
+                chunk.get("heading_path", []),
+                chunk.get("semantic_group", "overview"),
+            )
+            and fast_score < 55
+        ):
+            dropped_chunks += 1
+            dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + 1
+            continue
+        ranked_chunks.append((fast_score, chunk))
+
+    enable_embed_filter = os.environ.get("CHUNK_EMBED_FILTER", "0") == "1"
+    if enable_embed_filter and ranked_chunks:
+        try:
+            model, device = _get_chunk_filter_model(paths)
+            if model is not None:
+                query = os.environ.get(
+                    "CHUNK_EMBED_QUERY",
+                    "hydraulic system maintenance troubleshooting pressure valve pump actuator fault diagnosis repair procedure installation",
+                ).strip()
+                threshold = float(os.environ.get("CHUNK_EMBED_THRESHOLD", "0.36"))
+                min_keep = int(os.environ.get("CHUNK_EMBED_MIN_KEEP", "110"))
+
+                texts = [
+                    str(item[1].get("text", ""))[:1600]
+                    for item in ranked_chunks
+                ]
+                query_emb = model.encode(
+                    [query],
+                    convert_to_tensor=True,
+                    device=device,
+                )
+                chunk_embs = model.encode(
+                    texts,
+                    convert_to_tensor=True,
+                    device=device,
+                )
+                query_emb = torch.nn.functional.normalize(query_emb, p=2, dim=1)
+                chunk_embs = torch.nn.functional.normalize(chunk_embs, p=2, dim=1)
+                similarities = torch.matmul(chunk_embs, query_emb.T).squeeze(1).tolist()
+
+                kept: list[tuple[int, dict[str, Any]]] = []
+                sim_ranked: list[tuple[float, tuple[int, dict[str, Any]]]] = []
+                for pair, sim in zip(ranked_chunks, similarities):
+                    pair[1]["embed_score"] = float(sim)
+                    sim_ranked.append((float(sim), pair))
+                    if sim >= threshold:
+                        kept.append(pair)
+
+                keep_floor = max(0, min(min_keep, len(ranked_chunks)))
+                if len(kept) < keep_floor:
+                    sim_ranked.sort(key=lambda item: item[0], reverse=True)
+                    kept = [item[1] for item in sim_ranked[:keep_floor]]
+
+                if len(kept) < len(ranked_chunks):
+                    pruned_by_embed = len(ranked_chunks) - len(kept)
+                    dropped_chunks += pruned_by_embed
+                    dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + pruned_by_embed
+                    ranked_chunks = kept
+        except Exception:
+            # Embedding filter is optional; fallback to heuristic-only pruning on any runtime issue.
+            pass
+
+    original_ranked_count = len(ranked_chunks)
+    if ranked_chunks:
+        grouped: dict[str, list[tuple[int, dict[str, Any]]]] = defaultdict(list)
+        for score, chunk in ranked_chunks:
+            root = chunk.get("system_root") or infer_system_root(
+                chunk.get("heading_path", []),
+                chunk.get("text", ""),
+            )
+            grouped[str(root or "global")].append((score, chunk))
+
+        if original_ranked_count > 500:
+            target_keep = min(180, int(original_ranked_count * 0.28))
+        elif original_ranked_count > 320:
+            target_keep = min(170, int(original_ranked_count * 0.35))
+        elif original_ranked_count > 220:
+            target_keep = min(150, int(original_ranked_count * 0.45))
+        else:
+            target_keep = original_ranked_count
+
+        if target_keep < original_ranked_count:
+            selected: list[tuple[int, dict[str, Any]]] = []
+            leftovers: list[tuple[int, dict[str, Any]]] = []
+            roots_count = max(1, len(grouped))
+            root_soft_cap = max(8, int(target_keep / roots_count * 1.8))
+            for root_items in grouped.values():
+                ordered = sorted(root_items, key=lambda item: item[0], reverse=True)
+                quota = min(
+                    len(ordered),
+                    max(4, min(root_soft_cap, int(len(ordered) * 0.55) + 2)),
+                )
+                selected.extend(ordered[:quota])
+                leftovers.extend(ordered[quota:])
+
+            if len(selected) > target_keep:
+                selected = sorted(selected, key=lambda item: item[0], reverse=True)[:target_keep]
+            elif len(selected) < target_keep and leftovers:
+                need = target_keep - len(selected)
+                selected.extend(sorted(leftovers, key=lambda item: item[0], reverse=True)[:need])
+
+            ranked_chunks = sorted(selected, key=lambda item: item[1].get("chunk_index", 0))
+
+    if len(ranked_chunks) < original_ranked_count:
+        pruned_by_cap = original_ranked_count - len(ranked_chunks)
+        dropped_chunks += pruned_by_cap
+        dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + pruned_by_cap
+
+    semantic_chunks = [item[1] for item in ranked_chunks]
+
     for index, chunk in enumerate(semantic_chunks):
         normalized_chunk_text, attachments = extract_chunk_attachments(chunk["text"])
         chunks.append(
@@ -323,6 +478,9 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
                 "heading_context": chunk.get("heading_context") or extract_heading_context(normalized_chunk_text),
                 "heading_path": chunk.get("heading_path", extract_heading_path(normalized_chunk_text)),
                 "semantic_group": chunk.get("semantic_group", infer_semantic_group(normalized_chunk_text, extract_heading_path(normalized_chunk_text))),
+                "system_root": chunk.get("system_root", infer_system_root(chunk.get("heading_path", []), normalized_chunk_text)),
+                "pre_prune_score": int(chunk.get("pre_prune_score") or _chunk_keep_score(chunk)),
+                "embed_score": float(chunk.get("embed_score", 0.0)),
                 "attachments": attachments,
             }
         )
@@ -332,11 +490,14 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
             "source": source.name,
             "path": f"data/KG/raw/{source.name}",
             "num_chunks": len(semantic_chunks),
+            "dropped_chunks": dropped_by_doc.get(doc_id, 0),
         }
     )
     return {
         "chunks": chunks,
         "doc_source_map": doc_source_map,
+        "dropped_chunks": dropped_chunks,
+        "dropped_by_doc": dropped_by_doc,
         "file_cursor": file_cursor + 1,
     }
 
@@ -729,6 +890,86 @@ def _extract_route_after_chunk(state: ExtractState) -> str:
     return "process_chunk"
 
 
+def _same_root_heading(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    left_path = left.get("heading_path") or []
+    right_path = right.get("heading_path") or []
+    return bool(left_path) and bool(right_path) and left_path[:1] == right_path[:1]
+
+
+def _same_semantic_family(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    return _semantic_family(left.get("semantic_group", "")) == _semantic_family(
+        right.get("semantic_group", "")
+    )
+
+
+def _build_extract_bundle(
+    doc_chunks: list[dict[str, Any]],
+    start_index: int,
+    done_chunk_ids: set[str],
+) -> list[dict[str, Any]]:
+    bundle_small_chars = int(os.environ.get("KG_EXTRACT_BUNDLE_SMALL_CHARS", "1600"))
+    bundle_max_chars = int(os.environ.get("KG_EXTRACT_BUNDLE_MAX_CHARS", "5200"))
+    bundle_max_chunks = int(os.environ.get("KG_EXTRACT_BUNDLE_MAX_CHUNKS", "4"))
+
+    first = doc_chunks[start_index]
+    first_text = str(first.get("text", "")).strip()
+    if len(first_text) >= bundle_small_chars:
+        return [first]
+
+    bundle = [first]
+    total_chars = len(first_text)
+
+    for index in range(start_index + 1, len(doc_chunks)):
+        if len(bundle) >= bundle_max_chunks:
+            break
+        candidate = doc_chunks[index]
+        candidate_id = candidate.get("chunk_id", "")
+        candidate_text = str(candidate.get("text", "")).strip()
+        if candidate_id in done_chunk_ids or len(candidate_text) < LLM_MIN_CHUNK_CHARS:
+            break
+        if len(candidate_text) >= bundle_small_chars:
+            break
+        if not _same_root_heading(first, candidate):
+            break
+        if not _same_semantic_family(first, candidate):
+            break
+        if total_chars + 2 + len(candidate_text) > bundle_max_chars:
+            break
+        bundle.append(candidate)
+        total_chars += 2 + len(candidate_text)
+
+    return bundle
+
+
+def _build_bundle_prompt(
+    bundle: list[dict[str, Any]],
+    doc_entities: list[dict[str, Any]],
+    doc_relations: list[dict[str, Any]],
+    use_context: bool,
+) -> str:
+    user_parts = ["请从以下文本中抽取知识图谱三元组："]
+    if use_context and doc_entities:
+        user_parts.append(build_context_snapshot(doc_entities, doc_relations))
+    if len(bundle) == 1:
+        chunk = bundle[0]
+        if chunk.get("heading_context"):
+            user_parts.append(f"所属章节：{chunk['heading_context']}")
+        user_parts.append(f"待抽取文本：\n{chunk['text']}")
+        return "\n\n".join(user_parts)
+
+    user_parts.append(
+        "以下是同一文档、同一语义系群下的连续片段。请联合理解后抽取，但不要编造跨片段关系。"
+    )
+    for idx, chunk in enumerate(bundle, start=1):
+        header_parts = [f"片段{idx}", f"chunk_id={chunk.get('chunk_id', '')}"]
+        if chunk.get("heading_context"):
+            header_parts.append(f"heading={chunk['heading_context']}")
+        header_parts.append(f"semantic_group={chunk.get('semantic_group', '')}")
+        user_parts.append(" | ".join(header_parts))
+        user_parts.append(str(chunk.get("text", "")))
+    return "\n\n".join(user_parts)
+
+
 def prepare_extract_node(state: ExtractState) -> ExtractState:
     paths = state["paths"]
     apply_local_envs(paths.env_paths)
@@ -829,6 +1070,7 @@ def prepare_extract_node(state: ExtractState) -> ExtractState:
         "total_cross_chunk_relations": 0,
         "skipped_low_value_chunks": 0,
         "chunks_since_checkpoint": 0,
+        "bundled_extract_requests": 0,
         "failed": False,
         "error": None,
     }
@@ -883,7 +1125,8 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
         return {}
 
     chunk_cursor = state.get("chunk_cursor", 0)
-    chunk = state["doc_chunk_map"][current_doc_id][chunk_cursor]
+    doc_chunks = state["doc_chunk_map"][current_doc_id]
+    chunk = doc_chunks[chunk_cursor]
     done_chunk_ids = set(state.get("done_chunk_ids", []))
     all_entities = list(state.get("all_entities", []))
     all_relations = list(state.get("all_relations", []))
@@ -894,6 +1137,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
     total_cross_chunk_relations = state.get("total_cross_chunk_relations", 0)
     skipped_low_value_chunks = state.get("skipped_low_value_chunks", 0)
     chunks_since_checkpoint = state.get("chunks_since_checkpoint", 0)
+    bundled_extract_requests = state.get("bundled_extract_requests", 0)
 
     chunk_id = chunk["chunk_id"]
     chunk_text_chars = len(chunk["text"])
@@ -920,25 +1164,29 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
             "chunk_cursor": chunk_cursor + 1,
         }
 
-    user_parts = ["请从以下文本中抽取知识图谱三元组："]
-    if state.get("use_context", True) and doc_entities:
-        user_parts.append(build_context_snapshot(doc_entities, doc_relations))
-    if chunk.get("heading_context"):
-        user_parts.append(f"所属章节：{chunk['heading_context']}")
-    user_parts.append(f"待抽取文本：\n{chunk['text']}")
-    user_content = "\n\n".join(user_parts)
+    bundle = _build_extract_bundle(doc_chunks, chunk_cursor, done_chunk_ids)
+    bundle_chunk_ids = [item["chunk_id"] for item in bundle]
+    bundle_chunk_id = merge_chunk_ids(bundle_chunk_ids)
+    bundle_text_chars = sum(len(str(item.get("text", ""))) for item in bundle)
+    user_content = _build_bundle_prompt(
+        bundle,
+        doc_entities,
+        doc_relations,
+        state.get("use_context", True),
+    )
     doc_entity_names = {entity["name"] for entity in doc_entities}
     _log(
         state,
-        "Step 3 请求 chunk | chunk=%s/%s | doc_id=%s | doc_chunk=%s/%s | chunk_id=%s | text_chars=%s | request_chars=%s | context_entities=%s | context_relations=%s | semantic_group=%s"
+        "Step 3 请求 chunk%s | chunk=%s/%s | doc_id=%s | doc_chunk=%s/%s | chunk_ids=%s | text_chars=%s | request_chars=%s | context_entities=%s | context_relations=%s | semantic_group=%s"
         % (
+            "(batched)" if len(bundle) > 1 else "",
             global_index,
             total_target_chunks,
             current_doc_id,
             chunk_cursor + 1,
-            len(state["doc_chunk_map"][current_doc_id]),
-            chunk_id,
-            chunk_text_chars,
+            len(doc_chunks),
+            bundle_chunk_ids,
+            bundle_text_chars,
             len(user_content),
             len(doc_entities),
             len(doc_relations),
@@ -946,9 +1194,20 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
         ),
     )
 
-    quality_payload = heuristic_chunk_score(chunk)
+    quality_chunk = dict(chunk)
+    if len(bundle) > 1:
+        quality_chunk["text"] = "\n\n".join(str(item.get("text", "")) for item in bundle)
+        quality_chunk["heading_context"] = " / ".join(
+            [
+                str(item.get("heading_context", "")).strip()
+                for item in bundle
+                if str(item.get("heading_context", "")).strip()
+            ]
+        )
+        quality_chunk["semantic_group"] = chunk.get("semantic_group", "")
+    quality_payload = heuristic_chunk_score(quality_chunk)
     if os.environ.get(LLM_MOCK_ENV, "0") != "1":
-        quality_request = build_quality_score_request(chunk)
+        quality_request = build_quality_score_request(quality_chunk)
         try:
             quality_response = state["client"].chat.completions.create(
                 model=state["model"],
@@ -969,7 +1228,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
                 % (
                     global_index,
                     total_target_chunks,
-                    chunk_id,
+                    bundle_chunk_ids,
                     f"{type(exc).__name__}: {exc}",
                 ),
                 "error",
@@ -977,11 +1236,11 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
 
     _log(
         state,
-        "Step 3 chunk 评分 | chunk=%s/%s | chunk_id=%s | score=%s | decision=%s | category=%s | reasons=%s"
+        "Step 3 chunk 评分 | chunk=%s/%s | chunk_ids=%s | score=%s | decision=%s | category=%s | reasons=%s"
         % (
             global_index,
             total_target_chunks,
-            chunk_id,
+            bundle_chunk_ids,
             quality_payload.get("score", 0),
             quality_payload.get("decision", ""),
             quality_payload.get("category", ""),
@@ -989,22 +1248,23 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
         ),
     )
     if quality_payload.get("decision") != "extract":
-        done_chunk_ids.add(chunk_id)
-        skipped_low_value_chunks += 1
+        done_chunk_ids.update(bundle_chunk_ids)
+        skipped_low_value_chunks += len(bundle)
         _log(
             state,
-            "Step 3 跳过低价值 chunk | chunk=%s/%s | chunk_id=%s | score=%s | threshold=%s"
+            "Step 3 跳过低价值 chunk%s | chunk=%s/%s | chunk_ids=%s | score=%s | threshold=%s"
             % (
+                "(batched)" if len(bundle) > 1 else "",
                 global_index,
                 total_target_chunks,
-                chunk_id,
+                bundle_chunk_ids,
                 quality_payload.get("score", 0),
                 LLM_QUALITY_SCORE_THRESHOLD,
             ),
         )
         return {
             "done_chunk_ids": sorted(done_chunk_ids),
-            "chunk_cursor": chunk_cursor + 1,
+            "chunk_cursor": chunk_cursor + len(bundle),
             "skipped_low_value_chunks": skipped_low_value_chunks,
         }
 
@@ -1040,24 +1300,26 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
             )
             for entity in entities:
                 entity["doc_id"] = current_doc_id
-                entity["chunk_id"] = chunk_id
+                entity["chunk_id"] = bundle_chunk_id
                 entity["source"] = chunk.get("source", "")
             for relation in relations:
                 relation["doc_id"] = current_doc_id
-                relation["chunk_id"] = chunk_id
+                relation["chunk_id"] = bundle_chunk_id
             all_entities.extend(entities)
             all_relations.extend(relations)
             doc_entities.extend(entities)
             doc_relations.extend(relations)
-            done_chunk_ids.add(chunk_id)
-            chunks_since_checkpoint += 1
+            done_chunk_ids.update(bundle_chunk_ids)
+            chunks_since_checkpoint += len(bundle)
+            bundled_extract_requests += 1 if len(bundle) > 1 else 0
             _log(
                 state,
-                "Step 3 完成 chunk | chunk=%s/%s | chunk_id=%s | new_entities=%s | new_relations=%s | total_entities=%s | total_relations=%s"
+                "Step 3 完成 chunk%s | chunk=%s/%s | chunk_ids=%s | new_entities=%s | new_relations=%s | total_entities=%s | total_relations=%s"
                 % (
+                    "(batched)" if len(bundle) > 1 else "",
                     global_index,
                     total_target_chunks,
-                    chunk_id,
+                    bundle_chunk_ids,
                     len(entities),
                     len(relations),
                     len(all_entities),
@@ -1084,7 +1346,7 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
                 % (
                     global_index,
                     total_target_chunks,
-                    chunk_id,
+                    bundle_chunk_ids,
                     retries,
                     LLM_RETRY_LIMIT,
                     f"{type(exc).__name__}: {exc}",
@@ -1109,12 +1371,13 @@ def process_extract_chunk_node(state: ExtractState) -> ExtractState:
         "current_doc_entities": doc_entities,
         "current_doc_relations": doc_relations,
         "done_chunk_ids": sorted(done_chunk_ids),
-        "chunk_cursor": chunk_cursor + 1,
+        "chunk_cursor": chunk_cursor + len(bundle),
         "total_filtered_entities": total_filtered_entities,
         "total_filtered_relations": total_filtered_relations,
         "total_cross_chunk_relations": total_cross_chunk_relations,
         "skipped_low_value_chunks": skipped_low_value_chunks,
         "chunks_since_checkpoint": chunks_since_checkpoint,
+        "bundled_extract_requests": bundled_extract_requests,
     }
 
 
@@ -1133,6 +1396,7 @@ def finalize_extract_node(state: ExtractState) -> ExtractState:
     return {
         "all_entities": state.get("all_entities", []),
         "all_relations": state.get("all_relations", []),
+        "bundled_extract_requests": state.get("bundled_extract_requests", 0),
     }
 
 
@@ -1400,6 +1664,7 @@ def run_extract_workflow(
         "cross_chunk_relations": final_state.get("total_cross_chunk_relations", 0),
         "filtered_entities": final_state.get("total_filtered_entities", 0),
         "filtered_relations": final_state.get("total_filtered_relations", 0),
+        "bundled_extract_requests": final_state.get("bundled_extract_requests", 0),
     }
 
 
@@ -1433,6 +1698,7 @@ def run_chunk_workflow(paths: PipelinePaths) -> dict[str, Any]:
     return {
         "documents": len(final_state.get("doc_source_map", [])),
         "chunks": len(final_state.get("chunks", [])),
+        "dropped_chunks": final_state.get("dropped_chunks", 0),
     }
 
 

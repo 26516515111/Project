@@ -136,7 +136,7 @@ def evaluate_kg(kg_path: str, expected_list_path: str):
         return
         
     print("🚀 正在加载嵌入模型进行语义匹配测评...")
-    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-small-zh-v1.5")
+    model_name = os.environ.get("BGE_MODEL_NAME", "BAAI/bge-m3")
     device = "cuda" if torch.cuda.is_available() else "cpu"
     try:
         model = SentenceTransformer(model_name, device=device)

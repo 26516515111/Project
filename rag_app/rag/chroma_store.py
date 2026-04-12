@@ -40,7 +40,16 @@ class ChromaStore:
             return self._store
 
         texts = [c["text"] for c in chunks]
-        metadatas = [{"doc_id": c["doc_id"], "source": c["source"]} for c in chunks]
+        metadatas = [
+            {
+                "doc_id": c["doc_id"],
+                "source": c["source"],
+                "source_doc_id": c.get("source_doc_id", ""),
+                "chunk_index": c.get("chunk_index", -1),
+                "heading_context": c.get("heading_context", ""),
+            }
+            for c in chunks
+        ]
         self._store = Chroma.from_texts(
             texts=texts,
             embedding=self._embeddings,

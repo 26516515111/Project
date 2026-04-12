@@ -178,7 +178,20 @@ def build_embeddings(model_name: Optional[str] = None):
         )
         raise RuntimeError("Embeddings are not available")
     embedding_model = model_name or SETTINGS.embedding_model
-    return HuggingFaceEmbeddings(model_name=embedding_model)
+    model_kwargs = {
+        "local_files_only": bool(getattr(SETTINGS, "embedding_local_only", True))
+    }
+    cache_folder = str(getattr(SETTINGS, "embedding_cache_dir", "") or "").strip()
+    if cache_folder:
+        return HuggingFaceEmbeddings(
+            model_name=embedding_model,
+            cache_folder=cache_folder,
+            model_kwargs=model_kwargs,
+        )
+    return HuggingFaceEmbeddings(
+        model_name=embedding_model,
+        model_kwargs=model_kwargs,
+    )
 
 
 def build_reranker_components(

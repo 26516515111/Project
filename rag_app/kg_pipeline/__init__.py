@@ -13,6 +13,9 @@ from .config import (
     LLM_SLEEP_SECONDS,
     LLM_CHECKPOINT_EVERY_CHUNKS,
     LLM_MOCK_ENV,
+    KG_CHUNK_SIZE,
+    KG_CHUNK_OVERLAP,
+    KG_MIN_CHUNK_SIZE,
 )
 
 __all__ = [
@@ -30,4 +33,7 @@ __all__ = [
     "LLM_SLEEP_SECONDS",
     "LLM_CHECKPOINT_EVERY_CHUNKS",
     "LLM_MOCK_ENV",
+    "KG_CHUNK_SIZE",
+    "KG_CHUNK_OVERLAP",
+    "KG_MIN_CHUNK_SIZE",
 ]

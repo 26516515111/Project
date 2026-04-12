@@ -1,19 +1,6 @@
 {
-  "kg_name": "KG",
-  "used_files": [
-    "CDQY2A-PC2-6型 船用主柴油机电气遥控系统说明书.md",
-    "GC WAS-01 驾驶室船舶值班报警系统说明书.md",
-    "机舱微机监测报警系统说明书.md",
-    "机舱总线制监测报警使用说明书.md",
-    "柴油机智能延伸检测单元说明书.md"
-  ],
-  "completed_steps": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-  ],
-  "last_archive": "/home/shahanshah/work/ship/Project/rag_app/data/KG/backups/archives/KG.tar_002.gz"
+  "kg_name": "发动机+电气",
+  "used_files": ["D16维护保养手册.md", "D8操作手册.md", "D8维护保养手册.md"],
+  "completed_steps": [1, 2, 3, 4, 5, 6],
+  "last_archive": ""
 }

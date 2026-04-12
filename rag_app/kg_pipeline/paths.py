@@ -91,6 +91,10 @@ class PipelinePaths:
         return self.delivery_dir / "entity_merge_log.json"
 
     @property
+    def alias_map_path(self) -> Path:
+        return self.delivery_dir / "entity_alias_map.json"
+
+    @property
     def chunk_to_kg_path(self) -> Path:
         return self.chunks_dir / "chunk_to_kg.json"
 

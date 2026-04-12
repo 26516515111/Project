@@ -69,6 +69,7 @@ def summarize_output(output: Any) -> str:
         "cross_chunk_relations",
         "filtered_entities",
         "filtered_relations",
+        "bundled_extract_requests",
         "semantic_merges",
         "merge_log_entries",
         "imported",

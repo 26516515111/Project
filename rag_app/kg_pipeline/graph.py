@@ -5,6 +5,7 @@ from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
+from package_kgs import materialize_backup_kgs, migrate_flat_build_root, package_kgs
 from .paths import PipelinePaths
 from .pipeline_logging import PipelineLogger, summarize_output
 from .workflows import (
@@ -16,7 +17,7 @@ from .workflows import (
     run_visualize_workflow,
 )
 
-STEP_SEQUENCE = [1, 2, 3, 4, 5, 6]
+STEP_SEQUENCE = [1, 2, 3, 4, 5, 6, 7]
 
 
 class PipelineState(TypedDict, total=False):
@@ -33,6 +34,9 @@ class PipelineState(TypedDict, total=False):
     neo4j_dump: bool
     visualize_top_n: int
     visualize_label: str | None
+    release_kg_names: list[str]
+    release_output_name: str
+    release_import_backups: bool
     selected_steps: list[int]
     logs: list[str]
     logger: PipelineLogger | None
@@ -85,18 +89,19 @@ def _run_step(state: PipelineState, step_no: int, description: str, action) -> P
     outputs = dict(state.get("outputs", {}))
     if state.get("failed", False):
         return {"logs": logs, "outputs": outputs}
+    kg_name = state["paths"].kg_name
     if step_no not in state.get("selected_steps", []):
-        message = f"跳过 Step {step_no}: {description}"
+        message = f"跳过 Step {step_no}: {description} | kg={kg_name}"
         logs.append(message)
         _emit(state, message)
         return {"logs": logs, "outputs": outputs}
     if state.get("dry_run", False):
-        message = f"[dry-run] Step {step_no}: {description}"
+        message = f"[dry-run] Step {step_no}: {description} | kg={kg_name}"
         logs.append(message)
         _emit(state, message)
         return {"logs": logs, "outputs": outputs}
     start_time = perf_counter()
-    start_message = f"开始 Step {step_no}: {description}"
+    start_message = f"开始 Step {step_no}: {description} | kg={kg_name}"
     logs.append(start_message)
     _emit(state, start_message)
     try:
@@ -105,15 +110,15 @@ def _run_step(state: PipelineState, step_no: int, description: str, action) -> P
         elapsed = perf_counter() - start_time
         summary = summarize_output(step_output)
         if summary:
-            message = f"完成 Step {step_no}: {description} | 耗时 {elapsed:.2f}s | {summary}"
+            message = f"完成 Step {step_no}: {description} | kg={kg_name} | 耗时 {elapsed:.2f}s | {summary}"
         else:
-            message = f"完成 Step {step_no}: {description} | 耗时 {elapsed:.2f}s"
+            message = f"完成 Step {step_no}: {description} | kg={kg_name} | 耗时 {elapsed:.2f}s"
         logs.append(message)
         _emit(state, message)
         return {"logs": logs, "outputs": outputs}
     except Exception as exc:
         elapsed = perf_counter() - start_time
-        message = f"失败 Step {step_no}: {description} | 耗时 {elapsed:.2f}s | {exc}"
+        message = f"失败 Step {step_no}: {description} | kg={kg_name} | 耗时 {elapsed:.2f}s | {exc}"
         logs.append(message)
         _emit(state, message, "error")
         return {"logs": logs, "outputs": outputs, "failed": True, "failed_step": step_no}
@@ -172,6 +177,24 @@ def step6_node(state: PipelineState) -> PipelineState:
     )
 
 
+def step7_node(state: PipelineState) -> PipelineState:
+    return _run_step(
+        state,
+        7,
+        "Release 发布",
+        lambda paths, st: _run_release(paths, st),
+    )
+
+
+def _run_release(paths: PipelinePaths, state: PipelineState) -> dict[str, Any]:
+    if state.get("release_import_backups", True):
+        migrate_flat_build_root(paths)
+        materialize_backup_kgs(paths)
+    release_kg_names = state.get("release_kg_names") or [paths.kg_name]
+    release_output_name = state.get("release_output_name", "release")
+    return package_kgs(paths, release_kg_names, release_output_name)
+
+
 def route_after_node(state: PipelineState) -> str:
     return "fail" if state.get("failed", False) else "next"
 
@@ -204,6 +227,7 @@ def build_graph():
     graph.add_node("step4", step4_node)
     graph.add_node("step5", step5_node)
     graph.add_node("step6", step6_node)
+    graph.add_node("step7", step7_node)
     graph.add_node("fail", fail_node)
     graph.add_node("done", done_node)
 
@@ -214,7 +238,8 @@ def build_graph():
     graph.add_conditional_edges("step3", route_after_node, {"next": "step4", "fail": "fail"})
     graph.add_conditional_edges("step4", route_after_node, {"next": "step5", "fail": "fail"})
     graph.add_conditional_edges("step5", route_after_node, {"next": "step6", "fail": "fail"})
-    graph.add_conditional_edges("step6", route_after_node, {"next": "done", "fail": "fail"})
+    graph.add_conditional_edges("step6", route_after_node, {"next": "step7", "fail": "fail"})
+    graph.add_conditional_edges("step7", route_after_node, {"next": "done", "fail": "fail"})
     graph.add_edge("done", END)
     graph.add_edge("fail", END)
     return graph.compile()

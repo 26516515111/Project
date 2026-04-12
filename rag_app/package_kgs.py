@@ -52,17 +52,17 @@ def ensure_list(value: Any) -> list[Any]:
     return [value]
 
 
-def namespace_doc_id(kg_name: str, doc_id: str) -> str:
+def namespace_doc_id(kg_name: str, doc_id: str, enabled: bool) -> str:
     value = str(doc_id or "").strip()
-    if not value:
+    if not value or not enabled:
         return ""
     prefix = f"{kg_name}::"
     return value if value.startswith(prefix) else f"{prefix}{value}"
 
 
-def namespace_chunk_id(kg_name: str, chunk_id: str) -> str:
+def namespace_chunk_id(kg_name: str, chunk_id: str, enabled: bool) -> str:
     value = str(chunk_id or "").strip()
-    if not value:
+    if not value or not enabled:
         return ""
     prefix = f"{kg_name}::"
     return value if value.startswith(prefix) else f"{prefix}{value}"
@@ -132,29 +132,38 @@ def rename_entity_name(
     name: str,
     label: str,
     collision_keys: set[tuple[str, str]],
+    namespace_enabled: bool,
 ) -> str:
     key = (str(name or "").strip(), str(label or "").strip())
-    if key in collision_keys:
+    if namespace_enabled and key in collision_keys:
         return f"{kg_name}::{key[0]}"
     return key[0]
 
 
-def transform_chunks(kg_name: str, chunks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def transform_chunks(
+    kg_name: str, chunks: list[dict[str, Any]], namespace_enabled: bool
+) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in chunks:
         row = dict(item)
-        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
-        row["source_doc_id"] = namespace_doc_id(kg_name, row.get("source_doc_id", row.get("doc_id", "")))
-        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""))
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""), namespace_enabled) or str(row.get("doc_id", "")).strip()
+        row["source_doc_id"] = namespace_doc_id(
+            kg_name,
+            row.get("source_doc_id", row.get("doc_id", "")),
+            namespace_enabled,
+        ) or str(row.get("source_doc_id", row.get("doc_id", ""))).strip()
+        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""), namespace_enabled) or str(row.get("chunk_id", "")).strip()
         output.append(row)
     return output
 
 
-def transform_doc_map(kg_name: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def transform_doc_map(
+    kg_name: str, items: list[dict[str, Any]], namespace_enabled: bool
+) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in items:
         row = dict(item)
-        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""), namespace_enabled) or str(row.get("doc_id", "")).strip()
         output.append(row)
     return output
 
@@ -163,6 +172,7 @@ def transform_chunk_to_kg(
     kg_name: str,
     data: dict[str, Any] | list[dict[str, Any]],
     renamed_entities: dict[tuple[str, str], str],
+    namespace_enabled: bool,
 ) -> list[dict[str, Any]]:
     chunks = data.get("chunks", []) if isinstance(data, dict) else data
     output: list[dict[str, Any]] = []
@@ -173,8 +183,8 @@ def transform_chunk_to_kg(
     }
     for item in chunks:
         row = dict(item)
-        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""))
-        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""))
+        row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""), namespace_enabled) or str(row.get("doc_id", "")).strip()
+        row["chunk_id"] = namespace_chunk_id(kg_name, row.get("chunk_id", ""), namespace_enabled) or str(row.get("chunk_id", "")).strip()
         row["kg_entities"] = [
             flat_name_map.get(str(name).strip(), str(name).strip())
             for name in ensure_list(row.get("kg_entities"))
@@ -188,6 +198,7 @@ def transform_entities(
     kg_name: str,
     entities: list[dict[str, Any]],
     collision_keys: set[tuple[str, str]],
+    namespace_enabled: bool,
 ) -> tuple[list[dict[str, Any]], dict[tuple[str, str], str]]:
     renamed: dict[tuple[str, str], str] = {}
     output: list[dict[str, Any]] = []
@@ -195,11 +206,21 @@ def transform_entities(
         row = dict(item)
         original_name = str(row.get("name", "")).strip()
         label = str(row.get("label", "")).strip()
-        new_name = rename_entity_name(kg_name, original_name, label, collision_keys)
+        new_name = rename_entity_name(
+            kg_name, original_name, label, collision_keys, namespace_enabled
+        )
         renamed[(label, original_name)] = new_name
         row["name"] = new_name
-        row["doc_id"] = [namespace_doc_id(kg_name, value) for value in ensure_list(row.get("doc_id")) if str(value).strip()]
-        row["chunk_id"] = [namespace_chunk_id(kg_name, value) for value in ensure_list(row.get("chunk_id")) if str(value).strip()]
+        row["doc_id"] = [
+            namespace_doc_id(kg_name, value, namespace_enabled) or str(value).strip()
+            for value in ensure_list(row.get("doc_id"))
+            if str(value).strip()
+        ]
+        row["chunk_id"] = [
+            namespace_chunk_id(kg_name, value, namespace_enabled) or str(value).strip()
+            for value in ensure_list(row.get("chunk_id"))
+            if str(value).strip()
+        ]
         row.pop("entity_id", None)
         output.append(row)
     return output, renamed
@@ -213,24 +234,36 @@ def transform_relations(
     kg_name: str,
     relations: list[dict[str, Any]],
     renamed_entities: dict[tuple[str, str], str],
+    namespace_enabled: bool,
 ) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in relations:
         row = dict(item)
         row["head"] = rename_by_label(row.get("head", ""), row.get("head_label", ""), renamed_entities)
         row["tail"] = rename_by_label(row.get("tail", ""), row.get("tail_label", ""), renamed_entities)
-        row["doc_id"] = [namespace_doc_id(kg_name, value) for value in ensure_list(row.get("doc_id")) if str(value).strip()]
-        row["chunk_id"] = [namespace_chunk_id(kg_name, value) for value in ensure_list(row.get("chunk_id")) if str(value).strip()]
+        row["doc_id"] = [
+            namespace_doc_id(kg_name, value, namespace_enabled) or str(value).strip()
+            for value in ensure_list(row.get("doc_id"))
+            if str(value).strip()
+        ]
+        row["chunk_id"] = [
+            namespace_chunk_id(kg_name, value, namespace_enabled) or str(value).strip()
+            for value in ensure_list(row.get("chunk_id"))
+            if str(value).strip()
+        ]
         row.pop("rel_id", None)
         output.append(row)
     return output
 
 
-def transform_merge_log(kg_name: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def transform_merge_log(
+    kg_name: str, items: list[dict[str, Any]], namespace_enabled: bool
+) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in items:
         row = dict(item)
-        row["kg_name"] = kg_name
+        if namespace_enabled:
+            row["kg_name"] = kg_name
         output.append(row)
     return output
 
@@ -259,6 +292,17 @@ def ensure_package_dirs(paths: PipelinePaths) -> None:
     (paths.kg_dir / "delivery").mkdir(parents=True, exist_ok=True)
 
 
+def write_rag_compat_outputs(
+    paths: PipelinePaths,
+    merged_chunks: list[dict[str, Any]],
+    merged_doc_map: list[dict[str, Any]],
+    merged_chunk_to_kg: list[dict[str, Any]],
+) -> None:
+    write_json(paths.data_dir / "chunks.json", merged_chunks)
+    write_json(paths.data_dir / "doc_source_map.json", merged_doc_map)
+    write_json(paths.data_dir / "chunk_to_kg.json", {"chunks": merged_chunk_to_kg})
+
+
 def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> dict[str, Any]:
     build_dirs = [
         (normalize_build_kg_name(name), paths.build_root_dir / normalize_build_kg_name(name))
@@ -268,7 +312,8 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     if missing:
         raise SystemExit(f"未找到以下 KG_Build 子目录: {', '.join(missing)}")
 
-    collision_keys = collect_collision_keys(build_dirs)
+    namespace_enabled = len(build_dirs) > 1
+    collision_keys = collect_collision_keys(build_dirs) if namespace_enabled else set()
     merged_chunks: list[dict[str, Any]] = []
     merged_doc_map: list[dict[str, Any]] = []
     merged_chunk_to_kg: list[dict[str, Any]] = []
@@ -296,26 +341,28 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
                 raw_payload = read_json(matches[0], raw_payload)
 
         transformed_entities, renamed_entities = transform_entities(
-            kg_name, delivery.get("entities", []), collision_keys
+            kg_name, delivery.get("entities", []), collision_keys, namespace_enabled
         )
         transformed_relations = transform_relations(
-            kg_name, delivery.get("relations", []), renamed_entities
+            kg_name, delivery.get("relations", []), renamed_entities, namespace_enabled
         )
         transformed_raw_entities, _ = transform_entities(
-            kg_name, raw_payload.get("entities", []), collision_keys
+            kg_name, raw_payload.get("entities", []), collision_keys, namespace_enabled
         )
         transformed_raw_relations = transform_relations(
-            kg_name, raw_payload.get("relations", []), renamed_entities
+            kg_name, raw_payload.get("relations", []), renamed_entities, namespace_enabled
         )
 
-        merged_chunks.extend(transform_chunks(kg_name, chunks))
-        merged_doc_map.extend(transform_doc_map(kg_name, doc_map))
-        merged_chunk_to_kg.extend(transform_chunk_to_kg(kg_name, chunk_to_kg, renamed_entities))
+        merged_chunks.extend(transform_chunks(kg_name, chunks, namespace_enabled))
+        merged_doc_map.extend(transform_doc_map(kg_name, doc_map, namespace_enabled))
+        merged_chunk_to_kg.extend(
+            transform_chunk_to_kg(kg_name, chunk_to_kg, renamed_entities, namespace_enabled)
+        )
         merged_raw_entities.extend(transformed_raw_entities)
         merged_raw_relations.extend(transformed_raw_relations)
         merged_entities.extend(transformed_entities)
         merged_relations.extend(transformed_relations)
-        merged_merge_log.extend(transform_merge_log(kg_name, merge_log))
+        merged_merge_log.extend(transform_merge_log(kg_name, merge_log, namespace_enabled))
 
     merged_raw = {
         "entities": assign_entity_ids(merged_raw_entities),
@@ -333,10 +380,12 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     write_json(paths.kg_dir / "extracted" / "kg_raw.json", merged_raw)
     write_json(paths.kg_dir / "delivery" / "kg_merged.json", merged_delivery)
     write_json(paths.kg_dir / "delivery" / "entity_merge_log.json", merged_merge_log)
+    write_rag_compat_outputs(paths, merged_chunks, merged_doc_map, merged_chunk_to_kg)
     write_json(
         paths.kg_dir / "package_manifest.json",
         {
             "output_name": output_name,
+            "mode": "package" if namespace_enabled else "single",
             "kg_names": [name for name, _ in build_dirs],
             "entities": len(merged_delivery["entities"]),
             "relations": len(merged_delivery["relations"]),

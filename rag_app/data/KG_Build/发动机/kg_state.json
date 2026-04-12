@@ -1,0 +1,13 @@
+{
+  "kg_name": "发动机",
+  "used_files": [
+    "D16维护保养手册.md",
+    "D8操作手册.md",
+    "D8维护保养手册.md"
+  ],
+  "completed_steps": [
+    1,
+    2
+  ],
+  "last_archive": ""
+}

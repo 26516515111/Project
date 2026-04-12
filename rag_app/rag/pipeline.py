@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 
 class RagPipeline:
-    def __init__(self):
+    def __init__(self, query_only: bool = False):
         """初始化RAG流水线，加载文档、索引与检索器。
 
         Args:
@@ -40,10 +40,15 @@ class RagPipeline:
         Returns:
             None
         """
-        self.docs = load_documents(SETTINGS.docs_dir)
+        self.docs = []
         self.chunks = load_chunks_json(SETTINGS.data_dir)
-        if not self.chunks:
+        if not self.chunks and not query_only:
+            self.docs = load_documents(SETTINGS.docs_dir)
             self.chunks = TextChunker.from_settings(SETTINGS).split_documents(self.docs)
+        if not self.chunks:
+            raise RuntimeError(
+                "No chunks found for query. Please complete indexing/upload before Q&A."
+            )
         self.doc_source_map = load_doc_source_map(SETTINGS.data_dir)
         self.chunk_kg_map = load_chunk_to_kg(SETTINGS.data_dir)
         self.chunk_text_map = {c["chunk_id"]: c.get("text", "") for c in self.chunks}
@@ -52,7 +57,9 @@ class RagPipeline:
         self.chunk_pos_by_chunk_id = self._build_chunk_pos_map(
             self.chunks_by_source_doc_id
         )
-        self.store = build_or_load_chroma(self.chunks, SETTINGS.index_dir)
+        self.store = build_or_load_chroma(
+            self.chunks, SETTINGS.index_dir, allow_build=not query_only
+        )
         self.bm25 = build_bm25(self.chunks)
         self.parent_retriever = build_parent_document_retriever(
             self.chunks,

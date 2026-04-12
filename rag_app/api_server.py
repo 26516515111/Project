@@ -29,6 +29,25 @@ app.add_middleware(
 _pipeline_lock = threading.RLock()
 _pipeline: Optional[RagPipeline] = None
 _allowed_suffixes = {".txt", ".md", ".pdf"}
+_preload_lock = threading.RLock()
+_preload_started = False
+
+
+def _warmup_models() -> None:
+    try:
+        _get_pipeline()
+    except Exception:
+        return
+
+
+def _start_warmup_async() -> None:
+    global _preload_started
+    with _preload_lock:
+        if _preload_started:
+            return
+        _preload_started = True
+    t = threading.Thread(target=_warmup_models, daemon=True)
+    t.start()
 
 
 def _get_pipeline() -> RagPipeline:
@@ -43,6 +62,11 @@ def _reload_pipeline() -> None:
     global _pipeline
     with _pipeline_lock:
         _pipeline = RagPipeline()
+
+
+@app.on_event("startup")
+def on_startup() -> None:
+    _start_warmup_async()
 
 
 def _sanitize_user_id(user_id: str) -> str:
@@ -104,6 +128,17 @@ def query_rag(req: QueryRequest):
         pipeline = _get_pipeline()
         answer = pipeline.query(req)
         return pipeline.export_answer(answer)
+
+
+@app.post("/rag/preload")
+def preload_models(payload: Optional[dict] = None):
+    _start_warmup_async()
+    return {
+        "ok": True,
+        "status": "warming",
+        "user_id": _sanitize_user_id((payload or {}).get("user_id", "")),
+        "message": "model warmup triggered",
+    }
 
 
 @app.post("/rag/query/stream")
@@ -259,7 +294,9 @@ async def upload_incremental_file(
             stats = run_incremental_update(target_paths=[str(save_path_abs)])
             _reload_pipeline()
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"incremental indexing failed: {exc}") from exc
+        raise HTTPException(
+            status_code=500, detail=f"incremental indexing failed: {exc}"
+        ) from exc
 
     return {
         "ok": True,

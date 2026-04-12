@@ -134,7 +134,7 @@ class Settings:
 
     # LLM模块（可选）
     # RAG_LLM_PROVIDER：ollama|modelscope|none
-    llm_provider = env("RAG_LLM_PROVIDER", "ollama")  # ollama|modelscope|none
+    llm_provider = env("RAG_LLM_PROVIDER", "modelscope")  # ollama|modelscope|none
     # RAG_LLM_MODEL：聊天模型名称
     llm_model_name = env("RAG_LLM_MODEL", "qwen2.5:3b")
     # RAG_MODELSCOPE_MODEL：ModelScope聊天模型名称

@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from rag.config import SETTINGS
 from rag.chunking import TextChunker
@@ -44,6 +44,57 @@ def _rel_path(path: str, root: str) -> str:
         return os.path.relpath(path, root)
     except Exception:
         return path
+
+
+def _normalize_abs_path(path: str) -> str:
+    return os.path.normcase(os.path.abspath(str(path or "")))
+
+
+def _filter_docs_by_paths(all_docs: List[dict], target_paths: List[str]) -> List[dict]:
+    if not target_paths:
+        return all_docs
+    target_set = {_normalize_abs_path(p) for p in target_paths if str(p or "").strip()}
+    if not target_set:
+        return all_docs
+    selected: List[dict] = []
+    for doc in all_docs:
+        doc_path = _normalize_abs_path(doc.get("id", ""))
+        if doc_path in target_set:
+            selected.append(doc)
+    return selected
+
+
+def _resolve_chroma_batch_size(store, default_size: int = 2000) -> int:
+    """读取Chroma可接受的最大批次，读取失败时回退默认值。"""
+    try:
+        collection = getattr(store, "_collection", None)
+        client = getattr(collection, "_client", None)
+        if client is not None:
+            if hasattr(client, "get_max_batch_size"):
+                value = client.get_max_batch_size()
+                if isinstance(value, int) and value > 0:
+                    return value
+            if hasattr(client, "max_batch_size"):
+                raw = getattr(client, "max_batch_size")
+                value = raw() if callable(raw) else raw
+                if isinstance(value, int) and value > 0:
+                    return value
+    except Exception:
+        pass
+    return default_size
+
+
+def _add_texts_in_batches(store, texts: List[str], metadatas: List[dict]) -> None:
+    if not texts:
+        return
+    if len(texts) != len(metadatas):
+        raise ValueError("texts and metadatas length mismatch")
+
+    batch_size = _resolve_chroma_batch_size(store)
+    total = len(texts)
+    for start in range(0, total, batch_size):
+        end = min(start + batch_size, total)
+        store.add_texts(texts=texts[start:end], metadatas=metadatas[start:end])
 
 
 def _build_chunks_for_doc(doc: dict, chunker: TextChunker, doc_id: str) -> List[dict]:
@@ -106,7 +157,7 @@ def _update_doc_source_map(
     return list(existing.values())
 
 
-def main() -> None:
+def main(target_paths: Optional[List[str]] = None) -> Dict[str, int]:
     docs_dir = SETTINGS.docs_dir
     index_dir = SETTINGS.index_dir
     chunks_path = os.path.join(SETTINGS.data_dir, "chunks.json")
@@ -114,6 +165,7 @@ def main() -> None:
     os.makedirs(SETTINGS.data_dir, exist_ok=True)
 
     all_docs = load_documents(docs_dir)
+    all_docs = _filter_docs_by_paths(all_docs, target_paths or [])
     chunker = TextChunker.from_settings(SETTINGS)
 
     existing_chunks_raw = _read_chunks(chunks_path)
@@ -152,7 +204,11 @@ def main() -> None:
 
     if not new_chunks_raw:
         print("No new documents found. Nothing to update.")
-        return
+        return {
+            "processed_docs": len(all_docs),
+            "indexed_docs": 0,
+            "indexed_chunks": 0,
+        }
 
     store = build_or_load_chroma(existing_chunks_norm + new_chunks_norm, index_dir)
     if existing_chunks_norm:
@@ -161,7 +217,7 @@ def main() -> None:
             {"doc_id": c["chunk_id"], "source": c.get("source", "")}
             for c in new_chunks_norm
         ]
-        store.add_texts(texts=texts, metadatas=metadatas)
+        _add_texts_in_batches(store, texts, metadatas)
         if hasattr(store, "persist"):
             store.persist()
 
@@ -176,6 +232,11 @@ def main() -> None:
     print(
         f"Updated chunks.json (+{len(new_chunks_raw)} chunks) and doc_source_map.json (+{len(new_docs)} docs)."
     )
+    return {
+        "processed_docs": len(all_docs),
+        "indexed_docs": len(new_docs),
+        "indexed_chunks": len(new_chunks_raw),
+    }
 
 
 if __name__ == "__main__":

@@ -127,6 +127,58 @@ def query_rag_stream(payload: dict):
             with _pipeline_lock:
                 pipeline = _get_pipeline()
                 token_stream, payload_ctx = pipeline.stream_query_with_payload(req)
+
+                timing = payload_ctx.get("timing") or {}
+                t0 = timing.get("t0")
+                t1 = timing.get("t1")
+                t2 = timing.get("t2")
+                retrieve_ms = (
+                    int((t1 - t0) * 1000)
+                    if isinstance(t0, (int, float)) and isinstance(t1, (int, float))
+                    else None
+                )
+                kg_ms = (
+                    int((t2 - t1) * 1000)
+                    if isinstance(t1, (int, float)) and isinstance(t2, (int, float))
+                    else None
+                )
+
+                context_count = len(
+                    payload_ctx.get("context", {}).passages
+                    if payload_ctx.get("context")
+                    else []
+                )
+                yield _sse_json(
+                    "trace",
+                    {
+                        "stage": "retrieve",
+                        "message": "完成知识库检索",
+                        "context_count": context_count,
+                        "elapsed_ms": retrieve_ms,
+                    },
+                )
+
+                if req.use_kg:
+                    kg_count = len(payload_ctx.get("kg_triplets") or [])
+                    yield _sse_json(
+                        "trace",
+                        {
+                            "stage": "kg",
+                            "message": "完成知识图谱查询",
+                            "kg_triplet_count": kg_count,
+                            "elapsed_ms": kg_ms,
+                        },
+                    )
+
+                yield _sse_json(
+                    "trace",
+                    {
+                        "stage": "generate",
+                        "message": "开始答案生成",
+                        "mode": "online" if req.use_llm else "offline",
+                    },
+                )
+
                 for token in token_stream:
                     if not token:
                         continue
@@ -195,20 +247,26 @@ async def upload_incremental_file(
     upload_root.mkdir(parents=True, exist_ok=True)
     save_name = f"{int(time.time())}_{Path(original_name).name}"
     save_path = upload_root / save_name
+    save_path_abs = save_path.resolve()
 
     data = await file.read()
     if not data:
         raise HTTPException(status_code=400, detail="empty file")
     save_path.write_bytes(data)
 
-    with _pipeline_lock:
-        run_incremental_update()
-        _reload_pipeline()
+    try:
+        with _pipeline_lock:
+            stats = run_incremental_update(target_paths=[str(save_path_abs)])
+            _reload_pipeline()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"incremental indexing failed: {exc}") from exc
 
     return {
         "ok": True,
         "user_id": safe_user_id,
         "file_name": save_name,
         "saved_path": str(save_path),
+        "indexed_docs": int((stats or {}).get("indexed_docs", 0)),
+        "indexed_chunks": int((stats or {}).get("indexed_chunks", 0)),
         "message": "incremental file indexed",
     }

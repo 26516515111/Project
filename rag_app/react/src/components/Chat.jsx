@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import * as echarts from "echarts";
 import Setting from "./setting";
 
 // ===================== 模拟后端 API =====================
@@ -8,7 +9,15 @@ const API_CONFIG = {
   timeoutOnline: 90000,
   timeoutOffline: 30000,
 };
-const DEFAULT_USER_ID = "captain_park";
+const BASE_USER_ID = "captain_park";
+const PROJECT_META = {
+  name: "智能船舶问答系统",
+  version: "2.4.1",
+  build: "8829",
+  releaseDate: "2024-01-15",
+};
+const getSessionUserId = (chatId) =>
+  `${BASE_USER_ID}_${String(chatId || "session").replace(/[^a-zA-Z0-9_-]/g, "_")}`;
 
 // SSE 流式请求模拟（实际项目中替换为真实的 EventSource）
 function* mockStreamResponse(text, isGraphEnabled, isOffline) {
@@ -65,8 +74,8 @@ const escapeHtml = (s = "") =>
 
 const stripRagArtifacts = (text = "") =>
   text
-    // 如果是降级到原文检索模式，替换提示语为更友好的格式
-    .replace(/^\s*基于检索到的资料，建议如下[：:]\s*/g, "⚠️ **当前未配置大模型或连接失败，系统已自动降级为原文检索模式。为您找到以下参考片段：**\n\n")
+    // 移除离线抽取模式的固定提示语
+    .replace(/^\s*基于检索到的资料，建议如下[：:]\s*/g, "")
 
     // [H1] [H2]...
     .replace(/\[(?:H\d+|h\d+)\]\s*/g, "")
@@ -79,6 +88,10 @@ const stripRagArtifacts = (text = "") =>
 
     // 裸图片路径（有扩展名）
     .replace(/\b(?:images|data\/KG\/images)\/\S+\.(?:png|jpe?g|gif|webp|bmp)\b/gi, "")
+
+    // 离线抽取内容中常见的哈希图片路径噪声
+    .replace(/\b(?:images|data\/KG\/images)\/[a-f0-9]{64}(?:\.(?:png|jpe?g|gif|webp|bmp))?\b/gi, "")
+    .replace(/\bimages\/a01b4c420131362891ab24ba13f1823c5b07d9d4cef48f98b71bd28945bef1c7\b/g, "")
 
     // [图片附件]...
     .replace(/\[图片附件[^\]]*\]/g, "")
@@ -115,6 +128,155 @@ const stripMarkdown = (text = "") =>
 const formatText = (text) => {
   const plain = stripMarkdown(text);
   return escapeHtml(plain).replace(/\n/g, "<br>");
+};
+
+const normalizeOfflineText = (text = "") => {
+  let normalized = stripRagArtifacts(text)
+    .replace(/\r/g, "")
+    .replace(/\\leq/g, "≤")
+    .replace(/\\geq/g, "≥")
+    .replace(/\\pm/g, "±")
+    .replace(/\\sim/g, "~")
+    .replace(/\\times/g, "×")
+    .replace(/\\%/g, "%")
+    .replace(/\^\{\\circ\}/g, "°")
+    .replace(/\\circ/g, "°")
+    .replace(/\\mathrm\{([^}]*)\}/g, "$1")
+    .replace(/\\text\{([^}]*)\}/g, "$1")
+    .replace(/\\left|\\right/g, "")
+    .replace(/[{}]/g, "")
+    .replace(/\\/g, "")
+    .replace(/\s+([,.;:，。；：])/g, "$1")
+    .replace(/([\u4e00-\u9fa5A-Za-z0-9])\s+([0-9]+[、．.])/g, "$1\n$2")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  normalized = normalized
+    .replace(/(\d+[\.．、]\s*[^\s，。；;:：]{2,40})\s+\1/g, "$1")
+    .replace(/([一二三四五六七八九十]+、[^\s，。；;:：]{2,40})\s+\1/g, "$1");
+
+  const headingOnlyPattern =
+    /^\s*(?:\d+[\.．、]\s*)?(?:[一二三四五六七八九十]+、)?[^\s，。；;:：]{2,30}\s*$/;
+  const lines = normalized.split("\n");
+  const dedupedLines = [];
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      if (dedupedLines[dedupedLines.length - 1] !== "") dedupedLines.push("");
+      continue;
+    }
+
+    const prev = dedupedLines[dedupedLines.length - 1] || "";
+    if (line === prev) continue;
+
+    let current = line;
+    if (prev && headingOnlyPattern.test(prev) && current.startsWith(`${prev} `)) {
+      current = current.slice(prev.length).trim();
+      if (!current) continue;
+    }
+
+    dedupedLines.push(current);
+  }
+
+  return dedupedLines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+};
+
+const formatOfflineMarkdown = (text = "") => {
+  const cleaned = normalizeOfflineText(text);
+  if (!cleaned) return "";
+
+  const codeBlocks = [];
+  let html = escapeHtml(cleaned).replace(/```(\w+)?\n?([\s\S]*?)```/g, (_, lang, code) => {
+    const token = `__CODE_BLOCK_${codeBlocks.length}__`;
+    codeBlocks.push({ lang: lang || "", code: code || "" });
+    return token;
+  });
+
+  html = html
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/`([^`\n]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>");
+
+  const lines = html.split("\n");
+  const output = [];
+  let listType = null;
+
+  const closeList = () => {
+    if (!listType) return;
+    output.push(listType === "ol" ? "</ol>" : "</ul>");
+    listType = null;
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      closeList();
+      output.push("");
+      continue;
+    }
+
+    const ulMatch = line.match(/^\s*[-*+]\s+(.+)$/);
+    if (ulMatch) {
+      if (listType !== "ul") {
+        closeList();
+        output.push("<ul>");
+        listType = "ul";
+      }
+      output.push(`<li>${ulMatch[1]}</li>`);
+      continue;
+    }
+
+    const olMatch = line.match(/^\s*\d+[\.．、]\s*(.+)$/);
+    if (olMatch) {
+      if (listType !== "ol") {
+        closeList();
+        output.push("<ol>");
+        listType = "ol";
+      }
+      output.push(`<li>${olMatch[1]}</li>`);
+      continue;
+    }
+
+    closeList();
+
+    if (/^###\s+/.test(trimmed)) {
+      output.push(`<h3>${trimmed.replace(/^###\s+/, "")}</h3>`);
+    } else if (/^##\s+/.test(trimmed)) {
+      output.push(`<h2>${trimmed.replace(/^##\s+/, "")}</h2>`);
+    } else if (/^#\s+/.test(trimmed)) {
+      output.push(`<h1>${trimmed.replace(/^#\s+/, "")}</h1>`);
+    } else if (/^>\s?/.test(trimmed)) {
+      output.push(`<blockquote>${trimmed.replace(/^>\s?/, "")}</blockquote>`);
+    } else {
+      output.push(trimmed);
+    }
+  }
+  closeList();
+
+  let blockHtml = output
+    .join("\n")
+    .split(/\n{2,}/)
+    .map((block) => {
+      const t = block.trim();
+      if (!t) return "";
+      if (/^<(h1|h2|h3|ul|ol|blockquote)/.test(t)) return t;
+      if (/^__CODE_BLOCK_\d+__$/.test(t)) return t;
+      return `<p>${t.replace(/\n/g, "<br>")}</p>`;
+    })
+    .filter(Boolean)
+    .join("");
+
+  blockHtml = blockHtml.replace(/__CODE_BLOCK_(\d+)__/g, (_, idx) => {
+    const item = codeBlocks[Number(idx)] || { lang: "", code: "" };
+    const lang = item.lang ? `<span class="md-code-lang">${item.lang}</span>` : "";
+    return `<pre class="md-pre">${lang}<code>${item.code}</code></pre>`;
+  });
+
+  return blockHtml;
 };
 
 // 新增：读取设置工具
@@ -156,6 +318,126 @@ const notifyNewMessage = () => {
   window.addEventListener("click", clearFlash);
 };
 
+const toMarkdownText = (text = "", isOffline = false) => {
+  if (!text) return "";
+  return isOffline
+    ? normalizeOfflineText(text)
+    : stripRagArtifacts(text).replace(/\r/g, "").trim();
+};
+
+const shortenLabel = (value = "", max = 10) => {
+  const text = String(value || "").trim();
+  if (text.length <= max) return text;
+  return `${text.slice(0, max - 1)}...`;
+};
+
+const formatCitationSnippet = (text = "", maxLen = 180) => {
+  const clean = String(text || "").replace(/\s+/g, " ").trim();
+  if (!clean) return "";
+  if (clean.length <= maxLen) return clean;
+  return `${clean.slice(0, maxLen)}...`;
+};
+
+const generateMarkdown = (chat) => {
+  const safeTitle = (chat?.title || "未命名会话").replace(/[\r\n]+/g, " ").trim();
+  const lines = [
+    `# ${safeTitle}`,
+    "",
+    `- 导出时间：${new Date().toLocaleString("zh-CN", { hour12: false })}`,
+    "- 导出格式：Markdown",
+    "",
+    "---",
+    "",
+  ];
+
+  (chat?.messages || []).forEach((msg, idx) => {
+    const roleLabel = msg.role === "user" ? "用户" : "助手";
+    const isOffline =
+      msg.role === "ai" &&
+      (!!msg.isOffline || /离线模式|\[离线\]/.test(msg.searchProcess || ""));
+    const modeLabel = msg.role === "ai" ? (isOffline ? "（离线回答）" : "（在线回答）") : "";
+    const content = toMarkdownText(msg.content || "", isOffline);
+
+    lines.push(`## ${idx + 1}. ${roleLabel}${modeLabel}`);
+    lines.push("");
+    lines.push(content || "_（无内容）_");
+    lines.push("");
+
+    if (msg.role === "ai" && Array.isArray(msg.citations) && msg.citations.length > 0) {
+      lines.push("### 参考来源");
+      msg.citations.forEach((c, i) => {
+        const name = c?.name || c?.source || `文档${i + 1}`;
+        const url = c?.url || "";
+        lines.push(url ? `${i + 1}. [${name}](${url})` : `${i + 1}. ${name}`);
+      });
+      lines.push("");
+    }
+
+    if (msg.role === "ai" && Array.isArray(msg.kgTriplets) && msg.kgTriplets.length > 0) {
+      lines.push("### 知识图谱关系");
+      msg.kgTriplets.forEach((t) => {
+        const head = t?.head || "";
+        const rel = t?.rel || t?.relation || "关联";
+        const tail = t?.tail || "";
+        lines.push(`- ${head} --${rel}--> ${tail}`);
+      });
+      lines.push("");
+    }
+
+    lines.push("---");
+    lines.push("");
+  });
+
+  return lines.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+};
+
+const HelpDocsDialog = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(4px)" }}>
+      <div className="rounded-2xl p-6 w-[680px] max-w-[92vw] max-h-[82vh] overflow-y-auto shadow-2xl"
+        style={{ background: "#041527", border: "1px solid rgba(255,255,255,0.1)" }}>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+            <i className="ph ph-book-open text-teal-400"></i>
+            帮助与文档
+          </h3>
+          <button type="button" onClick={onClose} className="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors text-gray-400" title="关闭">
+            <i className="ph ph-x"></i>
+          </button>
+        </div>
+
+        <div className="space-y-4 text-sm">
+          <section className="p-4 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <p className="text-xs mb-2 text-gray-500">项目版本信息</p>
+            <div className="grid grid-cols-2 gap-3 text-xs text-gray-300">
+              <p>项目名称：<span className="text-gray-100">{PROJECT_META.name}</span></p>
+              <p>版本号：<span className="text-teal-300">{PROJECT_META.version}</span></p>
+              <p>构建号：<span className="text-gray-100">{PROJECT_META.build}</span></p>
+              <p>发布日期：<span className="text-gray-100">{PROJECT_META.releaseDate}</span></p>
+            </div>
+          </section>
+
+          <section className="p-4 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <p className="text-xs mb-2 text-gray-500">核心接口</p>
+            <div className="space-y-1 text-xs text-gray-300">
+              <p><span className="text-teal-300">POST</span> {API_CONFIG.baseURL}/rag/query/stream</p>
+              <p><span className="text-teal-300">POST</span> {API_CONFIG.baseURL}/rag/query</p>
+              <p><span className="text-teal-300">POST</span> {API_CONFIG.baseURL}/rag/incremental/upload</p>
+            </div>
+          </section>
+        </div>
+
+        <div className="mt-5 flex justify-end">
+          <button type="button" onClick={onClose} className="px-4 py-2 rounded-lg text-sm text-white transition-colors" style={{ background: "#0d9488" }}>
+            我知道了
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ===================== 组件 =====================
 export default function Chat() {
   // 新增：提取并保存一份当前用户的偏好设置到状态中
@@ -177,6 +459,11 @@ export default function Chat() {
   const [offlineMode, setOfflineMode] = useState(userSettings?.offlineOn ?? false); // 离线模式
   const [isAnswering, setIsAnswering] = useState(false); // 新增：是否正在回答
   const [showSetting, setShowSetting] = useState(false); // 新增：设置页面开关
+  const [showHelpDocs, setShowHelpDocs] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadingFileName, setUploadingFileName] = useState("");
+  const [uploadStatus, setUploadStatus] = useState(null);
+  const [recentUploads, setRecentUploads] = useState([]);
 
   // 保存数据到本地存储（受 autoSave 控制）
   useEffect(() => {
@@ -194,6 +481,7 @@ export default function Chat() {
 
   const chatViewRef = useRef(null);
   const fileInputRef = useRef(null);
+  const chatInputRef = useRef(null);
 
   const currentChat = chats.find((c) => c.id === currentChatId) || null;
   const isWelcome = !currentChatId;
@@ -226,6 +514,12 @@ export default function Chat() {
       streamingRefs.current.clear();
     };
   }, []);
+
+  useEffect(() => {
+    if (!uploadStatus) return undefined;
+    const timer = setTimeout(() => setUploadStatus(null), 6000);
+    return () => clearTimeout(timer);
+  }, [uploadStatus]);
 
   // 完成流式输出（提前定义，避免 TDZ 问题）
   const finishStreaming = useCallback((chatId, msgId, finalText) => {
@@ -265,12 +559,22 @@ export default function Chat() {
 
     let chatId = currentChatId;
     let updatedChats = [...chats];
+    let sessionUserId = "";
 
     if (!chatId) {
       chatId = Date.now().toString();
       const title = text.length > 12 ? text.substring(0, 12) + "..." : text;
-      updatedChats = [{ id: chatId, title, messages: [], createdAt: new Date() }, ...updatedChats];
+      sessionUserId = getSessionUserId(chatId);
+      updatedChats = [{ id: chatId, title, sessionUserId, messages: [], createdAt: new Date() }, ...updatedChats];
       setCurrentChatId(chatId);
+    } else {
+      const current = updatedChats.find((c) => c.id === chatId);
+      sessionUserId = current?.sessionUserId || getSessionUserId(chatId);
+      if (!current?.sessionUserId) {
+        updatedChats = updatedChats.map((c) =>
+          c.id === chatId ? { ...c, sessionUserId } : c
+        );
+      }
     }
 
     const userMsg = { role: "user", content: text };
@@ -281,10 +585,18 @@ export default function Chat() {
       content: "",
       fullText: "",
       searchProcess: `正在检索，模式: ${graphEnabled ? "知识图谱" : "常规检索"}${offlineMode ? " [离线]" : " [在线]"}`,
+      traceSteps: [
+        {
+          stage: "queued",
+          text: `请求已提交（${offlineMode ? "离线" : "在线"}模式）`,
+        },
+      ],
       citations: [],
       kgTriplets: [],
       isStreaming: true,
       isPaused: false,
+      isOffline: offlineMode,
+      isGraphEnabled: graphEnabled,
     };
 
     updatedChats = updatedChats.map((c) =>
@@ -293,11 +605,11 @@ export default function Chat() {
     setChats(updatedChats);
     setIsAnswering(true);
 
-    startStreaming(chatId, msgId, text);
+    startStreaming(chatId, msgId, text, sessionUserId);
   }, [chats, currentChatId, graphEnabled, offlineMode, isAnswering]);
 
   // 流式输出逻辑（打字机）
-  const startStreaming = useCallback(async (chatId, msgId, originalText) => {
+  const startStreaming = useCallback(async (chatId, msgId, originalText, sessionUserId) => {
     const isOnlineMode = !offlineMode; // 离线关闭 => 在线
     const streamSession = {
       controller: new AbortController(),
@@ -387,10 +699,6 @@ export default function Chat() {
         streamSession.controller.abort();
       }, timeoutMs);
 
-      // 提取配置中设定的模型偏好
-      const prefModel = userSettings?.model || "hybrid";
-      const resolvedProvider = prefModel === "local" ? "ollama" : (prefModel === "cloud" ? "modelscope" : (isOnlineMode ? "modelscope" : "ollama"));
-
       const response = await fetch(`${API_CONFIG.baseURL}/rag/query/stream`, {
         method: "POST",
         headers: {
@@ -398,13 +706,11 @@ export default function Chat() {
           Accept: "text/event-stream",
         },
         body: JSON.stringify({
-          user_id: DEFAULT_USER_ID,
+          user_id: sessionUserId || getSessionUserId(chatId),
           question: originalText,
           top_k: 5,
           use_kg: graphEnabled,
-          use_llm: true,
-          llm_provider: resolvedProvider,
-          offline_mode: offlineMode,
+          use_llm: !offlineMode,
           use_history: true,
           enable_retrieval_optimization: true,
         }),
@@ -449,9 +755,44 @@ export default function Chat() {
                         ? {
                           ...m,
                           searchProcess: `检索中（${isOnlineMode ? "在线模式" : "离线模式"}）：${data.question || originalText}`,
+                          traceSteps: [
+                            {
+                              stage: "meta",
+                              text: `请求已发送（${isOnlineMode ? "在线" : "离线"}模式）`,
+                            },
+                          ],
                         }
                         : m
                     ),
+                  }
+              )
+            );
+          } else if (evt.event === "trace") {
+            const stage = data.stage || "trace";
+            let traceText = data.message || "处理中";
+            if (stage === "retrieve") {
+              traceText = `已检索知识库（命中 ${data.context_count ?? 0} 条）${typeof data.elapsed_ms === "number" ? `，耗时 ${data.elapsed_ms}ms` : ""}`;
+            } else if (stage === "kg") {
+              traceText = `已查询知识图谱（命中 ${data.kg_triplet_count ?? 0} 条）${typeof data.elapsed_ms === "number" ? `，耗时 ${data.elapsed_ms}ms` : ""}`;
+            } else if (stage === "generate") {
+              traceText = `开始生成答案（${data.mode === "online" ? "在线模型" : "离线抽取"}）`;
+            }
+
+            setChats((prev) =>
+              prev.map((c) =>
+                c.id !== chatId
+                  ? c
+                  : {
+                    ...c,
+                    messages: c.messages.map((m) => {
+                      if (m.id !== msgId) return m;
+                      const prevSteps = Array.isArray(m.traceSteps) ? m.traceSteps : [];
+                      return {
+                        ...m,
+                        searchProcess: traceText,
+                        traceSteps: [...prevSteps, { stage, text: traceText }],
+                      };
+                    }),
                   }
               )
             );
@@ -460,7 +801,10 @@ export default function Chat() {
           } else if (evt.event === "references") {
             const citations = (data.citations || []).map((cit) => ({
               name: cit.source || cit.doc_id || "unknown",
-              url: "#",
+              source: cit.source || "未知来源",
+              docId: cit.doc_id || "",
+              score: typeof cit.score === "number" ? cit.score : null,
+              text: String(cit.text || "").trim(),
             }));
             setChats((prev) =>
               prev.map((c) =>
@@ -495,6 +839,25 @@ export default function Chat() {
             tryFinalize();
             return;
           } else if (evt.event === "done") {
+            setChats((prev) =>
+              prev.map((c) =>
+                c.id !== chatId
+                  ? c
+                  : {
+                    ...c,
+                    messages: c.messages.map((m) => {
+                      if (m.id !== msgId) return m;
+                      const prevSteps = Array.isArray(m.traceSteps) ? m.traceSteps : [];
+                      const doneText = `回答完成（总耗时 ${data.elapsed_ms ?? "-"}ms）`;
+                      return {
+                        ...m,
+                        searchProcess: doneText,
+                        traceSteps: [...prevSteps, { stage: "done", text: doneText }],
+                      };
+                    }),
+                  }
+              )
+            );
             streamSession.streamDone = true;
             tryFinalize();
             return;
@@ -594,16 +957,41 @@ export default function Chat() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    const uploadId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const fileName = file.name || "未命名文件";
+    const pushUploadRecord = (record) => {
+      setRecentUploads((prev) => [record, ...prev.filter((x) => x.id !== record.id)].slice(0, 3));
+    };
+    const patchUploadRecord = (patch) => {
+      setRecentUploads((prev) => prev.map((x) => (x.id === uploadId ? { ...x, ...patch } : x)).slice(0, 3));
+    };
+
     const ext = file.name.split(".").pop()?.toLowerCase();
     if (!["md", "pdf", "txt"].includes(ext)) {
-      alert("仅支持 md/pdf/txt");
+      setUploadStatus({ type: "error", text: "仅支持 md / pdf / txt 文档" });
+      pushUploadRecord({
+        id: uploadId,
+        name: fileName,
+        status: "error",
+        detail: "格式不支持（仅 md/pdf/txt）",
+      });
       e.target.value = "";
       return;
     }
 
     try {
+      setIsUploading(true);
+      setUploadingFileName(fileName);
+      setUploadStatus({ type: "info", text: `正在上传并建立索引：${file.name}` });
+      pushUploadRecord({
+        id: uploadId,
+        name: fileName,
+        status: "uploading",
+        detail: "上传并建立索引中...",
+      });
+
       const formData = new FormData();
-      formData.append("user_id", DEFAULT_USER_ID);
+      formData.append("user_id", BASE_USER_ID);
       formData.append("file", file);
 
       const res = await fetch(`${API_CONFIG.baseURL}/rag/incremental/upload`, {
@@ -613,17 +1001,41 @@ export default function Chat() {
 
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        alert(`上传失败: ${data.detail || data.message || "unknown"}`);
+        setUploadStatus({
+          type: "error",
+          text: `上传失败：${data.detail || data.message || "unknown"}`,
+        });
+        patchUploadRecord({
+          status: "error",
+          detail: `失败：${data.detail || data.message || "unknown"}`,
+        });
         return;
       }
 
-      handleSend(`[文件已上传: ${file.name}] 已完成索引，请基于该增量数据回答。`);
+      setUploadStatus({ type: "success", text: `上传成功：${file.name}（索引已完成）` });
+      patchUploadRecord({ status: "success", detail: "上传成功，索引已完成" });
+
+      if (!isAnswering) {
+        handleSend(`[文件已上传: ${file.name}] 已完成索引，请基于该增量数据回答。`);
+      } else {
+        setUploadStatus({
+          type: "success",
+          text: `上传成功：${file.name}（索引已完成，当前回答结束后可继续提问）`,
+        });
+        patchUploadRecord({
+          status: "success",
+          detail: "上传成功，索引已完成（等待当前回答结束）",
+        });
+      }
     } catch (err) {
-      alert(`上传异常: ${err.message}`);
+      setUploadStatus({ type: "error", text: `上传异常：${err.message}` });
+      patchUploadRecord({ status: "error", detail: `异常：${err.message}` });
     } finally {
+      setIsUploading(false);
+      setUploadingFileName("");
       e.target.value = "";
     }
-  }, [handleSend]);
+  }, [handleSend, isAnswering]);
 
   // 导出 Markdown
   const handleExport = useCallback(() => {
@@ -651,23 +1063,80 @@ export default function Chat() {
 
   // ===================== 渲染辅助组件 =====================
 
-  const CitationLink = ({ citation }) => (
-    <a
-      href={citation.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-teal-500/10 text-teal-400 hover:bg-teal-500/20 border border-teal-500/20 transition-colors text-xs"
-    >
-      <i className="ph ph-file-text"></i>
-      {citation.name}
-    </a>
-  );
+  const insertCitationToInput = useCallback((citation, idx) => {
+    const source = citation?.source || citation?.name || `资料${idx + 1}`;
+    const snippet = formatCitationSnippet(citation?.text || "", 120);
+    const quoteLine = snippet
+      ? `基于资料${idx + 1}（${source}）继续分析："${snippet}"`
+      : `基于资料${idx + 1}（${source}）继续分析：`;
+
+    setInputValue((prev) => (prev ? `${prev}\n${quoteLine}` : quoteLine));
+    setTimeout(() => {
+      chatInputRef.current?.focus();
+    }, 0);
+  }, []);
+
+  const CitationCard = ({ citation, idx, onQuote }) => {
+    const [showFull, setShowFull] = useState(false);
+    const scoreText =
+      typeof citation.score === "number"
+        ? `${Math.max(0, Math.min(100, Math.round(citation.score * 100)))}%`
+        : null;
+    const fullText = String(citation.text || "").trim();
+    const previewText = fullText ? formatCitationSnippet(fullText, 200) : "";
+    const isTruncated = !!fullText && fullText.length > 200;
+
+    return (
+      <div className="rounded-lg border border-white/10 bg-black/20 p-3 space-y-1.5">
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[10px] px-1.5 py-0.5 rounded border border-sky-400/25 bg-sky-500/10 text-sky-300">
+            资料{idx + 1}
+          </span>
+          {scoreText && <span className="text-[10px] text-teal-300">相关度 {scoreText}</span>}
+        </div>
+        <p className="text-[12px] text-gray-200 break-all">来源：{citation.source || citation.name || "未知来源"}</p>
+        {citation.docId && <p className="text-[11px] text-gray-500 break-all">文档ID：{citation.docId}</p>}
+        {fullText && (
+          <div className="rounded-md border border-white/10 bg-black/25 p-2.5">
+            <p className="text-[11px] text-gray-300 leading-relaxed whitespace-pre-wrap break-words">
+              资料内容：{showFull ? fullText : previewText}
+            </p>
+            {isTruncated && (
+              <button
+                type="button"
+                onClick={() => setShowFull((v) => !v)}
+                className="mt-2 text-[11px] inline-flex items-center gap-1 px-2 py-1 rounded border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+              >
+                <i className={`ph ${showFull ? "ph-caret-up" : "ph-caret-down"} text-[10px]`}></i>
+                {showFull ? "收起全文" : "查看全文"}
+              </button>
+            )}
+          </div>
+        )}
+        <div className="pt-1">
+          <button
+            type="button"
+            onClick={() => onQuote?.(citation, idx)}
+            className="text-[11px] px-2 py-1 rounded border border-sky-400/25 bg-sky-500/10 text-sky-300 hover:bg-sky-500/20 transition-colors"
+          >
+            点击引用到输入框
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   const SearchProcessPanel = ({ msg }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(!!msg.isStreaming);
+    const hasCitations = Array.isArray(msg.citations) && msg.citations.length > 0;
+    const hasKgTriplets = Array.isArray(msg.kgTriplets) && msg.kgTriplets.length > 0;
+    const isOfflineAnswer = !!msg.isOffline || /离线模式|\[离线\]/.test(msg.searchProcess || "");
 
-    if (!msg.citations || msg.citations.length === 0) return null;
-    if (msg.isStreaming) return null;
+    const kgNodes = hasKgTriplets
+      ? [...new Set(msg.kgTriplets.flatMap((t) => [t?.head, t?.tail]).filter(Boolean))]
+      : [];
+
+    if (!hasCitations && !hasKgTriplets) return null;
 
     return (
       <div className="border border-white/5 rounded-xl bg-black/20 overflow-hidden mt-3">
@@ -678,16 +1147,208 @@ export default function Chat() {
           <span className="flex items-center gap-2">
             <i className="ph ph-magnifying-glass text-teal-500"></i>
             检索过程与来源
+            {msg.isStreaming && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-teal-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse"></span>
+                进行中
+              </span>
+            )}
           </span>
           <i className={`ph ph-caret-down transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}></i>
         </button>
-        <div className={`p-3 border-t border-white/5 text-xs text-gray-300 bg-white/[0.02] ${isOpen ? "" : "hidden"}`}>
+        <div className={`p-3 border-t border-white/5 text-xs text-gray-300 bg-white/[0.02] space-y-3 ${isOpen ? "" : "hidden"}`}>
           <p className="mb-3 text-gray-400">{msg.searchProcess || "完成知识库检索，耗时 0.82s"}</p>
-          <div className="flex flex-wrap gap-2">
-            {msg.citations.map((c, idx) => (
-              <CitationLink key={idx} citation={c} />
-            ))}
-          </div>
+
+          {hasCitations && (
+            <div>
+              <p className="text-[11px] text-gray-500 mb-2">
+                {isOfflineAnswer ? "参考文档" : "RAG 检索参考资料"}
+              </p>
+              <div className="space-y-2">
+                {msg.citations.map((c, idx) => (
+                  <CitationCard key={idx} citation={c} idx={idx} onQuote={insertCitationToInput} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {hasKgTriplets && (
+            <div>
+              <p className="text-[11px] text-teal-400 mb-2">知识图谱命中节点</p>
+              <div className="flex flex-wrap gap-2 mb-2">
+                {kgNodes.map((node, idx) => (
+                  <span
+                    key={`${node}-${idx}`}
+                    className="px-2 py-1 rounded-md text-[11px] border border-teal-500/25 bg-teal-500/10 text-teal-200"
+                  >
+                    {node}
+                  </span>
+                ))}
+              </div>
+              <div className="space-y-1">
+                {msg.kgTriplets.slice(0, 8).map((t, idx) => {
+                  const head = t?.head || "";
+                  const rel = t?.rel || t?.relation || "关联";
+                  const tail = t?.tail || "";
+                  return (
+                    <p key={idx} className="text-[11px] text-gray-400 leading-relaxed">
+                      {idx + 1}. {head} <span className="text-teal-300">--{rel}--&gt;</span> {tail}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const GraphPanel = ({ msg }) => {
+    const [open, setOpen] = useState(false);
+    const chartRef = useRef(null);
+    const chartInstanceRef = useRef(null);
+    const triplets = Array.isArray(msg.kgTriplets) ? msg.kgTriplets : [];
+    if (!triplets.length) return null;
+
+    const nodeSet = new Set();
+    const edges = [];
+    triplets.forEach((t) => {
+      const head = String(t?.head || "").trim();
+      const tail = String(t?.tail || "").trim();
+      const rel = String(t?.rel || t?.relation || "关联").trim();
+      if (!head || !tail) return;
+      nodeSet.add(head);
+      nodeSet.add(tail);
+      edges.push({ head, tail, rel });
+    });
+
+    const nodes = Array.from(nodeSet).map((name) => ({
+      id: name,
+      name,
+      value: name,
+      symbolSize: Math.max(32, Math.min(58, 28 + name.length * 1.6)),
+      itemStyle: {
+        color: "#14b8a6",
+        borderColor: "#99f6e4",
+        borderWidth: 1,
+      },
+      label: {
+        show: true,
+        color: "#d1fae5",
+        fontSize: 11,
+        formatter: (p) => shortenLabel(p.name, 14),
+      },
+    }));
+    const links = edges.map((e, idx) => ({
+      id: `${e.head}-${e.tail}-${idx}`,
+      source: e.head,
+      target: e.tail,
+      value: e.rel,
+      label: {
+        show: true,
+        color: "#7dd3fc",
+        fontSize: 10,
+        formatter: shortenLabel(e.rel, 8),
+      },
+      lineStyle: {
+        color: "rgba(94, 234, 212, 0.65)",
+        width: 1.4,
+        curveness: 0.16,
+      },
+    }));
+
+    useEffect(() => {
+      if (!open || !chartRef.current) return undefined;
+
+      if (!chartInstanceRef.current) {
+        chartInstanceRef.current = echarts.init(chartRef.current, undefined, {
+          renderer: "canvas",
+        });
+      }
+      const chart = chartInstanceRef.current;
+
+      chart.setOption(
+        {
+          backgroundColor: "#051926",
+          animationDuration: 500,
+          animationEasingUpdate: "cubicOut",
+          tooltip: {
+            trigger: "item",
+            backgroundColor: "rgba(3, 18, 30, 0.95)",
+            borderColor: "rgba(45, 212, 191, 0.3)",
+            textStyle: { color: "#d1d5db" },
+            formatter: (params) => {
+              if (params.dataType === "edge") {
+                return `${params.data.source} --${params.data.value || "关联"}--> ${params.data.target}`;
+              }
+              return `节点：${params.name}`;
+            },
+          },
+          series: [
+            {
+              type: "graph",
+              layout: "force",
+              roam: true,
+              draggable: true,
+              force: {
+                repulsion: 360,
+                edgeLength: [80, 150],
+                friction: 0.08,
+                gravity: 0.06,
+              },
+              data: nodes,
+              links,
+              lineStyle: {
+                opacity: 0.9,
+              },
+              emphasis: {
+                focus: "adjacency",
+                lineStyle: { width: 2.2 },
+              },
+            },
+          ],
+        },
+        true
+      );
+
+      const onResize = () => chart.resize();
+      window.addEventListener("resize", onResize);
+
+      return () => {
+        window.removeEventListener("resize", onResize);
+      };
+    }, [open, msg.id, msg.kgTriplets]);
+
+    useEffect(() => {
+      return () => {
+        if (chartInstanceRef.current) {
+          chartInstanceRef.current.dispose();
+          chartInstanceRef.current = null;
+        }
+      };
+    }, []);
+
+    return (
+      <div className="mt-3 rounded-xl border border-teal-500/20 bg-teal-500/5 overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="w-full px-3 py-2.5 flex items-center justify-between text-[12px] text-teal-200 hover:bg-white/5"
+        >
+          <span className="inline-flex items-center gap-2">
+            <i className="ph ph-graph text-sm"></i>
+            知识图谱可视化
+            <span className="text-[10px] text-teal-300/90">{nodes.length} 节点 / {edges.length} 关系</span>
+          </span>
+          <i className={`ph ph-caret-down text-xs transition-transform ${open ? "rotate-180" : ""}`}></i>
+        </button>
+
+        <div className={`${open ? "" : "hidden"} border-t border-teal-500/15 p-3`}>
+          <div ref={chartRef} className="w-full h-72 rounded-lg bg-[#051926] border border-white/5" />
+          <p className="mt-2 text-[11px] text-gray-500">
+            说明：当前展示为问答命中的子图（来自后端 `kg` 事件返回的三元组），用于快速查看实体关系。
+          </p>
         </div>
       </div>
     );
@@ -695,6 +1356,21 @@ export default function Chat() {
 
   const AIMessage = ({ msg }) => {
     const isStreaming = msg.isStreaming && !msg.isPaused;
+    const isOfflineAnswer = !!msg.isOffline || /离线模式|\[离线\]/.test(msg.searchProcess || "");
+    const traceSteps = Array.isArray(msg.traceSteps) ? msg.traceSteps : [];
+    const hasTraceSteps = traceSteps.length > 0;
+    const [traceOpen, setTraceOpen] = useState(!!msg.isStreaming);
+    const isGraphAnswer =
+      !!msg.isGraphEnabled ||
+      /知识图谱/.test(msg.searchProcess || "") ||
+      (Array.isArray(msg.kgTriplets) && msg.kgTriplets.length > 0);
+    const renderedHtml = isOfflineAnswer ? formatOfflineMarkdown(msg.content) : formatText(msg.content);
+
+    useEffect(() => {
+      if (msg.isStreaming && hasTraceSteps) {
+        setTraceOpen(true);
+      }
+    }, [msg.isStreaming, hasTraceSteps]);
 
     return (
       <div id={msg.id} className="flex justify-start w-full mb-6 ai-message-block">
@@ -704,12 +1380,57 @@ export default function Chat() {
           </div>
           <div className="flex flex-col w-full max-w-[85%]">
             <div className="bg-white/[0.03] border border-white/5 text-gray-200 px-6 py-4 rounded-2xl rounded-tl-sm text-sm leading-relaxed shadow-sm relative">
+              <div className="mb-3 flex items-center gap-2 flex-wrap">
+                {isOfflineAnswer ? (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
+                    <i className="ph ph-hard-drives text-xs"></i>
+                    离线回答
+                  </div>
+                ) : (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] border border-sky-400/30 bg-sky-500/10 text-sky-300">
+                    <i className="ph ph-wifi-high text-xs"></i>
+                    在线回答
+                  </div>
+                )}
+                {isGraphAnswer && (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] border border-teal-400/30 bg-teal-500/10 text-teal-300">
+                    <i className="ph ph-graph text-xs"></i>
+                    知识图谱
+                  </div>
+                )}
+              </div>
+
+              {hasTraceSteps && (
+                <div className="mb-3 rounded-lg border border-sky-500/20 bg-sky-500/5 px-3 py-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setTraceOpen((v) => !v)}
+                    className="w-full flex items-center justify-between text-[11px] text-sky-300"
+                  >
+                    <span className="inline-flex items-center gap-1.5">
+                      <i className="ph ph-activity text-xs"></i>
+                      后端响应过程
+                    </span>
+                    <i className={`ph ph-caret-down text-xs transition-transform ${traceOpen ? "rotate-180" : ""}`}></i>
+                  </button>
+                  <div className={`space-y-1 mt-2 ${traceOpen ? "" : "hidden"}`}>
+                    {traceSteps.map((step, idx) => (
+                      <p key={`${step.stage || "step"}-${idx}`} className="text-[11px] text-gray-300 leading-relaxed">
+                        {idx + 1}. {step.text}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div
-                className="markdown-body text-gray-300"
+                className={`markdown-body text-gray-300 ${isOfflineAnswer ? "markdown-rich" : ""}`}
                 dangerouslySetInnerHTML={{
-                  __html: formatText(msg.content) + (isStreaming ? '<span class="inline-block w-1.5 h-4 bg-teal-400 ml-1 align-middle animate-pulse"></span>' : "")
+                  __html: renderedHtml + (isStreaming ? '<span class="inline-block w-1.5 h-4 bg-teal-400 ml-1 align-middle animate-pulse"></span>' : "")
                 }}
               />
+
+              <GraphPanel msg={msg} />
 
               {/* 流式控制按钮：仅暂停时显示“继续回答” */}
               {msg.isStreaming && msg.isPaused && (
@@ -933,22 +1654,32 @@ export default function Chat() {
         {/* 底部输入框 */}
         <div className="absolute bottom-0 left-0 w-full p-6 pt-0 z-20" style={{ background: "linear-gradient(to top, #041527 0%, #041527 60%, transparent 100%)" }}>
           <div className="max-w-4xl mx-auto">
+            {isUploading && (
+              <div className="mb-2 flex items-center gap-2 px-3 py-2 rounded-lg border border-sky-400/25 bg-sky-500/10 text-sky-200 text-xs">
+                <i className="ph ph-spinner-gap animate-spin"></i>
+                <span>正在处理文档：{uploadingFileName || "请稍候"}（切块与索引中）</span>
+              </div>
+            )}
             <div className="glass-input-chat rounded-xl flex items-center p-2 pr-2 shadow-lg">
               <input
                 ref={fileInputRef}
                 type="file"
                 accept=".md,.pdf,.txt"
                 className="hidden"
+                disabled={isUploading}
                 onChange={handleFileChange}
               />
               <button
+                type="button"
                 onClick={() => fileInputRef.current?.click()}
                 title="支持上传 md, pdf, txt"
-                className="p-3 text-gray-400 hover:text-white transition-colors"
+                disabled={isUploading}
+                className="p-3 text-gray-400 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <i className="ph ph-paperclip text-lg"></i>
+                <i className={`ph ${isUploading ? "ph-spinner-gap animate-spin" : "ph-paperclip"} text-lg`}></i>
               </button>
               <input
+                ref={chatInputRef}
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -986,6 +1717,43 @@ export default function Chat() {
                 <i className={`ph ${isAnswering ? "ph-pause" : "ph-paper-plane-right"} text-lg`}></i>
               </button>
             </div>
+            {uploadStatus && (
+              <div
+                className={`mt-2 text-xs px-2 ${uploadStatus.type === "error"
+                  ? "text-rose-400"
+                  : uploadStatus.type === "success"
+                    ? "text-emerald-400"
+                    : "text-sky-300"
+                  }`}
+              >
+                {uploadStatus.text}
+              </div>
+            )}
+            {recentUploads.length > 0 && (
+              <div className="mt-2 px-2 py-2 rounded-lg border border-white/10 bg-white/[0.02]">
+                <p className="text-[11px] text-gray-400 mb-2">最近上传文件（最多 3 条）</p>
+                <div className="space-y-1.5">
+                  {recentUploads.map((item) => (
+                    <div key={item.id} className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="text-xs text-gray-200 truncate">{item.name}</p>
+                        <p className="text-[11px] text-gray-500 truncate">{item.detail}</p>
+                      </div>
+                      <span
+                        className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border ${item.status === "success"
+                          ? "text-emerald-300 border-emerald-400/30 bg-emerald-500/10"
+                          : item.status === "error"
+                            ? "text-rose-300 border-rose-400/30 bg-rose-500/10"
+                            : "text-sky-300 border-sky-400/30 bg-sky-500/10"
+                          }`}
+                      >
+                        {item.status === "success" ? "成功" : item.status === "error" ? "失败" : "处理中"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>
@@ -1061,11 +1829,17 @@ export default function Chat() {
         </div>
 
         <div className="p-6 shrink-0">
-          <button className="w-full py-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-colors text-xs text-gray-400 hover:text-gray-200 flex items-center justify-center gap-2">
+          <button
+            type="button"
+            onClick={() => setShowHelpDocs(true)}
+            className="w-full py-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-colors text-xs text-gray-400 hover:text-gray-200 flex items-center justify-center gap-2"
+          >
             <i className="ph ph-info text-sm"></i> 帮助与文档
           </button>
         </div>
       </aside>
+
+      <HelpDocsDialog isOpen={showHelpDocs} onClose={() => setShowHelpDocs(false)} />
 
       {/* CSS 样式补充 */}
       <style>{`
@@ -1110,6 +1884,74 @@ export default function Chat() {
         }
         .custom-scrollbar::-webkit-scrollbar {
           width: 4px;
+        }
+        .markdown-rich h1,
+        .markdown-rich h2,
+        .markdown-rich h3 {
+          color: #f3f4f6;
+          margin: 0.75rem 0 0.5rem;
+          line-height: 1.35;
+          font-weight: 700;
+        }
+        .markdown-rich h1 { font-size: 1.1rem; }
+        .markdown-rich h2 { font-size: 1.02rem; }
+        .markdown-rich h3 { font-size: 0.95rem; }
+        .markdown-rich p {
+          margin: 0.55rem 0;
+          line-height: 1.8;
+          color: #d1d5db;
+        }
+        .markdown-rich ul,
+        .markdown-rich ol {
+          margin: 0.5rem 0 0.6rem;
+          padding-left: 1.1rem;
+          color: #d1d5db;
+        }
+        .markdown-rich ul { list-style: disc; }
+        .markdown-rich ol { list-style: decimal; }
+        .markdown-rich li { margin: 0.3rem 0; line-height: 1.75; }
+        .markdown-rich blockquote {
+          margin: 0.7rem 0;
+          padding: 0.55rem 0.8rem;
+          border-left: 3px solid rgba(45, 212, 191, 0.6);
+          background: rgba(45, 212, 191, 0.08);
+          color: #c7d2fe;
+          border-radius: 0.4rem;
+        }
+        .markdown-rich a {
+          color: #5eead4;
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
+        .markdown-rich code {
+          background: rgba(255, 255, 255, 0.08);
+          padding: 0.08rem 0.32rem;
+          border-radius: 0.28rem;
+          font-size: 0.82em;
+          color: #c4f5ef;
+        }
+        .markdown-rich .md-pre {
+          margin: 0.7rem 0;
+          padding: 0.7rem 0.85rem;
+          border-radius: 0.55rem;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(2, 12, 22, 0.72);
+          overflow-x: auto;
+        }
+        .markdown-rich .md-pre code {
+          background: transparent;
+          padding: 0;
+          border-radius: 0;
+          color: #d1d5db;
+          font-size: 0.8rem;
+        }
+        .markdown-rich .md-code-lang {
+          display: inline-block;
+          margin-bottom: 0.45rem;
+          font-size: 0.7rem;
+          color: #9ca3af;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;

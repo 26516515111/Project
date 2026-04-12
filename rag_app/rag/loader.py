@@ -55,12 +55,12 @@ def _load_pdf_pages(path: str) -> List[dict]:
 
 def _resolve_chunks_path(base_dir: str) -> str:
     candidates = [
+        os.path.join(base_dir, "KG", "chunks", "chunk.json"),
+        os.path.join(base_dir, "KG", "chunks", "chunks.json"),
         os.path.join(base_dir, "chunk.json"),
         os.path.join(base_dir, "chunks.json"),
         os.path.join(base_dir, "chunks", "chunk.json"),
         os.path.join(base_dir, "chunks", "chunks.json"),
-        os.path.join(base_dir, "KG", "chunks", "chunk.json"),
-        os.path.join(base_dir, "KG", "chunks", "chunks.json"),
     ]
     for path in candidates:
         if os.path.isfile(path):
@@ -70,9 +70,9 @@ def _resolve_chunks_path(base_dir: str) -> str:
 
 def _resolve_doc_source_map_path(base_dir: str) -> str:
     candidates = [
+        os.path.join(base_dir, "KG", "chunks", "doc_source_map.json"),
         os.path.join(base_dir, "doc_source_map.json"),
         os.path.join(base_dir, "chunks", "doc_source_map.json"),
-        os.path.join(base_dir, "KG", "chunks", "doc_source_map.json"),
     ]
     for path in candidates:
         if os.path.isfile(path):
@@ -82,9 +82,9 @@ def _resolve_doc_source_map_path(base_dir: str) -> str:
 
 def _resolve_chunk_to_kg_path(base_dir: str) -> str:
     candidates = [
+        os.path.join(base_dir, "KG", "chunks", "chunk_to_kg.json"),
         os.path.join(base_dir, "chunk_to_kg.json"),
         os.path.join(base_dir, "chunks", "chunk_to_kg.json"),
-        os.path.join(base_dir, "KG", "chunks", "chunk_to_kg.json"),
     ]
     for path in candidates:
         if os.path.isfile(path):

@@ -696,20 +696,29 @@ def dump_neo4j_node(state: Neo4jState) -> Neo4jState:
         env["JAVA_HOME"] = java_home
     neo4j_cmd = _neo4j_executable("neo4j")
     neo4j_admin_cmd = _neo4j_executable("neo4j-admin")
+    dump_target = state["paths"].neo4j_dump_path
+    if dump_target.exists():
+        backup_target = numbered_path(
+            state["paths"].delivery_backups_dir / dump_target.name
+        )
+        backup_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(dump_target), str(backup_target))
     subprocess.run([neo4j_cmd, "stop"], check=False, env=env)
     time.sleep(3)
-    subprocess.run(
-        [
-            neo4j_admin_cmd,
-            "database",
-            "dump",
-            "neo4j",
-            f"--to-path={state['paths'].delivery_dir}",
-        ],
-        check=True,
-        env=env,
-    )
-    subprocess.run([neo4j_cmd, "start"], check=False, env=env)
+    try:
+        subprocess.run(
+            [
+                neo4j_admin_cmd,
+                "database",
+                "dump",
+                "neo4j",
+                f"--to-path={state['paths'].delivery_dir}",
+            ],
+            check=True,
+            env=env,
+        )
+    finally:
+        subprocess.run([neo4j_cmd, "start"], check=False, env=env)
     return {"dumped": True}
 
 

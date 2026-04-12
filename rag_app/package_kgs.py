@@ -292,17 +292,6 @@ def ensure_package_dirs(paths: PipelinePaths) -> None:
     (paths.kg_dir / "delivery").mkdir(parents=True, exist_ok=True)
 
 
-def write_rag_compat_outputs(
-    paths: PipelinePaths,
-    merged_chunks: list[dict[str, Any]],
-    merged_doc_map: list[dict[str, Any]],
-    merged_chunk_to_kg: list[dict[str, Any]],
-) -> None:
-    write_json(paths.data_dir / "chunks.json", merged_chunks)
-    write_json(paths.data_dir / "doc_source_map.json", merged_doc_map)
-    write_json(paths.data_dir / "chunk_to_kg.json", {"chunks": merged_chunk_to_kg})
-
-
 def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> dict[str, Any]:
     build_dirs = [
         (normalize_build_kg_name(name), paths.build_root_dir / normalize_build_kg_name(name))
@@ -380,7 +369,6 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     write_json(paths.kg_dir / "extracted" / "kg_raw.json", merged_raw)
     write_json(paths.kg_dir / "delivery" / "kg_merged.json", merged_delivery)
     write_json(paths.kg_dir / "delivery" / "entity_merge_log.json", merged_merge_log)
-    write_rag_compat_outputs(paths, merged_chunks, merged_doc_map, merged_chunk_to_kg)
     write_json(
         paths.kg_dir / "package_manifest.json",
         {

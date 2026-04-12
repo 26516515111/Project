@@ -1,487 +1,415 @@
 [
   {
     "step": "exact_dedup",
-    "merged_into": "FuelSystem_FuelFilter",
-    "merged_from": "FuelSystem_FuelFilter",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem_Turbocharger",
-    "merged_from": "EngineSystem_Turbocharger",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ExhaustSystem",
-    "merged_from": "ExhaustSystem",
+    "merged_into": "发动机安全管理系统_电池",
+    "merged_from": "发动机安全管理系统_电池",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FuelSystem",
-    "merged_from": "FuelSystem",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem",
-    "merged_from": "EngineSystem",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem",
-    "merged_from": "CoolingSystem",
+    "merged_into": "发动机安全管理系统_润滑系统",
+    "merged_from": "发动机安全管理系统_润滑系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem",
-    "merged_from": "EngineSystem",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem",
-    "merged_from": "ElectricalSystem",
+    "merged_into": "发动机安全管理系统_燃油系统",
+    "merged_from": "发动机安全管理系统_燃油系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_ExpansionTank",
-    "merged_from": "CoolingSystem_ExpansionTank",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_SeawaterImpellerPump",
-    "merged_from": "CoolingSystem_SeawaterImpellerPump",
+    "merged_into": "发动机安全管理系统_燃油系统_燃油过滤器",
+    "merged_from": "发动机安全管理系统_燃油系统_燃油过滤器",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem_DriveBelt",
-    "merged_from": "EngineSystem_DriveBelt",
+    "merged_into": "发动机安全管理系统_燃油系统_手泵",
+    "merged_from": "发动机安全管理系统_燃油系统_手泵",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem_Alternator",
-    "merged_from": "ElectricalSystem_Alternator",
+    "merged_into": "发动机安全管理系统_发动机_涡轮增压器",
+    "merged_from": "发动机安全管理系统_发动机_涡轮增压器",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_CoolantConcentration",
-    "merged_from": "CoolingSystem_CoolantConcentration",
+    "merged_into": "发动机安全管理系统_人身伤害风险",
+    "merged_from": "发动机安全管理系统_人身伤害风险",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FaultPhenomenon_Corrosion",
-    "merged_from": "FaultPhenomenon_Corrosion",
+    "merged_into": "发动机安全管理系统_火灾爆炸风险",
+    "merged_from": "发动机安全管理系统_火灾爆炸风险",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "SafetyNote_CoolantMixingProhibition",
-    "merged_from": "SafetyNote_CoolantMixingProhibition",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "SafetyNote_CloseSeaCocksBeforeWork",
-    "merged_from": "SafetyNote_CloseSeaCocksBeforeWork",
+    "merged_into": "发动机安全管理系统_冷却系统",
+    "merged_from": "发动机安全管理系统_冷却系统",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem",
-    "merged_from": "CoolingSystem",
+    "merged_into": "发动机安全管理系统_发动机_传动皮带",
+    "merged_from": "发动机安全管理系统_发动机_传动皮带",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem",
-    "merged_from": "EngineSystem",
+    "merged_into": "发动机安全管理系统_冷却系统_叶轮泵",
+    "merged_from": "发动机安全管理系统_冷却系统_叶轮泵",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FuelSystem",
-    "merged_from": "FuelSystem",
+    "merged_into": "发动机安全管理系统_冷却系统_加满冷却剂",
+    "merged_from": "发动机安全管理系统_冷却系统_加满冷却剂",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem",
-    "merged_from": "ElectricalSystem",
+    "merged_into": "发动机安全管理系统_冷却系统_膨胀箱",
+    "merged_from": "发动机安全管理系统_冷却系统_膨胀箱",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "DriveSystem",
-    "merged_from": "DriveSystem",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem_ChargeAirCooler",
-    "merged_from": "EngineSystem_ChargeAirCooler",
+    "merged_into": "Marine Engine System_Fuel System",
+    "merged_from": "Marine Engine System_Fuel System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem_Battery",
-    "merged_from": "ElectricalSystem_Battery",
+    "merged_into": "Marine Engine System_Cooling System",
+    "merged_from": "Marine Engine System_Cooling System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FuelSystem_FuelFilter",
-    "merged_from": "FuelSystem_FuelFilter",
+    "merged_into": "Marine Engine System_Lubrication System",
+    "merged_from": "Marine Engine System_Lubrication System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FaultCause_CoolingSystemDebris",
-    "merged_from": "FaultCause_CoolingSystemDebris",
+    "merged_into": "Marine Engine System_Engine Control Module",
+    "merged_from": "Marine Engine System_Engine Control Module",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FaultPhenomenon_ElectronicComponentDamage",
-    "merged_from": "FaultPhenomenon_ElectronicComponentDamage",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "SafetyNote_CloseSeaCocksBeforeWork",
-    "merged_from": "SafetyNote_CloseSeaCocksBeforeWork",
+    "merged_into": "Marine Engine System_Trip Computer",
+    "merged_from": "Marine Engine System_Trip Computer",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "EngineSystem",
-    "merged_from": "EngineSystem",
+    "merged_into": "Marine Engine System_Warning Management Program",
+    "merged_from": "Marine Engine System_Warning Management Program",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "RepairMethod_EngineLongTermStorage",
-    "merged_from": "RepairMethod_EngineLongTermStorage",
+    "merged_into": "FaultPhenomenon_Speedometer Error",
+    "merged_from": "FaultPhenomenon_Speedometer Error",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem_Battery",
-    "merged_from": "ElectricalSystem_Battery",
+    "merged_into": "FaultCause_Speed Factor Mismatch",
+    "merged_from": "FaultCause_Speed Factor Mismatch",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "SafetyNote_DoNotDisconnectWhileRunning",
-    "merged_from": "SafetyNote_DoNotDisconnectWhileRunning",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FaultPhenomenon_BatteryFreezeDamage",
-    "merged_from": "FaultPhenomenon_BatteryFreezeDamage",
+    "merged_into": "Marine Engine System_Electrical System",
+    "merged_from": "Marine Engine System_Electrical System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "SafetyNote_BatteryChargePreventFreeze",
-    "merged_from": "SafetyNote_BatteryChargePreventFreeze",
+    "merged_into": "Marine Engine System_External Steering",
+    "merged_from": "Marine Engine System_External Steering",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "ElectricalSystem_Alternator",
-    "merged_from": "ElectricalSystem_Alternator",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "FaultPhenomenon_WaterIngress",
-    "merged_from": "FaultPhenomenon_WaterIngress",
+    "merged_into": "Marine Engine System_Warning Management Program",
+    "merged_from": "Marine Engine System_Warning Management Program",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem",
-    "merged_from": "CoolingSystem",
+    "merged_into": "FaultPhenomenon_Engine Overspeed",
+    "merged_from": "FaultPhenomenon_Engine Overspeed",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_CoolantConcentration",
-    "merged_from": "CoolingSystem_CoolantConcentration",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_SeawaterImpellerPump",
-    "merged_from": "CoolingSystem_SeawaterImpellerPump",
+    "merged_into": "Marine Engine System_Joystick",
+    "merged_from": "Marine Engine System_Joystick",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "CoolingSystem_Impeller",
-    "merged_from": "CoolingSystem_Impeller",
+    "merged_into": "Marine Engine System_Autopilot",
+    "merged_from": "Marine Engine System_Autopilot",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统",
-    "merged_from": "船舶发动机系统",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_润滑系统",
-    "merged_from": "船舶发动机系统_润滑系统",
+    "merged_into": "Marine Engine System_External Steering",
+    "merged_from": "Marine Engine System_External Steering",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_机械损坏",
-    "merged_from": "船舶发动机系统_机械损坏",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_沃尔沃遍达 EVC 系统",
-    "merged_from": "船舶发动机系统_沃尔沃遍达 EVC 系统",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_沃尔沃遍达 EVC 系统",
-    "merged_from": "船舶发动机系统_沃尔沃遍达 EVC 系统",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_润滑系统",
-    "merged_from": "船舶发动机系统_润滑系统",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_燃油系统",
-    "merged_from": "船舶发动机系统_燃油系统",
+    "merged_into": "FaultPhenomenon_Shortened Engine Life",
+    "merged_from": "FaultPhenomenon_Shortened Engine Life",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "船舶发动机系统_冷却系统",
-    "merged_from": "船舶发动机系统_冷却系统",
+    "merged_into": "Marine Engine System_Engine Control Module",
+    "merged_from": "Marine Engine System_Engine Control Module",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统",
-    "merged_from": "沃尔沃遍达发动机系统",
+    "merged_into": "Marine Engine System_Information Display",
+    "merged_from": "Marine Engine System_Information Display",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_发动机本体",
-    "merged_from": "沃尔沃遍达发动机系统_发动机本体",
+    "merged_into": "DiagnosticMethod_Check Fault Code",
+    "merged_from": "DiagnosticMethod_Check Fault Code",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_机油滤清器",
-    "merged_from": "沃尔沃遍达发动机系统_机油滤清器",
+    "merged_into": "Marine Engine System_Alternator",
+    "merged_from": "Marine Engine System_Alternator",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_消音器",
-    "merged_from": "沃尔沃遍达发动机系统_消音器",
+    "merged_into": "Marine Engine System_Echo Sounder",
+    "merged_from": "Marine Engine System_Echo Sounder",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_人身伤害事故",
-    "merged_from": "沃尔沃遍达发动机系统_人身伤害事故",
+    "merged_into": "Marine Engine System_Lubrication System",
+    "merged_from": "Marine Engine System_Lubrication System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_润滑系统",
-    "merged_from": "沃尔沃遍达发动机系统_润滑系统",
+    "merged_into": "Marine Engine System_Joystick",
+    "merged_from": "Marine Engine System_Joystick",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_燃油系统",
-    "merged_from": "沃尔沃遍达发动机系统_燃油系统",
+    "merged_into": "Marine Engine System_Docking Mode",
+    "merged_from": "Marine Engine System_Docking Mode",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_排气系统",
-    "merged_from": "沃尔沃遍达发动机系统_排气系统",
+    "merged_into": "Marine Engine System_Stern Drive",
+    "merged_from": "Marine Engine System_Stern Drive",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_涡轮增压器",
-    "merged_from": "沃尔沃遍达发动机系统_涡轮增压器",
+    "merged_into": "Marine Engine System_Cooling System",
+    "merged_from": "Marine Engine System_Cooling System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_冷却系统",
-    "merged_from": "沃尔沃遍达发动机系统_冷却系统",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_海水泵",
-    "merged_from": "沃尔沃遍达发动机系统_海水泵",
+    "merged_into": "Marine Engine System_Parameter_Neutral Warning Sound",
+    "merged_from": "Marine Engine System_Parameter_Neutral Warning Sound",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_增压空气冷却器",
-    "merged_from": "沃尔沃遍达发动机系统_增压空气冷却器",
+    "merged_into": "Volvo Penta Engine",
+    "merged_from": "Volvo Penta Engine",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_膨胀箱",
-    "merged_from": "沃尔沃遍达发动机系统_膨胀箱",
+    "merged_into": "Volvo Penta Engine_Transmission System_Propeller Shaft",
+    "merged_from": "Volvo Penta Engine_Transmission System_Propeller Shaft",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_发动机过热",
-    "merged_from": "沃尔沃遍达发动机系统_发动机过热",
+    "merged_into": "Volvo Penta Engine_Transmission System_Transmission Malfunction",
+    "merged_from": "Volvo Penta Engine_Transmission System_Transmission Malfunction",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_传动装置",
-    "merged_from": "沃尔沃遍达发动机系统_传动装置",
+    "merged_into": "Volvo Penta Engine_Steering System_Electric Steering Unit",
+    "merged_from": "Volvo Penta Engine_Steering System_Electric Steering Unit",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_电动操舵器",
-    "merged_from": "沃尔沃遍达发动机系统_电动操舵器",
+    "merged_into": "Volvo Penta Engine_Steering System_Dipstick",
+    "merged_from": "Volvo Penta Engine_Steering System_Dipstick",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_螺旋桨轴",
-    "merged_from": "沃尔沃遍达发动机系统_螺旋桨轴",
+    "merged_into": "Volvo Penta Engine",
+    "merged_from": "Volvo Penta Engine",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_机油滤清器",
-    "merged_from": "沃尔沃遍达发动机系统_机油滤清器",
+    "merged_into": "Volvo Penta Engine_Mechanical System",
+    "merged_from": "Volvo Penta Engine_Mechanical System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_量油尺",
-    "merged_from": "沃尔沃遍达发动机系统_量油尺",
+    "merged_into": "Volvo Penta Engine_Cooling System",
+    "merged_from": "Volvo Penta Engine_Cooling System",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统",
-    "merged_from": "沃尔沃遍达发动机系统",
+    "merged_into": "Volvo Penta Engine_Electrical System_Alternator",
+    "merged_from": "Volvo Penta Engine_Electrical System_Alternator",
     "kg_name": "发动机"
   },
   {
     "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_海水泵",
-    "merged_from": "沃尔沃遍达发动机系统_海水泵",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统",
-    "merged_from": "沃尔沃遍达发动机系统",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_冷却系统",
-    "merged_from": "沃尔沃遍达发动机系统_冷却系统",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_润滑系统",
-    "merged_from": "沃尔沃遍达发动机系统_润滑系统",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_电池",
-    "merged_from": "沃尔沃遍达发动机系统_电池",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_SCR 系统",
-    "merged_from": "沃尔沃遍达发动机系统_SCR 系统",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_长期存储前机油更换",
-    "merged_from": "沃尔沃遍达发动机系统_长期存储前机油更换",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_长期存储前电池维护",
-    "merged_from": "沃尔沃遍达发动机系统_长期存储前电池维护",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_交流发电机",
-    "merged_from": "沃尔沃遍达发动机系统_交流发电机",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统",
-    "merged_from": "沃尔沃遍达发动机系统",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_电池",
-    "merged_from": "沃尔沃遍达发动机系统_电池",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_传动装置",
-    "merged_from": "沃尔沃遍达发动机系统_传动装置",
-    "kg_name": "发动机"
-  },
-  {
-    "step": "exact_dedup",
-    "merged_into": "沃尔沃遍达发动机系统_运行中禁止断开电池规范",
-    "merged_from": "沃尔沃遍达发动机系统_运行中禁止断开电池规范",
+    "merged_into": "Volvo Penta Engine_Electrical System_Battery",
+    "merged_from": "Volvo Penta Engine_Electrical System_Battery",
     "kg_name": "发动机"
   },
   {
     "step": "label_unify",
-    "name": "船舶发动机系统_电气系统",
+    "name": "Marine Engine System_Battery",
     "labels_merged": [
       "Component",
       "Equipment"
@@ -489,282 +417,210 @@
     "kg_name": "发动机"
   },
   {
-    "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_交流发电机",
-    "entity_b": "船舶发动机系统_电气系统_交流发电机",
-    "label": "Component",
-    "threshold": 0.96,
-    "similarity": 0.9635,
+    "step": "label_unify",
+    "name": "Marine Engine System_Fuel System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Cooling System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Lubrication System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_电压表",
-    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_油压表",
-    "label": "Component",
-    "threshold": 0.96,
-    "similarity": 0.9784,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_操纵杆转向功能模块",
-    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_操纵杆驾驶功能模块",
-    "label": "Component",
-    "threshold": 0.96,
-    "similarity": 0.9759,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_海水系统_海水过滤器",
-    "entity_b": "船舶发动机系统_海水系统_海水过滤泵",
-    "label": "Component",
-    "threshold": 0.96,
-    "similarity": 0.9713,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_起动马达",
-    "entity_b": "沃尔沃遍达发动机系统_起动机",
-    "label": "Component",
-    "threshold": 0.96,
-    "similarity": 0.962,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_电气作业断电须知",
-    "entity_b": "船舶发动机系统_焊接作业断电须知",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9338,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_电池电解质防护须知",
-    "entity_b": "船舶发动机系统_电气系统_电池电解液防护须知",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9329,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_防火防爆安全规范",
-    "entity_b": "沃尔沃遍达发动机系统_燃油系统防火规范",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9497,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_热冷却液防烫伤规范",
-    "entity_b": "沃尔沃遍达发动机系统_热油防烫伤规范",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9538,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_燃油高压检测防护",
-    "entity_b": "沃尔沃遍达发动机系统_燃油高压防护规范",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.935,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_塑料部分禁止涂漆",
-    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_涂料使用禁忌规范",
-    "label": "SafetyNote",
-    "threshold": 0.92,
-    "similarity": 0.9224,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "FaultPhenomenon_OilLeak",
-    "entity_b": "FaultPhenomenon_FuelLeak",
+    "entity_a": "Volvo Penta Engine_Fault_Fuel Leak",
+    "entity_b": "Volvo Penta Engine_Fault_Coolant Leak",
     "label": "FaultPhenomenon",
     "threshold": 0.93,
-    "similarity": 0.9412,
+    "similarity": 0.9458,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_燃油泄漏",
-    "entity_b": "船舶发动机系统_机油泄漏",
+    "entity_a": "Volvo Penta Engine_Fault_Fuel Leak",
+    "entity_b": "Volvo Penta Engine_Fault_Oil Leak",
     "label": "FaultPhenomenon",
     "threshold": 0.93,
-    "similarity": 0.9446,
+    "similarity": 0.9744,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_功能故障",
-    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_故障消息",
-    "label": "FaultPhenomenon",
-    "threshold": 0.93,
-    "similarity": 0.9619,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_燃油泄漏",
-    "entity_b": "沃尔沃遍达发动机系统_机油泄漏",
-    "label": "FaultPhenomenon",
-    "threshold": 0.93,
-    "similarity": 0.9703,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_电池冷冻破裂",
-    "entity_b": "沃尔沃遍达发动机系统_发动机冷却系统冷冻破裂",
-    "label": "FaultPhenomenon",
-    "threshold": 0.93,
-    "similarity": 0.9348,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_机油油位过高",
-    "entity_b": "沃尔沃遍达发动机系统_机油油位过低",
+    "entity_a": "Marine Engine System_FaultCause_Air In Fuel System",
+    "entity_b": "Marine Engine System_FaultCause_Water In Fuel",
     "label": "FaultCause",
     "threshold": 0.93,
-    "similarity": 0.9612,
+    "similarity": 0.9332,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "RepairMethod_BleedFuelFilter",
-    "entity_b": "RepairMethod_BleedFuelSystem",
-    "label": "RepairMethod",
+    "entity_a": "发动机安全管理系统_燃油系统_清洁度要求",
+    "entity_b": "发动机安全管理系统_发动机_清洁度要求",
+    "label": "SafetyNote",
     "threshold": 0.92,
-    "similarity": 0.9401,
+    "similarity": 0.9534,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_发动机大修",
-    "entity_b": "沃尔沃遍达发动机系统_传动装置大修",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9549,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置更换",
-    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_变速器油更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9234,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
-    "entity_b": "沃尔沃遍达发动机系统_机油过滤器更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9571,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
-    "entity_b": "沃尔沃遍达发动机系统_双联过滤器滤芯更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.922,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_空气过滤器更换",
-    "entity_b": "沃尔沃遍达发动机系统_AdBlue 过滤器更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9299,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_发动机机油更换",
-    "entity_b": "沃尔沃遍达发动机系统_机油过滤器更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9339,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_发动机机油更换",
-    "entity_b": "沃尔沃遍达发动机系统_传动装置机油更换",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9613,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_油质量传感器清洁",
-    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_油质量传感器校准",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9555,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_长期存储前机油更换",
-    "entity_b": "沃尔沃遍达发动机系统_长期存储前燃油系统保护",
-    "label": "RepairMethod",
-    "threshold": 0.92,
-    "similarity": 0.9207,
-    "kg_name": "发动机"
-  },
-  {
-    "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_长期存储前冷却系统排水",
-    "entity_b": "沃尔沃遍达发动机系统_长期存储前海水冷却系统循环",
-    "label": "RepairMethod",
+    "entity_a": "发动机安全管理系统_冷却系统_冷却剂规格要求",
+    "entity_b": "发动机安全管理系统_冷却系统_冷却剂混合要求",
+    "label": "SafetyNote",
     "threshold": 0.92,
     "similarity": 0.9318,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "沃尔沃遍达发动机系统_IPS 驱动装置_排气板检查",
-    "entity_b": "沃尔沃遍达发动机系统_IPS 驱动装置_油位检查",
+    "entity_a": "Volvo Penta Engine_Safety_Hot Coolant Burn Risk",
+    "entity_b": "Volvo Penta Engine_Safety_Hot Oil Burn Risk",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9505,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Cooling System_Anode Cleaning Restriction",
+    "entity_b": "Volvo Penta Engine_Transmission System_Anode Cleaning Restriction",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9575,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Transmission System_Exhaust Plate Cleaning Restriction",
+    "entity_b": "Volvo Penta Engine_Transmission System_Exhaust Plate Painting Restriction",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9296,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Transmission System_Dipstick Material Warning",
+    "entity_b": "Volvo Penta Engine_Transmission System_Dipstick Plastic Warning",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9487,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Marine Engine System_Parameter_Oil Viscosity",
+    "entity_b": "Marine Engine System_Parameter_Fuel Viscosity",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9568,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil Level Check",
+    "entity_b": "Volvo Penta Engine_Transmission System_Oil Level Check",
     "label": "DiagnosticMethod",
     "threshold": 0.92,
-    "similarity": 0.9216,
+    "similarity": 0.9633,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "EngineSystem_OilWaterContent",
-    "entity_b": "EngineSystem_OilFuelContent",
-    "label": "Parameter",
-    "threshold": 0.95,
-    "similarity": 0.9515,
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil Level Check",
+    "entity_b": "Volvo Penta Engine_Steering System_Steering Oil Level Check",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9225,
     "kg_name": "发动机"
   },
   {
     "step": "semantic_merge",
-    "entity_a": "船舶发动机系统_沃尔沃遍达 EVC 系统_发动机转速",
-    "entity_b": "船舶发动机系统_沃尔沃遍达 EVC 系统_船速",
-    "label": "Parameter",
-    "threshold": 0.95,
-    "similarity": 0.9591,
+    "entity_a": "发动机安全管理系统_燃油系统_过滤器排气",
+    "entity_b": "发动机安全管理系统_燃油系统_过滤器更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9461,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_燃油系统_过滤器排气",
+    "entity_b": "发动机安全管理系统_燃油系统_系统排气",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9411,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_加满冷却剂",
+    "entity_b": "发动机安全管理系统_冷却系统_清空冷却剂",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9221,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_清空冷却剂",
+    "entity_b": "发动机安全管理系统_冷却系统_冲洗冷却系统",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.929,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_更换叶轮",
+    "entity_b": "发动机安全管理系统_冷却系统_拆卸叶轮储存",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9201,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Repair_Engine Overhaul",
+    "entity_b": "Volvo Penta Engine_Transmission System_Overhaul",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9371,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil And Filter Replacement",
+    "entity_b": "Volvo Penta Engine_Transmission System_Oil Filter Replacement",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.942,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Cooling System_Anode Replacement",
+    "entity_b": "Volvo Penta Engine_Transmission System_Anode Replacement",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9389,
     "kg_name": "发动机"
   },
   {

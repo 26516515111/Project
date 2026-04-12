@@ -58,6 +58,7 @@ class RagPipeline:
             self.chunks,
             embedding_model=SETTINGS.embedding_model,
             search_k=max(1, SETTINGS.parent_retriever_k),
+            persist_dir=SETTINGS.parent_index_cache_dir,
         )
         self.decomposer = self._build_decomposer()
         self._chain = self._build_chain()

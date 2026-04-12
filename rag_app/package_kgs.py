@@ -279,9 +279,9 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     merged_merge_log: list[dict[str, Any]] = []
 
     for kg_name, build_dir in build_dirs:
-        chunks = read_json(build_dir / "chunks" / "chunks.json", [])
-        doc_map = read_json(build_dir / "chunks" / "doc_source_map.json", [])
-        chunk_to_kg = read_json(build_dir / "chunks" / "chunk_to_kg.json", {"chunks": []})
+        chunks = read_json(build_dir / "chunks" / "docs/chunks.json", [])
+        doc_map = read_json(build_dir / "chunks" / "docs/doc_source_map.json", [])
+        chunk_to_kg = read_json(build_dir / "chunks" / "docs/chunk_to_kg.json", {"chunks": []})
         delivery = read_json(build_dir / "delivery" / "kg_merged.json", {"entities": [], "relations": []})
         merge_log = read_json(build_dir / "delivery" / "entity_merge_log.json", [])
 

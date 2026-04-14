@@ -1,10 +1,30 @@
-from sqlalchemy import Column, Integer, String, Boolean, Text, DateTime, ForeignKey, create_engine
-from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from datetime import datetime
+from pathlib import Path
+
+from sqlalchemy import (
+    Boolean,
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    create_engine,
+    text,
+)
+from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 # ===================== 数据库连接配置 =====================
-# Windows 下的 SQLite 本地数据库文件
-SQLALCHEMY_DATABASE_URL = "sqlite:///./deepblue_rag.db"
+def _resolve_db_file() -> Path:
+    module_db = Path(__file__).resolve().parent / "deepblue_rag.db"
+    project_db = Path(__file__).resolve().parent.parent / "deepblue_rag.db"
+    if (not module_db.exists()) and project_db.exists():
+        module_db.write_bytes(project_db.read_bytes())
+    return module_db
+
+
+DB_FILE = _resolve_db_file()
+SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_FILE.as_posix()}"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -28,6 +48,7 @@ class User(Base):
     # 关联设置和历史会话
     settings = relationship("UserSettings", back_populates="user", uselist=False)
     chat_sessions = relationship("ChatSession", back_populates="user")
+    setting_histories = relationship("SettingHistory", back_populates="user")
 
 
 # ===================== 2. 历史记录表 =====================
@@ -59,6 +80,8 @@ class ChatMessage(Base):
     content = Column(Text, nullable=False)           # 实际显示的文本内容
     search_process = Column(Text, nullable=True)     # AI 专属：检索过程描述
     citations = Column(Text, nullable=True)          # AI 专属：引用的文档 (可存 JSON 字符串)
+    kg_triplets = Column(Text, nullable=True)        # AI 专属：图谱三元组 (可存 JSON 字符串)
+    extra_data = Column(Text, nullable=True)         # AI 专属：其他附加字段 (可存 JSON 字符串)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     session = relationship("ChatSession", back_populates="messages")
@@ -76,6 +99,7 @@ class UserSettings(Base):
     
     # 个人信息
     nickname = Column(String, default="Captain")
+    avatar = Column(Text, default="")
     imo = Column(String, default="")
     email = Column(String, default="")
     emergency = Column(String, default="")
@@ -98,10 +122,50 @@ class UserSettings(Base):
 
     user = relationship("User", back_populates="settings")
 
+
+class SettingHistory(Base):
+    """
+    用于记录 Setting 修改历史（审计与回溯）
+    """
+
+    __tablename__ = "setting_history"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(String, ForeignKey("users.user_id"), nullable=False, index=True)
+    changed_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    changed_by = Column(String, default="system")
+    payload = Column(Text, nullable=False)  # 保存完整设置快照 JSON
+
+    user = relationship("User", back_populates="setting_histories")
+
+
+def _ensure_sqlite_column(table_name: str, column_name: str, column_sql: str) -> None:
+    with engine.begin() as conn:
+        columns = conn.execute(text(f"PRAGMA table_info('{table_name}')")).fetchall()
+        existing = {col[1] for col in columns}
+        if column_name not in existing:
+            conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {column_sql}"))
+
 # ===================== 初始化脚本 =====================
 def init_db():
     """在应用启动时调用此函数以创建表"""
     Base.metadata.create_all(bind=engine)
+    _ensure_sqlite_column("user_settings", "avatar", "TEXT DEFAULT ''")
+    _ensure_sqlite_column("chat_messages", "kg_triplets", "TEXT")
+    _ensure_sqlite_column("chat_messages", "extra_data", "TEXT")
+
+
+def sync_legacy_db() -> None:
+    module_db = Path(__file__).resolve().parent / "deepblue_rag.db"
+    project_db = Path(__file__).resolve().parent.parent / "deepblue_rag.db"
+    if not project_db.exists() or not module_db.exists():
+        return
+    if project_db.samefile(module_db):
+        return
+    if project_db.stat().st_mtime > module_db.stat().st_mtime:
+        module_db.write_bytes(project_db.read_bytes())
+    elif module_db.stat().st_mtime > project_db.stat().st_mtime:
+        project_db.write_bytes(module_db.read_bytes())
 
 if __name__ == "__main__":
     init_db()

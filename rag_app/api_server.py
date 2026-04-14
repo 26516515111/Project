@@ -15,6 +15,14 @@ from rag.config import SETTINGS
 from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
 from update_index_incremental import main as run_incremental_update
+from db_service import (
+    authenticate_user,
+    get_user_settings,
+    initialize_database,
+    list_user_chats,
+    replace_user_chats,
+    save_user_settings,
+)
 
 
 app = FastAPI(title="RAG LangServe Backend", version="1.0.0")
@@ -29,6 +37,8 @@ app.add_middleware(
 _pipeline_lock = threading.RLock()
 _pipeline: Optional[RagPipeline] = None
 _allowed_suffixes = {".txt", ".md", ".pdf"}
+
+initialize_database()
 
 
 def _get_pipeline() -> RagPipeline:
@@ -104,6 +114,52 @@ def query_rag(req: QueryRequest):
         pipeline = _get_pipeline()
         answer = pipeline.query(req)
         return pipeline.export_answer(answer)
+
+
+@app.post("/auth/login")
+def auth_login(payload: dict):
+    user_id = str(payload.get("user_id", "")).strip()
+    password = str(payload.get("password", ""))
+    if not user_id or not password:
+        raise HTTPException(status_code=400, detail="user_id and password are required")
+    user = authenticate_user(user_id, password)
+    if not user:
+        raise HTTPException(status_code=401, detail="账号或密码错误")
+    return {
+        "ok": True,
+        "user": user,
+        "settings": get_user_settings(user_id),
+        "chats": list_user_chats(user_id),
+    }
+
+
+@app.get("/users/{user_id}/settings")
+def read_settings(user_id: str):
+    return {"ok": True, "settings": get_user_settings(user_id)}
+
+
+@app.put("/users/{user_id}/settings")
+def update_settings(user_id: str, payload: dict):
+    settings = payload.get("settings")
+    if not isinstance(settings, dict):
+        raise HTTPException(status_code=400, detail="settings must be an object")
+    changed_by = str(payload.get("changed_by") or user_id)
+    saved = save_user_settings(user_id, settings, changed_by=changed_by)
+    return {"ok": True, "settings": saved}
+
+
+@app.get("/users/{user_id}/chats")
+def read_chats(user_id: str):
+    return {"ok": True, "chats": list_user_chats(user_id)}
+
+
+@app.put("/users/{user_id}/chats")
+def save_chats(user_id: str, payload: dict):
+    chats = payload.get("chats")
+    if not isinstance(chats, list):
+        raise HTTPException(status_code=400, detail="chats must be an array")
+    saved = replace_user_chats(user_id, chats)
+    return {"ok": True, "chats": saved}
 
 
 @app.post("/rag/query/stream")

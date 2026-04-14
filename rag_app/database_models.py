@@ -1,5 +1,4 @@
 from datetime import datetime
-from pathlib import Path
 
 from sqlalchemy import (
     Boolean,
@@ -15,16 +14,8 @@ from sqlalchemy import (
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 # ===================== 数据库连接配置 =====================
-def _resolve_db_file() -> Path:
-    module_db = Path(__file__).resolve().parent / "deepblue_rag.db"
-    project_db = Path(__file__).resolve().parent.parent / "deepblue_rag.db"
-    if (not module_db.exists()) and project_db.exists():
-        module_db.write_bytes(project_db.read_bytes())
-    return module_db
-
-
-DB_FILE = _resolve_db_file()
-SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_FILE.as_posix()}"
+# Windows 下的 SQLite 本地数据库文件
+SQLALCHEMY_DATABASE_URL = "sqlite:///./deepblue_rag.db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -60,7 +51,6 @@ class ChatSession(Base):
 
     id = Column(String, primary_key=True, index=True) # 会话的唯一ID (如时间戳或UUID)
     user_id = Column(String, ForeignKey("users.user_id"), nullable=False)
-    title = Column(String, default="新建会话")
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # 关联用户和消息
@@ -153,19 +143,6 @@ def init_db():
     _ensure_sqlite_column("user_settings", "avatar", "TEXT DEFAULT ''")
     _ensure_sqlite_column("chat_messages", "kg_triplets", "TEXT")
     _ensure_sqlite_column("chat_messages", "extra_data", "TEXT")
-
-
-def sync_legacy_db() -> None:
-    module_db = Path(__file__).resolve().parent / "deepblue_rag.db"
-    project_db = Path(__file__).resolve().parent.parent / "deepblue_rag.db"
-    if not project_db.exists() or not module_db.exists():
-        return
-    if project_db.samefile(module_db):
-        return
-    if project_db.stat().st_mtime > module_db.stat().st_mtime:
-        module_db.write_bytes(project_db.read_bytes())
-    elif module_db.stat().st_mtime > project_db.stat().st_mtime:
-        project_db.write_bytes(module_db.read_bytes())
 
 if __name__ == "__main__":
     init_db()

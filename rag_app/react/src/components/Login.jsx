@@ -1,27 +1,35 @@
 import { useState } from 'react';
 
-const API_HOST = window.location.hostname || "127.0.0.1";
-const API_BASE_URL = `http://${API_HOST}:8000`;
+const API_HOST = window.location.hostname || '127.0.0.1';
+const BASE_URL = `http://${API_HOST}:8000`;
 
 export default function Login({ onLogin }) {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        if (userId === "admin" && password === "123456") {
-            const loginUser = { name: "王轮机长", avatar: "👨‍✈️", user_id: "882103" };
-            fetch(`${API_BASE_URL}/rag/preload`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user_id: loginUser.user_id }),
-            }).catch(() => {});
-            onLogin(loginUser);
-        } else {
-            setError('账号或密码错误！');
+        setLoading(true);
+        try {
+            const response = await fetch(`${BASE_URL}/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId, password }),
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || !data?.ok) {
+                setError(data?.detail || '账号或密码错误！');
+                return;
+            }
+            onLogin(data);
+        } catch (err) {
+            setError(`登录失败：${err?.message || '请检查后端服务'}`);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -127,6 +135,7 @@ export default function Login({ onLogin }) {
                                         className="w-full bg-black/30 border border-white/10 text-white rounded-xl py-3.5 pr-4 pl-12 text-sm focus:outline-none focus:border-teal-400/70 focus:bg-black/50 transition-all duration-300 placeholder-gray-500/50" 
                                         placeholder="请输入您的账号 (例如: admin)"
                                         value={userId}
+                                        disabled={loading}
                                         onChange={(e) => setUserId(e.target.value)}
                                     />
                                 </div>
@@ -145,6 +154,7 @@ export default function Login({ onLogin }) {
                                         className="w-full bg-black/30 border border-white/10 text-white rounded-xl py-3.5 pr-12 pl-12 text-sm focus:outline-none focus:border-teal-400/70 focus:bg-black/50 transition-all duration-300 placeholder-gray-500/50 tracking-widest font-mono" 
                                         placeholder="••••••••"
                                         value={password}
+                                        disabled={loading}
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-teal-300 transition-colors">
@@ -157,10 +167,11 @@ export default function Login({ onLogin }) {
                         <div className="pt-4">
                             <button 
                                 type="submit" 
+                                disabled={loading}
                                 className="w-full btn-shine relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-600 to-[#0a2540] text-white font-bold py-4 shadow-[0_8px_20px_rgba(13,148,136,0.3)] hover:shadow-[0_8px_25px_rgba(45,212,191,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 mt-6"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2 text-base tracking-widest">
-                                    登 录 系 统 <i className="ph ph-arrow-right text-lg font-bold"></i>
+                                    {loading ? '登 录 中...' : '登 录 系 统'} <i className="ph ph-arrow-right text-lg font-bold"></i>
                                 </span>
                             </button>
                         </div>

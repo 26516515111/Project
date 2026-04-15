@@ -9,15 +9,68 @@ const API_CONFIG = {
   timeoutOnline: 90000,
   timeoutOffline: 30000,
 };
-const BASE_USER_ID = "captain_park";
+const DEFAULT_USER_SETTINGS = {
+  nickname: "Captain Park",
+  avatar: "",
+  imo: "9876543",
+  email: "captain.park@deepblue.com",
+  emergency: "+86 13800138000",
+  theme: "dark",
+  fontSize: 16,
+  notify: true,
+  autoSave: true,
+  graphOn: true,
+  offlineOn: false,
+  streamSpeed: 50,
+  dbPath: "/mnt/data/local_kb",
+  model: "hybrid",
+  retention: "30",
+};
+const THEME_SURFACES = {
+  dark: {
+    shellBg: "#030d17",
+    mainBg: "#041527",
+    panelBg: "rgba(4, 21, 39, 0.7)",
+    panelBorder: "rgba(255, 255, 255, 0.05)",
+    headerBg: "rgba(4, 21, 39, 0.4)",
+    inputBg: "rgba(255, 255, 255, 0.03)",
+    inputBorder: "rgba(255, 255, 255, 0.1)",
+    glowBg: "radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, transparent 70%)",
+    footerBg: "linear-gradient(to top, #041527 0%, #041527 60%, transparent 100%)",
+  },
+  light: {
+    shellBg: "#f8fafc",
+    mainBg: "#ffffff",
+    panelBg: "rgba(255, 255, 255, 0.9)",
+    panelBorder: "rgba(148, 163, 184, 0.3)",
+    headerBg: "rgba(255, 255, 255, 0.96)",
+    inputBg: "rgba(255, 255, 255, 0.98)",
+    inputBorder: "rgba(148, 163, 184, 0.3)",
+    glowBg: "radial-gradient(circle, rgba(148, 163, 184, 0.2) 0%, transparent 70%)",
+    footerBg: "linear-gradient(to top, #ffffff 0%, #ffffff 60%, transparent 100%)",
+  },
+};
+const detectSystemDark = () => {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return false;
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
 const PROJECT_META = {
   name: "智能船舶问答系统",
   version: "2.4.1",
   build: "8829",
   releaseDate: "2024-01-15",
 };
-const getSessionUserId = (chatId) =>
-  `${BASE_USER_ID}_${String(chatId || "session").replace(/[^a-zA-Z0-9_-]/g, "_")}`;
+const normalizeSettings = (settings = {}) => ({
+  ...DEFAULT_USER_SETTINGS,
+  ...(settings || {}),
+});
+
+const sanitizeUserId = (value = "") => String(value || "").replace(/[^a-zA-Z0-9_-]/g, "_");
+
+const getSessionUserId = (baseUserId, chatId) =>
+  `${sanitizeUserId(baseUserId || "captain_park")}_${String(chatId || "session").replace(/[^a-zA-Z0-9_-]/g, "_")}`;
 
 // SSE 流式请求模拟（实际项目中替换为真实的 EventSource）
 function* mockStreamResponse(text, isGraphEnabled, isOffline) {
@@ -281,29 +334,22 @@ const formatOfflineMarkdown = (text = "") => {
 
 // 新增：读取设置工具
 const getSystemSettings = () => {
-  const saved = localStorage.getItem("deepblue_settings");
-  // 匹配 setting.jsx 中的默认值
-  return saved ? JSON.parse(saved) : { notify: true, autoSave: true };
+  return { ...DEFAULT_USER_SETTINGS };
 };
 
 // 新增：网页标题/标签页闪烁提示（替代提示音）
 let flashInterval = null;
 const originalTitle = document.title || "智能船舶问答系统";
 
-const notifyNewMessage = () => {
-  const settings = getSystemSettings();
-  if (!settings.notify) return; // 未开启提示则返回
-
-  // 清除已存在的定时器
+const notifyNewMessage = (settings) => {
+  const current = normalizeSettings(settings || getSystemSettings());
+  if (!current.notify) return;
   if (flashInterval) clearInterval(flashInterval);
-
   let flashFlag = false;
   flashInterval = setInterval(() => {
     document.title = flashFlag ? originalTitle : "【新消息】" + originalTitle;
     flashFlag = !flashFlag;
   }, 500);
-
-  // 用户与页面产生交互时（移动鼠标、点击或重新聚焦），停止闪烁
   const clearFlash = () => {
     clearInterval(flashInterval);
     flashInterval = null;
@@ -312,7 +358,6 @@ const notifyNewMessage = () => {
     window.removeEventListener("focus", clearFlash);
     window.removeEventListener("click", clearFlash);
   };
-
   window.addEventListener("mousemove", clearFlash);
   window.addEventListener("focus", clearFlash);
   window.addEventListener("click", clearFlash);
@@ -439,18 +484,18 @@ const HelpDocsDialog = ({ isOpen, onClose }) => {
 };
 
 // ===================== 组件 =====================
-export default function Chat() {
-  // 新增：提取并保存一份当前用户的偏好设置到状态中
-  const [userSettings, setUserSettings] = useState(() => getSystemSettings());
+export default function Chat({ user }) {
+  const currentUser = user?.user || {};
+  const userId = String(currentUser.user_id || "captain_park");
+  const userRole = Number(currentUser.role || 0);
 
-  const [chats, setChats] = useState(() => {
-    // 自动保存逻辑：如果不允许自动保存，则初始化时不读取历史缓存
-    const settings = getSystemSettings();
-    if (!settings.autoSave) return INITIAL_CHATS;
+  const [userSettings, setUserSettings] = useState(() =>
+    normalizeSettings(user?.settings || {})
+  );
 
-    const saved = localStorage.getItem("deepblue_chats");
-    return saved ? JSON.parse(saved) : INITIAL_CHATS;
-  });
+  const [chats, setChats] = useState(() =>
+    Array.isArray(user?.chats) ? user.chats : INITIAL_CHATS
+  );
   const [currentChatId, setCurrentChatId] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
@@ -464,17 +509,61 @@ export default function Chat() {
   const [uploadingFileName, setUploadingFileName] = useState("");
   const [uploadStatus, setUploadStatus] = useState(null);
   const [recentUploads, setRecentUploads] = useState([]);
+  const [systemDark, setSystemDark] = useState(() => detectSystemDark());
+  const themePref = userSettings?.theme || "dark";
+  const effectiveTheme = themePref === "system" ? (systemDark ? "dark" : "light") : themePref;
+  const themeSurface = THEME_SURFACES[effectiveTheme] || THEME_SURFACES.dark;
+  const isLightUi = effectiveTheme === "light";
 
-  // 保存数据到本地存储（受 autoSave 控制）
   useEffect(() => {
-    const settings = getSystemSettings();
-    if (settings.autoSave) {
-      localStorage.setItem("deepblue_chats", JSON.stringify(chats));
-    } else {
-      // 如果关闭了自动保存，则清空现有的记录
-      localStorage.removeItem("deepblue_chats");
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return undefined;
     }
-  }, [chats]);
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = (event) => setSystemDark(Boolean(event.matches));
+    setSystemDark(Boolean(media.matches));
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", onChange);
+      return () => media.removeEventListener("change", onChange);
+    }
+    media.addListener(onChange);
+    return () => media.removeListener(onChange);
+  }, []);
+
+  const chatPersistReadyRef = useRef(false);
+
+  useEffect(() => {
+    setUserSettings(normalizeSettings(user?.settings || {}));
+    const nextChats = Array.isArray(user?.chats) ? user.chats : INITIAL_CHATS;
+    setChats(nextChats);
+    setCurrentChatId(null);
+    chatPersistReadyRef.current = false;
+  }, [user]);
+
+  useEffect(() => {
+    if (!userId) return undefined;
+    if (!chatPersistReadyRef.current) {
+      chatPersistReadyRef.current = true;
+      return undefined;
+    }
+    if (!userSettings.autoSave) return undefined;
+    const timer = setTimeout(async () => {
+      try {
+        const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chats }),
+        });
+        if (!response.ok) {
+          const text = await response.text().catch(() => "");
+          console.warn("chat save failed", response.status, text);
+        }
+      } catch (error) {
+        console.warn("chat save request failed", error?.message || error);
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [chats, userId, userSettings.autoSave]);
 
   // 流式会话管理
   const streamingRefs = useRef(new Map());
@@ -926,10 +1015,10 @@ export default function Chat() {
     setIsAnswering(false);
 
     // 修改：新建会话时，恢复用户设定的默认开关状态
-    const settings = getSystemSettings();
+    const settings = userSettings;
     setGraphEnabled(settings.graphOn ?? true);
     setOfflineMode(settings.offlineOn ?? false);
-  }, []);
+  }, [userSettings]);
 
   // 加载历史会话
   const loadChat = useCallback((id) => {
@@ -991,7 +1080,7 @@ export default function Chat() {
       });
 
       const formData = new FormData();
-      formData.append("user_id", BASE_USER_ID);
+      formData.append("user_id", userId);
       formData.append("file", file);
 
       const res = await fetch(`${API_CONFIG.baseURL}/rag/incremental/upload`, {
@@ -1035,7 +1124,7 @@ export default function Chat() {
       setUploadingFileName("");
       e.target.value = "";
     }
-  }, [handleSend, isAnswering]);
+  }, [handleSend, isAnswering, userId]);
 
   // 导出 Markdown
   const handleExport = useCallback(() => {
@@ -1060,6 +1149,26 @@ export default function Chat() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }, [chats, currentChatId]);
+
+  useEffect(() => {
+    if (!userId) return undefined;
+    const timer = setTimeout(async () => {
+      try {
+        const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/settings`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ settings: userSettings, changed_by: userId }),
+        });
+        if (!response.ok) {
+          const text = await response.text().catch(() => "");
+          console.warn("settings save failed", response.status, text);
+        }
+      } catch (error) {
+        console.warn("settings save request failed", error?.message || error);
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [userId, userSettings]);
 
   // ===================== 渲染辅助组件 =====================
 
@@ -1127,7 +1236,7 @@ export default function Chat() {
   };
 
   const SearchProcessPanel = ({ msg }) => {
-    const [isOpen, setIsOpen] = useState(!!msg.isStreaming);
+    const [isOpen, setIsOpen] = useState(false);
     const hasCitations = Array.isArray(msg.citations) && msg.citations.length > 0;
     const hasKgTriplets = Array.isArray(msg.kgTriplets) && msg.kgTriplets.length > 0;
     const isOfflineAnswer = !!msg.isOffline || /离线模式|\[离线\]/.test(msg.searchProcess || "");
@@ -1487,8 +1596,7 @@ export default function Chat() {
     return <Setting
       onBack={() => {
         setShowSetting(false);
-        const newSettings = getSystemSettings();
-        setUserSettings(newSettings); // 从设置页返回时，重新获取最新的个人信息和头像
+        const newSettings = normalizeSettings(userSettings);
 
         // 修改：如果当前在欢迎界面，立刻应用最新设定的开关
         if (!currentChatId) {
@@ -1497,9 +1605,20 @@ export default function Chat() {
         }
       }}
       chats={chats}
+      userId={userId}
+      userRole={userRole}
+      initialSettings={userSettings}
       onClearChats={() => {
         setChats([]);
         setCurrentChatId(null);
+      }}
+      onSettingsChange={(next) => {
+        const normalized = normalizeSettings(next || {});
+        setUserSettings(normalized);
+        if (!currentChatId) {
+          setGraphEnabled(normalized.graphOn ?? true);
+          setOfflineMode(normalized.offlineOn ?? false);
+        }
       }}
       onDeleteChat={(id) => {
         setChats((prev) => prev.filter((c) => c.id !== id));
@@ -1509,7 +1628,14 @@ export default function Chat() {
   }
 
   return (
-    <div className="text-gray-300 antialiased h-screen w-screen flex bg-[#030d17]" style={{ margin: 0, overflow: "hidden" }}>
+    <div
+      className={`text-gray-300 antialiased h-screen w-screen flex ${isLightUi ? "db-theme-light" : ""}`}
+      style={{
+        margin: 0,
+        overflow: "hidden",
+        background: themeSurface.shellBg,
+      }}
+    >
       {/* ========== 左侧边栏 ========== */}
       <aside className="w-64 z-20 flex flex-col h-full shrink-0 glass-sidebar">
         <div className="p-5">
@@ -1575,7 +1701,7 @@ export default function Chat() {
       </aside>
 
       {/* ========== 主内容区 ========== */}
-      <main className="flex-1 flex flex-col relative z-10 overflow-hidden bg-[#041527]">
+      <main className="flex-1 flex flex-col relative z-10 overflow-hidden" style={{ background: themeSurface.mainBg }}>
         <div className="glow-bg"></div>
 
         <header className="h-16 flex items-center justify-between px-6 shrink-0 relative z-20 glass-header">
@@ -1652,7 +1778,7 @@ export default function Chat() {
         )}
 
         {/* 底部输入框 */}
-        <div className="absolute bottom-0 left-0 w-full p-6 pt-0 z-20" style={{ background: "linear-gradient(to top, #041527 0%, #041527 60%, transparent 100%)" }}>
+        <div className="absolute bottom-0 left-0 w-full p-6 pt-0 z-20" style={{ background: themeSurface.footerBg }}>
           <div className="max-w-4xl mx-auto">
             {isUploading && (
               <div className="mb-2 flex items-center gap-2 px-3 py-2 rounded-lg border border-sky-400/25 bg-sky-500/10 text-sky-200 text-xs">
@@ -1844,25 +1970,25 @@ export default function Chat() {
       {/* CSS 样式补充 */}
       <style>{`
         .glass-sidebar {
-          background: rgba(4, 21, 39, 0.7);
+          background: ${themeSurface.panelBg};
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-right: 1px solid rgba(255, 255, 255, 0.05);
+          border-right: 1px solid ${themeSurface.panelBorder};
         }
         .glass-sidebar-right {
-          background: rgba(4, 21, 39, 0.7);
+          background: ${themeSurface.panelBg};
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-left: 1px solid rgba(255, 255, 255, 0.05);
+          border-left: 1px solid ${themeSurface.panelBorder};
         }
         .glass-header {
-          background: rgba(4, 21, 39, 0.4);
+          background: ${themeSurface.headerBg};
           backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          border-bottom: 1px solid ${themeSurface.panelBorder};
         }
         .glass-input-chat {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: ${themeSurface.inputBg};
+          border: 1px solid ${themeSurface.inputBorder};
           backdrop-filter: blur(10px);
           transition: all 0.3s ease;
         }
@@ -1878,9 +2004,66 @@ export default function Chat() {
           transform: translate(-50%, -50%);
           width: 600px;
           height: 600px;
-          background: radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, transparent 70%);
+          background: ${themeSurface.glowBg};
           pointer-events: none;
           z-index: 0;
+        }
+        .db-theme-light .text-white {
+          color: #0f172a !important;
+        }
+        .db-theme-light .text-gray-500,
+        .db-theme-light .text-gray-400 {
+          color: #475569 !important;
+        }
+        .db-theme-light .text-gray-300,
+        .db-theme-light .text-gray-200 {
+          color: #1e293b !important;
+        }
+        .db-theme-light .text-gray-100,
+        .db-theme-light .text-teal-100 {
+          color: #0f172a !important;
+        }
+        .db-theme-light .glass-input-chat {
+          background: rgba(255, 255, 255, 0.98) !important;
+          border-color: rgba(148, 163, 184, 0.45) !important;
+          box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+        }
+        .db-theme-light .glass-input-chat input {
+          color: #0f172a !important;
+        }
+        .db-theme-light .glass-input-chat input::placeholder {
+          color: #64748b !important;
+        }
+        .db-theme-light [style*="color: #f3f4f6"],
+        .db-theme-light [style*="color:#f3f4f6"],
+        .db-theme-light [style*="color: #d1d5db"],
+        .db-theme-light [style*="color:#d1d5db"] {
+          color: #0f172a !important;
+        }
+        .db-theme-light [style*="color: #9ca3af"],
+        .db-theme-light [style*="color:#9ca3af"],
+        .db-theme-light [style*="color: #6b7280"],
+        .db-theme-light [style*="color:#6b7280"] {
+          color: #475569 !important;
+        }
+        .db-theme-light .bg-white\/\[0\.02\],
+        .db-theme-light .bg-white\/\[0\.03\] {
+          background: rgba(255, 255, 255, 0.78) !important;
+          border-color: rgba(148, 163, 184, 0.28) !important;
+        }
+        .db-theme-light .bg-black\/20,
+        .db-theme-light .bg-black\/25,
+        .db-theme-light .bg-black\/30 {
+          background: rgba(241, 245, 249, 0.9) !important;
+          border-color: rgba(148, 163, 184, 0.32) !important;
+        }
+        .db-theme-light .border-white\/5,
+        .db-theme-light .border-white\/10 {
+          border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+        .db-theme-light .bg-\[\#0a2530\] {
+          background: rgba(191, 219, 254, 0.62) !important;
+          border-color: rgba(96, 165, 250, 0.35) !important;
         }
         .custom-scrollbar::-webkit-scrollbar {
           width: 4px;
@@ -1953,6 +2136,39 @@ export default function Chat() {
           text-transform: uppercase;
           letter-spacing: 0.04em;
         }
+        .db-theme-light .markdown-body,
+        .db-theme-light .markdown-rich {
+          color: #0f172a;
+        }
+        .db-theme-light .markdown-rich h1,
+        .db-theme-light .markdown-rich h2,
+        .db-theme-light .markdown-rich h3,
+        .db-theme-light .markdown-rich p,
+        .db-theme-light .markdown-rich ul,
+        .db-theme-light .markdown-rich ol,
+        .db-theme-light .markdown-rich li {
+          color: #0f172a;
+        }
+        .db-theme-light .markdown-rich blockquote {
+          border-left-color: rgba(14, 116, 144, 0.45);
+          background: rgba(14, 116, 144, 0.08);
+          color: #0f172a;
+        }
+        .db-theme-light .markdown-rich a {
+          color: #0369a1;
+        }
+        .db-theme-light .markdown-rich code {
+          background: rgba(15, 23, 42, 0.06);
+          color: #0f172a;
+        }
+        .db-theme-light .markdown-rich .md-pre {
+          border-color: rgba(148, 163, 184, 0.35);
+          background: #f8fafc;
+        }
+        .db-theme-light .markdown-rich .md-pre code,
+        .db-theme-light .markdown-rich .md-code-lang {
+          color: #334155;
+        }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;
         }
@@ -1962,6 +2178,12 @@ export default function Chat() {
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.2);
+        }
+        .db-theme-light .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(100, 116, 139, 0.35);
+        }
+        .db-theme-light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(100, 116, 139, 0.5);
         }
       `}</style>
     </div>

@@ -7,9 +7,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 320,
     "heading_context": "[H1] Catalog",
-    "heading_path": [
-      "[H1] Catalog"
-    ],
+    "heading_path": ["[H1] Catalog"],
     "semantic_group": "safety",
     "system_root": "Hydraulic Pu",
     "pre_prune_score": 53,
@@ -24,9 +22,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 5952,
     "heading_context": "[H1] Warning Plate",
-    "heading_path": [
-      "[H1] Warning Plate"
-    ],
+    "heading_path": ["[H1] Warning Plate"],
     "semantic_group": "component",
     "system_root": "Hydraulic Pu",
     "pre_prune_score": 45,
@@ -41,9 +37,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 1665,
     "heading_context": "[H1] 安全指示",
-    "heading_path": [
-      "[H1] 安全指示"
-    ],
+    "heading_path": ["[H1] 安全指示"],
     "semantic_group": "fault",
     "system_root": "如果在同步系统",
     "pre_prune_score": 72,
@@ -58,9 +52,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 398,
     "heading_context": "[H1] 零部件概述",
-    "heading_path": [
-      "[H1] 零部件概述"
-    ],
+    "heading_path": ["[H1] 零部件概述"],
     "semantic_group": "repair",
     "system_root": "保证系统",
     "pre_prune_score": 69,
@@ -75,9 +67,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 222,
     "heading_context": "[H1] 特性",
-    "heading_path": [
-      "[H1] 特性"
-    ],
+    "heading_path": ["[H1] 特性"],
     "semantic_group": "parameter",
     "system_root": "特性",
     "pre_prune_score": 61,
@@ -92,9 +82,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 255,
     "heading_context": "[H1] 警告！！！",
-    "heading_path": [
-      "[H1] 警告！！！"
-    ],
+    "heading_path": ["[H1] 警告！！！"],
     "semantic_group": "fault",
     "system_root": "必须保持液压泵站的清洁",
     "pre_prune_score": 75,
@@ -109,9 +97,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 409,
     "heading_context": "[H1] 警告标志如下表所示",
-    "heading_path": [
-      "[H1] 警告标志如下表所示"
-    ],
+    "heading_path": ["[H1] 警告标志如下表所示"],
     "semantic_group": "fault",
     "system_root": "警告标志如下表所示",
     "pre_prune_score": 60,
@@ -126,10 +112,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 222,
     "heading_context": "[H1] 警告标志如下表所示 -> [H2] 5. 液压油的更换方法。",
-    "heading_path": [
-      "[H1] 警告标志如下表所示",
-      "[H2] 5. 液压油的更换方法。"
-    ],
+    "heading_path": ["[H1] 警告标志如下表所示", "[H2] 5. 液压油的更换方法。"],
     "semantic_group": "repair",
     "system_root": "5. 液压油的更换方法。",
     "pre_prune_score": 71,
@@ -144,9 +127,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 638,
     "heading_context": "[H1] 1，SMP系列气动泵噪音/振动声明",
-    "heading_path": [
-      "[H1] 1，SMP系列气动泵噪音/振动声明"
-    ],
+    "heading_path": ["[H1] 1，SMP系列气动泵噪音/振动声明"],
     "semantic_group": "safety",
     "system_root": "Hydraulic Pu",
     "pre_prune_score": 53,
@@ -161,10 +142,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 1480,
     "heading_context": "[H1] 1 .准备 -> [H2] 3.拆卸",
-    "heading_path": [
-      "[H1] 1 .准备",
-      "[H2] 3.拆卸"
-    ],
+    "heading_path": ["[H1] 1 .准备", "[H2] 3.拆卸"],
     "semantic_group": "fault",
     "system_root": "确定系统",
     "pre_prune_score": 74,
@@ -179,10 +157,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 4218,
     "heading_context": "[H1] 1 .准备 -> [H2] 2、20 | 销 | 1",
-    "heading_path": [
-      "[H1] 1 .准备",
-      "[H2] 2、20 | 销 | 1"
-    ],
+    "heading_path": ["[H1] 1 .准备", "[H2] 2、20 | 销 | 1"],
     "semantic_group": "parameter",
     "system_root": "Hydraulic Pu",
     "pre_prune_score": 60,
@@ -197,9 +172,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 327,
     "heading_context": "[H1] 高压软管使用警告",
-    "heading_path": [
-      "[H1] 高压软管使用警告"
-    ],
+    "heading_path": ["[H1] 高压软管使用警告"],
     "semantic_group": "safety",
     "system_root": "高压软管使用警告",
     "pre_prune_score": 53,
@@ -214,9 +187,7 @@
     "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
     "char_count": 688,
     "heading_context": "[H1] 售后服务",
-    "heading_path": [
-      "[H1] 售后服务"
-    ],
+    "heading_path": ["[H1] 售后服务"],
     "semantic_group": "repair",
     "system_root": "自客户购买WREN品牌液压机具产品之日起",
     "pre_prune_score": 66,
@@ -231,9 +202,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 393,
     "heading_context": "[H1] 请注意每台ZP300型阀门配备的具体安装标牌。",
-    "heading_path": [
-      "[H1] 请注意每台ZP300型阀门配备的具体安装标牌。"
-    ],
+    "heading_path": ["[H1] 请注意每台ZP300型阀门配备的具体安装标牌。"],
     "semantic_group": "safety",
     "system_root": "请注意每台ZP300型阀门配备的具体安装标牌。",
     "pre_prune_score": 53,
@@ -254,9 +223,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 522,
     "heading_context": "[H1] 合规铭牌",
-    "heading_path": [
-      "[H1] 合规铭牌"
-    ],
+    "heading_path": ["[H1] 合规铭牌"],
     "semantic_group": "parameter",
     "system_root": "合规铭牌",
     "pre_prune_score": 58,
@@ -271,9 +238,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 1005,
     "heading_context": "[H1] 初步检查",
-    "heading_path": [
-      "[H1] 初步检查"
-    ],
+    "heading_path": ["[H1] 初步检查"],
     "semantic_group": "repair",
     "system_root": "带有液压缸的执行机构ZP300的全面包络尺寸",
     "pre_prune_score": 63,
@@ -294,9 +259,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 139,
     "heading_context": "[H1] 螺栓连接与安装说明",
-    "heading_path": [
-      "[H1] 螺栓连接与安装说明"
-    ],
+    "heading_path": ["[H1] 螺栓连接与安装说明"],
     "semantic_group": "safety",
     "system_root": "螺栓连接与安装说明",
     "pre_prune_score": 38,
@@ -311,9 +274,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 1150,
     "heading_context": "[H1] 注",
-    "heading_path": [
-      "[H1] 注"
-    ],
+    "heading_path": ["[H1] 注"],
     "semantic_group": "overview",
     "system_root": "注",
     "pre_prune_score": 27,
@@ -344,9 +305,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 661,
     "heading_context": "[H1] 液压执行机构",
-    "heading_path": [
-      "[H1] 液压执行机构"
-    ],
+    "heading_path": ["[H1] 液压执行机构"],
     "semantic_group": "safety",
     "system_root": "液压执行机构",
     "pre_prune_score": 53,
@@ -367,9 +326,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 576,
     "heading_context": "[H1] 操作事项",
-    "heading_path": [
-      "[H1] 操作事项"
-    ],
+    "heading_path": ["[H1] 操作事项"],
     "semantic_group": "diagnostic",
     "system_root": "关闭阀门的效应在整体管道系统",
     "pre_prune_score": 76,
@@ -384,9 +341,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 371,
     "heading_context": "[H1] 锥齿轮箱驱动操作",
-    "heading_path": [
-      "[H1] 锥齿轮箱驱动操作"
-    ],
+    "heading_path": ["[H1] 锥齿轮箱驱动操作"],
     "semantic_group": "operation",
     "system_root": "锥齿轮箱驱动操作",
     "pre_prune_score": 49,
@@ -407,9 +362,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 679,
     "heading_context": "[H1] 耐磨环转动",
-    "heading_path": [
-      "[H1] 耐磨环转动"
-    ],
+    "heading_path": ["[H1] 耐磨环转动"],
     "semantic_group": "operation",
     "system_root": "耐磨环转动",
     "pre_prune_score": 49,
@@ -435,9 +388,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 664,
     "heading_context": "[H1] 一般维护",
-    "heading_path": [
-      "[H1] 一般维护"
-    ],
+    "heading_path": ["[H1] 一般维护"],
     "semantic_group": "fault",
     "system_root": "一般维护",
     "pre_prune_score": 66,
@@ -458,9 +409,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 4942,
     "heading_context": "[H1] 更换填料说明",
-    "heading_path": [
-      "[H1] 更换填料说明"
-    ],
+    "heading_path": ["[H1] 更换填料说明"],
     "semantic_group": "repair",
     "system_root": "更换填料说明",
     "pre_prune_score": 57,
@@ -511,9 +460,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 1506,
     "heading_context": "[H1] 更换填料说明",
-    "heading_path": [
-      "[H1] 更换填料说明"
-    ],
+    "heading_path": ["[H1] 更换填料说明"],
     "semantic_group": "repair",
     "system_root": "更换填料说明",
     "pre_prune_score": 57,
@@ -544,9 +491,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 246,
     "heading_context": "[H1] 气缸储存",
-    "heading_path": [
-      "[H1] 气缸储存"
-    ],
+    "heading_path": ["[H1] 气缸储存"],
     "semantic_group": "repair",
     "system_root": "向气缸孔喷注优质液压油或合成润滑油",
     "pre_prune_score": 69,
@@ -561,9 +506,7 @@
     "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
     "char_count": 367,
     "heading_context": "[H1] 维护",
-    "heading_path": [
-      "[H1] 维护"
-    ],
+    "heading_path": ["[H1] 维护"],
     "semantic_group": "repair",
     "system_root": "维护",
     "pre_prune_score": 63,
@@ -578,10 +521,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 1343,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 1.1安装前的储存与防护",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 1.1安装前的储存与防护"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 1.1安装前的储存与防护"],
     "semantic_group": "safety",
     "system_root": "第1节-阀门储存",
     "pre_prune_score": 55,
@@ -622,10 +562,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 835,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 2.2 阀门安装",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 2.2 阀门安装"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 2.2 阀门安装"],
     "semantic_group": "fault",
     "system_root": "终端用户应根据自身管道系统",
     "pre_prune_score": 77,
@@ -640,10 +577,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 206,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 隔离应用",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 隔离应用"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 隔离应用"],
     "semantic_group": "parameter",
     "system_root": "第1节-阀门储存",
     "pre_prune_score": 66,
@@ -664,10 +598,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 248,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 控制应用",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 控制应用"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 控制应用"],
     "semantic_group": "operation",
     "system_root": "控制应用",
     "pre_prune_score": 57,
@@ -688,10 +619,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 392,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 2.4调试",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 2.4调试"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 2.4调试"],
     "semantic_group": "diagnostic",
     "system_root": "管路系统要加水压测试时或管路系统",
     "pre_prune_score": 69,
@@ -717,10 +645,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 273,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 3.1阀门的使用",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 3.1阀门的使用"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 3.1阀门的使用"],
     "semantic_group": "fault",
     "system_root": "只要与阀门连接的系统",
     "pre_prune_score": 71,
@@ -735,10 +660,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 3689,
     "heading_context": "[H1] 第1节-阀门储存 -> [H2] 3.2操作流程",
-    "heading_path": [
-      "[H1] 第1节-阀门储存",
-      "[H2] 3.2操作流程"
-    ],
+    "heading_path": ["[H1] 第1节-阀门储存", "[H2] 3.2操作流程"],
     "semantic_group": "operation",
     "system_root": "第1节-阀门储存",
     "pre_prune_score": 60,
@@ -784,10 +706,7 @@
     "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
     "char_count": 2070,
     "heading_context": "[H1] 第5节-标准选件 -> [H2] 5.1轴承及填料冲洗，",
-    "heading_path": [
-      "[H1] 第5节-标准选件",
-      "[H2] 5.1轴承及填料冲洗，"
-    ],
+    "heading_path": ["[H1] 第5节-标准选件", "[H2] 5.1轴承及填料冲洗，"],
     "semantic_group": "safety",
     "system_root": "第5节-标准选件",
     "pre_prune_score": 58,
@@ -818,9 +737,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 133,
     "heading_context": "[H1] Rosemount™ 3051S 无线系列产品",
-    "heading_path": [
-      "[H1] Rosemount™ 3051S 无线系列产品"
-    ],
+    "heading_path": ["[H1] Rosemount™ 3051S 无线系列产品"],
     "semantic_group": "parameter",
     "system_root": "Rosemount™ 3051S 无线系列产品",
     "pre_prune_score": 58,
@@ -851,10 +768,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 4030,
     "heading_context": "[H1] Rosemount™ 3051S 无线系列产品 -> [H2] 1  简介",
-    "heading_path": [
-      "[H1] Rosemount™ 3051S 无线系列产品",
-      "[H2] 1  简介"
-    ],
+    "heading_path": ["[H1] Rosemount™ 3051S 无线系列产品", "[H2] 1  简介"],
     "semantic_group": "diagnostic",
     "system_root": "的控制或资产管理系统",
     "pre_prune_score": 75,
@@ -972,10 +886,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 2707,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 过程",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 过程"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 过程"],
     "semantic_group": "operation",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 63,
@@ -1065,10 +976,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 3501,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 1、卸下法兰螺栓。",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 1、卸下法兰螺栓。"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 1、卸下法兰螺栓。"],
     "semantic_group": "fault",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 74,
@@ -1149,10 +1057,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 1995,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 1、卸下法兰螺栓。",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 1、卸下法兰螺栓。"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 1、卸下法兰螺栓。"],
     "semantic_group": "fault",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 80,
@@ -1248,10 +1153,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 2450,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 2、复位设备。",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 2、复位设备。"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 2、复位设备。"],
     "semantic_group": "fault",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 83,
@@ -1266,10 +1168,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 1710,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 4、检查电源模块。",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 4、检查电源模块。"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 4、检查电源模块。"],
     "semantic_group": "fault",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 77,
@@ -1300,10 +1199,7 @@
     "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
     "char_count": 3768,
     "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 5、拧紧系紧螺钉。",
-    "heading_path": [
-      "[H1] 使用 AMS 应用用户组态",
-      "[H2] 5、拧紧系紧螺钉。"
-    ],
+    "heading_path": ["[H1] 使用 AMS 应用用户组态", "[H2] 5、拧紧系紧螺钉。"],
     "semantic_group": "fault",
     "system_root": "使用 AMS 应用用户组态",
     "pre_prune_score": 74,

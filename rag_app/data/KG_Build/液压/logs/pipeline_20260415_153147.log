@@ -1,0 +1,15 @@
+2026-04-15 15:31:47 | INFO | 日志文件: /home/shahanshah/work/ship/Project/rag_app/data/KG_Build/液压/logs/pipeline_20260415_153147.log
+2026-04-15 15:31:47 | INFO | 启动 KG LangGraph 流水线
+2026-04-15 15:31:47 | INFO | 标准模式执行 | kg_name=液压 | raw_files=4 | selected=7 | release_kgs=['电气', '发动机', '液压']
+2026-04-15 15:31:47 | INFO | 执行步骤: [7]
+2026-04-15 15:31:47 | INFO | 跳过 Step 1: 语料清洗 | kg=液压
+2026-04-15 15:31:47 | INFO | 跳过 Step 2: 文本切块 | kg=液压
+2026-04-15 15:31:47 | INFO | 跳过 Step 3: KG 三元组抽取 | kg=液压
+2026-04-15 15:31:47 | INFO | 跳过 Step 4: 实体合并 | kg=液压
+2026-04-15 15:31:47 | INFO | 跳过 Step 5: Neo4j 导入与导出 | kg=液压
+2026-04-15 15:31:47 | INFO | 跳过 Step 6: 图谱可视化 | kg=液压
+2026-04-15 15:31:47 | INFO | 开始 Step 7: Release 发布 | kg=液压
+2026-04-15 15:31:47 | INFO | 完成 Step 7: Release 发布 | kg=液压 | 耗时 0.17s | chunks=0, entities=1317, relations=1605, kg_names=3
+2026-04-15 15:31:47 | INFO | 流水线执行完成
+2026-04-15 15:31:47 | INFO | 状态文件已更新 | kg_name=液压 | used_files=4 | completed_steps=[1, 2, 3, 4, 5, 6, 7]
+2026-04-15 15:31:47 | INFO | 退出码: 0

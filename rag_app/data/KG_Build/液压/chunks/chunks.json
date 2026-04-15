@@ -1,0 +1,1389 @@
+[
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_0",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 0,
+    "text": "[H1] Catalog\nPrecaution 2\nDescription 3\nWarning 4\nWarning Plate 5\n[H1] WREN\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/2db92afbbd45d075d2e5a04d6e87ab908669e3a43a08bd2f64b678d655c0a2b7.jpg alt=images/e8f78318e7674980e4f62c0c6e460fc3b77514d6dcea1120bef65c80deb65760.jpg]",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 320,
+    "heading_context": "[H1] Catalog",
+    "heading_path": [
+      "[H1] Catalog"
+    ],
+    "semantic_group": "safety",
+    "system_root": "Hydraulic Pu",
+    "pre_prune_score": 53,
+    "embed_score": 0.551857590675354,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_1",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 1,
+    "text": "[H1] Warning Plate\nEnclosure\nelectrical.\nEnclosure\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/bbf737abeb5183beeb3dc95a497f782142fa07095401abde3c82c1343ef821bf.jpg alt=images/d9cf0bacc4f9c62b0303523985c165ada85b1a08c7114bcaa7802b24f48cbf8a.jpg]\nFIG 9-1\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/16bfd1563e959bd9929175bd1d499b8da9f2c2714fc2eba0367b8c0bcd3c03cc.jpg alt=images/41343c7e4302a32613c4bd929ee5f8c5d4314afa50e2876288761c85d13f11db.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/96fda87ad67ccdad19523e643a0d66a5b55c72d0ace38246d3e5669bad30ea7d.jpg alt=images/2c945671532838c89e903a87287045b1701e3714fc625b53e54084a6284627b6.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/e07de2db2151301640bc7c046088dfd55307637d1b9da90641e7ac43c2c6c254.jpg alt=images/964e5fc38acf770402bcb0bb3f75c74c7246d4594479e29daacab08c95099bff.jpg]\nFIG 9-2\n[H2] 1. READY\n[H2] 2. START TO OPERATE\n[H2] 3. DISASSEMBLY\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/8376c454a4ec79dafe88b04274238b7339afa2fc95c57e01c2fe0b85d6687663.jpg alt=images/7d4f7a34fb393d6276f2b32f8c872550da8936c52fa9e43311ec493c05869588.jpg]\n[H2] 1. READY\n[H2] 2. START TO OPERATE\n[H2] 3. DISASSEMBLY\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/5c9c98bf0702fc20edf34dfd5b8344379fb3179561656304f9df1fe85f73badf.jpg alt=images/1bf8480355213c27d5548af1f78713d138f504c2cc2a7f5a1f458272f4e72c83.jpg]\n[H2] 1. READY\n[H2] 2. START TO OPERATE\n[H2] 3. DISASSEMBLY\nA B\n[H2] 1. READY\n[H2] 2. START TO OPERATE\n[H2] 3. DISASSEMBLY\nA B\n[H2] 1. READY\n[H2] 2. START TO OPERATE\n[H2] 3. DISASSEMBLY\nA B\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/a824ecec73bb5100c5417b927393a55cbe2cd46b826b850526a213a026d314a1.jpg alt=images/7ab548608125ef45626fcc18d95dbbc4a3a329d0882d380dd8eeaf010efe6f0e.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/192b84d9741e593959211048cd5969db41f52a3ca8f8a9b37459567011b970ab.jpg alt=images/a06b5566fe37582dbf078b44d572dbb6f99a0e98c8b470cd516c8875ffc87458.jpg]\nITEM | NAME | NUM\n[H2] 2、1 | Seal | 1\n[H2] 2、3 | Bearing | 1\n[H2] 2、4 | Screw | 4\n[H2] 2、5 | Pump flange | 1\n[H2] 2、7.2 | Ring | 1/1\n[H2] 2、7.3 | O Ring | 1/1\n[H2] 2、7.4 | O Ring | 1/1\n[H2] 2、9 | Check valve | 2\n[H2] 2、9.2 | Ring | 1/1\n[H2] 2、9.3 | O Ring | 1/1\n[H2] 2、9.4 | O Ring | 1/1\n[H2] 2、9.5 | Ring | 1/1\n[H2] 2、11 | Plug | 6\n[H2] 2、12 | Filter plate | 1\n[H2] 2、13 | Screw | 1\n[H2] 2、18 | Plunger 1 | 4\n[H2] 2、19 | Plunger 2 | 2\n[H2] 2、20 | Pin | 1\n[H2] 2、23 | Screw | 1\n[H2] 2、25 | Screw | 12\n[H2] 2、26 | Fitter | 1\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/f0b76cbf2cd9b93aa663db5e77f9eea9c4f11c5766279f9e99b5d50d24379a7d.jpg alt=images/457d3bfe87022b43da12d668ee92392d2269a9526a1a1ba765becb2726ec7670.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/002d9c57aeb41d53314e5be93a3f03f1d2c107ac1da141823eb2c41deda0e3e1.jpg alt=images/ebbe262382e5394fc187ca99b3aa5c26f866665afc3e6493080a62cea101da87.jpg]\n[H2] 5、3.3 | O Ring | 1/1 | 5.9.2 | O Ring | 1/1 |  |  |\n[H2] 5、3.4 | O Ring | 1/1 | 5.9.3 | O Ring | 1/1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/c58ba873e47bb74164698cde68ebe02134997720d43ff64675bfa5b3e4da5602.jpg alt=images/175b402b778bdaad68f63d4f44d419de63b1a681adde4bd9be2d8dc5c9ae0457.jpg]\n[H2] 5、3.3 | O Ring | 1/1 | 5.9.2 | O Ring | 1/1 |  |  |\n[H2] 5、3.4 | O Ring | 1/1 | 5.9.3 | O Ring | 1/1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/524f55026034071affd60c0060602c147d2ca28998f3142058ef60f058801cb3.jpg alt=images/b5d675fa7c01d25d44a266c0fc08377d6392b910f5c8b011335e3f2dba37f820.jpg]\n[H2] 5、3.2 | O Ring | 1/1 | 5.9.2 | Ring | 1/1 |  |  |\n[H2] 5、3.3 | O Ring | 1/1 | 5.9.3 | O Ring | 1/1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/877a16399acce1f3be858cea49e7ee9eb52360de4ce433cb4bff94c22b8f5529.jpg alt=images/274b41bff6e7c3e63ad8c9e8597abf9e9b8d53f219a31df73da812222a2154bd.jpg]\n[H2] 5、3.2 | O Ring | 1/1 | 5.9.2 | Ring | 1/1 |  |  |\n[H2] 5、3.3 | O Ring | 1/1 | 5.9.3 | O Ring | 1/1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/7e623ac7598a35f3a844b43d599e5eb8869dbfc56dc3f1e55b9a5528e361ad72.jpg alt=images/372c4d133df4a8dd0ab1a66812200537d74273c9174a024cee887374eeb74c56.jpg]\n[H2] 5、3.3 | O Ring | 1/1 | 5.9.2 | O Ring | 1/1 |  |  |\n[H2] 5、3.4 | O Ring | 1/1 | 5.9.3 | O Ring | 1/1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/3debc5de87df53d0ec67b724c52c6301e0c26b33188708a687fe93055640f42e.jpg alt=images/5b044a5d2c516cadb7261182d91e6f39953d086d52a4eab196999a3ffcb5155f.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/ee04a7896cac545417e8d92335cf89b408b8bd934ccba29bfb2c7a8bbae69a0b.jpg alt=images/8f47b33a940c8654d71d27f1f0a00cbe2d3de75ef47e15e8fc62d2d686b1ef4a.jpg]\nC TYPE VALVE PUMP\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/79a6526f1b2befefc3d48d77a4e01e6f314446d3b49562df7aea0509a25caf08.jpg alt=images/91d342295a25b7df05b28f0b44bd2b03e83efd54ce85c449d2972cd1769a26b6.jpg]\nD TYPE VALVE PUMP\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/d0a781197b26a6d0335178a398c59e8bccd7f75bdc385310c1299cd29cd9b37d.jpg alt=images/0e3c161c6f20b94557f02e884356f18e9e495188cb382592b568c7af5ebb0d1d.jpg]\nH TYPE VALVE PUMP\n[H1] HYDRAULIC PRINCIPLE",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 5952,
+    "heading_context": "[H1] Warning Plate",
+    "heading_path": [
+      "[H1] Warning Plate"
+    ],
+    "semantic_group": "component",
+    "system_root": "Hydraulic Pu",
+    "pre_prune_score": 45,
+    "embed_score": 0.5800394415855408,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_2",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 2,
+    "text": "[H1] 安全指示\n液压气动泵的安全使用，必须要求正确操作和定期检查。\n在阅读和彻底理解本手册中的安全指示条例后才可以使用本气动泵。\n注意事项--防止造成直接经济损失或财物损失。\n警告事项--防止造成人身伤害。\n请确实遵守上述两个事项。\n在使用过程中，如发生异常情况，请关闭气源，拔出气源接头，然后向WREN或WREN授权代理商咨询。\n[H2] 1、使用本气动泵时，所有人员禁止站在液压油出口处，防止液压油不小心泄漏时可能发生的人身伤害或财产损失。\n[H2] 2、加压前，应加装软管或快速接头，防止高压液压油冲出造成人身伤害。\n[H2] 3、本液压气动泵的最高工作压力为70Mpa，在出厂时工厂已设定压力为70Mpa。绝不要将压力调节到超过设定压力。\n[H2] 4、如本气动泵用于操作其它配套设备，配套设备的耐压应不小于70Mpa，并将压力调定为其配套设备的工作压力，否则配套设备有可能损坏；调整压力调节阀的操作参见第六、七项。\n[H2] 5、充分考虑安全性，在维修前，应将设备的气源切断。\n[H2] 6、如果迅速释放压力，顶升中的千斤顶上的负载会跌落或弹开，可能造成人身伤害；请向WREN或WREN授权代理商咨询，他们会向你推荐合适的阀。\n[H2] 7、在插上气源前，关掉按钮开关；如果开关处于闭合状态，压力会增加。\n[H2] 8、不要改装本气动泵；如确实需要改装，应先向WREN 或WREN授权代理商咨询。没有WREN的书面同意，所作改装，不在质保范围内。\n[H2] 9、不要加注超过可用油量的液压油，否则，贮油箱中的压力会增加或溢出，贮油箱有可能损坏、会造成对环境的污染。\n[H2] 10、连接快速接头时拧紧，接头与接头之间不要有间隙，否则设备将不能正常工作；如果在同步系统中，会造成其中一台或多台设备不能正常工作。如果出现这种情况，快速接头、设备可能损坏，可能会造成人身伤害。\n[H2] 11、远离超高压液压油可能喷出的位置；液压油可能伤及人身安全，导致严重受伤。\n[H2] 12、如果液压油喷到你的眼睛里，立即用清水冲洗大约15分钟，然后去医院配合医生治疗。\n[H2] 13、不要碰带压力的软管；如果液压油喷出，会导致严重伤害。\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/e609dee29d54c89e82ffae9ffa7dd751224c92881796e5e6a49fe15194b7e365.jpg alt=images/48c23c75a8155a4e80e509f99f1c15c042416766efc0eeae558b9f792aaab430.jpg]\n图1\n[H3] 注意事项\n[H2] 1、请使用WREN液压工具专用油。\n[H2] 2、不要将压力调节阀当作一般的调整阀或释放阀使用。\n[H2] 3、要按照防污调理处理使用过后的废旧液压油\n[H3] 注意事项\n1 SMP系列气动泵采用集成方式组装；由油泵、控制阀、油箱、气动马达、冷却器、仪表等组成的一种独立完整的液压装置，具有体积小、重量轻、结构简单、操作方便、工作压力高等特点。泵为高、低压油泵同时供油，可获得较大的输出油量。高压时，低压泵经卸荷溢流阀自动空载回油，可减少功率消耗，并且（A）口出油压力可 70\\sim 700\\mathrm{Bar} 任意调节。\n2 液压气动泵使用的液压油：46#抗磨液压油（夏季）32#抗磨液压油（冬季）。\n3 液压气动泵使用的环境温度： -10^{\\circ}60^{\\circ}\\mathrm{C}\n4 请使用WREN高压软管、高压接头等。WREN液压气动泵配用的高压软管最大工作压力为70Mpa，使用时请选用与之配套的压力系统。\n5 此泵如需使用附属液压产品，请咨询WREN公司工程师。\n6 请不要任意调节压力调节阀，以避免超高压引起的设备损坏和人身伤害。",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 1665,
+    "heading_context": "[H1] 安全指示",
+    "heading_path": [
+      "[H1] 安全指示"
+    ],
+    "semantic_group": "fault",
+    "system_root": "如果在同步系统",
+    "pre_prune_score": 72,
+    "embed_score": 0.5265098214149475,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_3",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 3,
+    "text": "[H1] 零部件概述\n[H2] 1、贮油箱：存放工作用液压油，保证系统正常工作（必须有足够油量），提供系统所需的压力载体。\n2插装式阀块：可更换插装式阀块（A/B/C/D/H)实现不同的操控性。\n3 气动马达：通过气源作为动力源。\n4 油泵保护架：安装在油箱上，用于提携、保护气动泵站。\n5 气控阀：气路控制系统，操控气动马达运转。\n6 通气注油孔：液压油由此注入贮油箱（添加液压油时使用）；注油时拧开油盖，内有过滤网防止杂质进入油箱；油盖设计有通气功能，拧紧后确保系统中的空气流通。\n7 油位视窗：观察油箱内的油量，以保证提供最佳使用油量；液压油低于油标视窗位置时，必须加注WREN泵站专用液压油，否则可能会损坏泵站。\n8 卸油孔：螺塞G1/4\", 实现液压油排出储油箱(更换液压油时使用)。\n9 快速接头：实现液压油输出\\回油功能，快速连接油管；内置式单向阀。\n10 六角螺钉：密封连接油箱。",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 398,
+    "heading_context": "[H1] 零部件概述",
+    "heading_path": [
+      "[H1] 零部件概述"
+    ],
+    "semantic_group": "repair",
+    "system_root": "保证系统",
+    "pre_prune_score": 69,
+    "embed_score": 0.5343359112739563,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_4",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 4,
+    "text": "[H1] 特性\n1 SMP系列气动泵是双级泵。高压出口设有高压溢流阀，低压出口设定压力为5~7Mpaa流量为\n[H2] 5、5~7.2L/min，在70Mpa状态下流量为0.8L/m。\n2 最大操作压力：70Mpa。\n3 气动马达：工作气压4~8bar。\n4 使用温度： -10\\sim 60^{\\circ}\\mathrm{C} 。\n5 储油箱规格（油箱型号）：4~65L共7种规格。\n6 液压油：ISO VG 46#（夏季）或32#（冬季）。",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 222,
+    "heading_context": "[H1] 特性",
+    "heading_path": [
+      "[H1] 特性"
+    ],
+    "semantic_group": "parameter",
+    "system_root": "特性",
+    "pre_prune_score": 61,
+    "embed_score": 0.4808357059955597,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_5",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 5,
+    "text": "[H1] 警告！！！\n1 泵站在使用过程中，高压输出油管处禁止站人，调压时输出油口必须连接其他元件。\n2 泵站使用时，禁止随意调高超出本泵的最大工作压力，否则会造成泵站的损坏。\n3 需要检查气动马达时，必须切断气源输入。\n4 泵站工作时，返回贮油箱的油可能会增压，如果此时打开贮油箱盖可能会造成不必要的损伤和伤害。\n5 禁止无油启动泵站，这将会造成泵站损坏。\n6 必须保持液压泵站的清洁，特别是注油口、快速接头等处，是引发泵站的故障的主要原因之一。\n7 建议：液压油每6个月至少更换一次（不经常使用的情况下）。",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 255,
+    "heading_context": "[H1] 警告！！！",
+    "heading_path": [
+      "[H1] 警告！！！"
+    ],
+    "semantic_group": "fault",
+    "system_root": "必须保持液压泵站的清洁",
+    "pre_prune_score": 75,
+    "embed_score": 0.5292702913284302,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_6",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 6,
+    "text": "[H1] 警告标志如下表所示\n擦加化学品 | 额× | 浆塗地層\n请阅读安全条例 | 油箱侧面\nWARNING\n•Escaping hydraulic fluid under pressure can have sufficient force to penetrate the skin and cause serious personal injury.If you are injured by escaping hydraulic fluid,seek medical attention immediately.See operating instructions for further precautions to help prevent the possibility of hazards occurring due to escaping hydraulic fluid. | 警告 | 油箱正面",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 409,
+    "heading_context": "[H1] 警告标志如下表所示",
+    "heading_path": [
+      "[H1] 警告标志如下表所示"
+    ],
+    "semantic_group": "fault",
+    "system_root": "警告标志如下表所示",
+    "pre_prune_score": 60,
+    "embed_score": 0.5326204299926758,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_7",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 7,
+    "text": "[H2] 5. 液压油的更换方法。\n[H2] 5、1 松开气动泵上的通气注油盖。\n[H2] 5、2拧下油箱侧面的螺钉，让油箱内的剩余液压油排尽。\n[H2] 5、3 清洁油箱内部及吸入口的过滤网，拧紧排油口的螺钉，将油加入油箱。\n警告：如果油液溅到您的眼睛里，应立即用清水冲洗至少15分钟，冲洗完毕后应立即去医院配合医生治疗。如果油液飞溅到您的皮肤上，请用清水和肥皂清洗。\n警告：废弃的液压油属于工业废料，应委托具有收集和处理工业废料的公司处理。",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 222,
+    "heading_context": "[H1] 警告标志如下表所示 -> [H2] 5. 液压油的更换方法。",
+    "heading_path": [
+      "[H1] 警告标志如下表所示",
+      "[H2] 5. 液压油的更换方法。"
+    ],
+    "semantic_group": "repair",
+    "system_root": "5. 液压油的更换方法。",
+    "pre_prune_score": 71,
+    "embed_score": 0.4816780388355255,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_8",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 8,
+    "text": "[H1] 1，SMP系列气动泵噪音/振动声明\nSMP系列气动泵使用噪音值：≤70db\n[H2] 2、SMP系列气动泵运输信息\n[H2] 2、1、搬运时注意轻拿轻放。\n[H2] 2、2、装运时应将产品立式向上，如下图所示\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/257b0f38c92ede79c59754195e41272f6a4a14cda0314487f34cc3af4c6fc0ba.jpg alt=images/0004bf8ac4bbeb8a68445625123fdf172324a7e53a4f7688700db83ccce29ad5.jpg]\n[H2] 2、3、产品搬运一般采用手提式或小车搬运移动、吊装移动，如下图所示\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/412abb5cabd7b70a170278b8165ecc5cdebafc6ffe2d8141fc181be4fb265a72.jpg alt=images/ec268f5531127d0e52f6813e31475deccc954f334db0b9ed4f48ddb111abbefa.jpg]",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 638,
+    "heading_context": "[H1] 1，SMP系列气动泵噪音/振动声明",
+    "heading_path": [
+      "[H1] 1，SMP系列气动泵噪音/振动声明"
+    ],
+    "semantic_group": "safety",
+    "system_root": "Hydraulic Pu",
+    "pre_prune_score": 53,
+    "embed_score": 0.48374712467193604,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_9",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 9,
+    "text": "[H2] 3.拆卸\n工作完毕后，松开手柄控制按钮ON键关闭马达，切断气源，按动气动控制阀顶端按钮泄压，拆卸软软管。\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/f286e91fc2d3726523a8c9298512d3dc215de0a0684a6b149df6640dbe5beb59.jpg alt=images/af5711c92008ecb9ae71a1f6bc6932a8d6baa87295372627be39f7bccf193315.jpg]\nSMP系列气动液压泵的故障排除\n无法启动泵站 | 气源气压不符 | 确定气源气压是否符合泵站规定要求\n气源未接通 | 检查气源、气源连接部、插座等,接通气源\n系统无压力 | 快速接头未接到位 | 拆开,重新安装\n贮油箱内无油 | 加注油\n贮油箱内油量不足 | 加注油\n系统带有节流阀、手动单向阀的,检查阀是否打开 | 打开节流阀、手动单向阀,确定系统为通路状态\n重装快速接头,系统无压力 | 快速接头无法接到位,引起系统内敞压 | 拆开快速接头,用顶杆检查快速接头钢球是否有弹性,如顶不动,用小锤敲击钢球,使雾状液压油排尽\n快速接头处漏油 | 快速接头编?型圈、挡圈磨损 | 更换快速接头或“0”型圈\n系统压力达不到额定压力 | 溢流阀调整得过低 | 压力表检测,溢流阀调至系统额值\n水油混合 | 换油\n贮油箱内油量不足 | 加注油\n吸入空气 | 系统反复空运转数次,排尽空气\n节流阀、手动单向阀未关紧 | 锁紧阀\n节流阀、手动单向阀未调整到位 | 调整至正确位置\n节流阀、手动单向阀损坏 | 更换阀\n液压油中含有杂质 | 清洗泵站阀块并更换清洁液压油\n静压使用时,压力缓慢下降 | 密封失灵,检查各密封处 | 更换密封件\n泵在运行过程中有强烈噪音 | 径向柱塞泵轴承损坏 | 更换轴承\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/0539c39578c1e9a0273018750544e3a1a2342724c6d5a7772fc9775c04aed346.jpg alt=images/2f8b183ee479a357cf6b871b0bc0b9d692a9b2e8e316c99c095689694ea42647.jpg]\n序列号 | 名称 | 序列号 | 名称\n1 | 油箱模块 | 4 | 输油管\n2 | 泵体模块 | 5 | 液压控制模块\n3 | 回油管 | 6 | 气动控制模块\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/c81ac5531d4dd0b5639f09d5687b4305909179ce66db60d8d937a6a8fae2fbd4.jpg alt=images/c390e375286ad28dda801cd6d8e238fd8532ee5c10b45f34b37cabee3d7d6254.jpg]\n泵体模块爆炸图\n序列号 | 名称 | 数量\n[H2] 2、1 | 密封件 | 1\n[H2] 2、2 | 深沟球轴承 | 1",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 1480,
+    "heading_context": "[H1] 1 .准备 -> [H2] 3.拆卸",
+    "heading_path": [
+      "[H1] 1 .准备",
+      "[H2] 3.拆卸"
+    ],
+    "semantic_group": "fault",
+    "system_root": "确定系统",
+    "pre_prune_score": 74,
+    "embed_score": 0.5937435626983643,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_10",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 10,
+    "text": "[H2] 2、20 | 销 | 1\n[H2] 2、21 | 轴承端板 | 1\n[H2] 2、22 | 弹性垫圈 | 1\n[H2] 2、23 | 螺钉 | 1\n[H2] 2、24 | 连接片 | 1\n[H2] 2、25 | 螺钉 | 12\n[H2] 2、26 | 滤网 | 1\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/e6cb97bb56968ede1ba0b21164a67178fda92d6ce39a135947bc0139e7f90c2c.jpg alt=images/fece608e1717354aea377733cde8db6aa7eaf2ee5379e81f14f7402f91729975.jpg]\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/3c8777d2ba7e2ab2757270af9591cb107a7c0a0a7d669e880222d20d49f997a5.jpg alt=images/cd3741bc5637b16b4f36f72a0dd3fd796dd7f9c82d61cc573da9e69af711dea6.jpg]\n序号 | 名称 | 数量 | 序号 | 名称 | 数圈 | 序号 | 名称 | 数圈\n[H2] 5、1 | WA连接块 | 1 | 5.6 | 平垫圈 | 4/1 | 5.12 | 三位四通换向阀 | 1\n[H2] 5、2 | 堵头 | 7 | 5.7 | 弹性垫圈 | 4/1 | 5.12.1 | 换向阀本体 | 1/1\n[H2] 5、3 | 单向阀 | 1 | 5.8 | 螺钉 | 4 | 5.12.2 | O型圈 | 4/1\n[H2] 5、3.1 | 单向阀本体 | 1/1 | 5.9 | 调压阀 | 1 | 5.12.3 | 螺钉 | 4/1\n[H2] 5、3.2 | 挡圈 | 1/1 | 5.9.1 | 调压阀本体 | 1 |  |  |\n[H2] 5、3.3 | O型圈 | 1/1 | 5.9.2 | O型圈 | 1/1 |  |  |\n[H2] 5、3.4 | O型圈 | 1/1 | 5.9.3 | O型圈 | 1/1 |  |  |\n[H2] 5、4 | 堵头NPT1/4 | 1/1 | 5.10 | 压力表接头 | 1 |  |  |\n[H2] 5、5 | 密封圈 | 1/1 | 5.11 | 压力表 | 1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/81cf0ed89aaded7822c60c756702d3b6646847e0fd7bd63fb6dcbdee1ea6be2b.jpg alt=images/a168911c7eaa93f69d55686b0e5446ff6ca8f16dd01401ec18af450963ebbc92.jpg]\n序号 | 名称 | 数量 | 序号 | 名称 | 裁剪 | 序号 | 名称 | 裁剪\n[H2] 5、1 | WB连接块 | 1 | 5.6 | 平垫圈 | 4/1 | 5.12 | 截止阀 | 1\n[H2] 5、2 | 堵头 | 5 | 5.7 | 弹性垫圈 | 4/1 | 5.12.1 | 截止阀本体 | 1/1\n[H2] 5、3 | 单向阀 | 1 | 5.8 | 螺钉 | 4 | 5.12.2 | O型圈 | 1/1\n[H2] 5、3.1 | 单向阀本体 | 1/1 | 5.9 | 调压阀 | 1 | 5.12.3 | O型圈 | 1/1\n[H2] 5、3.2 | 挡圈 | 1/1 | 5.9.1 | 调压阀本体 | 1 |  |  |\n[H2] 5、3.3 | O型圈 | 1/1 | 5.9.2 | O型圈 | 1/1 |  |  |\n[H2] 5、3.4 | O型圈 | 1/1 | 5.9.3 | O型圈 | 1/1 |  |  |\n[H2] 5、4 | 堵头NPT1/4 | 1 | 5.10 | 压力表接头 | 1 |  |  |\n[H2] 5、5 | 密封圈 | 1 | 5.11 | 压力表 | 1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/5d493c55624eafc3592c85e65ecab4573b92239d4cfbd5a2f94f8f5c67586165.jpg alt=images/7462cb2d0b101b215fbf520f35e73650a744d78a24a6e651a827ec77e7834cfc.jpg]\n序号 | 名称 | 数量 | 序号 | 名称 | 裁喇叭 | 序号 | 名称 | 裁喇叭\n[H2] 5、1 | WC连接块 | 1 | 5.7 | 弹性垫圈 | 4 | 5.12 | 气动阀 | 1\n[H2] 5、2 | 堵头 | 5 | 5.8 | 螺钉 | 4 | 5.12.1 | 气动阀本体 | 1/1\n[H2] 5、3 | 调压阀 | 1 | 5.9 | 单向阀 | 1 | 5.12.2 | O型圈 | 2/1\n[H2] 5、3.1 | 调压阀本体 | 1/1 | 5.9.1 | 单向阀本体 | 1 | 5.12.3 | O型圈 | 1/1\n[H2] 5、3.2 | O型圈 | 1/1 | 5.9.2 | 挡圈 | 1/1 |  |  |\n[H2] 5、3.3 | O型圈 | 1/1 | 5.9.3 | O型圈 | 1/1 |  |  |\n[H2] 5、4 | 堵头NPT1/4 | 1 | 5.9.4 | O型圈 | 1/1 |  |  |\n[H2] 5、5 | 密封圈 | 1 | 5.10 | 压力表接头 | 1 |  |  |\n[H2] 5、6 | 平垫圈 | 4/1 | 5.11 | 压力表 | 1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/ee9431d65a9a303eb69d361357c82dbc9f286cf4b0378e8e1e2cb878132a693c.jpg alt=images/47103b70a62c8f3e51dc522d37434335402352305128bbaca09b07dd4c1403b4.jpg]\n序号 | 名称 | 数量 | 序号 | 名称 | 数圈 | 序号 | 名称 | 数圈\n[H2] 5、1 | WC连接块 | 1 | 5.7 | 弹性垫圈 | 4 | 5.12 | 气动阀 | 1\n[H2] 5、2 | 堵头 | 5 | 5.8 | 螺钉 | 4 | 5.12.1 | 气动阀本体 | 1/1\n[H2] 5、3 | 调压阀 | 1 | 5.9 | 单向阀 | 1 | 5.12.2 | O型圈 | 2/1\n[H2] 5、3.1 | 调压阀本体 | 1/1 | 5.9.1 | 单向阀本体 | 1 | 5.12.3 | O型圈 | 1/1\n[H2] 5、3.2 | O型圈 | 1/1 | 5.9.2 | 挡圈 | 1/1 |  |  |\n[H2] 5、3.3 | O型圈 | 1/1 | 5.9.3 | O型圈 | 1/1 |  |  |\n[H2] 5、4 | 堵头NPT1/4 | 1 | 5.9.4 | O型圈 | 1/1 |  |  |\n[H2] 5、5 | 密封圈 | 1 | 5.10 | 压力表接头 | 1 |  |  |\n[H2] 5、6 | 平垫圈 | 4/1 | 5.11 | 压力表 | 1 |  |  |\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/206395860e82c5c52db8a7f0161bbee56f31d7a5b8ecf216454aafb9e00d7f6b.jpg alt=images/c88be1ca05f6f3349f04edcec90a4981ef3d432dfa32632b8166f83cdbcf21d0.jpg]\n序号 | 名称 | 数量 | 序号 | 名称 | 载噪 | 序号 | 名称 | 载噪\n[H2] 5、1 | WH连接块 | 1 | 5.6 | 平垫圈 | 4 | 5.11.1 | 气动阀本体 | 1/1\n[H2] 5、2 | 堵头 | 5 | 5.7 | 弹性垫圈 | 4 | 5.11.2 | O型圈 | 1/1\n[H2] 5、3 | 单向阀 | 1 | 5.8 | 螺钉 | 4 | 5.11.3 | O型圈 | 3/1\n[H2] 5、3.1 | 单向阀本体 | 1/1 | 5.9 | 调压阀 | 1 |  |  |\n[H2] 5、3.2 | 挡圈 | 1/1 | 5.9.1 | 调压阀本体 | 1 |  |  |\n[H2] 5、3.3 | O型圈 | 1/1 | 5.9.2 | O型圈 | 1/1 |  |  |\n[H2] 5、3.4 | O型圈 | 1/1 | 5.9.3 | O型圈 | 1/1 |  |  |\n[H2] 5、4 | 堵头NPT1/4 | 2 | 5.10 | 压力表100MPa | 1 |  |  |\n[H2] 5、5 | 密封圈 | 1 | 5.11 | 气动阀 | 1 |  |  |",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 4218,
+    "heading_context": "[H1] 1 .准备 -> [H2] 2、20 | 销 | 1",
+    "heading_path": [
+      "[H1] 1 .准备",
+      "[H2] 2、20 | 销 | 1"
+    ],
+    "semantic_group": "parameter",
+    "system_root": "Hydraulic Pu",
+    "pre_prune_score": 60,
+    "embed_score": 0.5205152034759521,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_11",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 11,
+    "text": "[H1] 高压软管使用警告\n[H2] 1、适用WREN JH系列等级的高压软管。\n[H2] 2、最小弯曲半径：R>120mm。过小的弯曲半径，将严重损坏高压软管。\n[H2] 3、操作压力为70Mpa，禁止超压使用。\n[H2] 4、操作中不得使软管缠绕，否则会使油管生产过大的背压，使软管内部损坏，软管过早报。\n[H2] 5、不得将重物掉到或压到软管上；严重冲击可能引起软管损坏，使用时将会暴裂，并引起人身伤害。\n[H2] 6、不得用软管拖、拉、吊起重物。\n[H2] 7、禁止在过热、火焰、机器辗轧、利刃和化学腐蚀等条件环境下使用。软管布置在通道上时，必须加装盖板。\n8 .WREN JH系列100Mpa等级高压软管操作压力为100Mpa，禁止超高压使用，",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 327,
+    "heading_context": "[H1] 高压软管使用警告",
+    "heading_path": [
+      "[H1] 高压软管使用警告"
+    ],
+    "semantic_group": "safety",
+    "system_root": "高压软管使用警告",
+    "pre_prune_score": 53,
+    "embed_score": 0.4540393650531769,
+    "attachments": []
+  },
+  {
+    "chunk_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu::chunk_12",
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "chunk_index": 12,
+    "text": "[H1] 售后服务\n[H2] 1、自客户购买WREN品牌液压机具产品之日起，WREN公司为用户提供十二个月的保质期。\n[H2] 2、WREN产品在保质期，内因材料、制造缺陷引起的质量问题，由WREN公司免费便换、维修。\n[H2] 3、因工作状况不符合规定、意外事故、滥用、操作不当、未经受权的产品改装或修理以及不按规范操作而引起的产品损坏，不属本保修范围。\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/e3b749e9c286ad6d91ae55b647165e1a905c3c6dae48bd6a73008eeb5ed16750.jpg alt=images/e0d2e89b41a2b96f6ab6d71fe29eaf162ece80540e471bc420d2c49e758211bc.jpg]\nWREN\nRECYCLED\nPAPER\n[IMG path=data/KG_Build/液压/images/Operation and Maintenance Manual for SMP Series Hydraulic Pu/08dba1ceb71eb9def8e5cf133ebf981350e47adc8e8c9111466abaf5db472545.jpg alt=images/f0a59bb33968c325a6fe6681970d20c87fffdda7a72cab40b02f8b427f2ff8fd.jpg]",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "char_count": 688,
+    "heading_context": "[H1] 售后服务",
+    "heading_path": [
+      "[H1] 售后服务"
+    ],
+    "semantic_group": "repair",
+    "system_root": "自客户购买WREN品牌液压机具产品之日起",
+    "pre_prune_score": 66,
+    "embed_score": 0.5381811857223511,
+    "attachments": []
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_0",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 0,
+    "text": "[H1] 请注意每台ZP300型阀门配备的具体安装标牌。\n[H2] 1、符合ASME B16.34 Class 300-法兰连接、螺纹连接和焊接端连接的阀门设计标准与MSS SP 135(长系列面到面结构长度)标准。\n[H2] 2、双向关断，安装阀门时，不需要特殊考虑流向。\n[H2] 3、配对法兰必须正确对齐。可以使用滑套法兰或焊接法兰。切勿试图通过管线栓接弥补错位管法兰。\n[H2] 4、法兰紧固件应该用对角交叉方式均匀拧紧，防止阀门受力过度变形。\n[H2] 5、应该使用管道支架/或伸缩节，尽量减少阀门上的管道负载。ZP300型适用于在垂直或水平管线安装使用。如果不采用垂直安装，则气动执行机构控制阀需要额外支持。\n[图片附件] images/3029327cb5af21a46ed6a4ef5855f06883802d30b40004f2f52082e0acc12f9f.jpg",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 393,
+    "heading_context": "[H1] 请注意每台ZP300型阀门配备的具体安装标牌。",
+    "heading_path": [
+      "[H1] 请注意每台ZP300型阀门配备的具体安装标牌。"
+    ],
+    "semantic_group": "safety",
+    "system_root": "请注意每台ZP300型阀门配备的具体安装标牌。",
+    "pre_prune_score": 53,
+    "embed_score": 0.49260345101356506,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/137eb6b6235dc729e09eb592a9116d2b0b7f2e7a80fddbbfaf6ea74cc40ffb05.jpg",
+        "alt": "images/3029327cb5af21a46ed6a4ef5855f06883802d30b40004f2f52082e0acc12f9f.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_1",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 1,
+    "text": "[H1] 合规铭牌\nEMERSON\nCLARKSON | 11011101 | 55555-5555-555 | 300\n铭牌内容\n项目 | 描述 | 示例\n产品代码 | 制造商型号/代码 | KGVS Clarkson 3M28CHX8CZZUCRCC6Z11CAB00000001\n部件编号 | 制造商的制造编号 | 11011101\n序列号 | 制造商的序列号 | 55555-5555-555\n尺寸 | NPS阀门尺寸 | 28\n压力等级 | 符合标准的压力等级 | 300\n负荷 | 作业类型取决于阀门配置(外部或内部安装耐磨环将改变负荷) | EXT FR NOT DE or INT FR DE\n耐磨环材料 | 符合耐磨环材料的标准 | 17-4\n使用极限 | 压力和温度操作中的极限 | 740psi/100F\n符合标准 | 设计与制造使用的标准 | ASME B16.34, MSS SP-135\nCrn | 加拿大注册编号 | 0C13790.2\n阀体材料 | 符合阀体材料标准 | WCB/LCB\n闸板材料 | 符合闸板材料标准 | 17-4\n阀座材料 | 阀座材料 | URET\n填料材料 | 填料材料 | TPE/GR",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 522,
+    "heading_context": "[H1] 合规铭牌",
+    "heading_path": [
+      "[H1] 合规铭牌"
+    ],
+    "semantic_group": "parameter",
+    "system_root": "合规铭牌",
+    "pre_prune_score": 58,
+    "embed_score": 0.4500136375427246,
+    "attachments": []
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_2",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 2,
+    "text": "[H1] 初步检查\n[H2] 1、检查整个阀门，并立即记录和反馈任何损坏或异状。\n[H2] 2、附件：如有提供，包括电磁阀、限位开关、定位器等，都会在装运前进行功能测试。仔细检查是否出现装运期间可能导致的任何损坏。\n[H2] 3、操作机构：标准操作手轮可能会在装运时转松以方便现场安装。必须用管钳或大活动扳手正确拧紧手轮固定螺母。务必将它完全拧紧。\n[H2] 4、填料装配：应该检查并调整填料压盖螺栓，以获得初步的填料密封。阀门出货时，填料压盖螺母可能变得略微松弛。应该进行现场调整(图1. 足够拧紧，防止泄漏。过分拧紧可能增加阀门操作扭矩，缩短填料寿命)。\n[图片附件] images/7c0dc03b8eff57196740c7bcd3e917990c895f250890ee2715b9787d56dee20e.jpg\n带有液压缸的执行机构ZP300的全面包络尺寸\n尺寸NPS | 3 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 | 24 | 26 | 28 | 30 | 32 | 36\nA* | 4.00 | 4.12 | 4.12 | 4.63 | 5.38 | 5.63 | 6.25 | 6.63 | 7.00 | 7.44 | 8.50 | 8.50 | 10.00 | 10.50 | 11.50 | 12.00\nB | 26.74 | 30.84 | 38.83 | 46.56 | 57.81 | 66.50 | 72.00 | 80.13 | 91.63 | 99.88 | 119.94 | 128.06 | 138.94 | 147.44 | 159.25 | 175.63\nC | 5.00 | 6.19 | 8.50 | 10.62 | 12.75 | 15.00 | 16.25 | 18.50 | 21.00 | 23.00 | 27.25 | 29.50 | 31.50 | 33.75 | 36.00 | 40.25\nD | 11.50 | 11.86 | 11.86 | 13.39 | 15.64 | 16.39 | 18.25 | 19.39 | 20.50 | 21.82 | 25.00 | 25.00 | 29.50 | 31.00 | 34.00 | 35.50\n* 符合MSS SP-135长系列的面对面结构尺寸",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 1005,
+    "heading_context": "[H1] 初步检查",
+    "heading_path": [
+      "[H1] 初步检查"
+    ],
+    "semantic_group": "repair",
+    "system_root": "带有液压缸的执行机构ZP300的全面包络尺寸",
+    "pre_prune_score": 63,
+    "embed_score": 0.5562806129455566,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/cf2fec73860292f99a689d1e4918f49d83275f002966e9e7fd80e76a973464e3.jpg",
+        "alt": "images/7c0dc03b8eff57196740c7bcd3e917990c895f250890ee2715b9787d56dee20e.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_3",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 3,
+    "text": "[H1] 螺栓连接与安装说明\nZP300标准法兰配置为\"法兰式”，按照接口法兰安装孔钻孔并攻丝。阀体内的法兰安装孔深度限定到1x法兰螺栓直径的长度。建议在阀体内的所有法兰安装孔上使用螺钉。\n[H3] 警告\n在阀体内的攻丝法兰孔内安装螺钉或螺栓时，一定要小心，避免损坏阀体内表面。",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 139,
+    "heading_context": "[H1] 螺栓连接与安装说明",
+    "heading_path": [
+      "[H1] 螺栓连接与安装说明"
+    ],
+    "semantic_group": "safety",
+    "system_root": "螺栓连接与安装说明",
+    "pre_prune_score": 38,
+    "embed_score": 0.4553059935569763,
+    "attachments": []
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_4",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 4,
+    "text": "[H1] 注\n也可以提供选配的通孔螺栓配置。\nZP300阀门法兰钻孔符合ASME B16.5和B16.47标准，垫片符合ASME VIII-1附录2，ASME B16.20&B16.21标准。法兰螺栓的拧紧扭矩不应超过表1内所示的数值。\n表1-法兰螺栓/螺钉拧紧的最大扭矩\n阀门尺寸\nNPS | 螺栓尺寸 | 扭矩\n(ft-lb) | 推荐的螺栓长度(in) | 推荐的螺钉长度(in)\n3 | ¾ | 200 | 2.00 | 3.250\n4 | ¾ | 200 | 2.25 | 3.375\n6 | ¾ | 200 | 2.50 | 3.625\n8 | ½ | 318 | 2.75 | 4.000\n10 | 1 | 473 | 3.00 | 4.500\n12 | 1½ | 684 | 3.25 | 5.000\n14 | 1½ | 684 | 3.50 | 5.125\n16 | 1¼ | 952 | 3.75 | 5.250\n18 | 1¼ | 952 | 3.75 | 5.625\n20 | 1¼ | 952 | 4.00 | 5.750\n24 | 1½ | 1675 | 4.50 | 6.500\n26 | ½ | 2150 | 5.00 | 7.375\n28 | ½ | 2150 | 5.25 | 7.625\n30 | ½ | 2690 | 5.75 | 8.125\n32 | ½ | 3323 | 6.00 | 8.500\n36 | 2 | 4056 | 6.50 | 9.250\n\n[H1] 注\n[H2] 1、不应超过最大扭矩，确保不损坏阀体内的法兰孔内螺纹。\n[H2] 2、推荐的螺栓长度假设：最终垫片厚度 = 0.125^{\\prime \\prime} ，最低F436平垫圈厚度 1\\mathrm{x} 螺栓直径螺纹深度以及常用重载型六角螺栓长度。每次应用时，用下面的公式计算法兰螺栓长度。强烈推荐用使用螺钉时达到最大螺纹啮合长度。\n[图片附件] images/80212e3307c8fc7a59a17e56c17d24d587ab4abc66bd3e3fbcc9945e99e72712.jpg\n螺栓长度和螺钉长度计算基础\n[图片附件] images/d79df4887988e83bff1f82a3b69de2ba1a75eb65ea51481005bd7ea675fbe7d8.jpg\n螺栓长度 = 垫圈厚度 + 法兰厚度 + 法兰凸面高度 + 垫片厚度 + 阀体凹槽 +1x 螺栓直径\n[图片附件] images/796775f045e20306b5f19c5fe1967081689fb5772f66ef2cce3d8d5c4b98ad78.jpg\n垫片详图\n图2",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 1150,
+    "heading_context": "[H1] 注",
+    "heading_path": [
+      "[H1] 注"
+    ],
+    "semantic_group": "overview",
+    "system_root": "注",
+    "pre_prune_score": 27,
+    "embed_score": 0.41390395164489746,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/21f7c821ce10e403fb5c08a7b5adb0843973805022ac4b93c6c86bec98cb17a8.jpg",
+        "alt": "images/80212e3307c8fc7a59a17e56c17d24d587ab4abc66bd3e3fbcc9945e99e72712.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/309e2d6436267a008b71b92bd157e04ba1751764588fb1658ef4f0485a2482d3.jpg",
+        "alt": "images/d79df4887988e83bff1f82a3b69de2ba1a75eb65ea51481005bd7ea675fbe7d8.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/47578fb295be7c7de4f45fcd6b583322a30069e899f558082c09a692e4c0c071.jpg",
+        "alt": "images/796775f045e20306b5f19c5fe1967081689fb5772f66ef2cce3d8d5c4b98ad78.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_5",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 5,
+    "text": "[H1] 液压执行机构\n[图片附件] images/b5f9741b74e653aaa52e3d27d8b17c832741482f6ed0020158e4f36fb40268ae.jpg\n[H3] 警告\n充分降低耐磨环内的应力集中，确保法兰垫片内径与耐磨环内径匹配，见图2所示。\n液压缸尺寸和所需的流量\n阀门尺寸 | 流体流量 (in³/sec)\nNPS | 液压缸尺寸 | 拉杆尺寸 | 最大1 in/s (关闭时) | 最大1 in/s (开启时)\n3 | 11½ | 5/8 | 1.8 | 1.5\n4 | 11½ | 5/8 | 1.8 | 1.5\n6 | 21½ | 1 | 4.9 | 4.1\n8 | 21½ | 1 | 4.9 | 4.1\n10 | 4 | 13¼ | 12.6 | 10.2\n12 | 4 | 13¼ | 12.6 | 10.2\n14 | 4 | 13¼ | 12.6 | 10.2\n16 | 5 | 2 | 19.6 | 16.5\n18 | 5 | 2 | 19.6 | 16.5\n20 | 6 | 21½ | 28.3 | 23.4\n24 | 7 | 3 | 38.5 | 31.4\n26 | 8 | 31½ | 50.3 | 40.6\n28 | 8 | 31½ | 50.3 | 40.6\n30 | 10 | 41½ | 78.5 | 62.6\n32 | 10 | 41½ | 78.5 | 62.6\n36 | 12 | 51½ | 113.1 | 89.3\n图3\n液压缸和安装支架",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 661,
+    "heading_context": "[H1] 液压执行机构",
+    "heading_path": [
+      "[H1] 液压执行机构"
+    ],
+    "semantic_group": "safety",
+    "system_root": "液压执行机构",
+    "pre_prune_score": 53,
+    "embed_score": 0.5093746781349182,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/5018815460efbeaaadff97119f276b7c7c56008b9a1515cc7b980a15506afcdf.jpg",
+        "alt": "images/b5f9741b74e653aaa52e3d27d8b17c832741482f6ed0020158e4f36fb40268ae.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_6",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 6,
+    "text": "[H1] 操作事项\n[H2] 1、所有的阀门应在设计的压力和温度范围内操作使用。在任何情况下，请勿在这些参数之外的条件下操作阀门。\n[H2] 2、任何阀门的操作员应该了解打开/关闭阀门的效应在整体管道系统中的作用。带压下操作阀门前，应谨慎确保阀门处于良好工作状态。\n[H2] 3、某些工艺含有危险和/或其它不稳定的介质。在这些情况下，应确保操作员了解与该介质相关的健康与安全危机。\n[H2] 4、操作阀门时，远离任何动作中的零部件，如阀杆和/或刀闸板组件，建议在操作手控阀时戴好手套，尽量减少受伤的风险。\n[H2] 5、所有的手轮操作阀均设计为手动输入，不要使用钢管扳手、扳手、接长杆或其它设备，施加过大的扭矩。如果手轮驱动的阀门因为扭矩要求而难以操作，建议阀门配备或转换成锥型齿轮箱、汽缸/液压缸或电动执行机构。\n[H2] 6、电动执行机构驱动的阀门应保留其工厂的原始设置，除非系统操作参数要求更改。如果需要更改，应使用可能的最轻/最低设置，以小增量执行更改直到实现所需性能，然后检查阀门/执行机构的功能。电机设置中的过大扭矩和/或推力可能会损坏或锁定阀门。\n[H2] 7、ZP300阀门应为位置密封，切勿采用扭矩密封。不要使用电机扭矩设置作为阀座密封设置。\n[H2] 8、应谨慎确保电机正确接线，如果3相接线的相位不正确，可能会导致阀门/电机损坏。",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 576,
+    "heading_context": "[H1] 操作事项",
+    "heading_path": [
+      "[H1] 操作事项"
+    ],
+    "semantic_group": "diagnostic",
+    "system_root": "关闭阀门的效应在整体管道系统",
+    "pre_prune_score": 76,
+    "embed_score": 0.5432224869728088,
+    "attachments": []
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_7",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 7,
+    "text": "[H1] 锥齿轮箱驱动操作\n带手轮锥形齿轮箱选择\n阀门尺寸\nNPS | BG\n尺寸 | BG\n比例 | HW (in)\n3 | 3 | 3 | 12\n4 | 3 | 3 | 12\n6 | 3 | 3 | 16\n8 | 4 | 4 | 12\n10 | 42 | 8 | 24\n12 | 44 | 16 | 24\n14 | 44 | 16 | 24\n16 | 44 | 16 | 24\n18 | 44 | 16 | 24\n20 | 64 | 24 | 24\n24 | 624 | 48 | 24\n有关NPS26以上的尺寸，请与销售部门联系\n[图片附件] images/27cb43c39b4204bf2ec4baf962da1a9b30a3ab91bf3358b0e3f0d91f7f6aa128.jpg\n图4\n带有手轮的锥齿轮执行机构的阀门支架",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 371,
+    "heading_context": "[H1] 锥齿轮箱驱动操作",
+    "heading_path": [
+      "[H1] 锥齿轮箱驱动操作"
+    ],
+    "semantic_group": "operation",
+    "system_root": "锥齿轮箱驱动操作",
+    "pre_prune_score": 49,
+    "embed_score": 0.4533662796020508,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/741d4bcadf5067de6b6b506e3e0446706c659810033f2cedfc986806b4ec099d.jpg",
+        "alt": "images/27cb43c39b4204bf2ec4baf962da1a9b30a3ab91bf3358b0e3f0d91f7f6aa128.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_8",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 8,
+    "text": "[H1] 耐磨环转动\n外部耐磨环在最初安装后可旋转三次 [3 \\times 90^{\\circ}] 需要用四个ASTM A574钢制镀锌内六角螺丝[SHCS]定位耐磨环，并在其中安装O型环垫片，该垫片将保证耐磨环和阀体之间的密封。阀体上配备充足的攻丝孔，从而每旋转耐磨环一次定位孔仅被使用一次。\n[图片附件] images/4298413beb4b1b6f0f567bce1b69e63f6e40d786adc8390f8d341add946a873e.jpg\n图9 安装/密封外耐磨环\n[图片附件] images/a8ad248de21f45d51479b287e98c4ea07b3bd1f9624b694948847291b6147989.jpg\n图10外耐磨环的装配\n固定耐磨环所需ASTM A574镀锌内六角螺丝SHCS的尺寸和长度\n阀门尺寸\nNPS | 外耐磨环紧固螺钉器\n尺寸(in) | 长度(in)\n3 | 8-32 | 0.500\n4 | 8-32 | 0.500\n6 | 1/4 | 0.500\n8 | 1/4 | 0.500\n10 | 1/4 | 0.500\n12 | 1/4 | 0.500\n14 | 1/4 | 0.750\n16 | 1/4 | 0.750\n18 | 5/16 | 0.750\n20 | 3/8 | 0.625\n24 | 3/8 | 1.000\n26 | 3/8 | 1.000\n28 | 3/8 | 1.000\n30 | 3/8 | 1.000\n32 | 3/8 | 1.000\n36 | 3/8 | 1.000",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 679,
+    "heading_context": "[H1] 耐磨环转动",
+    "heading_path": [
+      "[H1] 耐磨环转动"
+    ],
+    "semantic_group": "operation",
+    "system_root": "耐磨环转动",
+    "pre_prune_score": 49,
+    "embed_score": 0.4904618263244629,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/aff103355c273456189c3d9017d2c34549a564d15a8dd67ecccb87bdaa2b2054.jpg",
+        "alt": "images/4298413beb4b1b6f0f567bce1b69e63f6e40d786adc8390f8d341add946a873e.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/46802fedff4c7c294e088819e0cdcc89bff02087d7c6295956362b9d4e08da4e.jpg",
+        "alt": "images/a8ad248de21f45d51479b287e98c4ea07b3bd1f9624b694948847291b6147989.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_9",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 9,
+    "text": "[H1] 一般维护\nEmerson建议至少每60天对所有的ClarksonZP300阀门进行检查，应检查以下各项并在必要时校正：\n[H3] 警告\n如果阀门未安装在管线上，闸板必须全开或部分开启，避免阀门和耐磨环损坏。\n[H2] 1、活塞杆、活塞杆保护罩：检查过度腐蚀、沥青堆积、活塞杆保护罩破损等。检查活塞杆保护罩连接。检查活塞杆密封漏气。\n[H2] 2、填料压盖：检查泄漏或填料磨损。如果在填料压盖周围出现泄漏，在所有点均匀拧紧填料压盖螺栓，小心不要给螺栓施加过分扭矩\n(在某些阀门上，需要两个扳手，一个拧紧螺母，另一个防止填料螺栓旋转)。如果阀门需要更换填料，参见第6页有关更换填料的附加说明。\n[H2] 3、耐磨环：阀门必须从管线下拆卸后，才可正确地检查耐磨环。检查堆焊硬化表面和基底金属的腐蚀情况。如果基底金属在堆焊层下面已经裸露，需要更换耐磨环。如果基底金属没有腐蚀，可以旋转耐磨环，使磨损区域从磨损路径上移开，以额外增加寿命。\n[H2] 4、弹性阀座：检查阀座是否出现裂纹、切口、腐蚀、侵蚀或膨胀。出现任何上述缺陷时，判断是否需要更换，或者发现阀门运行时阀座有在关闭时记录到泄漏的证据，或者由维护工程师评估是有可能具有发生故障的风险。根据这些确定需要拆卸阀门更换阀座。\n[H2] 5、如果可能，将阀门操作全开和全闭，确保其功能正常。\n[图片附件] images/aabb60bea78bdaa9a817e54b771e1d9278fae3d01953b3b5e729573ef5431394.jpg\n图11 主要部件",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 664,
+    "heading_context": "[H1] 一般维护",
+    "heading_path": [
+      "[H1] 一般维护"
+    ],
+    "semantic_group": "fault",
+    "system_root": "一般维护",
+    "pre_prune_score": 66,
+    "embed_score": 0.5266876816749573,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/837d548725e6d5a9ddb06bbf1c2c1826a6473abb924b86acff212efbded563de.jpg",
+        "alt": "images/aabb60bea78bdaa9a817e54b771e1d9278fae3d01953b3b5e729573ef5431394.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_10",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 10,
+    "text": "[H1] 更换填料说明\n[H2] 1、将每股填料切削得稍微长些，以便在每层内增加一定的压缩度，以在每端末尾补偿每股填料的磨损。可在相关表内找到每股的大小、长度和数量。每层在填料长宽度和较小宽度之间交替，见图12内所示。较小宽度的始终是被挤压以容纳剩余空间的填料股。注：确保填料安装后，阀体O型环保持从填料函突出。\n[H2] 2、图13所示为填料的安装方法。将填料的一端紧靠填料函侧面。一旦填料安装开始，另一端应该接触其他填料片。\n[H2] 3、从每个填料股的隆起部分开始，用填料工具压紧填料，如图14所示。一旦填料股挤在一起形成第一层，用填料工具再次填装可看见或看不见的缝隙。每层需要再次填充填料注：在安装期间，不要让填料股扭曲。\n[H2] 4、如图12和15所示，交替安放不同宽度的填料层。\n[H2] 5、如果安放填料正确，较小的填料片会填充剩余空腔。每层填料应该用特殊方式堆放，从而每根填料股都放在上一层两根填料股之间分行线的顶部，如图16所示，然后再使用较小的填料片填充空腔，必须压缩相对侧，以便使较小宽度的填料股得以延长。\n注：不是所有的阀门都含有较小宽度填料股；一些阀门的填料股尺寸相同\n[H2] 6、按照图17所示用螺柱、贝氏弹簧垫圈和螺母安装填料压盖。初次拧紧填料压盖时，拧紧填料压盖的压缩长度位于0.125-0.375\"之间。在螺钉上用LOCITIE262胶水[红色]以便使其紧固在阀体内。\n注：确保每叠弹簧垫圈朝向相对方向，在添加螺母之前，最终叠呈向下的杯形。\n[H2] 7、必须在螺母上施加紧力，防止螺母松动。第一叠从底部开始，在填料压盖上杯形向下，如图18所示。表2内为堆叠方法。\n[图片附件] images/008454db8ecdb4544be5dc72dc4acfecd78206e2434161f118e68f3de23d9eeb.jpg\n图12\n填料的安装[所示为ZP300-24]\nPacking width piece\n图13\n填料的安装[所示为ZP300-24]\n[图片附件] images/d636ebe1271f40591ef3029b6511918ab62e29a16efc41cd5a873267fc20e3b0.jpg\n注：\n[H2] 1、当盘根填料出现微小泄漏时，要尽快停止。否则如果允许继续泄漏，在阀门和周围区域可能遭受显著损坏。\n[H2] 2、本公司提供可更换的内衬、手轮和支架组件、闸板、填料压盖和填料等备件。如果阀门需要进一步修理，请联系本公司销售办公室，对修理的可行性和成本进行评估。\n[图片附件] images/fa2fac9cb58ee029e90fcb8b62249143445dd97df2ba59c2da9e13204513f5fe.jpg\n用填料工具安放填料，在每股填料的隆起部分开始\n图14\n填料的安装(所示为ZP300-24)\n[图片附件] images/2cfc34365c79233d3ff23acb3a1f310546edf981153b9aa80bf541848c910584.jpg\n图15\n[图片附件] images/62c20428526d9062275fcdb2827ebe8cd2e1f45897e8df12c64916154be47759.jpg\n不同宽度填料层相互交叉安放(所示为ZP300-24)\n图16\n交叉安放填料股[所示为ZP300-24]\n表2-贝式弹簧垫圈堆叠-交替安放方法：常规重载型内六角螺母\n阀门尺寸\nNPS | Stack\n第1叠 | 第2叠 | 第3叠 | 第4叠 | 第5叠 | 第6叠 | 第7叠 | 第8叠 | 第9叠\n3 | 2向下 | 2向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n4 | 3向下 | 3向上 | 3向下 | 1向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下\n6 | 5向下 | 5向上 | 5向下 | 1向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下\n8 | 2向下 | 2向上 | 2向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n10 | 3向下 | 3向上 | 3向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n12 | 4向下 | 4向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n14 | 3向下 | 3向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n16 | 7向下 | 7向上 | 7向下 | 7向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下\n18 | 7向下 | 7向上 | 7向下 | 7向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下\n20 | 16向下 | 16向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n24 | 6向下 | 6向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n26 | 8向下 | 8向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n28 | 8向下 | 8向上 | 8向下 | 1向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下\n30 | 9向下 | 9向上 | 9向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n32 | 8向下 | 8向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n36 | 7向下 | 7向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n42 | 5向下 | 5向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n48 | 10向下 | 10向上 | 1向下 | 1向上 | 1向下 | 1向上 | 1向下 | - | -\n[图片附件] images/b9d204b329ab684524206cfb4881baac4147275db2c9ec3eda462cdb4c16091d.jpg\n图17 填料压盖的安装(所示为ZP300-28)\n[图片附件] images/50ebe78462e2e4143c4d2fd5cbe0dd188a55a661f766ad66d451e499ed65f42d.jpg\n图18贝式弹簧垫圈的堆叠[所示ZP300-20]\n填料尺寸\n阀门尺寸NPS | 行数 | 通道直径 | 填料宽度 | 端部\n填料尺寸 | 填料长度(in) | 填料尺寸 | 数量 | 每片长度(in) | 附加填料尺寸 | 数量 | 每片长度(in)\n3 | 4 | 2.75 | %8 | - | - | - | - | - | - | -\n |  | - | %8 | - | - | - | - | - | - | -\n |  | 3.00 | %8 | 4.125 | 1/2 | 8 | 0.66 | - | - | -\n4 | 4 | 3.63 | %8 | 5.250 | 1/2 | 8 | 0.79 | 3/8 | 8 | 0.79\n |  | - | %8 | - | - | - | - | - | - | -\n |  | 4.00 | %8 | 5.380 | 3/8 | 16 | 0.79 | - | - | -\n6 | 4 | 5.38 | 1/2 | 7.380 | %8 | 8 | 1.05 | 1/2 | - | 1.05\n |  | 5.76 | 1/2 | 7.500 | 1/2 | 16 | 1.05 | - | 8 | -\n |  | 6.00 | 1/2 | 7.630 | 1/2 | 16 | 1.05 | - | - | -\n8 | 4 | 7.25 | 1/2 | - | - | - | - | - | - | -\n |  | 7.63 | 1/2 | 9.380 | 5/8 | 8 | 1.18 | 1/2 | 8 | 1.18\n |  | 8.00 | 1/2 | 9.630 | 1/2 | 16 | 1.18 | - | - | -\n10 | 4 | 9.00 | 1/2 | 11.130 | %8 | 8 | 1.31 | 1/2 | 8 | 1.31\n |  | - | 1/2 | - | - | - | - | - | - | -\n |  | 10.00 | 1/2 | 11.630 | 1/2 | 16 | 1.31 | - | - | -\n12 | 4 | 10.75 | %8 | 13.500 | %8 | 16 | 1.58 | 1/2 | 8 | 1.58\n |  | 11.75 | %8 | 14.000 | %8 | 16 | 1.58 | - | - | -\n |  | 12.00 | %8 | 14.130 | %8 | 16 | 1.58 | - | - | -\n14 | 4 | 11.88 | %8 | 15.000 | %8 | 24 | 1.71 | - | - | -\n |  | 13.00 | %8 | 15.500 | 3/4 | 8 | 1.71 | 5/8 | 8 | 1.71\n |  | 13.25 | %8 | 15.630 | %8 | 16 | 1.71 | - | - | -\n16 | 4 | 13.75 | %8 | 17.000 | %8 | 24 | 1.84 | - | - | -\n |  | 15.00 | %8 | 17.630 | 3/4 | 8 | 1.84 | 5/8 | 8 | 1.84\n |  | 15.25 | %8 | 17.750 | %8 | 16 | 1.84 | - | - | -\n18 | 4 | 15.25 | %8 | 18.750 | %8 | 16 | 1.97 | 3/4 | 8 | 1.97\n |  | - | %8 | - | - | - | - | - | - | -\n |  | 17.00 | %8 | 19.380 | %8 | 16 | 1.97 | - | - | -\n20 | 4 | 17.13 | 3/4 | 20.630 | 3/4 | 24 | 2.23 | - | - | -\n |  | 18.50 | 3/4 | 21.250 | 3/4 | 16 | 2.23 | - | - | -\n |  | 19.00 | 3/4 | 21.380 | 3/4 | 8 | 2.23 | 5/8 | 8 | 2.31\n24 | 4 | 21.00 | 3/4 | 25.130 | 3/4 | 16 | 2.63 | 5/8 | 16 | 2.63\n |  | 22.75 | 3/4 | 26.000 | 3/4 | 8 | 2.63 | 5/8 | 16 | 2.63\n |  | 23.00 | 3/4 | 26.130 | 3/4 | 16 | 2.63 | 1/2 | 8 | 2.63\n26 | 4 | 23.00 | 3/4 | 27.000 | 3/4 | 16 | 2.78 | 5/8 | 16 | 2.76\n |  | 24.50 | 3/4 | 27.630 | 3/4 | 16 | 2.78 | 5/8 | 8 | 2.76\n |  | 25.00 | 3/4 | 28.000 | 3/4 | 8 | 2.78 | 5/8 | 16 | 2.76\n28 | 4 | 25.00 | 3/4 | - | - | - | - | - | - | -\n |  | 26.50 | 3/4 | 30.000 | 3/4 | 24 | 3.00 | - | - | -",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 4942,
+    "heading_context": "[H1] 更换填料说明",
+    "heading_path": [
+      "[H1] 更换填料说明"
+    ],
+    "semantic_group": "repair",
+    "system_root": "更换填料说明",
+    "pre_prune_score": 57,
+    "embed_score": 0.5569608211517334,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/85fdbbdc62d5d447c7b04f1fc6b82c7122512f4d487dd59e2962fc7f81ce54ab.jpg",
+        "alt": "images/008454db8ecdb4544be5dc72dc4acfecd78206e2434161f118e68f3de23d9eeb.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/42bceffe38634d1d047bf984e2c6f25e9388eed7e45b8bb415183e2b2356a4a8.jpg",
+        "alt": "images/d636ebe1271f40591ef3029b6511918ab62e29a16efc41cd5a873267fc20e3b0.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/7dc633d3fc8cb6e6d0f06f89d0d69fc9b5f87e6008e082ecf0c36f93079295b0.jpg",
+        "alt": "images/fa2fac9cb58ee029e90fcb8b62249143445dd97df2ba59c2da9e13204513f5fe.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/878349b17402c030371715ec5f2dacc6a17fc23379ae188d8da76395e0567775.jpg",
+        "alt": "images/2cfc34365c79233d3ff23acb3a1f310546edf981153b9aa80bf541848c910584.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/218c910517beeae5d8856d2627d28f2d809d28770e91362e88be460bfd833f19.jpg",
+        "alt": "images/62c20428526d9062275fcdb2827ebe8cd2e1f45897e8df12c64916154be47759.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/73055dc7fee802df8c3ca7c27ca27d47b112d6d5b2c6bbb3b52c604b20f65f89.jpg",
+        "alt": "images/b9d204b329ab684524206cfb4881baac4147275db2c9ec3eda462cdb4c16091d.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/e7a7954f396d45d668a62b3a0ae81e9a90a1cd79bac40be9c1ef49274feff78d.jpg",
+        "alt": "images/50ebe78462e2e4143c4d2fd5cbe0dd188a55a661f766ad66d451e499ed65f42d.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_11",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 11,
+    "text": "[H1] 更换填料说明\n|  | 23.00 | 3/4 | 26.130 | 3/4 | 16 | 2.63 | 1/2 | 8 | 2.63\n26 | 4 | 23.00 | 3/4 | 27.000 | 3/4 | 16 | 2.78 | 5/8 | 16 | 2.76\n |  | 24.50 | 3/4 | 27.630 | 3/4 | 16 | 2.78 | 5/8 | 8 | 2.76\n |  | 25.00 | 3/4 | 28.000 | 3/4 | 8 | 2.78 | 5/8 | 16 | 2.76\n28 | 4 | 25.00 | 3/4 | - | - | - | - | - | - | -\n |  | 26.50 | 3/4 | 30.000 | 3/4 | 24 | 3.00 | - | - | -\n |  | 27.00 | 3/4 | 30.130 | 3/4 | 8 | 3.00 | 5/8 | 16 | 2.95\n30 | 4 | 27.00 | 1 | 32.000 | 1 | 8 | 3.22 | 3/4 | 24 | 2.95\n |  | 28.50 | 1 | 32.500 | 1 | 16 | 3.22 | - | - | -\n |  | 29.00 | 1 | 32.750 | 3/4 | 24 | 3.22 | - | - | -\n32 | 4 | 29.00 | 1 | 34.500 | 1 | 24 | 3.41 | - | - | -\n |  | - | 1 | - | - | - | - | - | - | -\n |  | 31.00 | 1 | 35.380 | 1 | 8 | 3.41 | 3/4 | 16 | 3.41\n36 | 4 | 33.00 | 1 | 38.500 | 3x1 | 24 | 3.68 | - | - | -\n |  | 34.50 | 1 | 39.000 | 1 | 16 | 3.68 | 5/8 | 8 | 3.68\n |  | 35.00 | 1 | 39.375 | 1 | 8 | 3.68 | 3/4 | 16 | 3.68\n42 | 4 | 38.50 | 1 | 44.500 | 1 | 8 | 4.07 | 3/4 | 32 | 4.07\n |  | - | 1 | - | - | - | - | - | - | -\n |  | 40.00 | 1 | 45.000 | 1 | 8 | 4.07 | 3/4 | 24 | 4.07\n48 | 4 | 44.50 | 1 | 50.000 | 1 | 8 | 4.59 | 3/4 | 32 | 4.59\n |  | - | 1 | - | - | - | - | - | - | -\n |  | 46.00 | 1 | 51.000 | 1 | 8 | 4.59 | 3/4 | 24 | 4.59\n[图片附件] images/9e426613aeb3c44608a5cf1a8e4b9d0a4e11bbe58fad330949f46f11a495c398.jpg\n安装方式A\n[图片附件] images/ca7b8811f9a8f07b5063015fe6819868c681d2e431edfc09a548e611bc51351e.jpg\n[图片附件] images/5e6f00c50d1a667f1263c1517a41188cbf95f73e9beb47bc76f35f9205770b30.jpg\n安装方式C",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 1506,
+    "heading_context": "[H1] 更换填料说明",
+    "heading_path": [
+      "[H1] 更换填料说明"
+    ],
+    "semantic_group": "repair",
+    "system_root": "更换填料说明",
+    "pre_prune_score": 57,
+    "embed_score": 0.4702383875846863,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/b2e4841807477a5b2198ba4d9bf15f401210fd3618a8fb971d525b1ad8a722cc.jpg",
+        "alt": "images/9e426613aeb3c44608a5cf1a8e4b9d0a4e11bbe58fad330949f46f11a495c398.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/a6970495fbe84419c6fbba9d7923eaafe3db67b0cf7931acea3aca019699d212.jpg",
+        "alt": "images/ca7b8811f9a8f07b5063015fe6819868c681d2e431edfc09a548e611bc51351e.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946/9637632e0b5d13cabac9e56940f65e550eb1889e4bcc2573f58b2c868e3efd22.jpg",
+        "alt": "images/5e6f00c50d1a667f1263c1517a41188cbf95f73e9beb47bc76f35f9205770b30.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_12",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 12,
+    "text": "[H1] 气缸储存\n这些气缸储存说明不是为了更换具体气缸制造商的说明，仅作为指南使用。如果需要具体的说明，请与我厂办公室联系。储存最多3年时间时：向气缸孔喷注优质液压油或合成润滑油，每年操作气缸6-12次。储存3-5年时：按上述步骤进行润滑工作。另外，伸长活塞杆，直至阀门完全关闭。活塞杆涂优质稠润滑脂或合成润滑油。缩回活塞杆，直至阀门全开，将润滑油吸附到气缸内活塞杆末端。如果气缸没有预先用管子连接控制附件，用堵头牢固塞住气缸孔。如果气缸预先用管子连接控制附件，塞住附件的所有输入和输出孔。",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 246,
+    "heading_context": "[H1] 气缸储存",
+    "heading_path": [
+      "[H1] 气缸储存"
+    ],
+    "semantic_group": "repair",
+    "system_root": "向气缸孔喷注优质液压油或合成润滑油",
+    "pre_prune_score": 69,
+    "embed_score": 0.46512508392333984,
+    "attachments": []
+  },
+  {
+    "chunk_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946::chunk_13",
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "chunk_index": 13,
+    "text": "[H1] 维护\n维护应包括纠正在检查过程中发现的问题。记录所有的维护工作。如果阀门仍在质保期内，请在进行维修之前联系工厂。\n艾默生、艾默生自动化解决方案和其任何附属实体均不对任何产品的选择、使用或维护承担责任。对任何产品的正确选择、使用和维护的责任都只与购买者和最终用户有关。\nClarkson是艾默生电气公司的艾默生自动化解决方案业务部门旗下一家公司所拥有的商标。艾默生自动化解决方案、艾默生和艾默生标志是艾默生电气公司的商标和服务商标。所有其他商标均归各自所有者所有。\n本出版物的内容仅供参考，尽管我们努力确保内容准确性，但也不应将其解释为对本文所述产品或服务或其用途或适用性所作出的明示或暗示的保证或担保。所有销售均受本公司条款约束，本公司可应请求提供此类条款。本公司保留随时修改或改进本公司产品设计或规格的权利，且不另行通知。",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "char_count": 367,
+    "heading_context": "[H1] 维护",
+    "heading_path": [
+      "[H1] 维护"
+    ],
+    "semantic_group": "repair",
+    "system_root": "维护",
+    "pre_prune_score": 63,
+    "embed_score": 0.541997492313385,
+    "attachments": []
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_0",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 0,
+    "text": "[H1] 第1节-阀门储存\n水平管路安装阀门的搬运和起吊\n\n[H2] 1.1安装前的储存与防护\n若阀门需在安装前储存，应置于隔离、防护良好、干燥且清洁的环境中。\n\n[H2] 1.2搬运要求\n木条箱：木条箱内包装好的阀门在起吊和搬运时应使用配有合适叉车臂的叉车。\n箱子： 装箱阀门的吊装作业必须从明确标识的吊装点及重心位置进行。\n所有带包装物料的运输和搬运需安全操作，并遵守当地安全法规。\n[H3] 小心\n选择吊装和搬运设备（起重机、吊钩、吊带等）时，须参考相关交付文件中标注的阀门及执行机构重量。\n必须由合格人员进行起吊和装卸工作。吊绳在尖角区域必须用塑料盖进行保护搬运时必须注意避免将设备从工人头顶或其它可能因跌落造成损失的地点上方通过。无论在何种情况下，都必须遵守当地的安全规定。\n[H3] 注意\n对于水平轴安装，应按照图1所示，从支架和底部法兰区域固定阀门。\n当底部轮毂的延伸段长度足以将吊带牢固套设其上时，\n应采用底部法兰吊装方案A和C（图1）。若底部轮毂延伸段长度不足以将吊带牢固套设其上，则采用吊装方案B和D（图1），在此情况下，需使用底部轮毂附近的法兰钻孔确保阀门牢固固定。如需进行垂直轴安装，应按图2所示，从支架区域吊装阀门。\n[H3] 警告\n对于配备齿轮或执行机构的阀门，需格外注意。对于带执行机构的阀门，建议利用执行机构吊环孔调节吊装过程中的重心平衡。具体请参考相关供货附带的产品技术文档。\n[图片附件] images/7aed20f4d37fd1342dd56dabddbaff6b00735f147d870e70fdc94362f3d2bd4f.jpg\n垂直管路安装阀门的搬运和起吊\n[图片附件] images/1ab7df6a8f28edca87e1d7ec5b6d23e8f8cab6639cd55395c3c13b7c1ec5a10c.jpg\nC\n[图片附件] images/c328c36431c1f31975f4a1104f568d48c86dea9f93de207c3e6f1e0bca4ea19f.jpg\n[图片附件] images/11a367d63981aef39769f178dbe88cd1b24ae7c103c3ecde5ee2fd3d54f865c7.jpg\nD\n图1\n[图片附件] images/28be0edac2ca07a8e387e80bafaf82c854917f65a18aa8dec7a3a662df133aad.jpg\n图2\n\n[H2] 2.1阀门检查\n[H2] 1、将阀门从运输包装（箱子或托板）上小心卸下，避免对阀门或者对自动阀门的电气或气动/液压执行机构或仪表设备造成损坏。\n[H2] 2、阀门发运时两端有端盖保护并（根据阀门材料选择在适当的位置）涂有一层薄的防护油脂。安装阀门前，需取下端盖并仔细清洁，然后使用溶剂对密封接触面进行脱脂处理。用气管吹扫清理阀门内部。确保阀门内部或阀座无诸如木屑、塑料或填料材料之类的固体异物。\n[H2] 3、检查密封环确认搬运时未受损坏。对于阀瓣组在开启位置运输和配有\"失效-开启\"执行机构的阀门尤为重要。\n[H2] 4、确认填料调整螺母压紧填料法兰无法用手松开。\n[H3] 警告",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 1343,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 1.1安装前的储存与防护",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 1.1安装前的储存与防护"
+    ],
+    "semantic_group": "safety",
+    "system_root": "第1节-阀门储存",
+    "pre_prune_score": 55,
+    "embed_score": 0.5537925958633423,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/d698f428117f53774912c8474537a4c096d9dd49afe83bac0c83c21626a3f7b8.jpg",
+        "alt": "images/7aed20f4d37fd1342dd56dabddbaff6b00735f147d870e70fdc94362f3d2bd4f.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/9a4d89dbaf94400499fb95e0b092d06a4980cb1e021d18c5d6ab852144822299.jpg",
+        "alt": "images/1ab7df6a8f28edca87e1d7ec5b6d23e8f8cab6639cd55395c3c13b7c1ec5a10c.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/cb6522f0b2de438254b2fdca00a0f4a6e9ce0d7033d01ecc23faf203efa6a6dd.jpg",
+        "alt": "images/c328c36431c1f31975f4a1104f568d48c86dea9f93de207c3e6f1e0bca4ea19f.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/06cfe0964a9095bc4f718b2fd6c6f88a4fcbf7c3d90f075e0970cbdddba96b67.jpg",
+        "alt": "images/11a367d63981aef39769f178dbe88cd1b24ae7c103c3ecde5ee2fd3d54f865c7.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/fc70efdf18b21df1b83741e1c80b9e8af8c39c70ce57f03c24908ca31d8c3fd4.jpg",
+        "alt": "images/28be0edac2ca07a8e387e80bafaf82c854917f65a18aa8dec7a3a662df133aad.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_1",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 1,
+    "text": "[H2] 2.2 阀门安装\n检查管道法兰并确认其与阀门端部连接在以下方面相匹配：\n- 面对面结构长度；\n-法兰规格；\n-垫片安装所需的法兰表面光洁度。\n若缺失一个或多个法兰螺栓，严禁加压操作。\n最佳安装方式是将阀杆置于水平面。次佳选择是将阀杆设置成一定角度，尽量减少和流体中存在的固体颗粒相关的问题，否则可能沉积在下轴承区域。除非是手动操作阀门，否则严禁将阀门顶部法兰安装在低于水平方向的任何角度（参见图3）。\n除非另有建议，否则阀门应在阀瓣处于关闭位置时安装，以确保阀瓣密封环在安装期间不被损坏。对于配备“故障开启”型执行机构的阀门，需特别注意。\n运行温度在 200^{\\circ} \\mathrm{C} / 392^{\\circ} \\mathrm{F} 以上时，建议采用阀体隔热。\n[H3] 警告\n若阀门中心有攻丝螺纹孔，建议在此区域采用带螺母的螺杆螺栓进行连接。所有Vanessa30,000系列三偏心阀阀体上螺纹孔的深度，均在相关供货附带的产品技术文档中明确规定。使用尺寸不正确的螺杆可能会导致严重损伤、法兰泄漏、阀门螺纹损坏。\n[H3] 注意\n安装阀门前，建议对管路进行冲洗\n若无法进行，冲洗操作前须将阀瓣置于全开位置。\n[H3] 警告\n阀内件可承受并密封阀门铭牌所标示的设计压差而不发生泄漏（参见第12页上的铭牌模板）。\n当需要完全隔离，包括可安全进入下游管路的隔离时，至少在安装时应使高压面对阀门的首选隔离侧，即所谓的\"完全隔离侧\"或\"阀杆侧”，参见图3。\n阀门内件不得作为防止关闭阀门上游压力引发危险的唯一防护措施。\n在此情况下，终端用户应根据自身管道系统风险评估采取额外预防措施。\n若阀门有焊接端口，用布蘸丙酮或类似产品彻底清洁要焊接的端口（包括阀门和管道）上的污物和油脂。根据指示牌上显示的最佳密封侧将阀门正确插入要焊接的管道之间。进行初步点焊，检查边沿是否与阀轴线对齐。从两侧交替完成焊接以减少焊接产生的张力。遵循相关预热和道间温度的规定非常重要。",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 835,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 2.2 阀门安装",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 2.2 阀门安装"
+    ],
+    "semantic_group": "fault",
+    "system_root": "终端用户应根据自身管道系统",
+    "pre_prune_score": 77,
+    "embed_score": 0.5403014421463013,
+    "attachments": []
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_2",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 2,
+    "text": "[H2] 隔离应用\n安装方向影响阀门工作扭矩和密封性能。阀门关闭时的高压关闭侧存在一块指示牌\"△P\"(图4），用来作为安装方向的参考。压力作用在阀杆侧时可保证最好的密封性能(对双向服务也适用），建议在某一方向的密封要求比另一方向严格时采用。\n[图片附件] images/c3d269f37db30692150ce34cef243a9426ecd977ba7d7fd456a20080545ae222.jpg\n图3",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 206,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 隔离应用",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 隔离应用"
+    ],
+    "semantic_group": "parameter",
+    "system_root": "第1节-阀门储存",
+    "pre_prune_score": 66,
+    "embed_score": 0.5047081708908081,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/a61236701ef493f5b0b80343027680390ba91f07e6382ffdad504d87638f8a75.jpg",
+        "alt": "images/c3d269f37db30692150ce34cef243a9426ecd977ba7d7fd456a20080545ae222.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_3",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 3,
+    "text": "[H2] 控制应用\n在控制阀应用场景中，通常无需绝对密封。“ \\Delta P ”标识牌用于指示安装方向。由于执行机构的选择基于此具体安装方向，请遵守相关法兰上指示的安装方向。\n[H3] 小心\n只要管道中存在衬垫，阀瓣在其行程过程中不得接触衬垫。为避免对阀门造成任何损坏，此类验证在阀体类型为吊耳式或对夹式的情况下尤为重要。\n[图片附件] images/c1df9ffd01f3c08fd5df23a6995ba69fef26b93e259b72a1f41c00234297ea32.jpg\n图4",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 248,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 控制应用",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 控制应用"
+    ],
+    "semantic_group": "operation",
+    "system_root": "控制应用",
+    "pre_prune_score": 57,
+    "embed_score": 0.5127649307250977,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/70d103e28f54520fc6ded89d38bc34f322aef2ba0195275d02b6f515d7985088.jpg",
+        "alt": "images/c1df9ffd01f3c08fd5df23a6995ba69fef26b93e259b72a1f41c00234297ea32.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_4",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 4,
+    "text": "[H2] 2.4调试\n[H2] 1、管路系统要加水压测试时或管路系统在测试完后要关闭很长时间时，建议采取以下措施：\na. 在水中添加腐蚀抑制剂进行管道系统加压。\nb. 测试结束后，该管道系统应减压并将试水完全排干。\nc. 测试结束后，阀门必操作完成一个完整的开/关周期，阀瓣应留在半开位置。用毛刷给填料区域涂上一层保护油膜。保护油必须填满阀杆和填料衬套之间的区域。\n[H2] 2、阀门为全金属材质，通常可耐受清洁金属管道所使用的清洁剂。\n[图片附件] images/e03e5b07fe9f5005f95078d9fed495294dcda55f24880b79c8e6c6970cc51a68.jpg\n[图片附件] images/b716749b52cecf5cf2c331e1805d170add98f3c44899b110fcaf9cba97b4f05c.jpg\n图5A\n图5B",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 392,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 2.4调试",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 2.4调试"
+    ],
+    "semantic_group": "diagnostic",
+    "system_root": "管路系统要加水压测试时或管路系统",
+    "pre_prune_score": 69,
+    "embed_score": 0.5941389203071594,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/56da9441983089ae457cb05bfb76a3e03a9cec06eeb5edf2c590cfb3a1d1f7ac.jpg",
+        "alt": "images/e03e5b07fe9f5005f95078d9fed495294dcda55f24880b79c8e6c6970cc51a68.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/78ea83e82edeef38afb4c351492a104e48f7b77cce5c2f4625b08315fa0adca3.jpg",
+        "alt": "images/b716749b52cecf5cf2c331e1805d170add98f3c44899b110fcaf9cba97b4f05c.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_5",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 5,
+    "text": "[H2] 3.1阀门的使用\nVanessa 30,000 系列三偏心阀不存在可能滞留工艺流体并与主管线隔离的空腔结构。因此，只要与阀门连接的系统通过适当的装置保持对过压的保护，就不会发生任何过压情况。\nVanessa 30,000 系列三偏心阀不会因自身运行功能产生高温或低温表面。阀门的热表面或冷表面由安装阀门的系统的工艺温度产生。因此，相应的保护措施应遵循系统本身的要求。阀门支架无需保护。\n由于阀体呈简单的圆柱形，具有向外的圆柱形分支，而且厚度远高于管道本身，阀体比其所连接的管道阻力更大。因此，阀体不能作为管道传输最大容许负载的限制因素。",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 273,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 3.1阀门的使用",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 3.1阀门的使用"
+    ],
+    "semantic_group": "fault",
+    "system_root": "只要与阀门连接的系统",
+    "pre_prune_score": 71,
+    "embed_score": 0.4849569797515869,
+    "attachments": []
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_6",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 6,
+    "text": "[H2] 3.2操作流程\nVanessa 30,000 系列三偏心阀需配备执行机构或手动齿轮操作装置方可操作。操作阀门时，请遵循执行机构或齿轮制造商提供的相关说明。\n从支架顶端观察时，顺时针旋转阀杆可以关闭阀门。\n\n[H2] 3、3 故障排除指南\n问题 | 可能原因 | 解决方案\n阀门不能转动 | 1. 填料太紧 | 1. 松开填料法兰和螺柱螺母\n[H2] 2、执行机构存在故障 | 2. 更换或修理\n[H2] 3、阀门塞满了杂物 | 3. 冲洗或清洗阀门,清除杂物\n[H2] 4、轴键被剪断 | 4. 确定剪切的原因,并正确地更换阀杆键\n[H2] 5、轴承与阀杆之间的流体固化 | 5. 通过冲洗孔(如果有)冲洗轴承\n填料函泄漏 | 1. 填料法兰螺母太松 | 1. 拧紧填料法兰螺母\n[H2] 2、填料盒损坏 | 2. 更换填料盒-见第4.1节\n底部垫片泄漏 | 1. 底部法兰螺栓松动 | 1. 拧紧底部法兰螺栓\n[H2] 2、金属缠绕垫片损坏 | 2. 更换垫片-见第4.3节\n阀门泄漏 | 1. 阀门未完全关闭 | 1. 关闭阀门\n[H2] 2、杂物卡在阀内 | 2. 在蝶板开启状态下进行循环冲洗以清除杂质\n[H2] 3、执行机构机械限位设置不当 | 3. 拧下关闭限位并正确复位\n[H2] 4、密封环损坏 | 4. 更换密封环-见4.2节\n操作不顺畅 | 1. 填料盒太紧 | 1. 松开填料螺母,开启关闭阀门,再拧紧\n[H2] 2、空气供应不足 | 2. 增加供气压力和/或体积\n[H2] 3、执行机构/阀杆适配器错位 | 3. 卸下执行机构安装架并重新调整\n\n[H2] 4.1填料维护\n根据阀门动作频次，定期检查填料螺母并按第11页表1B规定的标准扭矩值进行紧固。\n[H3] 警告\n开始维护之前始终将管路卸压。否则，可能会导致严重的人员受伤和/或设备损坏。\n\n[H2] 参见图6。\n更换填料环步骤如下：\n[H2] 1、拆下齿轮/执行机构及相关连接键[4f]。记录齿轮/执行机构相对于阀门的位置，以便随后正确重地新装配齿轮/执行机构。\n[H2] 2、拆下压盖螺母(5d)。如果有Belleville弹簧(5n)，请记录其数量和组件配置以便能正确回装（第7步）。\n[H2] 3、拆下填料压盖法兰 [5f]，防爆裂环（如果有）[5q]，以及压盖衬套 [5c]。\n[H2] 4、拆下填料环(5a)。若阀门配有填料冲洗选件，将套环也拆下(5h)。\n[H2] 5、仔细清理填料腔和阀杆(4a)。\n[H2] 6、给每根新填料环 (5a) 表面涂抹一层薄润滑剂（润滑剂应符合表3规定）。插入新填料环，注意将两根编织环插入整个填料的底部和顶部。若阀门配有填料冲洗选件，将套环(5h)按原始顺序（或如图6所示）插入。若填料环属于开口型，安装时注意使开口互呈 180^{\\circ} 。\n[H2] 7、重新组装填料衬套(5c)、防喷环（若配备，5g）及填料法兰(5f)。若配备贝氏弹簧(5n)，则应按前文第2点记录的装配结构安装，随后手工预紧螺柱螺母(5d）（需按表3要求在螺柱螺纹表面涂抹一层薄润滑剂）。\n[H2] 8、重新装上上阀杆端的键[4f]连接。\n[H2] 9、重新装上齿轮/执行机构并关闭阀门。\n[H3] 小心\n请勿在阀杆上对执行机构用力！此处应为松配合。\n[H2] 10、将阀门蝶板开启至约 10^{\\circ} 位置，按第11页表1A要求紧固螺柱螺母(5d)。施加扭矩时需稳步增加载荷，并确保法兰与阀体顶部法兰表面始终保持平行。\n[H2] 11、将螺柱螺母(5d)旋松约半圈，随后按第11页表1B要求重新紧固，整个过程中必须保持法兰与阀体顶部法兰表面平行。\n\n[H2] 13、再次给管路加压。\n[H2] 14、若检测到泄漏，慢慢均匀地拧紧压盖螺母直至泄漏停止。严禁超过表1A规定的扭矩值。\n[图片附件] images/2eeaf6eb5193d3010e8bb7a0a6144f7b8211f9e640e84ece218e3efd54836466.jpg\n图6\n\n[H2] 4.2 密封元件维护\n更换密封元件时请按以下步骤操作，正确的部件识别请参考图7：\n[H3] 警告\n开始维护之前始终将管路卸压。不遵守此规定可能会造成严重人身伤害和/或阀门损坏。\n[H2] 1、将蝶板处于关闭位置的阀门从管道中拆除。按照工厂规定的正确清理程序或推荐的程序清理阀门。\n\n[H2] 2、稍微开启阀门几度。\n[H2] 3、松开压环法兰螺钉[2c]。如果螺丝被固定，则展开斜面。\n[H2] 4、将阀门蝶板开启至全开位置。\n[H3] 注意\n小尺寸阀门可能较容易拆除执行机构螺栓并将阀瓣转过全开位置以便操作部件时有更多的工作空间。\n[H2] 5、小心拆卸压环法兰螺钉[2c]及配套安全垫圈（若配备，2d），随后取下密封环压环法兰[2b]。\n[H2] 6、取出密封环[3a]和蝶板缠绕垫片[3b]。\n[H2] 7、检查阀座。在用溶剂清洁好后，必要时可再用细砂布（600目或更细的研磨材料）清洁。\n[H2] 8、检查并清理阀瓣密封环区域和缠绕垫片槽沟。在安装蝶板缠绕垫片和密封环组件前，必须确保无任何异物存在。\n[H2] 9、在密封环 [3a] 和蝶板缠绕垫片 [3b] 所处的阀瓣 [2a] 表面区域涂抹一层薄润滑剂（润滑剂应符合表 3 规定）。\n[H3] 小心\n仅在标记的地方涂抹一层薄的润滑剂。不遵守此规定会妨碍组装并可能损坏阀门。\n[H2] 10、将新蝶板缠绕垫片 (3b) 放入蝶板槽内，严禁强行安装并注意避免损坏。\n[H2] 11、通过阀体轴侧将密封环 (3a) 装入蝶板。要正确定位密封环，参见图8：将密封环 (3a) 的内槽与参考销(F)对准。\n[H2] 12、组装压环法兰 [2b]。参考图 8: 确保压环法兰边缘的槽口 [B] 与定位销 [F] 对准。\n[H2] 13、将压环螺钉 [2c] 插入压环法兰孔。若压环螺钉未通过斜面结构（位于每个螺钉孔附近的压环法兰上）固定，则需加装防松垫圈[2d] 并在螺纹底部涂抹 Loctite® 270 或等效螺纹锁固剂（涂抹前需使用溶剂彻底清洁螺纹）。\n[H2] 14、用手拧紧所有固定法兰螺钉[2c]。然后确认密封环能用手在不转动的情况下自由移动\n[H2] 15、给阀座密封及密封环 (3a) 外沿（密封螺面）抹一层薄润滑剂。润滑剂应符合表 3 要求。\n\n[H2] 16、开关阀门二次。\n[H2] 17、保持阀门处于关闭位置，不施加扭矩。至少紧固两个压环法兰螺钉(2c)以防止密封环移位。\n[H2] 18、将蝶板开启一定角度，使用扭矩扳手紧固所有螺钉[2c]。使用表2中规定的扭矩值(参见图6)。\n建议采用十字交叉顺序紧固所有压环法兰螺钉。\n[H3] 重要事项\n参见图8：\n密封环供货时带有一个索引标记(A)。组装完成后，确认标线标记(A)在压环法兰槽口(B)中清晰可见。\n槽(B)和标记(A)必须完美对准。\n若不可见或未对准，松开固定螺钉，重新对准索引标记并重复从12点开始的程序。\n[H2] 19、如果用（在固定法兰上靠近每颗螺钉孔的）斜面固定密封固定法兰螺钉，请使用锤顶工具重新弯曲每颗螺钉上方的斜面，并确保螺钉正确安全地锁定（参见图9）。\n[图片附件] images/83a8d2516dec20e83c60cc7dbd48e42d8787018203f0df69fad40a948278635f.jpg\n[图片附件] images/63545fc7b2d551630c49c36b542b92ce4e9a5f7a89216b59d25c1eebad4a30a8.jpg\n图8\n\n[H2] 4.3底部法兰垫片维护\n如需更换底部缠绕垫片，请按以下步骤操作（参考图10）：\n[H2] 1、拆下底部法兰(6a)。\n[H2] 2、拆除底部垫片[6c]。\n[H2] 3、检查并清洁阀体及底部法兰的缠绕垫片槽。\n[H2] 4、给底部缠绕垫片 [6c] 涂抹一层薄的润滑剂，然后将其插入底部法兰 [6a]，与阀体孔对中和定位（润滑剂应符合表3的规定）。旋转底部法兰到正确的位置，使孔中心与阀体上的螺纹孔对准。\n[H2] 5、在压紧螺栓[6b]螺纹部位涂抹一层薄润滑剂（润滑剂需符合表3要求），随后进行安装并按表2扭矩值紧固。\n[图片附件] images/43de0631a3fe6330c0bdc8f5ef77f90e0fd0d9bb365f9257e3de241fd9daf48b.jpg\n图9\n[图片附件] images/07bc76d26a4c74188e6e13ea54cfc6af6aff199815b6dd41f3e5c8480f647b8a.jpg\n[图片附件] images/28f3642a2b6407793c5943d0d3f815b1298dce280a62b59e2f91bcc160958bc9.jpg\n图10",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 3689,
+    "heading_context": "[H1] 第1节-阀门储存 -> [H2] 3.2操作流程",
+    "heading_path": [
+      "[H1] 第1节-阀门储存",
+      "[H2] 3.2操作流程"
+    ],
+    "semantic_group": "operation",
+    "system_root": "第1节-阀门储存",
+    "pre_prune_score": 60,
+    "embed_score": 0.5529972314834595,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/aa815cca4b731bc4dda6e0c1d70adb08989a4aaa00de700e146d3ae87f586761.jpg",
+        "alt": "images/2eeaf6eb5193d3010e8bb7a0a6144f7b8211f9e640e84ece218e3efd54836466.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/1afeca5718cfea63e3afcea17e8028e7dc05300cdf49b342bb6be1007e5233b8.jpg",
+        "alt": "images/83a8d2516dec20e83c60cc7dbd48e42d8787018203f0df69fad40a948278635f.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/292f11977b54d35cdc1b1d02b7aa954de216aa61d69ba738167187b19ecf7422.jpg",
+        "alt": "images/63545fc7b2d551630c49c36b542b92ce4e9a5f7a89216b59d25c1eebad4a30a8.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/aa380e1e7e7066a9e5da3b4a27c5edba3b446b98ee1bf4ed4d95e0ed99af04f8.jpg",
+        "alt": "images/43de0631a3fe6330c0bdc8f5ef77f90e0fd0d9bb365f9257e3de241fd9daf48b.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/438fc4f4072fba360dc89e28bb8bb478a82fbc983884d1c8afefc0c7fab2644c.jpg",
+        "alt": "images/07bc76d26a4c74188e6e13ea54cfc6af6aff199815b6dd41f3e5c8480f647b8a.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/d7638d1c3aa6a995761ad76bdb748cb948833b3ecb0cb9133c27734c50d783a1.jpg",
+        "alt": "images/28f3642a2b6407793c5943d0d3f815b1298dce280a62b59e2f91bcc160958bc9.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650::chunk_7",
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "chunk_index": 7,
+    "text": "[H1] 第5节-标准选件\n本节仅供配有下述选件的 Vanessa 产品参考：\n- 轴承及填料冲洗\n- 动态负载填料。\n\n[H2] 5.1轴承及填料冲洗，\n轴承冲洗\n轴承冲洗选件通过额外增加两个攻丝孔获得，一个位于底部法兰，一个位于阀颈处（见图11）。此选件包含在阀门填料底部引入一个套环。当阀门所安装应用地点的流体中存在灰尘或管路流体本身可能积累在阀杆/轴承区域引起问题时建议采用轴承冲洗。典型的示例包括硫磺回收应用，其中的液态或气态硫磺可能进入此区域形成结晶，造成装置停机\n[图片附件] images/872b7d4b0d6dc0e7498494d0720e8567bf0ac7dc570fa48fbd1c2fa193f2a147.jpg\n图11\n[图片附件] images/6d2ba7523a7e9f3c2182b6ff557564888174f28a8bc369b041e66e3e974a4c97.jpg\n图12\n此结晶可能会导致增加阀门扭矩的要求。含颗粒(比如催化剂)的流体是可能引起上述类似问题的另一个示例。\n这些情况下，可利用轴承冲洗通过轴承冲洗接头（图12）引入一种与工艺兼容的惰性流体以形成阻止不需要产品从管路进入阀杆/轴承区域的压力屏障。冲洗流体的压力必须稍微高于管路压力(约5%)。这样可以作为一种安全措施和增加阀门预期寿命的一个积极步骤，而且还可维持所需的恒定扭矩，从而保证阀门的可操作性。\n轴承可以连续冲洗，建议用于上述的关键服务。对于次要的服务可以定期冲洗以清除轴承/阀杆接口或为阀门做好工艺关闭的准备。\n轴承冲洗接头也可用于引入一种与工艺兼容的润滑剂到高周期或干气服务中的轴承区。通过减少提供有效服务所需的流通量，轴承保护器的存在显著减低了对冲洗或润滑剂的消耗（见图11A）。\n\n[H2] 填料冲洗\n填料冲洗选件通过引入一个经套环直接与填料盒在阀颈处沟通的攻丝孔获得。此选件可用于监测管路流体排放进入大气的速率。此冲洗攻丝也可用于俘获和排空管路流体，防止出现大气损失，套环和分离填料配置起双重阻塞和排气作用。\n通过填料冲洗攻丝也可引入一种合适的流体进入填料区，以消除可能的无组织排放(见图12)。通过将流体加压到高于相应管路的压力，可有效阻塞管路流体进入大气的通道，从而实现阀门出色的无组织排放控制。然而，使用的流体必须与管路流体兼容，因为流体也可能找到进入管路和大气的途径。\n通过轴承冲洗选件，该选件也可用于引入一种与工艺兼容的润滑剂。\n用户需要负责选择类型最合适的润滑剂进行冲洗。\n\n[H2] 5.2动态负载填料\n动态负载填料选件设计用于补充标准性能的Vanessa阀门填料。选项保证了填料组的压缩恒定。通过贝氏弹簧提供几乎恒定载荷的填料结构可显著降低填料维护频率（图13）。\n如需对活载填料配置的阀门填料进行维护，请遵循第4.1章节说明，更换贝氏弹簧时务必注意，其叠合组合方式不得改变。\n图13所示为典型活载填料配置方案。\n[图片附件] images/56c53e22d64df636319cd85e29d3e3772c69b31c3acb4d14b6e04d35bb4ee20b.jpg\n图13\n表 1A - 填料法兰螺柱螺母预紧扭矩值\n螺栓尺寸 | 公称压力\nASME磅级150-300EN PN 10/16/25/40 | ASME磅级600-900EN PN 63-100\n扭矩 | 扭矩\nN·m | N·m\nM10 | 30 | 30\nM12 | 45 | 45\nM14 | 60 | 60\nM16 | 75 | 75\nM18 | 90 | 90\nM20 | 160 | 160\nM24 | 250 | 250\nM27 | 315 | 315\nM30 | 385 | 400\nM33 | 480 | 560\nM42 | - | 1000\n表 1B-填料法兰螺柱螺母终紧扭矩值\n螺栓尺寸 | 公称压力\nASME 磅级 150 - 300EN PN 10/16/25/40 | ASME 磅级 600 - 900EN PN 63 - 100\n扭矩 | 扭矩\nN·m | N·m\nM10 | 10 | 15\nM12 | 15 | 20\nM14 | 20 | 35\nM16 | 25 | 50\nM18 | 30 | 55\nM20 | 80 | 130\nM24 | 150 | 225\nM27 | 210 | 300\nM30 | 265 | 400\nM33 | 310 | 560\nM42 | - | 1000\n表 3-润滑\n类型 | 要润滑的部件\n轻质矿物油 | 1. | 填料环(5a)\n[H2] 2、| 用于密封环和垫片定位的蝶板表面区域(2a)\n\n[H2] 3、| 缠绕垫片(6c)\nMolykote®-P74(油脂)或等同物 | 1. | 螺杆螺栓/螺母(5d)\n\n[H2] 2、| 压紧螺栓(6b)\nMolykote®spray-321R(干润滑剂)或等同物 | 1. | 密封环(3a)",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "char_count": 2070,
+    "heading_context": "[H1] 第5节-标准选件 -> [H2] 5.1轴承及填料冲洗，",
+    "heading_path": [
+      "[H1] 第5节-标准选件",
+      "[H2] 5.1轴承及填料冲洗，"
+    ],
+    "semantic_group": "safety",
+    "system_root": "第5节-标准选件",
+    "pre_prune_score": 58,
+    "embed_score": 0.5789141654968262,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/ffac34c1b190839e9ec8435b3ea934c0048dbb081a652d051668a2cd23d939a3.jpg",
+        "alt": "images/872b7d4b0d6dc0e7498494d0720e8567bf0ac7dc570fa48fbd1c2fa193f2a147.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/2ea32be593b9ce6721794b60c8bebee091031462df8ab05cbb813c7921223dad.jpg",
+        "alt": "images/6d2ba7523a7e9f3c2182b6ff557564888174f28a8bc369b041e66e3e974a4c97.jpg"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650/493155a18268fe7b0e91f0852201db64321e929cf4a4db0729fb24013246de44.jpg",
+        "alt": "images/56c53e22d64df636319cd85e29d3e3772c69b31c3acb4d14b6e04d35bb4ee20b.jpg"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_0",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 0,
+    "text": "[H1] Rosemount™ 3051S 无线系列产品\n压力、液位和流量解决方案(采用 IEC 62951 [WirelessHART®] 协议)\n[图片附件] 未命名图片\n[图片附件] 未命名图片\n[图片附件] 未命名图片\n第  章 2 .........组态.",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 133,
+    "heading_context": "[H1] Rosemount™ 3051S 无线系列产品",
+    "heading_path": [
+      "[H1] Rosemount™ 3051S 无线系列产品"
+    ],
+    "semantic_group": "parameter",
+    "system_root": "Rosemount™ 3051S 无线系列产品",
+    "pre_prune_score": 58,
+    "embed_score": 0.4853070378303528,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/90da77828465ebbe3073c9f26bf02df18de5a56f4b4f8479350dbeba4e159ac7.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/8ed6ea48dad89d2c73abaa696eca46a3754b76e022145bd9abafa5ec595ed23a.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/925c51c5e78c8f16676d0b2e97b97fe2e6abe18c92ee91b512af834de9c7aa0a.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_1",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 1,
+    "text": "[H2] 1  简介\n[H3] 1.1  涵盖的型号\n下表介绍了本手册中涉及的 Rosemount 3051S 无线压力变送器。\n表 1-1: 3051S 无线 Coplanar™ 压力变送器\n性能等级 | 测量类型\n差压 | 表压 | 绝压\nClassic 型 | X | X | X\nUltra 型 | X | X | X\n表 1-2: 3051S 无线直连式压力变送器\n性能等级 | 测量类型\n差压 | 表压 | 绝压\nClassic 型 | – | X | X\nUltra 型 | – | X | X\n表 1-3: 3051S 无线液位压力变送器\n性能等级 | 测量类型\n差压 | 表压 | 绝压\nClassic 型 | X | X | X\nUltra 型 | X | X | X\n[H3] 1.2\n[H4] 服务支持\n如果要加快返修流畅,请联系艾默生。\n艾默生将:\n• 帮助您获取所需的信息或材料\n• 询问产品型号和序列号\n• 提供一个退货授权 (RMA) 编号\n• 询问产品上一次接触的过程材料\n小心\n对于处理接触危险物质的产品的人员,若知悉并了解危险,则可以避免伤害。若退回的产品曾接触过 OSHA 所定义的危险物质,则在退回货物中必须随附各危险物质的必要材料安全数据表(MSDS) 的复印件。\n[H4] 注意\n[H4] 无线产品装运注意事项(锂电池):\n本装置发货时并未安装电源模块。重新发运之前,请务必移除电源模块。\n一次锂电池(充电或放电)的运输受美国交通部的监管,同时还受 IATA(国际航空运输协会)、ICAO(国际民用航空组织)以及 ARD(欧洲陆地运输危险品协议)的约束。托运人有责任确保符合这些机构的规定或任何其他当地要求。发运前,请明确当前法规及要求。\n每组黑色电源模块都带有两块“C”号一次锂/亚硫酰氯电池。每个电源模块大约含 2.5 克锂,也就是每组 5 克。在正常条件下,只要电池和模块保持完整,则电源模块材料独立,且不会发生反应。应防止热量、电气或机械损坏。应保护触点,防止过早放电。电池放电后电源模块仍有风险。\n电源模块应存放在洁净干燥的地方。温度 ≤86 °F (30 °C),电池寿命最长。\n艾默生代表会说明在退回曾接触危险物质的货物时所需的附加信息和程序。\n[H3] 1.3  产品回收利用/处理\n设备和包装使用完后,请尽可能回收利用。按照所有适用的法律/法规处置剩余物品。\n[H3] 2  组态\n[H4] 2.1  概述\n本章节包含安装前的组态和验证工作的信息。\n本节说明了用于执行组态功能的通讯设备和 AMS 软件。为方便起见,在相应的标题下,通讯设备的每个软件功能的快捷键序列将标记“Fast Keys(快捷键)”。\n软件功能示例\n快捷键 1, 2, 3 等\n安全\n执行操作时,为确保人身安全,请特别注意本节中的步骤和说明。可能引起潜在安全问题的信息用警告符号( )表示。执行带有该符号的步骤前,请参见安全信息。\n[H4] 2.2  安全信息\n执行操作时,为确保人身安全,请特别注意本节中的步骤和说明。可能引起潜在安全问题的信息用警告符号( )表示。执行带有该符号的操作前,请参阅以下安全信息。\n警告\n爆炸可能会导致死亡 或严重受伤。\n在易爆环境中连接 375 现场手操器时,应确保按照本质安全或非易燃现场接线实践安装仪表。\n触电可能导致死亡或严重受伤。\n不得接触导线或接线端子。导线上可能存在的高压会导致触电。\n本设备符合美国联邦通信委员会(FCC)规范第 15 部分的规定。设备操作应符合下列条件: 本设备不会导致有害干扰。 本设备必须接受任何接收到的干扰,包括可能会导致意外操作的干扰。 安装此设备时,必须保证天线与人员之间至少有 8 in. (20 cm) 的间距。\n[H4] 2.3  系统准备\n• 若使用基于 HART® 的控制或资产管理系统,在调试和安装之前,请确认该系统的 HART 能力。并不是所有系统都能够与 HART 7 设备通信。\n[H5] 2.3.1\n[H6] 确认正确的设备描述符\n为确保通信正常,请确认系统中已装载最新的设备描述符 (DD/DTM)。\n[H6] 过程\na) 导航到 Emerson Software & Drivers(艾默生软件和驱动程序)网页。\nb) 选择 Device Drivers(设备驱动程序)按钮。\nc) 从 Choose a Software Type(选择一种软件类型)下拉菜单中选择 DD - Device Descriptor(DD - 设备描述符)。\nd) 从 Choose a Communication Protocol(选择一种通讯协议)下拉菜单中选择Wireless HART。\ne) 从 Choose a Brand(选择一个品牌)下拉菜单中选择 Rosemount。此时将加载搜索结果\nf) 选择 3051 Pressure Transmitter(3051 压力变送器)前面的单选按钮。搜索结果经过筛选后将显示 3051 压力变送器设备描述符。\n[H6] 2. 选择所需的设备描述符。\n注\n在表 2-1 中,使用 HART® 通用版本号和设备版本号找到正确的设备描述符。\n表 2-1: Rosemount 3051S 无线设备版本和文件\n | 识别设备 | 查找设备描述符 | 查看说明 | 查看功能\n软件发布日 期 | NAMUR 软 件版本(1 ) | HART 软件 版本(2 ) | HART 通用 版本 | 设备版本(3 ) | 文档编号和 版本 | 软件变更\n2013 年 4 月 | 3.1.0 | 3 | 7 | 3 | 00809-0200 -4802 版本 BA | 增加换算变 量\n2010 年 6 月 | 2.0.0 | 2 | 7 | 2 | 00809-0200 -4802 AA 版 | 不适用\n[H4] (1) NAMUR 软件版本位于设备的硬件标牌上。\n[H4] (2) HART 软件修订版本可使用支持 HART 的组态工具读取。\n[H4] (3) 设备描述符(DD)文件使用设备和 DD 版本命名;例如,1001。HART 协议用于旧版的 DD 能够继续与新 HART 设备通讯。使用新功能前必须下载最新 DD。艾默生建议下载新的 DD 文件,以保证能够使用全部功能。\n[H4] 2.4  工作台组态要求\n[H5] 注\n[H5] 3051S 无线变送器安装之前必须组态。\n工作台组态需要 375 通讯设备、AMS 软件或任何 IEC 62591 (WirelessHART®) 通讯器。将通讯设备导线连接到端线板上标记了 COMM 的端子上。请参见图 2-1。\n工作台组态包括测试变送器和验证变送器组态数据。在安装前使用 375 通讯设备、AMS 软件或任何 IEC 62591 (WirelessHART) 通讯器进行变送器工作台组态,可使所有网络设定正确工作。\n在使用通讯设备之时,任何组态变更都必须通过 Send(发送)键(F2)发送到变送器。当点击Apply(应用)按钮时,会使 AMS 组态更改生效。\nAMS 可使用 HART 调制解调器直连设备,或通过智能无线网关无线连接设备。在组态设备之时, 请双击设备图标,或右键单击并选择 Configure(组态)。\n[H2] 2、4.1\n连接图\n[图片附件] 未命名图片\n对于 HART® 通讯,需要 Rosemount 3051S WirelessHART® 设备描述符。请参见 确认正确的设备描述符。\n图 2-1: 通讯设备连接\n[图片附件] 未命名图片\n[H5] 工作台连接\n过程\n[H2] 1、按 图 2-1 所示连接工作台设备。\n[H2] 2、按 ON/OFF(开/关)键开启通讯设备,或者登录 AMS 软件。\n通讯设备或 AMS 软件会搜索兼容 HART® 的设备,并在进行连接时给出提示。\n需要帮忙?\n若通讯设备或 AMS 未能连接,则会提示未找到设备。若发生这种情况,请参阅设备未连入网络。\n[H5] 现场连接\n过程\n通讯设备或 AMS 可连接在端线板 COMM 端子。图 2-1 示出通信设备或 AMS 的现场连接接线。\n[H4] 2.5  设备网络配置\n[H5] 2.5.1\n[H6] 将设备连接到网络\n快捷键\n2, 1, 3\n如果要与 智能无线网关并最终与主机系统进行通讯,必须组态变送器,使其在无线网络上通讯。此步骤相当于通过无线的方式将变送器连接到主机系统。\n[H6] 过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 1: 设置向导。\n[H2] 3、选择 3: 将设备连入网络。\n使用通讯设备 通讯设备 或 AMS,输入 网络 ID 和 连接密钥 使之匹配 网络 ID 和 连接密钥(智能无线网关 智能无线网关 及网络上的其他设备)。如果 网络 ID 和 连接密钥 不同于智能无线网关所设置的,变送器将不与网络通讯。如需获取 网络 ID 和 连接密钥 请在 智能无线网关,转到 web 服务器的 Setup(设置)→Network(网络)→Settings(设定) 页面。\n[H4] 2.5.2  组态更新速率\n快捷键 2, 1, 4\n更新速率是获取新测量值并把其通过无线网络传送的频率。更新速率默认为 1 minute(1 分钟)。\n修改更新速率方法:\n• 调试\n• 通过 AMS Wireless Configurator(随时)\n更新速率可由用户在 1 秒至 60 分钟范围内选择。\n[H5] 过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 1: 设置向导。\n[H2] 3、选择 4: 组态更新速率。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 4030,
+    "heading_context": "[H1] Rosemount™ 3051S 无线系列产品 -> [H2] 1  简介",
+    "heading_path": [
+      "[H1] Rosemount™ 3051S 无线系列产品",
+      "[H2] 1  简介"
+    ],
+    "semantic_group": "diagnostic",
+    "system_root": "的控制或资产管理系统",
+    "pre_prune_score": 75,
+    "embed_score": 0.5046883225440979,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/317067b042cfe2394c4c883443b25052369bc4d2db8fc765a7aada12f5f9a90a.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/0d155a3b759cfdc1f78a3a1af38b1806a78eee8c29e5e971b503347d6e6261ec.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_2",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 2,
+    "text": "[H2] 6、重新盖好外壳盖。\n注 拧紧外壳盖时,请确认金属与金属接触。\n[H5] 2.5.3\n[H5] 拆卸电源模块\n[图片附件] 未命名图片\n使用电源模块时应小心。如果电源模块掉落到坚硬表面上,可能会损坏。电池放电后,电池的危险依然存在。\n组态传感器和网络后,请拆下电源模块并重装外壳护盖。设备准备好进行调试时,请插入电源模块。\n本变送器使用黑色电源模块。订购 701PBKKF 型号或 00753-9200-0001 备件号。\n[H4] 2.6  检查组态数据\n下表是可使用通讯设备或 AMS 软件查看的工厂默认组态 通讯设备 。如需查看变送器组态信息, 请使用以下程序。\n注\n本节中使用的通讯设备 通讯设备 快捷键序列和 AMS 的信息和步骤假定变送器和通讯设备已连接、加电、并正确工作。\n[H5] 2.6.1\n[H6] 查看压力信息\n快捷键\n2, 2, 2\n如需查看压力信息:\n过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 2: 手动设置。\n\n[H2] 3、选择 2: 压力。\n[H2] 4、选择对应号码查看各字段:\n压力\n压力状态\n单位\n4 阻尼\n5 传感器限制\n[H5] 2.6.2\n[H6] 查看设备和传感器信息\n[H6] 快捷键\n2, 2, 9\n如需查看设备信息:\n过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 2: 手动设置。\n[H2] 3、选择 9: 设备信息。\n[H2] 4、选择对应号码查看各字段:\n1 标识\n2 版本\n3 无线电\n4 传感器信息\n5 法兰信息\n6 远程密封信息\n[H5] 2.6.3  查看无线电信息\n[H5] 快捷键\n2, 2, 9, 3\n如需查看无线电信息:\n[H6] 过程\n[H2] 1、请在 Home(主页)画面选择 2: Configure(2:组态)。\n[H2] 2、选择 2: Manual Setup(2:手动设置)。\n[H2] 3、选择 9: Device Information(9:设备信息)。\n[H2] 4、选择 3: Radio(3:无线电)。\n[H2] 5、选择对应号码查看各字段:\n制造商\n设备类型\n设备版本\n4 软件版本\n5 硬件版本\n[H4] 2.7  检查输出\n在执行其它变送器操作之前,请检查工作参数,确认变送器正常工作。\n[H5] 2.7.1\n[H6] 查看工作参数\n快捷键\n3, 2\n只要工程单位和量程百分比形式的压力输出值在变送器的量程上下限值之间,即使施加的压力超出组态的范围,也会如实反映。\n例如,如果范围 23051S\\_T [范围下限 (\\text {LRL})=0 psi, 范围上限 \\text {(URL)=}150 psi] 设置的范围是 0 - 100psi ,施加 150psi  压力将返回:\n• 150% 的范围 % 输出\n• 150 psi 工程单位输出\n查看 Operating Parameters(工作参数)菜单:\n过程\n[H2] 1、从 主页 屏幕选择 3: 检修工具。\n\n[H2] 2、选择 2: 变量。\n菜单 Operating Parameters(工作参数) 显示与设备有关的以下信息:\n范围百分比\n• 压力\n• 压力状态\n• 传感器温度\n• 传感器温度状态\n• 电子部件温度\n• 电子装置温度状态\n• 供电电压\n• 供电电压状态\n[H6] • 上次更新时间\n[H4] 2.8  基本设置\n[H5] 2.8.1  设置过程变量单位\n快捷键\n2, 2, 2, 3\nPV Unit(PV 单位)命令设置过程变量单位,以允许您使用适当的度量单位监测过程。\n如需选择 PV 的测量单位:\n过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 2: 手动设置。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 1611,
+    "heading_context": "[H1] Rosemount™ 3051S 无线系列产品 -> [H2] 6、重新盖好外壳盖。",
+    "heading_path": [
+      "[H1] Rosemount™ 3051S 无线系列产品",
+      "[H2] 6、重新盖好外壳盖。"
+    ],
+    "semantic_group": "diagnostic",
+    "system_root": "Rosemount™ 3051S 无线系列产品",
+    "pre_prune_score": 75,
+    "embed_score": 0.5281803607940674,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/527b7d763f7f7d42121a269c69c05c393774f405df6ffefc1e9c7c4c93e9d5c4.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_3",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 3,
+    "text": "[H2] 3、选择 2: 压力。\n[H2] 4、选择 4: Damping(4:阻尼)。\n[H6] 2.8.4\n[H6] 查看 Write Protect(写保护)设定\n[H6] 快捷键\n2, 2, 7, 1\n其 Rosemount 3051S 无线 具有软件写入保护安全功能。\n如需查看写保护安全设定:\n[H6] 过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 2: 手动设置。\n[H2] 3、选择 9: 设备信息。\n[H2] 4、选择 1: Write Protect(1:写保护)。\n[H4] 2.9  LCD 显示屏\n[H5] 2.9.1  组态 LCD 显示屏\n快捷键\n2, 1, 5\nLCD 显示屏显示输出和缩写的诊断信息。\n注\n使用罗斯蒙特无线 LCD 显示屏,零件号:00753-9004-0002。\nLCD 显示屏提供四行显示内容和一个条形图。\n行 | 字母数字字符数 | 显示内容\n1 | 5 | 输出说明\n2 | 7 | 实际值\n3 | 6 | 工程单位\n4 | 5 (需要时) | “Error (错误)”指示变送器处于报警\nLCD 显示屏还显示诊断信息。条形图表示网络连接状态。\n有关 LCD 消息的更多信息,请参阅 LCD 屏幕消息。\n如需组态 LCD 显示屏选项:\n过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 1: 设置向导。\n[H2] 3、选择 5: Configure Device Display(5:组态设备显示)。\n[H4] 2.10  详细设置\n[H5] 2.10.1\n组态过程警示\n快捷键\n2, 1, 6\n警戒允许用户将变送器组态为在超过组态的数据点时输出一条 HART® 消息。若超过设定点,并且警戒模式为 ON(开),则会持续发送一则过程警戒。\n过程警戒显示在:\n• 通讯设备\n• AMS status(状态)画面\n• LCD 显示屏的 error(错误)栏\n当值回到范围之内时,过程警戒将复位。\n[图片附件] 未命名图片\nHI(高) 警示值必须高于 LO(低) 警示值。这两个警示值必须在压力或温度传感器的限值之内 。\n图 2-3: 上升警示\n[图片附件] 未命名图片\n[H3] F. 分配\n图 2-4: 下降警示\n[图片附件] 未命名图片\nA. 死区\nB. 测量单位\nC. 警戒“OFF(开)”\nD. 警戒“ON(开)”\nE. 警戒设定点\nF. 分配值\n如需组态过程警示:\n[H4] 过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 1: 设置向导。\n[H2] 3、选择 6: Configure Process Alerts(6:组态过程警戒)。\n[H2] 4、根据屏幕提示完成过程警戒的组态。\n[H4] 2.10.2  选择传感器温度单位\n快捷键\n2, 2, 8, 3\nSensor Temperature Unit(传感器温度单位)命令在摄氏温度和华氏温度单位之间选择传感器温度单位。传感器温度输出只能通过 HART® 访问。\n如需选择传感器温度单位:\n[H5] 过程\n[H2] 1、从 主页 屏幕选择 2: Configure(组态)。\n[H2] 2、选择 2: 手动设置。\n[H2] 3、选择 8: 设备温度。\n[H2] 4、选择 3: Sensor Temperature(3:传感器温度)。\n[H4] 2.10.3  组态换算变量\n快捷键 2, 2, 3\n换算变量配置允许用户在压力单位和用户自定义/自定义单位之间建立换算关系。换算变量有两种用例:\n• 在变送器的 LCD 显示屏上显示自定义单位。\n• 允许自定义单位驱动变送器的 4–20 mA 输出。\n使用自定义单位驱动 4-20 mA 输出,换算变量必须重新映射为一级变量。请参阅表 2-2。\n换算变量组态定义下列项:\n换算变量单位 显示的自定义单位。\n换算数据选项\n定义用于应用的转换函数。\n• 线性\n• 平方根\n压力值位置 1 已知值下限点(可能是 4 毫安点),其中考虑了线性偏量。\n换算变量值位置 1 与已知值下限点相当的自定义单位(已知值下限点可以是 4 毫安点,也可以不是 4 毫安点)。\n压力值位置 2 已知值上限点(可能是 20 毫安点)。\n换算变量值位置 2 相当于已知值上限点(可能是 20 毫安点)的自定义单位\n线性偏量 用于把对所需压力读数有影响的压力消除为零的值。\n流量下限截止值 输出被驱动为零以防止过程噪音导致的问题的点。\n[图片附件] 未命名图片\n为获得稳定的输出,并且避免在低流量或无流量条件下出现过程噪声问题,请使用低流量截止函数。输入的流量下限截止值应适合于应用中的流量元件。\n[H5] 注\n如果把换算变量映射为一级变量,并且选择了平方根模式,转换函数必需设为 Linear(线性)。请参阅设置转换函数。\n[H5] 通讯设备 v3.3\n使用通讯设备组态换算变量的步骤如下 通讯设备:\n[H5] 过程\n[H2] 1、在 HOME(主页) 画面上输入“Scaled Variable Configuration(换算变量组态)”快捷键序列。\n[H2] 2、在将控制回路设置为 Manual(手动)模式后,选择 OK(确定)。\n\n[H2] 3、输入换算变量单位。\n单位最长可为五个字符,包括 A—Z、0—9、-、/、% 和 *。\n默认单位是 DEFLT。第一个字符始终是星号 (*),它表示所显示的单位是换算变量单位。\na)\nb)\n[H5] 4. 选择换算数据选项:\na) 选择 线性 :若 PV 和换算变量单位之间的关系是线性关系。 线性 将提示输入两个数据点。\nb) 选择 平方根 :若 PV 和换算变量之间的关系是平方根关系(流量应用)。 平方根将提示输入一个数据点。\n[H2] 5、输入位置 1 压力值。压力值必须在变送器的量程范围之内。\na) 线性 函数:输入已知值下限点,并应考虑到任何线性偏量。\nb) 平方根 函数:选择 OK(确定) 以确认压力值已设为零。\n[H2] 6、输入换算变量位置 1。\na) 线性 函数:输入已知值下限点;此值必须在七个数以内。\nb) 平方根 函数:选择 OK(确定) 以确认换算变量值已设为零。\n[H2] 7、输入位置 2 压力值。压力值必须在变送器的范围之内。\na) 输入已知值上限点。\n[H5] 8. 输入换算变量位置 2。\n[H5] a) 线性 函数:输入相当于已知值上限点的自定义单位。\n[图片附件] 未命名图片\n两个函数中输入的值都必须在七个数以内。\nb) 平方根 函数:输入相当于步骤 7 中的值的自定义单位。跳到 步骤 10。\n[H2] 9、线性 函数:按换算变量(自定义)单位输入线性偏量。跳到 步骤 11。\n[H2] 10、平方根 函数:进入流量下限截止模式。如果:\n• 不需要流量下限截止值,则选择 OFF(关)。\n• 需要流量下限截止值,则应选择 ON(开),并在下一个画面上按换算变量(自定义) 单位输入此值。\n[H2] 11、选择 OK(确定) 以确认把回路返回 automatic(自动)控制模式。\n[H6] AMS v7.0\n[H5] 过程\n[H2] 1、在设备上点击鼠标右键。\n[H2] 2、选择 Device Configuration(设备组态)。\n[H2] 3、选择 SV Config(SV 组态)。\n[H2] 4、把控制回路设置为 Manual(手动)。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 3120,
+    "heading_context": "[H1] Rosemount™ 3051S 无线系列产品 -> [H2] 3、选择 2: 压力。",
+    "heading_path": [
+      "[H1] Rosemount™ 3051S 无线系列产品",
+      "[H2] 3、选择 2: 压力。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "Rosemount™ 3051S 无线系列产品",
+    "pre_prune_score": 83,
+    "embed_score": 0.4886392056941986,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/b14ed504d19462bc68f2ff99c49c1bed2f3ee983a1e035a05f7049e4b8414a12.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/df7099b44eb3e00a641acdcc7e94114fb5b2e40a9b10f6601619813f48256a7f.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/c2bd8c39e5cde879cf7d214f9c78b199364131600541201c2065de38f1235cea.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/92f8e12cb997f4aae94bb260a80a1091f174a20c06bc942ef309d58bfddb3a90.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/4b4b1936abae269ccef19094db86f2825b8ab65bf8e4e3552d9c1351d50f5874.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_4",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 4,
+    "text": "[H2] 5、选择 下一个。\n[H2] 6、在 Enter SV units(输入 SV 单位)框中键入所需的换算变量单位 下一个。\n[H2] 7、选择换算数据选项: 线性 或 平方根 并选择 下一个。若选择了平方根,请跳到 步骤 13。\n[H2] 8、输入位置 1 压力值,然后选择 下一个。\n[H2] 9、输入位置 1 换算变量,然后选择 下一个。\n[H2] 10、输入位置 2 压力值,然后选择 下一个。\n[H2] 11、输入位置 2 换算变量,然后选择 下一个。\n[H2] 12、输入线性偏量,然后选择 下一个。跳到 步骤 19。\n[H2] 13、选择 下一个 以确认 Pressure value for position 1(位置 1 的压力值)已设为零。\n[H2] 14、选择 下一个 以确认 Square root value for position 1(位置 1 的平方根值)已设为零。\n[H2] 15、输入位置 2 压力值,然后选择 下一个。\n[H2] 16、输入位置 2 平方根值,然后选择 下一个。\n[H2] 17、输入流量下限截止模式的值:Off(关)或 On(开)。若选择了 Off(关),请跳到 步骤 19。\n[H2] 18、在 scaled variable (custom) units(换算变量[自定义]单位)框中输入流量下限截止值, 然后选择 下一个。\n[H2] 19、选择 下一个 以确认把回路返回 automatic(自动)控制模式。\n[H2] 20、选择 Finish(完成)以确认完成此方法。\n差压液位示例\n图 2-5: 储罐例子\n[图片附件] 未命名图片\nA. 20 mA\nB. 230 in. (5482 mm)\nC. 0.94 sg\nD. 200 in. (5080 mm)\nE. 4 mA\nF. 12 in. (305 mm)\n[H5] 在此例子中:\n• 在液位应用中使用一个差压变送器,其量程为 188 inH2O (200 in.*0.94 sg)。\n• 在空罐上安装并排空测压孔之后,过程变量读数为 -209.4 inH2O。\n• 过程变量读数是毛细管中的填充液产生的压头。\n根据图 2-5,换算变量组态应如下:\n换算变量单位\n英寸\n换算数据选项\n线性\n压力值位置 1\n0 inH2O (0 mbar)\n换算变量位置 1\n12 in. (305 mm)\n压力值位置 2\n188 inH2O (0.47 bar)\n换算变量位置 2\n212 in. (5385 mm)\n线性偏量\n-209.4 inH2O (-0.52 bar)\n[H5] 差压流量示例\n为获得稳定的输出,并且避免在低流量或无流量条件下出现过程噪声问题,艾默生建议使用低流量截止函数。应输入适合于应用中的流量元件的流量下限截止值。\n在此例子中:\n• 在流量应用中,一个差压流量计与一个流量孔板结合使用,其中,满量程流量时的差压是 125inH2O。\n• 满量程流量时的流速是每小时 2 万加仑水。\n• 流量下限截止值是每小时 1,000 加仑水。\n根据此信息,换算变量组态应如下:\n换算变量单位\ngal/h\n换算数据选项 | 平方根\n压力值位置 2 | 125 inH2O (311 mbar)\n换算变量位置 2 | 20,000 gal/h (75,708 lt/hr)\n流量下限截止值 | 1000 gal/h ( 开)\n注\n对于流量应用,压力值位置 1 和换算变量位置 1 始终设置为零。不需要对这些值进行组态。\n[H4] 2.10.4\n[H5] 重映射设备变量\n重映射功能可组态以下变送器变量:\n• Primary Variable(一级变量,PV)\n[H6] 注\n指定为一级变量的变量驱动输出。此值可选为压力或换算变量。\n• Secondary Variable(二级变量,SV)\n• Tertiary Variable(三级变量,TV)\n• Quaternary Variable(四级变量,QV)\n[H6] 提供两种组态:\n• 经典映射\n• 换算单位映射\n请参阅表 2-2 查看每个变量的映射值。所有的变量都可以使用通讯设备 通讯设备 或 AMS 智能设备管理系统重映射。\n表 2-2: 变量映射\n变量 | 经典映射 | 换算单位映射\nPV | 压力 | 换算变量\nSV | 传感器温度 | 压力\nTV | 电子装置温度 | 传感器温度\nQV | 供电电压 | 供电电压\n[H6] 使用通讯设备重映射 通讯设备\n[H5] 过程\n从 主页 屏幕输入快捷键序列。\n快捷键:向导设置 2, 1, 7\n快捷键:手动设置 2, 2, 3, 5\n[H5] 使用 AMS 智能设备管理系统重映射\n右键单击设备,然后选择 Configure(组态)。\n[H5] 过程\n[H2] 1、选择 Manual Setup(手动设置),并单击 HART 选项卡。\n[H2] 2、在 Variable Mapping(变量映射)下指定设备变量(一级、二级、三级和四级变量)。\n[H2] 3、单击 Send(发送)。\n[H2] 4、请仔细阅读警告内容,若应用更改很安全,则可单击 Yes(是)。\n[H5] 2.11\n[H5] 诊断和维修\n下列诊断和检修功能主要在现场安装完成后使用。变送器测试功能用于验证变送器是否正确工作,测试可以在工作台上进行,也可以在现场进行。\n[H4] 2.11.1\n[H5] 执行主设备复位\n快捷键\n3, 5, 4\n主机重置功能将重置设备电子部件。\n如需执行主设备复位:\n[H6] 过程\n[H2] 3、选择 4: Other(4:其他)。\n[H6] 2.11.2\n[H6] 查看连接状态\n快捷键\n3, 4, 1\n如需查看设备的连接状态:\n[H6] 过程\n[H2] 1、从 主页 屏幕选择 3: 检修工具。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 2419,
+    "heading_context": "[H1] Rosemount™ 3051S 无线系列产品 -> [H2] 5、选择 下一个。",
+    "heading_path": [
+      "[H1] Rosemount™ 3051S 无线系列产品",
+      "[H2] 5、选择 下一个。"
+    ],
+    "semantic_group": "repair",
+    "system_root": "智能设备管理系统",
+    "pre_prune_score": 83,
+    "embed_score": 0.46966543793678284,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/a1a8be9ca4bec2336d817fad84d57f6ea13ddd5fb017f5ad28e88045da3a455c.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_5",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 5,
+    "text": "[H1] 使用 AMS 应用用户组态\n可以为应用产生任意数量的用户组态。还可以保存这些配置,把其应用到所连接的设备或者在设备列表或工厂数据库中的设备。\n应用用户组态的步骤:\n\n[H2] 过程\n[H2] 1、在 User Configurations(用户组态)窗口中选择所需的用户组态。\n[H2] 2、在 AMS 资源管理器或 Device Connection View(设备连接视图)中,把图标拖到相似设备上。\n此时会打开 Compare Configurations(比较组态)窗口,在窗口的一侧示出目标设备的参数,在另一侧示出用户组态的参数。\n[H2] 3、根据需要从用户组态向目标设备转移参数。选择 OK(确定)以应用组态并关闭窗口。\n\n[H2] 3  安装\n[H3] 3.1  概述\n本节中的信息涵盖安装考虑因素。每个变送器随带有快速安装指南,其中介绍了基本安装和启动程序。产品说明书中包含各 Rosemount 3051S 无线振动和安装组态尺寸图。\n通讯设备 本节说明了用于执行组态功能的通讯设备和 AMS 软件。为方便起见, 通讯设备 在相应的标题下,通讯设备的每个软件功能的快捷键序列将标记“Fast Keys(快捷键)”。\n[H3] 3.2  注意事项\n[H4] 3.2.1  一般注意事项\n测量性能取决于变送器和导压管是否正确安装。应把变送器安装在靠近过程管道的位置,并使用尽可能小的导压管,以实现最佳性能。\n应考虑以下要求:\n• 便于接触\n• 人员安全\n• 实际现场标定\n• 变送器环境适用性\n变送器的安装方式应能最大限度地减少振动、冲击和温度波动。\n[H4] 3.2.2  无线变送器注意事项\n[H5] 上电次序\n在智能无线网关安装并正常工作前,任何无线设备均不得安装电源模块。本变送器使用黑色电源模块。请订购 701PBKKF 型号或 00753-9200-0001 备件号。还应从距智能无线网关最近的无线设备开始对无线现场设备加电。这样可使网络安装更加简单、快速。启用网关上的 High Speed Operation(高速运行)模式可确保新设备能够更快地连接到网络。有关更多信息,请参阅艾默生无线 1410 网关手册。\n[H5] 天线位置\n为与其他设备清晰通讯,天线应:\n• 竖直安装,可以竖直向上或竖直向下\n• 距大型结构或建筑约 3 ft (1 m)。\n图 3-1: 天线位置\n[图片附件] 未命名图片\n图 3-2: 管堵位置\n[图片附件] 未命名图片\nA. 管堵\n[H5] 通讯设备连接\n为使通讯设备 通讯设备 与 Rosemount 3051S 通讯,必须连接电源模块。\n图 3-3: 375 通讯设备 连接\n[图片附件] 未命名图片\n[H4] 3.2.3\n[H5] 机械安装的考虑因素\n注\n对于过程介质温度高于变送器的限值的蒸汽管道或应用,不要通过变送器排放导压管。在恢复测量之前,冲洗管道时截止阀应处于关闭状态并向管道充水。\n[H6] 注\n当变送器以侧装方式安装时,应把 Coplanar™ 法兰布置在适当的位置,确保正确排气或排液。应按图 3-7 所示安装法兰,把底部的排放/排气连接件用于气体输送,把顶部的排放/排气连接件用于液体输送。\n[H4] 3.2.4  环境考虑因素\n安装变送器上的操作要求和护盖的安装说明有助于使变送器性能最佳化。变送器的安装方式应最大限度地减少环境温度变化、震动、机械冲击,并避免与外界侵蚀性材料发生接触。如需查看温度工作限制及其他技术规格,请参考 定位其他信息。\n图 3-4: 安装流程图\n[图片附件] 未命名图片\n[H4] 3.3\n[H5] 安装步骤\n[H5] 过程法兰的朝向\n在安装过程法兰时,应为过程连接件留有足够的余隙。\n[H5] 小心\n[H5] 接触危险\n排放/排气阀的朝向必需保证在使用时过程流体不会与人员接触。\n还应考虑测试或标定输入的要求。\n[H5] 外壳转动\n请参见旋转外壳。\n[H5] 电子装置外壳的电源模块侧\n变送器的安装方式应保证电源模块侧便于操作。需要 2.75 in. (70 mm) 空隙,以便拆卸护盖。\n[H5] 电子部件外壳的电路侧\n不同装置要求的间隙:\n• 不带 LCD 显示屏的装置:0.75 in. (19 mm)\n• 安装了显示仪表的装置:3.0 in. (7.62 mm)\n[H5] 护盖安装\n务必安装电子部件外壳盖,使金属紧贴金属,从而确保完全密封。应使用罗斯蒙特 O 形圈。\n[H5] 管堵\n应使用合格的螺纹密封剂把临时的橙色堵头更换为随附管堵(产品盒内)。如需了解材料兼容性的注意事项,请参考 Corrosion and Its Effects(腐蚀及其影响)。\n图 3-5: 管堵位置\n[图片附件] 未命名图片\n[H5] A. 管堵\n[H4] 3.3.1\n[H5] 安装变送器\n[H5] 安装支架\n便于把变送器安装到 2 英寸管道上,或安装到面板上。B4 支架 (不锈钢) 选件是与 Coplanar™ 和直连式法兰配套使用的标配选项。B4 选项的尺寸图和安装组态请参考 定位其他信息。\nB1-B3 和 B7-B9 选项是涂有环氧/聚酯漆的坚固耐用支架,它们与传统法兰配套使用。B1-B3 支架配有碳钢螺栓,而 B7-B9 支架配有不锈钢螺栓。BA 和 BC 支架以及螺栓由不锈钢制成。B1/B7/BA 和 B3/B9/BC 型支架支持在 2 英寸管道上安装,B2/B8 型支架支持在面板上安装。\n注\n大多数变送器在水平位置标定。把变送器安装在任何其它位置会使零点发生偏移,偏移量与安装位置改变导致的液体压头量相当。复位零点的方法请参阅 传感器调整。\n天线应竖直布置,一般竖直向上(也可竖直向下)。\n[H5] 法兰螺栓\n其 Rosemount 3051S 无线压力变送器 可随带有通过四个 1.75 英寸法兰螺栓安装的 Coplanar™法兰或传统法兰。\n由艾默生提供的不锈钢螺栓涂有润滑剂,以便安装。碳钢螺栓不需要润滑。但是,安装任何一种螺栓时都不应额外涂敷润滑剂。由艾默生提供的螺栓由其头部标记来标识:\n图 3-6: 螺栓头部标记\n[图片附件] 未命名图片\nA. 碳钢 (CS)\nB. 不锈钢 (SST) (1)\nC. K-500 合金\n\n[H2] 安装螺栓\n仅使用随 Rosemount 3051S 提供的螺栓,或者由艾默生作为备件销售的螺栓。在把变送器安装到一个可选的安装支架时,应把螺栓拧紧到 125 in-lb. (14.1 N-m)。\n安装螺栓的步骤:\n[H3] 过程",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 2707,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 过程",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 过程"
+    ],
+    "semantic_group": "operation",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 63,
+    "embed_score": 0.47500383853912354,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/088b6328b0cb82b201fd783f565ceb969c8ac507f3717d2709fc27bf0bdca496.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/23905e0cb5e6ff53d3d7bc76c48bf89f54c71f83b56a338f68f78b95f09350af.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ee68f27b59278edef067318230aefc353906b998cbc8fc76008d4e3ec4b1b432.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/dfe3ef3eadc8f59c2cf2a8a831c57f18d9c4581ed2213944e905b0a963316989.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/c2ab6bb5e5bf66c1735f9f8fd329c9a039581d3f9d3175a7c7c1a95f7e1d9ee9.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/46d6b1ece4eb48ca020d8d664d84379c4c7a42e09bc440f853e6fb28d019d4f7.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_6",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 6,
+    "text": "[H2] 1、用手指先拧紧螺栓。\n[H2] 2、按交叉模式将螺栓拧至初始扭矩值。\n[H2] 3、按相同的交叉模式将螺栓拧至最终扭矩值。\n法兰和阀组转接器螺栓的扭矩值如下:\n[H4] (1) F593head 标记的最后一位数可以是 A 到 M 之间的任何字母。\n表 3-1: 螺栓安装扭矩值\n螺栓材料 | 初始扭矩值 | 最终扭矩值\nK-500 合金 — L6 选项 | 300 in.-lb (34 N-m) | 650 in.-lb (73 N-m)\n[H3] 差压变送器\n表压/绝压变送器\n[图片附件] 未命名图片\n[H4] A. 排放/排气阀\n[H4] B. 堵头\n注\n[图片附件] 未命名图片\n尺寸单位为英寸(毫米)。\n带法兰螺栓的变送器\n[图片附件] 未命名图片\n[H5] 带法兰转接器和法兰/转接器螺栓的变送器\n[图片附件] 未命名图片\n注\n尺寸单位为英寸(毫米)。\n表 3-2: 差压\n描述 | 数量 | 尺寸\n法兰螺栓 | 4 | 1.75 in. (44 mm)\n适配器螺栓 | 4 | 1.50 in. (38 mm)(1)\n法兰/转接器螺栓 | 4 | 2.88 in. (73 mm)\n[H4] (1) 符合 DIN 标准的传统法兰需要 1.75 in. (44 mm) 长度的适配器螺栓。\n表 3-3: 表压/绝压\n描述 | 数量(1 ) | 尺寸\n法兰螺栓 | 4 | 1.75 in. (44 mm)\n适配器螺栓 | 2 | 1.50 in. (38 mm)(1)\n表 3-3: 表压/绝压 (续)\n描述 | 数量(1 ) | 尺寸\n法兰/转接器螺栓 | 2 | 2.88 in. (73 mm)\n[H4] (1) 3051S 直连式变送器为直接安装型,不需要用于过程连接件的螺栓。\n[H6] 导压管\n过程介质和变送器之间的导压管必须精确地传递压力,以获得精确测量值。\n有五个可能的误差来源:\n• 泄漏\n• 摩擦损耗(特别是使用吹扫时)\n• 液体管道中的残留气体\n• 气体管道中的液体\n• 支管间的密度差异\n变送器相对于过程管道的最佳位置取决于过程介质本身。\n以下准则确定变送器的最佳安装位置和导压管的布置:\n[H6] • 对于:\n— 液体管道,应使导压管从变送器向过程连接件向上倾斜至少 1 英寸/英尺(8 厘米/米)\n— 气体管道,应使导压管从变送器向过程连接件向下倾斜至少 1 英寸/英尺(8 厘米/米)\n[H6] • 避免:\n— 液体管道的高点\n— 气体管道的低点\n• 应使导压管尽可能短。\n• 两根导压支管的温度必须一样。\n• 为避免摩擦损耗和堵塞,请使用足够大的导压管。\n• 应从液体支管中排出所有气体。\n• 在使用密封流体时,应把两根支管填充到相同的液位高度。\n• 吹扫时:\n[H2] 1、找到接近过程测压孔的吹扫连接处。\n[H2] 2、用等长的相同口径管道进行吹扫。\n[H6] 注\n应避免通过变送器清洗。\n• 应避免侵蚀性或高温(高于 250 °F [121 °C]) 过程材料与 SuperModule 和法兰直接接触。\n• 应防止导压管中发生沉积。\n• 应使导压管的两根支管的液压头保持平衡。\n• 应避免可能使过程流体在过程法兰内冻结的条件。\n[H6] 安装要求\n下列安装配置的例子请参阅图 3-7:\n[H6] 液体流量测量\n• 应把测压孔安装在管道侧,以避免过程隔离器上发生沉积。\n• 应把变送器安装在测压孔旁边或下方,以便使气体排入过程管道中。\n• 应把排放/排气阀朝上安装,以便排气。\n• 天线应竖直布置。\n[H6] 气体流量测量\n• 将测压孔置于管道的顶部或侧面。\n• 应把变送器安装在测压孔旁边或上方,以便使液体排入过程管道中。\n• 天线应竖直布置。\n[H6] 蒸汽流量测量\n• 将测压孔置于管道的侧面。\n• 应把变送器安装在测压孔下方,以保证导压管保持充有冷凝液的状态。\n• 向导压管充水,以防止蒸汽与变送器直接接触,并确保在启动后能精确测量。\n• 天线应竖直布置。\n[H6] 注\n对于蒸气或其他高温应用,注硅油的变送器其 Coplanar™ 过程法兰的温度不能超过 250 °F (121°C),注惰性材料的不能超过 185 °F (85 °C)。对于真空应用,注硅油的温度限值降为 220 °F (104°C),注惰性材料的降为 160 °F (71 °C)。\n图 3-7: 安装示例\n[图片附件] 未命名图片\n[H6] A. 流向\n[H6] 3.3.2  安装法兰转接器\nRosemount 3051S 无线压力变送器 法兰过程连接件的尺寸为 ¼–18 NPT。配有 ½–14 NPT 连接件的法兰适配器是 D2 选项。如需产品选项的其他信息,请参阅 Rosemount 3051S 系列仪表化产品说明书。\n在进行过程连接时,应使用经过工厂批准的润滑剂或密封剂。变送器法兰上的过程连接件的中心距是 2⅛ in. (54 mm),以便直接安装到三阀或五阀阀组上。应转动两个法兰适配器中的一个,或同时转动两个,以达到 2 in. (51 mm)、2 in. (54 mm) 或 2¼ in. (57 mm) 的连接中心距。\n为避免泄漏,在加压前,应安装并拧好全部四个法兰螺栓。若安装正确,则法兰螺栓会从SuperModule 外壳的顶端探出。当变送器处于工作状态时,不得试图松开或拆卸法兰螺栓。\n将转接器安装到 Coplanar™ 法兰的步骤:\n过程",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 2258,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 1、用手指先拧紧螺栓。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 1、用手指先拧紧螺栓。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "应使导压管的两根支管的液压头保持平衡",
+    "pre_prune_score": 71,
+    "embed_score": 0.49586424231529236,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/79672a926872e9ac794801c755f89ea6d2a47d7474b1bda28ac476f94cba9d22.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ccfe82dcdb38a7fbd44a8872c2a14242e4386a54e9f07c3ae3b702417f968842.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/2d54f878e778e08820810cafdb4adc7516d62cd2d3ef3e7282f57c2116764820.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/23c39238163e54fd3a7b8a7f529ad2b26001b895e2f46d16c47b8b9ac841505c.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/54a2a7bf87dee4acafd8e60e0cf24e4adcd9bf853ed939ff922c66fe79d81ac8.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_7",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 7,
+    "text": "[H1] 使用 AMS 应用用户组态\n[H2] 1、卸下法兰螺栓。\n[H2] 1、卸下法兰螺栓。\n[H2] 2、使法兰保持原位,把安装有 O 形圈的转接器移动到位。\n[H2] 3、使用随带的较长螺栓把适配器和 Coplanar 法兰夹装到变送器模块上。\n[H2] 4、拧紧螺栓。扭矩规格请参阅法兰螺栓。\n[图片附件] 未命名图片\n[H6] 警告\n[H6] 避免过程泄漏\n未能安装适当的法兰适配器 O 形圈可能会造成过程泄漏以危及人身安全。两种法兰适配器都带有各自独特的 O 形圈槽。请仅使用专用于特定法兰接头的 O 形圈。\n[图片附件] 未命名图片\n注\n如果法兰适配器拆下过,请重装 PTFE O 形圈。\n每次在拆卸法兰或转接器时,应观察 PTFE O 形圈是否有损坏迹象。如果有任何损坏的迹象(例如刻痕或切口),请予以更换。若更换 O 形圈,则需要在安装后重新拧紧法兰螺栓,以补偿冷流体流量。请参阅重新组装过程法兰。\n[H6] 3.3.3\n[H6] 旋转外壳\n外壳可以转动,以便进行现场操作或接线,或者更好地查看可选的 LCD 显示屏上的内容。\n图 3-8: 外壳\n[图片附件] 未命名图片\n[H6] A. 外壳旋转限位螺钉\n过程\n[H2] 1、拧松外壳转动限位螺钉。\n[H2] 2、把外壳从其原始(出厂)位置向左或向右最多转动 180 度。\n注意\n避免产品损坏\n在未完成拆解步骤(参见从外壳拆卸功能组件和 SuperModule)之前,外壳转动不能超过180 度。转动过大可能切断传感器模块和功能板之间的电气连接。\n[H2] 3、重新拧紧外壳上的转动限位螺钉。\n除外壳转动之外,还可通过按压两个舌片,抽出、转动并重新卡回到位来使可选的 LCD 显示屏按 90 度增量转动。\n注\n如果意外地从接口板上拔下了 LCD 固定销,在把 LCD 显示屏重新卡入位之前,应仔细地重新插入该固定销。\n[H6] 3.3.4  接地\n\n[H2] 变送器外壳\n注\n必须按照国家和当地电气规范将变送器外壳接地。\n最有效的变送器外壳接地方法是通过最小阻抗直接连接到地面(地线)。外部接地螺钉组件订购方式:\n• 随变送器订购(选项代码 D4)\n• 备件订购(03151-9060-0001)\n[H3] 3.3.5  高增益远程天线(可选)\n有关高增益远程天线(选项 WN)详细的安装和产品信息,请参阅 Rosemount 3051S 系列仪表化产品说明书 中的 远程安装天线。\n[H3] 3.3.6  安装电源模块\n图 3-9: 无线电源模块安装\n[图片附件] 未命名图片\n[H4] 连接步骤:\n注\nRosemount 3051S 无线压力变送器 使用黑色电源模块。订购 701PBKKF 型号或00753-9200-0001 备件号。\n过程\n[H2] 1、卸下电源模块仓一侧的外壳护盖。\n电源模块为变送器供电。\n[图片附件] 未命名图片\n警告\n避免爆炸。\n在爆炸性环境中,如果电路带电,切勿拆卸外壳盖。\n[H2] 2、为避免潮气在端子侧积聚,请堵塞并密封变送器外壳上的两个导管接口。\n\n[H2] 3、连接电源模块。\n[H2] 4、重新装上电源模块护盖。\n[H2] 5、按安全规范(金属对金属)拧紧,以固定电源模块护盖。\n[H3] 3.3.7  安装 LCD 显示屏\n对于随购 LCD 显示屏的变送器,发货时显示屏将安装到变送器上。\n注\n仅可使用罗斯蒙特无线 LCD 屏,零件号为:00753-9004-0002。\n注\n有线设备的 LCD 屏在无线设备上不可用。\n[H4] 注\n如果意外地从接口板上拔下了 LCD 屏固定销,在把 LCD 显示屏重新卡入到位之前,应仔细地重新插入该固定销。\n除外壳之外,可选的 LCD 显示屏还可按 90 度增量转动:。\n\n[H2] 5、固定变送器上的显示屏\n按照以下步骤和图 3-10 安装 LCD 显示屏:\n过程\n[H2] 1、卸下背面护盖和电源模块。\n[H2] 2、卸下现场接线端子对侧的变送器盖。\n[图片附件] 未命名图片\n[H4] 警告\n避免爆炸。\n爆炸性环境中,如果电路带电,切勿拆卸仪表盖。\n[H2] 3、将四针连接器接入 LCD 显示屏,并卡入到位。\n应注意以下 LCD 温度限值:\n• 工作温度:-40 至 +175 °F(-40 至 +80 °C)\n• 存放温度:-40 至 +185 °F(-40 至 +85 °C)\n图 3-10: 可选 LCD 显示屏\n[图片附件] 未命名图片\n[H4] A.LCD示屏\n\n[H2] B. 仪表\n[H3] 3.4  Rosemount 304、305 和 306 一体化阀组\nRosemount 306 一体化阀组可与直连式变送器结合使用,以提供最高 10000 psi (690 bar) 的截断泄放阀功能。\nRosemount 305 一体化阀组有两种设计:传统式和 Coplanar\"  式。可使用目前市场上销售的安装适配器把传统式 305 型一体化阀组安装到大多数一次元件上。\nRosemount 304 一体化阀组有两种基本型式:传统式(法兰 x 法兰和法兰 x 管道)和对夹式。304 传统式阀组有 2 阀、3 阀和 5 阀配置。304 对夹式阀组有 3 阀和 5 阀配置。\n图 3-11: 一体化阀组设计\n[图片附件] 未命名图片\n[H4] 3.4.1\n[H5] 安装 304 常规阀组\n[H5] 过程\n[H2] 1、把常规式阀组与变送器法兰对正。使用四个阀组螺栓进行定位。\n[H2] 2、用手拧紧螺栓;然后按交叉模式逐渐把螺栓拧紧到最终扭矩值。在完全拧紧时,螺栓将穿入传感器模块外壳的顶部。\n[H2] 3、按照变送器的最高压力范围对组件进行泄漏检查。\n[H4] 3.4.2  安装 305 一体化阀组\n[H5] 过程\n[H2] 1、检查 PTFE 传感器模块 O 形圈。\n未损坏的 O 形圈可重复使用。如果 O 形圈损坏(例如有裂纹或切口),应把其更换为针对罗斯蒙特变送器设计的新 O 形圈。\n注意\n如果更换 O 形圈,在拆卸损坏的 O 形圈时,注意不要划伤或损伤 O 形圈的凹槽或隔膜的表面。\n[H2] 2、在传感器模块上安装一体化阀组。使用四个 2.25 英寸(57 毫米)阀组螺栓进行定位。\n[H2] 3、若更换了 PTFE 传感器模块 O 形圈,则在安装后应重新拧紧法兰螺栓,以补偿 O 形圈的冷变形。\n[H4] 3.4.3\n[H5] 安装 Rosemount 306 一体化阀组\n306 型阀组只能用于 3051T 和 2051T 直连式压力变送器。\n使用螺纹密封剂,将 306 型阀组组装到直连式变送器。\n[H4] 3.4.4  阀组操作\n小心\n请避免可能导致死亡或严重受伤的过程泄漏。\n阀组安装或操作不当可能导致过程介质渗漏。在安装后,必须在变送器/阀组组件上进行零点调整,以消除因安装造成的任何偏差。请参阅操作和维护和传感器量程调整概述。\n[H5] 三阀和五阀组态:\n[H5] 在正常工作情况下:\n[H2] 1、过程和仪表口之间的两个截断阀处于打开状态。\n\n[H2] 2、平衡阀处于关闭状态。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 排液/排气阀\nD. 隔离 (打开)\nE. 平衡 (关闭)\nF. 过程\n[H2] 1、若希望调整 3051S 的零点,应首先关闭连接变送器低压 (下游) 侧的截断阀。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 排液/排气阀\nD. 平衡 (关闭)\nE. 隔离 (打开)\nF. 隔离 (关闭)\nG. 过程\n[H2] 2、打开中心 (补偿) 阀,以补偿变送器两侧的压力。现在,已正确配置好阀组的阀门,可以调整变送器的零点了。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 排液/排气阀\nD. 平衡 (打开)\nE. 隔离 (打开)\nF. 隔离 (关闭)\nG. 过程\n[H2] 3、在调整变送器的零点后,应关闭平衡阀。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 排液/排气阀\nD. 平衡 (关闭)\nE. 隔离 (打开)\nF. 隔离 (关闭)\nG. 过程\n[H2] 4、打开变送器低压侧的截断阀,使变送器返回工作状态。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 排液/排气阀\nD. 隔离 (打开)\nE. 平衡 (关闭)\nF. 过程\n[H5] 五阀天然气组态\n在正常工作情况下:\n[H2] 1、过程和仪表口之间的两个截断阀处于打开状态。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 3501,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 1、卸下法兰螺栓。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 1、卸下法兰螺栓。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 74,
+    "embed_score": 0.511793851852417,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ce98f06a950e2bbc9c2210e31de66f4fa938a3bfe9be9b69a8bf525dd0aa83e1.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/19d46be6c05247dfe81cee980674735ad9ef8a7f6a5fc2688dd72a6b337c7f43.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/f12dce0caf9710d0f599f1d429d0b3989d68b4d075ea2013b6e83e9efe03a777.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/7771ff31dfff820c8242f9833ab6400422ea33a2565b58cf3f2f2ee1961be9af.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/d4609536ae3dbddb194ceae0a9d3022a108300a9e5abc6c6a640b9e440ecbecd.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ea1e7723a13d555e4bf102a100bc3b78b3acad3dd6d3df6b2f46af26226ffff6.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/8b1ef95c9d988b00884c45a5dbaa57cef82cfb50ce51583adce455fa249d7d64.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/0e8901ea9c1ea6cf88d3c6f421fc8dd07cb101201cfde64ce9fbbeed6c2305c7.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/5abc57171dae607a1efe4a7d0d1b19eb7c549c5c5eed8ebc8c416f34e9aeb57f.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/f15b84c5d9c35a5203c5fd796e2b0d701e1bfd5a08d8adb990eefa4a69df2fcf.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/73c247b48bdd78d9cfc327ed9a5d333a6ef6692d900338fb6d4136e753d84ca9.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/fadf7944445d1c004d90b85286c0969120999e7647059fb79035b30a8e5eec13.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/e11d7c5ff02c98c4253211d8480237cf17502027e7c5e383b155cee88ef7fc41.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_8",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 8,
+    "text": "[H1] 使用 AMS 应用用户组态\n[H2] 1、卸下法兰螺栓。\n[H2] 2、平衡阀处于关闭状态。\n[图片附件] 未命名图片\nA.高\nB.低\nC.测试（塞住）\nD.平衡（关闭）\nE.隔离（打开）\nF.过程\nG.排液排气\n[H2] 1、若希望调整3051S的零点，应首先关闭连接变送器低压（下游）侧的截断阀。\n注意\n请勿对变送器施加过大压力。在打开高压侧平衡阀之前，不要打开低压侧平衡阀。\nAB C DD EF GH G\n[图片附件] 未命名图片\nC\nA.高\nB.低\nC.测试（塞住）\nD.平衡（关闭）\nE.隔离（打开）\nF.隔离（关闭）\nG.过程\nH.排液排气\n[H5] 2．打开变送器高压（上游）侧的平衡阀。\n[图片附件] 未命名图片\nA. B. C. D. E. F. G. H. |\n高\n低\n测试 (塞住)\n平衡 (打开)\n平衡 (关闭)\n隔离 (打开)\n隔离 (关闭)\n过程\nI. 排放/排气阀 (关闭)\n[H2] 3、打开变送器低压 (下游) 侧的平衡阀。现在,已正确配置好阀组,可以调整变送器的零点了 。\n[图片附件] 未命名图片\nA. 高\nB. 低\nC. 测试 (塞住)\nD. 平衡 (打开)\nE. 隔离 (打开)\nF. 隔离 (关闭)\nG. 过程\nH. 排放/排气阀 (关闭)\n[H2] 4、在调整变送器的零点后,应关闭变送器低压 (下游) 侧的补偿阀。\n[H2] 5、关闭高压 (上游) 侧的平衡阀。\n[H2] 6、最后，打开低压侧的隔离阀，使变送器返回工作状态。\n[H5] 4\n[H5] 调试\n[H3] 4.1  网络状态\n如果已组态了 Rosemount 3051S 无线的网络 ID 和连接密钥,并经过了充分的网络轮询时间,那么变送器应已经连接到网络。打开智能无线网关的一体化网页界面,并转到 Explorer(资源管理器)页面,可以验证连通性。\n[图片附件] 未命名图片\n此页面将显示变送器的 HART 标识、一级变量 (PV)、二级变量 (SV)、三级变量 (TV) 、四级变量(QV) 和更新速率。绿色状态指示灯表明设备正确工作。红色指示灯表明设备或其通讯路径有问题。具体设备的更详细信息可通过点击标识名查看。\n[H4] 4.2\n\n[H2] 验证运行\n可在三个位置验证操作:\n• 在设备上通过就地显示屏验证\n• 使用 375 通讯器验证 通讯设备\n[H3] • 在智能无线网关的集成 web 界面验证\n[H3] 本地显示屏\nLCD 屏将根据组态的无线更新速率显示输出值。按下 Diagnostic(诊断)按钮可显示 Tag(位号)、Device ID(设备 ID)、Network ID(网络 ID)、Network Join Status(网络连接状态) 和 Device Status(设备状态)画面。\n请参阅 LCD 屏幕消息,以了解设备状态屏幕。\n图 4-1: 诊断画面顺序\n位号 | 设备 ID | 网络 ID | 网络连接状态 | 设备状态\nAbcde fgh\n[图片附件] 未命名图片\n | id-12 345678\n[图片附件] 未命名图片\n | netwk 1305 ID\n[图片附件] 未命名图片\n | netwk OK\n[图片附件] 未命名图片\n | Suply 7.21 volts\n[图片附件] 未命名图片\n图 4-2: 网络连接状态画面\n正在搜索网络 | 正在加入网络 | 已连接,但带宽受限 | 已连接\nNETwK SRCHNG\n[图片附件] 未命名图片\n | netwk NEGOT\n[图片附件] 未命名图片\n | netwk LIM-OP\n[图片附件] 未命名图片\n | netwk OK\n[图片附件] 未命名图片\n[H4] 通讯设备\n使用 HART® 通讯设备验证设备运行需要 Rosemount 3051S 无线 DD。有关连接 375 通讯设备的信息,请参阅图 2-1。\n功能 | 键序列 | 菜单项\n通讯 | 3、3 | • 连接状态 • 无线模式 • 连接模式 • 可用邻居数量 • 接收的广播次数 • 连接尝试次数\n[H3] 智能无线网关\n使用智能无线网关的集成 Web 界面验证,请导航到 Explorer(资源管理器)页面。该页面将显示设备是否已联网以及是否能正常通讯。\n[图片附件] 未命名图片\n绿色状态指示灯表明设备正确工作。红色指示灯表明设备或其通讯路径有问题。具体设备的更详细信息可通过点击 HART 标识查看。\n[H3] 故障排除\n不正常工作的最常见原因是网络 ID 和连接密钥组态不正确。设备中的网络标识和连接密钥必须与智能无线网关的相符。网络 ID 和连接密钥可通过智能网关 web 界面的 Setup(设置)→Network(网络)→Settings(设定)获得。\n[图片附件] 未命名图片",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 1995,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 1、卸下法兰螺栓。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 1、卸下法兰螺栓。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 80,
+    "embed_score": 0.5002710819244385,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/e3ade487b52de949fca19ff19e61e0ee5ee0732c5e35288e8e3ec065345df91a.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ea2e7d2be845d1caf916b3d12aa56e284c7c11709b00a33b1dbf8d6e203149d8.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/174a6828c04afd1d5dc645440b26146f4d402a5c982d93b9e8c6eecadcf1e95a.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/8d57ddb95010fba1e23488dcaa66e73b4046cc8aa559fa66f80707553e872a93.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/27b28b183dcf2e7662f4c19d1498e20e0b38189cc106ef513acaead9660c0e39.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/7452aff20dda6a00edaf8316b77ede458e8bfb02d69e2ba0d8e3269a840009d4.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/7d39e3ecf5bc554b92cf3a175c9db0be9e6dd4d12a0157915ac5bb18437b996d.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/12c344b44167178cbf255402cd75934c35ab02240c8d9cb5cd99b18c2f9ad89d.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/886618ee53eee71a84d9ade17c798412d2cfa5a15b58f47ce15205ced557d2b4.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/bb271fc6c8e5861265f747097cdc793ffebbe7eb8597704d313756f13e8a39c1.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/fb74783e5c708d458b0f87dfba49213d62e6f3070cb5d0c2626f5ff04e64b2fb.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/bfa555d6025636d76bb11094ad55c55fce33308da624c36a9729ae3c3dec9591.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/93f39e9f44438402f6c4e2589de9f4b8d5adc5ff2ee11c8456565f6195be0c8f.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/343a8b5e675218c5a80956b0ff59dc04e72a91a817a71af22887a3f3be672e90.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/8ba55306d4118a62b3f4056e52b22e27a294958e1f91c0d822e24ba4e88fbaf2.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/37c7252b771d26c0fb33859f58048a2c3718bdeb089e7ccbabef2cbe59bd6981.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_9",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 9,
+    "text": "[H2] 2、复位设备。\n[H2] 3、如果状况仍然存在,请更换电子装置。\n[H5] 6.2.2  组态错误\n[H6] 故障原因\n设备根据设备变更检测到组态错误。\n[H6] 建议操作\n[H2] 1、单击 Details(详情)获取更多信息。\n[H2] 2、纠正存在组态错误的参数。\n\n[H2] 3、复位设备。\n[H2] 4、如果状况仍然存在,请更换电子装置。\n[H5] 6.2.3  数据库存储器警告\n[H5] 故障原因\n设备向数据库存储器写入失败。此时所有数据写入都将丢失。\n[H6] 推荐措施\n\n[H2] 1、复位设备。\n[H2] 2、重新确认设备的所有组态项。\n[H2] 3、如果不需要记录动态数据,此通报无风险,可忽略。\n[H2] 4、如果状况仍然存在,请更换电子装置。\n[H6] 6.2.4\n[H6] 电子部件失效\n发生电子装置错误,可能影响设备读数。\n[H6] 建议操作\n\n[H2] 1、重置设备。\n[H2] 2、重新确认设备的所有组态项。\n[H2] 3、如果状况仍然存在,请更换电子装置。\n[H6] 6.2.5\n[H6] 电子装置温度超限\n电子装置温度超过变送器的最大范围。\n[H6] 建议操作\n[H2] 1、确认环境温度处于变送器范围内。\n[H2] 2、远离过程和环境状况安装变送器。\n\n[H2] 3、复位设备。\n[H2] 4、如果状况仍然存在,请更换电子装置。\n[H6] 6.2.6\n[H6] 电子部件警告\n设备检测到电子装置错误,此错误尚未影响设备测量读数。\n[H6] 建议操作\n\n[H2] 1、复位设备。\n[H2] 2、重新确认设备的所有组态项。\n[H2] 3、如果状况仍然存在,请更换电子装置。\n[H6] 6.2.7\n[H6] HI 警戒\n[H6] 故障原因\n一级变量超出用户定义的限制。\n[H6] 建议操作\n[H2] 1、确认过程变量是否在用户指定的限值内。\n[H2] 2、重新确认用户定义的警戒限制。\n[H2] 3、如果不需要,禁用此警报。\n[H6] 6.2.8\n[H6] HI HI 警戒\n[H6] 故障原因\n一级变量超出用户定义的限制。\n[H6] 建议操作\n[H2] 1、确认过程变量是否在用户指定的限值内。\n[H2] 2、重新确认用户定义的警戒限制。\n[H2] 3、如果不需要,禁用此警报。\n[H6] 6.2.9\n[H6] LO 警戒\n[H6] 故障原因\n一级变量超出用户定义的限制。\n[H6] 建议操作\n[H2] 1、确认过程变量是否在用户指定的限值内。\n[H2] 2、重新确认用户定义的警戒限制。\n[H2] 3、如果不需要,禁用此警报。\n[H6] 6.2.10\n[H6] LO LO 警戒\n[H6] 故障原因\n一级变量超出用户定义的限制。\n[H6] 建议操作\n[H2] 1、确认过程变量是否在用户指定的限值内。\n[H2] 2、重新确认用户定义的警戒限制。\n[H2] 3、如果不需要,禁用此警报。\n[H5] 6.2.11  压力超过限制\n传感器超过最大测量范围。\n[H6] 建议操作\n[H2] 1、检查过程是否存在饱和条件。\n[H2] 2、检查是否为应用选择了正确的传感器。\n\n[H2] 5、更换传感器。\n[H6] 6.2.12\n[H6] 无线电失效\n无线电已检测到一个失效问题或已停止通讯。\n[H6] 建议操作\n\n[H2] 1、复位设备。\n[H2] 2、如果状况仍然存在,请更换电子装置。\n[H6] 6.2.13\n[H6] 仿真激活\n设备处于 Simulation(仿真)模式,可能不报告实际信息。\n[H6] 建议操作\n\n[H2] 3、重置设备。\n[H2] 6、2.14........供电电压失效\n电源电压过低,设备无法正常工作。\n建议操作\n更换电源模块。\n[H2] 6、2.15.........供电电压低\n故障原因\n电源电压过低,可能很快就会影响广播更新。\n建议操作\n更换该电源模块\n[H6] 6.3............无线变送器故障排除\n[H6] 6.3.1...........Digital pressure(数字压力)变量读数不稳定\n建议操作\n[H2] 1、检查应用的压力管道中是否存在发生错误的设备。\n[H2] 2、检查变送器是否对设备的开/关有直接响应。\n[H2] 6、3.2..........Digital pressure(数字压力)变量读数过低或过高\n[H6] 建议操作\n[H2] 1、检查导压管是否被堵,接液支管中的填充液是否太少。\n[H2] 2、检查变送器是否正确标定。\n[H2] 3、检查测试设备(检查精度)。\n\n[H2] 4、检查应用的压力计算。\n[H5] 6.3.3  LCD 显示屏不工作\n[H5] 建议操作\n[H2] 1、复位 LCD 显示屏,步骤见: 安装 LCD 显示屏。\n[H2] 2、确认 LCD 显示屏是一个无线 LCD 仪表。有线设备的 LCD 屏在无线设备上不可用。 罗\n斯蒙特零件号:00753-9004-0002\n[H2] 3、确认未禁用 LCD display mode(LCD 显示模式)。\n[H5] 6.3.4  变送器对施加压力的变化无响应\n[H5] 建议操作\n[H2] 1、检查导压管或阀组是否被堵。\n[H2] 2、检查施加的压力是否在 4 和 20 mA 点之间。\n[H2] 3、检查 output(输出)未处于 Alarm(报警)状态。\n[H2] 4、检查变送器是否处于 Loop Test(回路测试)模式。\n[H2] 5、检查变送器是否处于 Multidrop(多点)模式。\n\n[H2] 6、检查测试设备。\n[H4] 6.4  无线网络故障排除\n[H5] 6.4.1\n[H6] 设备未连入网络\n[H6] 建议操作\n[H2] 1、确认网络 ID 和连接密钥。\n\n[H2] 2、等待 30 分钟。\n[H2] 3、在智能无线网关上启用 High Speed Operation(高速运行)。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 2450,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 2、复位设备。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 2、复位设备。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 83,
+    "embed_score": 0.4866325855255127,
+    "attachments": []
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_10",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 10,
+    "text": "[H2] 4、检查电源模块。\n[H2] 5、确认设备是否在至少一个其它设备的有效范围内。\n[H2] 6、确认网络是否处于主动网络广播状态。\n[H2] 7、给设备断电后再通电,并重试。\n[H2] 8、确认设备已组态了联网。向设备发送 Force Join(强制加入)命令。\n[H2] 9、详情请参阅智能无线网关故障排除一节。\n[H5] 6.4.2  带宽受限错误\n[H6] 建议操作\n[H2] 1、降低变送器的 Update Rate(更新速率)。\n[H2] 2、添加更多的无线点,以增加通讯路径。\n[H2] 3、确认设备是否已在线至少一个小时。\n[H2] 4、确认设备未通过某个“limited(受限)”的路由点进行路由。\n[H2] 5、使用另一台智能无线网关新建一个网络。\n[H5] 6.4.3  电池寿命短\n建议操作\n[H2] 1、确认 Power Always On(电源始终开启)模式是否关闭。\n[H2] 2、确认设备未安装在极端温度环境中。\n[H2] 3、确认设备不是网络夹点。\n[H2] 4、检查是否因连接不畅导致过多的网络重接。\n[H4] 6.5  拆卸程序\n[H5] 6.5.1  从管道上拆除\n注意以下事项:\n• 应遵循所有工厂安全条例和规程。\n• 在从管道上拆除变送器之前,应隔离变送器并排空变送器中的过程介质。\n• 卸下四个法兰螺栓以及固定过程法兰的两个定位螺栓,把过程法兰拆下。\n• 注意不要划伤、刺穿或压坏隔膜。\n• 使用沾有性质温和的洗涤剂的软布清洁隔膜并用清水冲洗。\n• 每次在拆卸过程法兰或转接器时,应观察 PTFE O 形圈是否有损坏迹象。如果有任何损坏的迹象(例如刻痕或切口),应更换 O 形圈。如果未损坏,可以重用。\nRosemount 3051S 型无线变送器通过四个螺栓和两有帽螺钉与过程连接件连接。从过程连接件上卸下螺栓并分离变送器。使过程连接件保持原位,以便随后重新安装。\nRosemount 3051S 无线直连式变送器通过一个六角螺母过程连接件附接到过程管道。松开六角螺母 ,把变送器与过程管道分离。\n[H5] 6.5.2  卸下端线板\n[H6] 无线 Plantweb™ 外壳\n\n[H2] 3、把整个端线板抽出。\n图 6-1: 无线 Plantweb 端子\n[图片附件] 未命名图片\n[H2] 6、5.3\n[H6] 从外壳拆卸功能组件和 SuperModule\n无线功能板位于电子装置仓内。\n拆卸组件的步骤:\n过程\n[H2] 1、卸下正对现场接线端子一侧的外壳盖。\n[H2] 2、拆卸 LCD 显示屏(如适用)时,应握住两个夹子,并向外拉。\n[H2] 3、松开组件上的两个小螺钉。\n[H2] 4、重新装上 LCD 显示屏。\n此步骤便于拆卸组件。\n[H2] 5、拉出组件,露出并找到 SuperModule 连接器和天线连接器。\n[H2] 6、抓住天线连接器的底座,向上拉断开连接。\n[H6] 7．抓住SuperModule连接器，挤压夹子并向上拉（不要拉接线）。\n[H6] 注意\n为了防止损坏SuperModule 电缆，在从外壳上卸下SuperModule 之前，应断开Plantweb™组件的电缆连接。\n图6-2:SuperModule 连接器视图\n[图片附件] 未命名图片\n[H2] 8、使用3/32英寸内六角扳手松开外壳转动限位螺钉，然后向后转动一整圈。\n图6-3：外壳旋转限位螺钉\n[图片附件] 未命名图片\nA．外壳上的旋转限位螺钉（3/32英寸内六角扳手）\n[H2] 9、从SuperModule 上拧下外壳。\n[H4] 6.6 重新组装程序\n注\n必须在外壳底部安装V形密封件。\n[H5] 6.6.1\n[H5] 把SuperModule 连接到无线变送器外壳\n[H6] 过程\n[H2] 1、在SuperModule的连接器上薄薄地涂一层低温硅脂。\n[H2] 2、把SuperModule 连接器插入 SuperModule的顶端。\n\n[H2] 3、重新连接天线接线。\n[H2] 4、把组件轻轻滑入外壳中，确保Plantweb™外壳的针脚与组件插槽正确接合。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 1710,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 4、检查电源模块。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 4、检查电源模块。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 77,
+    "embed_score": 0.47900450229644775,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/0dd901e3bdc1f6f48dd367cc8caf22f84be8357ccd60db4e8ff5f2f7a0959911.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/27c78b994814c6f9895826cb349ea2b5da27e30d12ca3f84cdd8313ad59a6ee4.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/a3e1a259c3308fe7c58dc0b57477e20539930d6482ac708d82d447ad7d610632.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  },
+  {
+    "chunk_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064::chunk_11",
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "chunk_index": 11,
+    "text": "[H2] 5、拧紧系紧螺钉。\n[H2] 6、连接Plantweb外壳盖。\n[H2] 7、拧紧Plantweb外壳盖时，请确认金属与金属接触。\n[H5] 6.6.2 安装端线板\n[H5] 过程\n[H2] 1、把端线板轻轻滑入外壳中，确保Plantweb™外壳的针脚与端线板插槽正确接合。\n[H2] 2、拧紧端线板上的系紧螺钉。\n[H2] 3、连接无线Plantweb 外壳盖。\n[H2] 4、拧紧无线Plantweb外壳盖时，请确认金属与金属接触。\n[H5] 6.6.3  重新组装过程法兰\n[H5] 过程\n[H2] 1、检查 PTFE SuperModule O 形圈。如果 O 形圈未损坏,可以重复使用。若有任何损坏迹象(例如裂纹、切口或磨损),则应更换 O 形圈。\n注意\n如果更换 O 形圈,在拆卸损坏的 O 形圈时,注意不要划伤或损伤 O 形圈的凹槽或隔膜的表面。\n[H2] 2、在 SuperModule 上安装过程法兰。为了使过程法兰固定就位,应安装两个定位螺钉,并用手拧紧(螺钉不能受压)。\n[图片附件] 未命名图片\n不要拧得过紧;这会影响模块与法兰的对位。\n[H6] 3. 安装适当的法兰螺栓。\na) 若安装需要¼–18 NPT 支架,则应使用四个 1.75 英寸法兰螺栓。跳到步骤 3.f。\nb) 若安装需要 ½–14 NPT 支架,则应使用四个 2.88 英寸的过程法兰/适配器螺栓。对于表压配置,应使用两个 2.88 英寸的螺栓和两个 1.75 英寸的螺栓。跳到步骤3.d。\nc) 如果使用阀组安装(仅限差压应用),请使用相应螺栓。跳到步骤 3.e。\nd) 在用手指拧紧螺栓时,应使法兰适配器和适配器 O 形圈固定就位。跳到步骤 3.g。\ne) 将过程法兰和阀组对准。\nf) 用手指拧紧螺栓。\ng) 按交叉模式把螺栓拧紧到初始扭矩值。具体扭矩值请参阅表 6-1。\nh) 按交叉模式把螺栓拧紧到最终扭矩值。具体扭矩值请参阅表 6-1。在完全拧紧时, 螺栓将穿入模块外壳的顶部。\ni) 若安装时使用阀组,则应使用随变送器提供的 1.75 英寸法兰螺栓把法兰适配器安装到阀组的过程端。\n表 6-1: 螺栓安装扭矩值\n螺栓材料 | 初始扭矩值 | 最终扭矩值\nK-500 合金 — L6 选项 | 300 in-lb. (34 N-m) | 650 in-lb. (73 N-m)\n[H2] 4、若更换了 PTFE SuperModule O 形圈,则在安装后应重新拧紧法兰螺栓,以补偿冷流体流量。\n\n[H2] 5、安装排放/排气阀。\na) 在阀座的螺纹上缠密封带。从阀门的底座开始,使螺纹端朝向安装者,按顺时针方向转动缠两圈密封带。\nb) 注意阀门孔口的位置,应保证当阀门处于打开状态时过程流体朝地面排放,避免触及到人员。\nc) 把排放/排气阀拧紧到 250 in-lb. (28.25 N-m)。\n[H6] 注\n在更换范围 1 变送器上的 O 形圈和重新安装过程法兰之后,应把变送器置于 185 °F (85°C) 温度下两个小时。然后按交叉模式重新拧紧法兰螺栓,在标定前,应重新把变送器置于185 °F (85 °C) 温度下两个小时。\n[H6] A  技术规格和参考数据\n[H6] A.1  技术规格\n[H6] A.1.1  定位其他信息\n过程\n[H2] 1、导航到 Rosemount 3051S 无线 MultiVariable™ 变送器产品页。\n[H2] 2、找到并单击 Product Description(产品描述)栏正下方的 Documents & Drawings(文档和图纸)。\n[H2] 3、如需查看所需信息,请参考以下项:\n信息类型 | 如何检索\n符合性声明(DOC ) | a. 单击 Certificates & Approvals( 证书与认证)。 b . 选择相应的产品数据表。\n尺寸图 订购信息 技术规格 | a. 单击 Data Sheets & Bulletins( 数据表和 公告)。 b . 选择相应的产品数据表。\n安装图 | a. 单击 Drawings & Schematics( 图纸与原 理图)。 b . 选择适当的文档。\n产品认证 | a. 单击 Manuals & Guides( 手册和指南)。 b . 选择相应的快速启动指南。\n[H6] B  产品认证\n[H6] B.1  产品认证\n参阅 Rosemount 3051 压力变送器和 3051CF 系列流量计快速安装指南 了解最新产品认证信息。\n[H6] C  高增益远程天线选项\n[H6] C.1  功能规格\n[H6] 输出\nWirelessHART® 2.4 GHz DSSS(直接序列扩频)\n天线的射频功率输出:\n• 高增益远程(WN 选项)天线:最高 40 mW (16 dBm) EIRP(等效全向辐射功率)\n[H6] 通讯范围\n视距通讯:2/3 英里(3,300 英尺)(1.0 公里)\n[H6] 同轴电缆长度\n含 N 型连接:25 英尺(7.6 米)\n[H6] 同轴电缆材质\n• 大功率低损耗 LMR400 电缆\n• 最小同轴弯曲直径:1.0 英尺(0.3 米)\n[H6] 天线\n• 远程安装全向天线\n• 玻璃纤维和铝结构\n• 8 Db 增益\n• 符合 MIL-STD-810G(510.5 方法程序 I 和 II)\n[H6] 物理规格\n重量:1.0 lb (0.4 kg)\n[H6] RF 避雷器\n[H6] 直连式避雷器\n电气连接:避雷器必须按照本地电气规范及法规接地。\n[H6] 安装支架\n• 水平或垂直杆调节\n• 支持的最大杆直径:1.0-2.5 英寸(2.5-6.4 厘米)\n[H6] • 铝支架\n• 镀镍/锌装配 U 型螺栓\n[H6] 等级\nNEMA 4X 和 IP66/67\n振动\n最大振动 3g\n[H4] C.2  安装注意事项\n[H5] 天线安装\n垂直安装天线 (±5°)\n天线高度\n将天线安装在基础设施上方 14 英尺(4.3 米)处,视线要清晰。\n[H5] 同轴电缆\n同轴电缆必须固定在杆上,避免过度移动。\n[H5] 同轴电缆滴水圈\n安装的滴水圈距离变送器不超过 1 英尺(0.3 米)。为使冷凝水或雨水从同轴连接处流走,应将滴水圈固定在杆下部。\n图 C-1: 同轴电缆滴水圈\n[图片附件] 未命名图片\nA. 同轴电缆滴水圈\n防潮\n使用高增益远程安装套件包里的同轴电缆密封胶。请按照随附的说明涂敷在同轴电缆连接处。\nC.3\n\n[H2] 瞬变/雷电保护注意事项\n[H3] 网关瞬变保护\n安装时,请考虑在与其他设备的接口连接(以太网、Modbus 和同轴电缆连接)上安装瞬态/雷电保护装置(未随附)。\n[H3] RF 避雷器接地\n射频避雷器接地连接点上必须接地。\nC.4\n[图片附件] 未命名图片\n图 C-2: 设备连接和 RF 避雷器\n[图片附件] 未命名图片\nA. 安装避雷器\nB. 安装支架\nC. 天线\n• WJ1 天线:15 in. (381 mm)\n• WN1 天线:19.4 in. (490 mm)\nD. 远程安装架尺寸\nE. 最小滴水环:直径 12 in. (305 mm)\n注 尺寸单位为英寸 [毫米]。\nC.5\n[H3] 安装步骤\n[H3] 过程\n[H2] 1、请按照快速安装指南和产品手册所述步骤安装变送器。\n[H2] 2、将射频 (RF) 避雷器与设备连接并拧紧。\n图 C-3: RF 避雷器\n[图片附件] 未命名图片\nA. RF 避雷器\n[H2] 3、将天线装到安装支架上,小心拧紧螺母。\n[图片附件] 未命名图片\n[H2] 4、拧松同轴电缆,将电缆连接到已与变送器相连的天线和避雷器上。为滴水圈至少留出一圈的距离。滴水圈必须低于设备,以便水从设备流出。\n[图片附件] 未命名图片\n[H2] 5、在每个同轴电缆连接处和避雷器上涂抹同轴密封胶,确保射频连接完全密封。\n[图片附件] 未命名图片\n[H2] 6、按正确方向将 U 形螺栓安装到安装支架上,确保天线竖直。\n表 C-1:\n[图片附件] 未命名图片\n[图片附件] 未命名图片\n[H2] 7、拧紧杆上的 U 形螺栓,确保天线竖直。\n[图片附件] 未命名图片\n\n[H2] D  现场手操器菜单树和快捷键\n[H3] D.1  通讯设备菜单树\n图 D-1: Rosemount 3051S 无线通讯设备菜单树:概览\n[图片附件] 未命名图片\n图 D-2: Rosemount 3051S 无线通讯设备菜单树:组态\n[图片附件] 未命名图片\n图 D-3: Rosemount 3051S 无线通讯设备菜单树:手动设置\n[图片附件] 未命名图片\n图 D-4: Rosemount 3051S 无线通讯设备菜单树:手动设置\n[图片附件] 未命名图片\n有关更多信息: Emerson.com\n©2024 Emerson。 保留所有权利。\n艾默生销售条款和条件可应要求提供。 Emerson 徽标是艾默生电气公司的商标和服务标志。 Rosemount 是艾默生公司集团旗下公司的标志。 所有其他标志归其各自所有者所有。",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "char_count": 3768,
+    "heading_context": "[H1] 使用 AMS 应用用户组态 -> [H2] 5、拧紧系紧螺钉。",
+    "heading_path": [
+      "[H1] 使用 AMS 应用用户组态",
+      "[H2] 5、拧紧系紧螺钉。"
+    ],
+    "semantic_group": "fault",
+    "system_root": "使用 AMS 应用用户组态",
+    "pre_prune_score": 74,
+    "embed_score": 0.49036118388175964,
+    "attachments": [
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/765a074c1edbaba049c0ddb25e6961a6851055484ee1fdda4ac4d9bbb3562c43.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/9706dad22b5c18ab0f39c9efcdbc55fa9d2ad26abf62ab72511a67332168d4e6.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/63ef5d1656b733e3c46b3f78c16455747bc07ecb487b7fcf828e08f98170fa2d.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/cf1b66038a50b509a4c8fb94474758ef9fee81ca1e28bf8abb2cf0cfdda04d58.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/ab925509c9fd90f04183d6fc40fba19d7307a6bcb8266d9b32c178d2699c60fc.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/187608d05e3f960d97b9bdb851e791dad721bef80bc7a371cbf244ff7bdbe77c.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/4f732ca4266e5aaf6d834f62301c6ef18b82ab3b27db384ae497ffd243e54712.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/b408dd64564c29725d04a8151729facf94940f78b8bea64049e211630062af22.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/dc447214799e73c1dbb0721e5f4a39e33c85283a7abf6edb1e14ec34bf373883.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/00e0c205f549be98888e459e9231571e9c66175f3b182237b73d74ee08cf16bb.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/09d68e30bdc628c014b70acae1421a2bcbc4616b9f3b93230eb8767b7b9a0059.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/861973c0edd0c156ab6d9ad8e1d009e5d60429fa25eb3ef3d47c8d82fcb5f225.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/69dc4577ba0be2afc008f4135229a66f3cc45c22fb6822096064facafca13cae.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/19ca56440db125062ac2560ab5f47493c62643a8607c51b331271617d57a260d.jpg",
+        "alt": "未命名图片"
+      },
+      {
+        "type": "image",
+        "path": "data/KG_Build/液压/images/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064/bbb6a0138fedc455467a0aba661f0af57da4b0eee95121c41772161ededfb03c.jpg",
+        "alt": "未命名图片"
+      }
+    ]
+  }
+]

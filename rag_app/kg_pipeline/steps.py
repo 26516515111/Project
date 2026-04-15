@@ -10,7 +10,7 @@ import re
 import shutil
 import subprocess
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -1389,6 +1389,51 @@ def _chunk_keep_score(chunk: dict[str, Any]) -> int:
     return max(0, min(100, score))
 
 
+def _chunk_filter_reason(paths: PipelinePaths, chunk: dict[str, Any], fast_score: int) -> str | None:
+    """面向 step2 的规则化筛选：优先剔除图片墙、目录噪声和重复低信息块。"""
+    text = str(chunk.get("text", ""))
+    semantic_group = str(chunk.get("semantic_group", "overview"))
+    heading_path = chunk.get("heading_path", [])
+
+    img_count = text.count("[IMG path=")
+    text_wo_img = re.sub(r"\[IMG path=[^\]]+\]", " ", text)
+    text_wo_heading = re.sub(r"\[H[1-6]\]\s*", " ", text_wo_img)
+    pure_text = re.sub(r"\s+", "", text_wo_heading)
+    pure_chars = len(pure_text)
+
+    raw_lines = [line.strip() for line in text_wo_heading.splitlines() if line.strip()]
+    line_count = len(raw_lines)
+    line_counter = Counter(raw_lines)
+    top_repeat_ratio = (
+        max(line_counter.values()) / line_count
+        if line_count and line_counter
+        else 0.0
+    )
+    toc_like_hits = sum(1 for line in raw_lines if _looks_like_toc_entry(line))
+    toc_ratio = toc_like_hits / line_count if line_count else 0.0
+
+    if img_count >= 10 and pure_chars < 700:
+        return "image_wall_low_text"
+    if img_count >= 6 and pure_chars < 360:
+        return "image_dominant"
+    if toc_like_hits >= 6 and toc_ratio >= 0.55:
+        return "toc_heavy"
+    if line_count >= 10 and top_repeat_ratio >= 0.38 and pure_chars < 900:
+        return "high_repetition"
+
+    is_hydraulic = PipelinePaths.normalize_kg_name(paths.kg_name) == "液压"
+    if is_hydraulic:
+        # 液压语料中图片页和封面目录页比例高，适度提高过滤强度。
+        if img_count >= 4 and pure_chars < 500 and fast_score < 65:
+            return "hydraulic_image_bias"
+        if semantic_group in {"overview", "component"} and pure_chars < 180 and fast_score < 62:
+            return "hydraulic_short_low_signal"
+
+    if _is_low_value_chunk(text, heading_path, semantic_group) and fast_score < 55:
+        return "low_value_score"
+    return None
+
+
 def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
     lines = [line.rstrip() for line in text.splitlines()]
     sections: list[dict[str, Any]] = []
@@ -1882,6 +1927,7 @@ def chunk_documents(
     )
     dropped_total = 0
     dropped_by_doc: dict[str, int] = {}
+    dropped_reason_counts: dict[str, int] = {}
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
@@ -1894,9 +1940,11 @@ def chunk_documents(
         for chunk in semantic_chunks:
             fast_score = _chunk_keep_score(chunk)
             chunk["pre_prune_score"] = fast_score
-            if _is_low_value_chunk(chunk.get("text", ""), chunk.get("heading_path", []), chunk.get("semantic_group", "overview")) and fast_score < 55:
+            reason = _chunk_filter_reason(paths, chunk, fast_score)
+            if reason:
                 dropped_total += 1
                 dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + 1
+                dropped_reason_counts[reason] = dropped_reason_counts.get(reason, 0) + 1
                 continue
             ranked_chunks.append((fast_score, chunk))
 
@@ -1946,6 +1994,7 @@ def chunk_documents(
         "chunks": len(chunks),
         "dropped_chunks": dropped_total,
         "dropped_by_doc": dropped_by_doc,
+        "dropped_reason_counts": dropped_reason_counts,
     }
 
 

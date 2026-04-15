@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import tarfile
 from collections import Counter
 from pathlib import Path
@@ -50,6 +51,35 @@ def ensure_list(value: Any) -> list[Any]:
     if isinstance(value, list):
         return value
     return [value]
+
+
+HEADING_TAG_PATTERN = re.compile(r"(?m)^\s*\[H([1-6])\]\s*(.+?)\s*$")
+
+
+def render_heading_tags_as_markdown(text: Any) -> Any:
+    if not isinstance(text, str) or "[H" not in text:
+        return text
+
+    def replace(match: re.Match[str]) -> str:
+        level = int(match.group(1))
+        title = match.group(2).strip()
+        return f"{'#' * level} {title}"
+
+    return HEADING_TAG_PATTERN.sub(replace, text)
+
+
+def normalize_release_chunk_fields(row: dict[str, Any]) -> dict[str, Any]:
+    normalized = dict(row)
+    normalized["text"] = render_heading_tags_as_markdown(normalized.get("text", ""))
+    normalized["heading_context"] = render_heading_tags_as_markdown(
+        normalized.get("heading_context", "")
+    )
+    heading_path = normalized.get("heading_path")
+    if isinstance(heading_path, list):
+        normalized["heading_path"] = [
+            render_heading_tags_as_markdown(item) for item in heading_path
+        ]
+    return normalized
 
 
 def namespace_doc_id(kg_name: str, doc_id: str, enabled: bool) -> str:
@@ -145,7 +175,7 @@ def transform_chunks(
 ) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in chunks:
-        row = dict(item)
+        row = normalize_release_chunk_fields(item)
         row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""), namespace_enabled) or str(row.get("doc_id", "")).strip()
         row["source_doc_id"] = namespace_doc_id(
             kg_name,

@@ -9,6 +9,6 @@
   "entities": 1317,
   "relations": 1605,
   "chunks": 202,
-  "neo4j_imported": false,
-  "neo4j_dumped": false
+  "neo4j_imported": true,
+  "neo4j_dumped": true
 }

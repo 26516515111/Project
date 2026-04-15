@@ -45,6 +45,18 @@ def read_json(path: Path, default: Any) -> Any:
         return default
 
 
+def read_json_from_candidates(
+    candidates: list[Path], default: Any, *, required_name: str | None = None
+) -> Any:
+    for path in candidates:
+        if path.exists():
+            return read_json(path, default)
+    if required_name:
+        joined = ", ".join(str(path) for path in candidates)
+        raise SystemExit(f"缺少 {required_name}，已尝试路径: {joined}")
+    return default
+
+
 def ensure_list(value: Any) -> list[Any]:
     if value is None:
         return []
@@ -54,6 +66,7 @@ def ensure_list(value: Any) -> list[Any]:
 
 
 HEADING_TAG_PATTERN = re.compile(r"(?m)^\s*\[H([1-6])\]\s*(.+?)\s*$")
+HEADING_INLINE_TAG_PATTERN = re.compile(r"(?<!\S)\[H([1-6])\]\s*")
 
 
 def render_heading_tags_as_markdown(text: Any) -> Any:
@@ -68,10 +81,22 @@ def render_heading_tags_as_markdown(text: Any) -> Any:
     return HEADING_TAG_PATTERN.sub(replace, text)
 
 
+def render_heading_path_string_as_markdown(text: Any) -> Any:
+    if not isinstance(text, str) or "[H" not in text:
+        return text
+
+    def replace(match: re.Match[str]) -> str:
+        level = int(match.group(1))
+        return f"{'#' * level} "
+
+    # heading_context 常见格式为 "A -> [H2] B -> [H4] C"，这里处理行内/后置标签。
+    return HEADING_INLINE_TAG_PATTERN.sub(replace, text)
+
+
 def normalize_release_chunk_fields(row: dict[str, Any]) -> dict[str, Any]:
     normalized = dict(row)
     normalized["text"] = render_heading_tags_as_markdown(normalized.get("text", ""))
-    normalized["heading_context"] = render_heading_tags_as_markdown(
+    normalized["heading_context"] = render_heading_path_string_as_markdown(
         normalized.get("heading_context", "")
     )
     heading_path = normalized.get("heading_path")
@@ -343,9 +368,30 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     merged_merge_log: list[dict[str, Any]] = []
 
     for kg_name, build_dir in build_dirs:
-        chunks = read_json(build_dir / "chunks" / "docs/chunks.json", [])
-        doc_map = read_json(build_dir / "chunks" / "docs/doc_source_map.json", [])
-        chunk_to_kg = read_json(build_dir / "chunks" / "docs/chunk_to_kg.json", {"chunks": []})
+        chunks = read_json_from_candidates(
+            [
+                build_dir / "chunks" / "chunks.json",
+                build_dir / "chunks" / "docs" / "chunks.json",
+            ],
+            [],
+            required_name=f"{kg_name} 的 chunks.json",
+        )
+        doc_map = read_json_from_candidates(
+            [
+                build_dir / "chunks" / "doc_source_map.json",
+                build_dir / "chunks" / "docs" / "doc_source_map.json",
+            ],
+            [],
+            required_name=f"{kg_name} 的 doc_source_map.json",
+        )
+        chunk_to_kg = read_json_from_candidates(
+            [
+                build_dir / "chunks" / "chunk_to_kg.json",
+                build_dir / "chunks" / "docs" / "chunk_to_kg.json",
+            ],
+            {"chunks": []},
+            required_name=f"{kg_name} 的 chunk_to_kg.json",
+        )
         delivery = read_json(build_dir / "delivery" / "kg_merged.json", {"entities": [], "relations": []})
         merge_log = read_json(build_dir / "delivery" / "entity_merge_log.json", [])
 

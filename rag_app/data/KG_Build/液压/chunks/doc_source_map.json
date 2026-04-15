@@ -1,0 +1,30 @@
+[
+  {
+    "doc_id": "Operation and Maintenance Manual for SMP Series Hydraulic Pu",
+    "source": "Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "path": "data/KG/raw/Operation and Maintenance Manual for SMP Series Hydraulic Pu.md",
+    "num_chunks": 13,
+    "dropped_chunks": 24
+  },
+  {
+    "doc_id": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946",
+    "source": "manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "path": "data/KG/raw/manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946.md",
+    "num_chunks": 14,
+    "dropped_chunks": 15
+  },
+  {
+    "doc_id": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650",
+    "source": "vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "path": "data/KG/raw/vanessa-30-000-系列三偏心阀-tov-安装、操作及维护手册-zh-cn-5195650.md",
+    "num_chunks": 8,
+    "dropped_chunks": 1
+  },
+  {
+    "doc_id": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064",
+    "source": "参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "path": "data/KG/raw/参考手册-rosemount-3051s-无线系列产品-zh-cn-10755064.md",
+    "num_chunks": 12,
+    "dropped_chunks": 4
+  }
+]

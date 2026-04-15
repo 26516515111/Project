@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import tarfile
 from collections import Counter
 from pathlib import Path
@@ -50,6 +51,35 @@ def ensure_list(value: Any) -> list[Any]:
     if isinstance(value, list):
         return value
     return [value]
+
+
+HEADING_TAG_PATTERN = re.compile(r"(?m)^\s*\[H([1-6])\]\s*(.+?)\s*$")
+
+
+def render_heading_tags_as_markdown(text: Any) -> Any:
+    if not isinstance(text, str) or "[H" not in text:
+        return text
+
+    def replace(match: re.Match[str]) -> str:
+        level = int(match.group(1))
+        title = match.group(2).strip()
+        return f"{'#' * level} {title}"
+
+    return HEADING_TAG_PATTERN.sub(replace, text)
+
+
+def normalize_release_chunk_fields(row: dict[str, Any]) -> dict[str, Any]:
+    normalized = dict(row)
+    normalized["text"] = render_heading_tags_as_markdown(normalized.get("text", ""))
+    normalized["heading_context"] = render_heading_tags_as_markdown(
+        normalized.get("heading_context", "")
+    )
+    heading_path = normalized.get("heading_path")
+    if isinstance(heading_path, list):
+        normalized["heading_path"] = [
+            render_heading_tags_as_markdown(item) for item in heading_path
+        ]
+    return normalized
 
 
 def namespace_doc_id(kg_name: str, doc_id: str, enabled: bool) -> str:
@@ -145,7 +175,7 @@ def transform_chunks(
 ) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     for item in chunks:
-        row = dict(item)
+        row = normalize_release_chunk_fields(item)
         row["doc_id"] = namespace_doc_id(kg_name, row.get("doc_id", ""), namespace_enabled) or str(row.get("doc_id", "")).strip()
         row["source_doc_id"] = namespace_doc_id(
             kg_name,
@@ -292,17 +322,6 @@ def ensure_package_dirs(paths: PipelinePaths) -> None:
     (paths.kg_dir / "delivery").mkdir(parents=True, exist_ok=True)
 
 
-def write_rag_compat_outputs(
-    paths: PipelinePaths,
-    merged_chunks: list[dict[str, Any]],
-    merged_doc_map: list[dict[str, Any]],
-    merged_chunk_to_kg: list[dict[str, Any]],
-) -> None:
-    write_json(paths.data_dir / "chunks.json", merged_chunks)
-    write_json(paths.data_dir / "doc_source_map.json", merged_doc_map)
-    write_json(paths.data_dir / "chunk_to_kg.json", {"chunks": merged_chunk_to_kg})
-
-
 def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> dict[str, Any]:
     build_dirs = [
         (normalize_build_kg_name(name), paths.build_root_dir / normalize_build_kg_name(name))
@@ -380,7 +399,6 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     write_json(paths.kg_dir / "extracted" / "kg_raw.json", merged_raw)
     write_json(paths.kg_dir / "delivery" / "kg_merged.json", merged_delivery)
     write_json(paths.kg_dir / "delivery" / "entity_merge_log.json", merged_merge_log)
-    write_rag_compat_outputs(paths, merged_chunks, merged_doc_map, merged_chunk_to_kg)
     write_json(
         paths.kg_dir / "package_manifest.json",
         {

@@ -1,11 +1,12 @@
 {
-  "output_name": "发动机_电气",
+  "output_name": "release_20260415",
   "mode": "package",
   "kg_names": [
+    "电气",
     "发动机",
-    "电气"
+    "液压"
   ],
-  "entities": 956,
-  "relations": 1135,
-  "chunks": 155
+  "entities": 1317,
+  "relations": 1605,
+  "chunks": 0
 }

@@ -40,6 +40,7 @@ def build_bm25(chunks: List[dict]):
                     "doc_id": str(c.get("doc_id", "") or ""),
                     "source": str(c.get("source", "") or ""),
                     "source_doc_id": str(c.get("source_doc_id", "") or ""),
+                    "domain": str(c.get("domain", "") or ""),
                 },
             )
         )

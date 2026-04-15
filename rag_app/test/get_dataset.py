@@ -1,4 +1,5 @@
 import json
+import argparse
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -57,11 +58,19 @@ def _extract_question(item: Dict[str, Any]) -> str:
     return str(q).strip()
 
 
-def build_eval_finish() -> None:
+def build_eval_finish(
+    output_name: str = "eval_finish.json",
+    use_kg: bool = True,
+    use_llm: bool = True,
+    use_history: bool = False,
+    disable_decompose: bool = False,
+    disable_parent_retriever: bool = False,
+    disable_retrieval_optimization: bool = False,
+) -> None:
     current_dir = Path(__file__).resolve().parent
     eval_dir = current_dir / "eval_data"
     eval_file = eval_dir / "eval.json"
-    output_file = eval_dir / "eval_finish.json"
+    output_file = eval_dir / output_name
 
     data = _load_eval_data(eval_file)
     qa_items = _flatten_qa_items(data)
@@ -72,7 +81,10 @@ def build_eval_finish() -> None:
 
     for idx, item in enumerate(qa_items, start=1):
         question = _extract_question(item)
-        ground_truth = item.get("ground_truth", "")
+        # Historical datasets used `group_truth`; keep backward compatibility.
+        ground_truth = item.get("ground_truth")
+        if ground_truth is None:
+            ground_truth = item.get("group_truth", "")
 
         print(f"[{idx}/{total}] 正在处理问题: {question[:80]}")
 
@@ -89,10 +101,15 @@ def build_eval_finish() -> None:
 
         req = QueryRequest(
             question=question,
-            use_kg=True,
-            use_llm=True,
-            use_history=False,
+            use_kg=use_kg,
+            use_llm=use_llm,
+            use_history=use_history,
             session_id=f"eval_{idx}",
+            enable_decompose=(False if disable_decompose else None),
+            enable_parent_retriever=(False if disable_parent_retriever else None),
+            enable_retrieval_optimization=(
+                False if disable_retrieval_optimization else None
+            ),
         )
         answer = pipeline.query(req)
 
@@ -115,4 +132,49 @@ def build_eval_finish() -> None:
 
 
 if __name__ == "__main__":
-    build_eval_finish()
+    parser = argparse.ArgumentParser(description="生成RAG评测数据集(eval_finish*.json)")
+    parser.add_argument(
+        "--output-name",
+        default="eval_finish.json",
+        help="输出文件名，默认 eval_finish.json",
+    )
+    parser.add_argument(
+        "--disable-decompose",
+        action="store_true",
+        help="关闭问题分解",
+    )
+    parser.add_argument(
+        "--disable-parent-retriever",
+        action="store_true",
+        help="关闭父文档检索路由",
+    )
+    parser.add_argument(
+        "--disable-retrieval-optimization",
+        action="store_true",
+        help="关闭检索优化开关",
+    )
+    parser.add_argument(
+        "--no-kg",
+        action="store_true",
+        help="关闭KG增强",
+    )
+    parser.add_argument(
+        "--no-llm",
+        action="store_true",
+        help="关闭LLM生成",
+    )
+    parser.add_argument(
+        "--use-history",
+        action="store_true",
+        help="启用历史对话",
+    )
+    args = parser.parse_args()
+    build_eval_finish(
+        output_name=args.output_name,
+        use_kg=not args.no_kg,
+        use_llm=not args.no_llm,
+        use_history=args.use_history,
+        disable_decompose=args.disable_decompose,
+        disable_parent_retriever=args.disable_parent_retriever,
+        disable_retrieval_optimization=args.disable_retrieval_optimization,
+    )

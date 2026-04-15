@@ -40,6 +40,7 @@ def build_or_load_chroma(
             "source_doc_id": c.get("source_doc_id", ""),
             "chunk_index": c.get("chunk_index", -1),
             "heading_context": c.get("heading_context", ""),
+            "domain": c.get("domain", ""),
         }
         for c in chunks
     ]

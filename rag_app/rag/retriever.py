@@ -151,6 +151,28 @@ def _is_technical_question(query: str) -> bool:
     return any(k in q for k in keywords)
 
 
+def _infer_query_domains(query: str) -> List[str]:
+    if not getattr(SETTINGS, "domain_routing_enabled", False):
+        return []
+    q = str(query or "").strip().lower()
+    if not q:
+        return []
+    rules = getattr(SETTINGS, "domain_routing_rules", {}) or {}
+    scores: List[tuple[str, int]] = []
+    for domain, keywords in rules.items():
+        hit = 0
+        for kw in keywords:
+            if kw and kw in q:
+                hit += 1
+        if hit > 0:
+            scores.append((domain, hit))
+    if not scores:
+        return []
+    scores = sorted(scores, key=lambda x: (-x[1], x[0]))
+    max_hit = scores[0][1]
+    return [d for d, h in scores if h == max_hit]
+
+
 def _prepare_payload(
     store,
     bm25,
@@ -179,6 +201,7 @@ def _prepare_payload(
         "parent_source_doc_ids": parent_source_doc_ids or [],
         "parent_route_mode": str(parent_route_mode or "hard").strip().lower(),
         "parent_source_soft_boost": float(parent_source_soft_boost or 0.0),
+        "routed_domains": _infer_query_domains(queries[0] if queries else ""),
     }
 
 
@@ -195,6 +218,12 @@ def _run_search(payload: Dict) -> Dict:
     parent_source_soft_boost = float(
         payload.get("parent_source_soft_boost", 0.0) or 0.0
     )
+    routed_domains = payload.get("routed_domains") or []
+    domain_route_mode = str(
+        getattr(SETTINGS, "domain_route_mode", "soft") or "soft"
+    ).lower()
+    domain_soft_boost = float(getattr(SETTINGS, "domain_soft_boost", 0.0) or 0.0)
+    strict_min_hits = max(1, int(getattr(SETTINGS, "domain_strict_min_hits", 2) or 2))
     vector_retriever = payload["store"].as_retriever(search_kwargs={"k": per_k})
     bm25_retriever = payload.get("bm25")
     if bm25_retriever is not None:
@@ -220,6 +249,14 @@ def _run_search(payload: Dict) -> Dict:
                 )
                 active_retriever = retriever
         docs = active_retriever.invoke(q)
+        if routed_domains:
+            matched_docs = []
+            for d in docs:
+                md = d.metadata or {}
+                if str(md.get("domain", "") or "") in routed_domains:
+                    matched_docs.append(d)
+            if domain_route_mode == "hard" and len(matched_docs) >= strict_min_hits:
+                docs = matched_docs
         if parent_route_mode == "hard" and allowed_source_doc_ids:
             filtered_docs = []
             for d in docs:
@@ -239,6 +276,7 @@ def _run_search(payload: Dict) -> Dict:
             if not doc_id:
                 continue
             source_doc_id = str(metadata.get("source_doc_id", "") or "").strip()
+            domain = str(metadata.get("domain", "") or "").strip()
             if not source_doc_id and "::chunk_" in doc_id:
                 source_doc_id = doc_id.split("::chunk_", 1)[0].strip()
             score = float((total - idx) / total)
@@ -249,11 +287,19 @@ def _run_search(payload: Dict) -> Dict:
                 and source_doc_id in parent_source_doc_ids
             ):
                 score += parent_source_soft_boost
+            if (
+                routed_domains
+                and domain_route_mode == "soft"
+                and domain_soft_boost > 0.0
+                and domain in routed_domains
+            ):
+                score += domain_soft_boost
             item = {
                 "doc_id": doc_id,
                 "text": str(doc.page_content or ""),
                 "source": str(metadata.get("source", "") or ""),
                 "source_doc_id": source_doc_id,
+                "domain": domain,
                 "heading_context": str(metadata.get("heading_context", "") or ""),
                 "score": score,
             }
@@ -340,7 +386,11 @@ def _build_context(payload: Dict) -> Dict:
     merged = payload.get("merged") or {}
     ranked = sorted(merged.values(), key=lambda x: x["score"], reverse=True)
     entity_candidates = payload.get("entity_candidates") or []
-    max_per_source = max(1, payload["top_k"] // 3)
+    configured_max_per_source = int(getattr(SETTINGS, "max_per_source", 0) or 0)
+    if configured_max_per_source > 0:
+        max_per_source = configured_max_per_source
+    else:
+        max_per_source = max(1, payload["top_k"] // 2)
     source_counts = {}
     filtered = []
     for item in ranked:

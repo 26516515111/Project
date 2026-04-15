@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+const API_HOST = window.location.hostname || "127.0.0.1";
+const API_BASE_URL = `http://${API_HOST}:8000`;
+
 export default function Login({ onLogin }) {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
@@ -10,7 +13,13 @@ export default function Login({ onLogin }) {
         e.preventDefault();
         setError('');
         if (userId === "admin" && password === "123456") {
-            onLogin({ name: "王轮机长", avatar: "👨‍✈️", user_id: "882103" });
+            const loginUser = { name: "王轮机长", avatar: "👨‍✈️", user_id: "882103" };
+            fetch(`${API_BASE_URL}/rag/preload`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_id: loginUser.user_id }),
+            }).catch(() => {});
+            onLogin(loginUser);
         } else {
             setError('账号或密码错误！');
         }

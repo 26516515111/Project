@@ -1,4 +1,5 @@
 import os
+from typing import Dict, List
 
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
 os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
@@ -26,6 +27,23 @@ def env_list(key: str, default: str) -> list[str]:
     return [item.strip() for item in raw.split(",") if item.strip()]
 
 
+def env_domain_rules(key: str, default: str) -> Dict[str, List[str]]:
+    raw = env(key, default)
+    rules: Dict[str, List[str]] = {}
+    for item in raw.split(";"):
+        segment = item.strip()
+        if not segment or "=" not in segment:
+            continue
+        domain, keywords_raw = segment.split("=", 1)
+        domain = domain.strip()
+        if not domain:
+            continue
+        keywords = [kw.strip().lower() for kw in keywords_raw.split(",") if kw.strip()]
+        if keywords:
+            rules[domain] = keywords
+    return rules
+
+
 class Settings:
     # Paths
     data_dir = env(
@@ -49,11 +67,11 @@ class Settings:
     # RAG_TOP_K：最终用于回答的检索数量
     top_k = int(env("RAG_TOP_K", "5"))
     # RAG_HYBRID_TOP_K：混合检索候选数量（重排序前）
-    hybrid_top_k = int(env("RAG_HYBRID_TOP_K", "20"))
+    hybrid_top_k = int(env("RAG_HYBRID_TOP_K", "24"))
     # RAG_BM25_WEIGHT：BM25在混合检索中的权重
-    bm25_weight = float(env("RAG_BM25_WEIGHT", "0.45"))
+    bm25_weight = float(env("RAG_BM25_WEIGHT", "0.55"))
     # RAG_VECTOR_WEIGHT：向量检索在混合检索中的权重
-    vector_weight = float(env("RAG_VECTOR_WEIGHT", "0.55"))
+    vector_weight = float(env("RAG_VECTOR_WEIGHT", "0.45"))
     # RAG_ENTITY_PRIORITY_ENABLED：是否启用实体优先检索
     entity_priority_enabled = env("RAG_ENTITY_PRIORITY_ENABLED", "true").lower() in {
         "1",
@@ -66,7 +84,7 @@ class Settings:
     # RAG_ENTITY_MIN_IN_TOPK：Top-K中至少保留的实体命中数量
     entity_min_in_topk = int(env("RAG_ENTITY_MIN_IN_TOPK", "2"))
     # RAG_ENTITY_STRICT_FILTER：命中实体时是否仅保留实体相关chunk
-    entity_strict_filter = env("RAG_ENTITY_STRICT_FILTER", "true").lower() in {
+    entity_strict_filter = env("RAG_ENTITY_STRICT_FILTER", "false").lower() in {
         "1",
         "true",
         "yes",
@@ -79,20 +97,50 @@ class Settings:
     # RAG_TECH_HEADING_BOOST：技术性问题的标题匹配加分系数
     tech_heading_boost = float(env("RAG_TECH_HEADING_BOOST", "0.35"))
     # RAG_NEIGHBOR_CONTEXT_ENABLED：是否为命中chunk补充后续相邻chunk
-    neighbor_context_enabled = env("RAG_NEIGHBOR_CONTEXT_ENABLED", "false").lower() in {
+    neighbor_context_enabled = env("RAG_NEIGHBOR_CONTEXT_ENABLED", "true").lower() in {
         "1",
         "true",
         "yes",
         "y",
     }
     # RAG_NEIGHBOR_CONTEXT_WINDOW：每个命中chunk向后补充的相邻窗口大小
-    neighbor_context_window = int(env("RAG_NEIGHBOR_CONTEXT_WINDOW", "1"))
+    neighbor_context_window = int(env("RAG_NEIGHBOR_CONTEXT_WINDOW", "2"))
     # RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW：参数/规格类问题时的相邻补充窗口大小
-    neighbor_context_param_window = int(env("RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW", "3"))
+    neighbor_context_param_window = int(env("RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW", "4"))
     # RAG_NEIGHBOR_CONTEXT_SEED_LIMIT：最多对前N个高分命中chunk做相邻扩展
     neighbor_context_seed_limit = int(env("RAG_NEIGHBOR_CONTEXT_SEED_LIMIT", "3"))
     # RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS：单次查询最多补充的相邻chunk数量
-    neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "6"))
+    neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "8"))
+    # RAG_MAX_PER_SOURCE：最终候选中同一source_doc最多保留数量（0表示自动）
+    max_per_source = int(env("RAG_MAX_PER_SOURCE", "0"))
+    # RAG_DOMAIN_ROUTING_ENABLED：是否启用文档域路由
+    domain_routing_enabled = env("RAG_DOMAIN_ROUTING_ENABLED", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_DOMAIN_ROUTE_MODE：域路由模式 soft|hard
+    domain_route_mode = env("RAG_DOMAIN_ROUTE_MODE", "soft").strip().lower()
+    # RAG_DOMAIN_SOFT_BOOST：soft模式下同域chunk加分
+    domain_soft_boost = float(env("RAG_DOMAIN_SOFT_BOOST", "0.35"))
+    # RAG_DOMAIN_STRICT_MIN_HITS：hard模式启用前，至少需要命中的同域候选数量
+    domain_strict_min_hits = int(env("RAG_DOMAIN_STRICT_MIN_HITS", "2"))
+    # RAG_DOMAIN_ROUTING_RULES：域分类关键词规则，格式 domain=a,b,c;domain2=d,e
+    domain_routing_rules = env_domain_rules(
+        "RAG_DOMAIN_ROUTING_RULES",
+        (
+            "engine_maintenance=发动机,主机,辅机,机舱,维保,维护,检修,保养,润滑,润滑系统,"
+            "机油,油压,冷却,冷却液,增压,增压空气冷却器,海水泵,叶轮,扭矩,气缸,电解液,"
+            "电池酸,bms,evc,故障降速,故障停车,燃油,通海塞,预滤器;"
+            "alarm_system=报警,告警,监测,监控,报警系统,监测报警系统,机舱总线制监测报警系统,"
+            "指示灯,报警显示,显示单元,数据采集模块,采集模块,扩展监测单元,监测单元,"
+            "延伸监测单元,工作电压,防护等级,ip,rs-485,rs485,总线,gcjb,gcjb0-5,gcjb-0-5,"
+            "gcjb24,gcjb-24,gcwj,gcwj-01,bnwas,was-01,gc was-01,gc was-01-03;"
+            "navigation_system=航行,驾驶台,值班,驾驶室,航向,操舵,舵机,推进,螺旋桨,错向,"
+            "换档,换挡,倒档,紧急变速,控制杆,压浪板,trim,避碰,航行条件"
+        ),
+    )
     # RAG_CONTEXT_COMPRESSION_ENABLED：是否启用上下文压缩检索
     context_compression_enabled = env(
         "RAG_CONTEXT_COMPRESSION_ENABLED", "false"
@@ -204,13 +252,13 @@ class Settings:
         "y",
     }
     # RAG_PARENT_RETRIEVER_K：父文档预检索数量
-    parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "3"))
+    parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "5"))
     # RAG_PARENT_RETRIEVER_ROUTE_MODE：父检索路由模式 hard|soft
     parent_retriever_route_mode = (
         env("RAG_PARENT_RETRIEVER_ROUTE_MODE", "soft").strip().lower()
     )
     # RAG_PARENT_SOURCE_SOFT_BOOST：soft路由时父来源加分系数
-    parent_source_soft_boost = float(env("RAG_PARENT_SOURCE_SOFT_BOOST", "0.2"))
+    parent_source_soft_boost = float(env("RAG_PARENT_SOURCE_SOFT_BOOST", "0.3"))
     # RAG_PARENT_PROMPT_MODE：父子检索结果合并到Prompt的模式 route|hybrid
     parent_prompt_mode = env("RAG_PARENT_PROMPT_MODE", "hybrid").strip().lower()
     # RAG_PARENT_PROMPT_TOP_K：混合模式下最多加入的父文档片段数
@@ -218,7 +266,7 @@ class Settings:
 
     # 重排序模块
     # RAG_USE_RERANKER：是否启用交叉编码器重排序
-    use_reranker = env("RAG_USE_RERANKER", "false").lower() in {"1", "true", "yes", "y"}
+    use_reranker = env("RAG_USE_RERANKER", "true").lower() in {"1", "true", "yes", "y"}
     # RAG_RERANKER_MODEL：重排序模型名称
     reranker_model = env("RAG_RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
     # RAG_RERANKER_TOP_K：重排序后保留的passage数量
@@ -241,7 +289,7 @@ class Settings:
     # RAG_DECOMPOSE_MAX_SUBQUERIES：用于检索的最大查询数（含原问题）
     decompose_max_subqueries = int(env("RAG_DECOMPOSE_MAX_SUBQUERIES", "4"))
     # RAG_DECOMPOSE_PER_QUERY_TOP_K：每个子问题的检索数量
-    decompose_per_query_top_k = int(env("RAG_DECOMPOSE_PER_QUERY_TOP_K", "4"))
+    decompose_per_query_top_k = int(env("RAG_DECOMPOSE_PER_QUERY_TOP_K", "6"))
     # RAG_DECOMPOSE_LLM_MAX_TOKENS：分解LLM最大输出token数
     decompose_llm_max_tokens = int(env("RAG_DECOMPOSE_LLM_MAX_TOKENS", "128"))
     # RAG_DECOMPOSE_LLM_TEMPERATURE：分解LLM温度

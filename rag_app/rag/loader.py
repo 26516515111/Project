@@ -2,6 +2,27 @@ import json
 import os
 from typing import List, Dict
 
+from .config import SETTINGS
+
+
+def _infer_domain_by_text(text: str) -> str:
+    value = str(text or "").lower()
+    if not value:
+        return ""
+    rules = getattr(SETTINGS, "domain_routing_rules", {}) or {}
+    scores: Dict[str, int] = {}
+    for domain, keywords in rules.items():
+        hit = 0
+        for kw in keywords:
+            if kw and kw in value:
+                hit += 1
+        if hit > 0:
+            scores[domain] = hit
+    if not scores:
+        return ""
+    best = sorted(scores.items(), key=lambda x: (-x[1], x[0]))[0]
+    return best[0]
+
 
 def load_documents(docs_dir: str) -> List[dict]:
     """从目录中加载文本/Markdown文档并返回统一结构列表。
@@ -107,6 +128,7 @@ def load_chunks_json(base_dir: str) -> List[dict]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     chunks: List[dict] = []
+    source_domain_cache: Dict[str, str] = {}
     for item in data:
         text = str(item.get("text", "")).strip()
         if not text:
@@ -126,6 +148,23 @@ def load_chunks_json(base_dir: str) -> List[dict]:
                 source_doc_id = source[:-3]
         if not chunk_id:
             continue
+        source = str(item.get("source", "")).strip()
+        source_doc_id_for_domain = source_doc_id or source
+        domain = ""
+        if source_doc_id_for_domain in source_domain_cache:
+            domain = source_domain_cache[source_doc_id_for_domain]
+        else:
+            domain = _infer_domain_by_text(
+                " ".join(
+                    [
+                        source_doc_id_for_domain,
+                        source,
+                        str(item.get("heading_context", "") or ""),
+                        text[:240],
+                    ]
+                )
+            )
+            source_domain_cache[source_doc_id_for_domain] = domain
         chunks.append(
             {
                 "doc_id": chunk_id,
@@ -133,8 +172,9 @@ def load_chunks_json(base_dir: str) -> List[dict]:
                 "source_doc_id": source_doc_id,
                 "chunk_index": chunk_index,
                 "text": text,
-                "source": str(item.get("source", "")).strip(),
+                "source": source,
                 "heading_context": str(item.get("heading_context", "") or "").strip(),
+                "domain": domain,
             }
         )
     return chunks

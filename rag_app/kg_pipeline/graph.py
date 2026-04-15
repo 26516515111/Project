@@ -192,7 +192,13 @@ def _run_release(paths: PipelinePaths, state: PipelineState) -> dict[str, Any]:
         materialize_backup_kgs(paths)
     release_kg_names = state.get("release_kg_names") or [paths.kg_name]
     release_output_name = state.get("release_output_name", "release")
-    return package_kgs(paths, release_kg_names, release_output_name)
+    return package_kgs(
+        paths,
+        release_kg_names,
+        release_output_name,
+        neo4j_import=state.get("neo4j_import", True),
+        neo4j_dump=state.get("neo4j_dump", True),
+    )
 
 
 def route_after_node(state: PipelineState) -> str:

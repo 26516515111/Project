@@ -2,15 +2,25 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
+import os
 import re
+import shutil
+import subprocess
 import tarfile
+import time
+from collections import defaultdict
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from neo4j import GraphDatabase
+
+from kg_pipeline.constants import RELATION_TYPES
 from kg_pipeline.paths import PipelinePaths
 from kg_pipeline.steps import write_json
+from kg_pipeline.utils import apply_local_envs
 
 
 def parse_args() -> argparse.Namespace:
@@ -63,6 +73,12 @@ def ensure_list(value: Any) -> list[Any]:
     if isinstance(value, list):
         return value
     return [value]
+
+
+def _serialize(value: Any) -> str:
+    if isinstance(value, list):
+        return ";".join(str(item) for item in value if item)
+    return str(value or "")
 
 
 HEADING_TAG_PATTERN = re.compile(r"(?m)^\s*\[H([1-6])\]\s*(.+?)\s*$")
@@ -347,7 +363,210 @@ def ensure_package_dirs(paths: PipelinePaths) -> None:
     (paths.kg_dir / "delivery").mkdir(parents=True, exist_ok=True)
 
 
-def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> dict[str, Any]:
+def _neo4j_executable(command: str) -> str:
+    neo4j_home = os.environ.get("NEO4J_HOME", "").strip()
+    if neo4j_home:
+        candidate = Path(neo4j_home) / "bin" / command
+        if candidate.exists():
+            return str(candidate)
+    discovered = shutil.which(command)
+    if discovered:
+        return discovered
+    raise RuntimeError(f"未找到 {command}，请配置 NEO4J_HOME 或将其加入 PATH")
+
+
+def generate_release_neo4j_artifacts(
+    paths: PipelinePaths,
+    merged_delivery: dict[str, Any],
+    import_to_neo4j: bool,
+    export_dump: bool,
+) -> dict[str, Any]:
+    apply_local_envs(paths.env_paths)
+    entities = merged_delivery.get("entities", [])
+    relations = merged_delivery.get("relations", [])
+
+    entities_csv = paths.kg_dir / "delivery" / "neo4j_entities.csv"
+    relations_csv = paths.kg_dir / "delivery" / "neo4j_relations.csv"
+    dump_target = paths.kg_dir / "delivery" / "neo4j.dump"
+
+    with entities_csv.open("w", encoding="utf-8", newline="") as fp:
+        writer = csv.writer(fp)
+        writer.writerow(
+            [
+                "entity_id",
+                "name",
+                "label",
+                "description",
+                "doc_id",
+                "chunk_id",
+                "all_labels",
+                "source",
+            ]
+        )
+        for entity in entities:
+            writer.writerow(
+                [
+                    entity.get("entity_id", ""),
+                    entity.get("name", ""),
+                    entity.get("label", ""),
+                    entity.get("description", ""),
+                    _serialize(entity.get("doc_id", "")),
+                    _serialize(entity.get("chunk_id", "")),
+                    _serialize(entity.get("all_labels", [])),
+                    entity.get("source", ""),
+                ]
+            )
+
+    with relations_csv.open("w", encoding="utf-8", newline="") as fp:
+        writer = csv.writer(fp)
+        writer.writerow(
+            [
+                "rel_id",
+                "head",
+                "head_label",
+                "relation",
+                "tail",
+                "tail_label",
+                "description",
+                "doc_id",
+                "chunk_id",
+            ]
+        )
+        for relation in relations:
+            writer.writerow(
+                [
+                    relation.get("rel_id", ""),
+                    relation.get("head", ""),
+                    relation.get("head_label", ""),
+                    relation.get("relation", ""),
+                    relation.get("tail", ""),
+                    relation.get("tail_label", ""),
+                    relation.get("description", ""),
+                    _serialize(relation.get("doc_id", "")),
+                    _serialize(relation.get("chunk_id", "")),
+                ]
+            )
+
+    if not import_to_neo4j:
+        return {
+            "entities_csv": str(entities_csv),
+            "relations_csv": str(relations_csv),
+            "imported": False,
+            "dumped": False,
+        }
+
+    neo4j_password = os.environ.get(
+        "NEO4J_PASSWORD", os.environ.get("NEO4J_PASS", "")
+    ).strip()
+    if not neo4j_password:
+        raise RuntimeError("NEO4J_PASSWORD/NEO4J_PASS 未设置")
+
+    driver = GraphDatabase.driver(
+        os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
+        auth=(os.environ.get("NEO4J_USER", "neo4j"), neo4j_password),
+    )
+    with driver.session(database=os.environ.get("NEO4J_DB", "neo4j")) as session:
+        session.run("CREATE INDEX IF NOT EXISTS FOR (n:Entity) ON (n.name)").consume()
+        tx = session.begin_transaction()
+        try:
+            tx.run("MATCH (n) DETACH DELETE n")
+            tx.run(
+                """
+                UNWIND $rows AS row
+                MERGE (n:Entity {name: row.name})
+                SET n.entity_id = row.entity_id,
+                    n.label = row.label,
+                    n.description = row.description,
+                    n.all_labels = row.all_labels,
+                    n.source = row.source
+                """,
+                rows=[
+                    {
+                        "entity_id": entity.get("entity_id", ""),
+                        "name": entity.get("name", ""),
+                        "label": entity.get("label", ""),
+                        "description": entity.get("description", ""),
+                        "all_labels": _serialize(entity.get("all_labels", [])),
+                        "source": str(entity.get("source", "")),
+                    }
+                    for entity in entities
+                ],
+            )
+            grouped_relations: dict[str, list[dict[str, Any]]] = defaultdict(list)
+            for relation in relations:
+                relation_type = str(relation.get("relation", "")).strip()
+                if relation_type:
+                    grouped_relations[relation_type].append(
+                        {
+                            "rel_id": relation.get("rel_id", ""),
+                            "head": relation.get("head", ""),
+                            "tail": relation.get("tail", ""),
+                            "description": relation.get("description", ""),
+                        }
+                    )
+            for relation_type, rows in grouped_relations.items():
+                if relation_type not in RELATION_TYPES:
+                    continue
+                tx.run(
+                    f"""
+                    UNWIND $rows AS row
+                    MATCH (h:Entity {{name: row.head}})
+                    MATCH (t:Entity {{name: row.tail}})
+                    CREATE (h)-[r:`{relation_type}`]->(t)
+                    SET r.rel_id = row.rel_id,
+                        r.description = row.description
+                    """,
+                    rows=rows,
+                )
+            tx.commit()
+        except Exception:
+            tx.rollback()
+            raise
+        finally:
+            driver.close()
+
+    dumped = False
+    if export_dump:
+        env = os.environ.copy()
+        java_home = os.environ.get("JAVA_HOME", "").strip()
+        if java_home:
+            env["JAVA_HOME"] = java_home
+        neo4j_cmd = _neo4j_executable("neo4j")
+        neo4j_admin_cmd = _neo4j_executable("neo4j-admin")
+        subprocess.run([neo4j_cmd, "stop"], check=False, env=env)
+        time.sleep(3)
+        if dump_target.exists():
+            dump_target.unlink()
+        subprocess.run(
+            [
+                neo4j_admin_cmd,
+                "database",
+                "dump",
+                "neo4j",
+                f"--to-path={paths.kg_dir / 'delivery'}",
+            ],
+            check=True,
+            env=env,
+        )
+        subprocess.run([neo4j_cmd, "start"], check=False, env=env)
+        dumped = True
+
+    return {
+        "entities_csv": str(entities_csv),
+        "relations_csv": str(relations_csv),
+        "imported": True,
+        "dumped": dumped,
+        "dump_path": str(dump_target) if dumped else "",
+    }
+
+
+def package_kgs(
+    paths: PipelinePaths,
+    kg_names: list[str],
+    output_name: str,
+    neo4j_import: bool = True,
+    neo4j_dump: bool = True,
+) -> dict[str, Any]:
     build_dirs = [
         (normalize_build_kg_name(name), paths.build_root_dir / normalize_build_kg_name(name))
         for name in kg_names
@@ -445,6 +664,12 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
     write_json(paths.kg_dir / "extracted" / "kg_raw.json", merged_raw)
     write_json(paths.kg_dir / "delivery" / "kg_merged.json", merged_delivery)
     write_json(paths.kg_dir / "delivery" / "entity_merge_log.json", merged_merge_log)
+    neo4j_result = generate_release_neo4j_artifacts(
+        paths,
+        merged_delivery,
+        import_to_neo4j=neo4j_import,
+        export_dump=neo4j_dump,
+    )
     write_json(
         paths.kg_dir / "package_manifest.json",
         {
@@ -454,6 +679,8 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
             "entities": len(merged_delivery["entities"]),
             "relations": len(merged_delivery["relations"]),
             "chunks": len(merged_chunks),
+            "neo4j_imported": neo4j_result.get("imported", False),
+            "neo4j_dumped": neo4j_result.get("dumped", False),
         },
     )
     return {
@@ -461,6 +688,8 @@ def package_kgs(paths: PipelinePaths, kg_names: list[str], output_name: str) -> 
         "entities": len(merged_delivery["entities"]),
         "relations": len(merged_delivery["relations"]),
         "chunks": len(merged_chunks),
+        "neo4j_imported": neo4j_result.get("imported", False),
+        "neo4j_dumped": neo4j_result.get("dumped", False),
     }
 
 

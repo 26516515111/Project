@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 
 class RagPipeline:
-    def __init__(self):
+    def __init__(self, query_only: bool = False):
         """初始化RAG流水线，加载文档、索引与检索器。
 
         Args:
@@ -40,27 +40,65 @@ class RagPipeline:
         Returns:
             None
         """
-        self.docs = load_documents(SETTINGS.docs_dir)
+        self.docs = []
         self.chunks = load_chunks_json(SETTINGS.data_dir)
-        if not self.chunks:
+        if not self.chunks and not query_only:
+            self.docs = load_documents(SETTINGS.docs_dir)
             self.chunks = TextChunker.from_settings(SETTINGS).split_documents(self.docs)
+        if not self.chunks:
+            raise RuntimeError(
+                "No chunks found for query. Please complete indexing/upload before Q&A."
+            )
         self.doc_source_map = load_doc_source_map(SETTINGS.data_dir)
         self.chunk_kg_map = load_chunk_to_kg(SETTINGS.data_dir)
+        self._validate_chunk_kg_alignment(self.chunks, self.chunk_kg_map)
         self.chunk_text_map = {c["chunk_id"]: c.get("text", "") for c in self.chunks}
         self.chunks_by_source_doc_id = self._build_chunks_by_source_doc_id(self.chunks)
         self.chunks_by_chunk_id = {c.get("chunk_id", ""): c for c in self.chunks}
         self.chunk_pos_by_chunk_id = self._build_chunk_pos_map(
             self.chunks_by_source_doc_id
         )
-        self.store = build_or_load_chroma(self.chunks, SETTINGS.index_dir)
+        self.store = build_or_load_chroma(
+            self.chunks, SETTINGS.index_dir, allow_build=not query_only
+        )
         self.bm25 = build_bm25(self.chunks)
         self.parent_retriever = build_parent_document_retriever(
             self.chunks,
             embedding_model=SETTINGS.embedding_model,
             search_k=max(1, SETTINGS.parent_retriever_k),
+            persist_dir=SETTINGS.parent_index_cache_dir,
         )
         self.decomposer = self._build_decomposer()
         self._chain = self._build_chain()
+
+    @staticmethod
+    def _validate_chunk_kg_alignment(
+        chunks: List[dict], chunk_kg_map: Dict[str, dict]
+    ) -> None:
+        if not chunks or not chunk_kg_map:
+            return
+        chunk_ids = {
+            str(item.get("chunk_id", "") or "").strip()
+            for item in chunks
+            if str(item.get("chunk_id", "") or "").strip()
+        }
+        kg_chunk_ids = {
+            str(key or "").strip() for key in chunk_kg_map.keys() if str(key or "").strip()
+        }
+        if not chunk_ids or not kg_chunk_ids:
+            return
+        overlap = chunk_ids & kg_chunk_ids
+        overlap_ratio = len(overlap) / max(1, len(kg_chunk_ids))
+        minimum_overlap = min(len(kg_chunk_ids), max(5, int(len(kg_chunk_ids) * 0.2)))
+        if len(overlap) < minimum_overlap:
+            raise RuntimeError(
+                "RAG chunks 与 chunk_to_kg 映射不一致，已拒绝启动。"
+                f" chunks={len(chunk_ids)}"
+                f" chunk_to_kg={len(kg_chunk_ids)}"
+                f" overlap={len(overlap)}"
+                f" overlap_ratio={overlap_ratio:.3f}"
+                f" data_dir={SETTINGS.data_dir}"
+            )
 
     def _build_decomposer(self) -> Optional[DecompositionQueryRetriever]:
         if SETTINGS.decomposer_method != "llm":

@@ -7,7 +7,9 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from .config import SETTINGS
 
 
-def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
+def build_or_load_chroma(
+    chunks: List[dict], index_dir: str, allow_build: bool = True
+) -> Chroma:
     """构建或加载Chroma向量库。
 
     Args:
@@ -25,6 +27,10 @@ def build_or_load_chroma(chunks: List[dict], index_dir: str) -> Chroma:
             persist_directory=persist_dir,
             embedding_function=embeddings,
             collection_name="rag_chunks",
+        )
+    if not allow_build:
+        raise RuntimeError(
+            f"Chroma index not found under '{persist_dir}'. Please run indexing first."
         )
     texts = [c["text"] for c in chunks]
     metadatas = [

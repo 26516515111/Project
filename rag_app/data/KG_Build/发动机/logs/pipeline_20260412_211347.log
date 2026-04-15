@@ -1,0 +1,13 @@
+2026-04-12 21:13:47 | INFO | 日志文件: /home/shahanshah/work/ship/Project/rag_app/data/KG_Build/发动机/logs/pipeline_20260412_211347.log
+2026-04-12 21:13:47 | INFO | 启动 KG LangGraph 流水线
+2026-04-12 21:13:47 | INFO | 标准模式执行 | kg_name=发动机 | raw_files=3 | selected=5-6 | release_kgs=['发动机']
+2026-04-12 21:13:47 | INFO | 执行步骤: [5, 6]
+2026-04-12 21:13:47 | INFO | 跳过 Step 1: 语料清洗 | kg=发动机
+2026-04-12 21:13:47 | INFO | 跳过 Step 2: 文本切块 | kg=发动机
+2026-04-12 21:13:47 | INFO | 跳过 Step 3: KG 三元组抽取 | kg=发动机
+2026-04-12 21:13:47 | INFO | 跳过 Step 4: 实体合并 | kg=发动机
+2026-04-12 21:13:47 | INFO | 开始 Step 5: Neo4j 导入与导出 | kg=发动机
+2026-04-12 21:14:09 | ERROR | 失败 Step 5: Neo4j 导入与导出 | kg=发动机 | 耗时 21.54s | Command '['/home/shahanshah/neo4j-community-5.26.0/bin/neo4j-admin', 'database', 'dump', 'neo4j', '--to-path=/home/shahanshah/work/ship/Project/rag_app/data/KG_Build/发动机/delivery']' returned non-zero exit status 1.
+2026-04-12 21:14:09 | ERROR | 流水线中断于 Step 5
+2026-04-12 21:14:09 | INFO | 状态文件已更新 | kg_name=发动机 | used_files=3 | completed_steps=[1, 2, 3, 4]
+2026-04-12 21:14:09 | INFO | 退出码: 1

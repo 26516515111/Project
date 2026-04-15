@@ -1,3 +1,4 @@
+import os
 from typing import Dict, List, Optional, Tuple
 
 from langchain_chroma import Chroma
@@ -49,6 +50,7 @@ def build_parent_document_retriever(
     chunks: List[dict],
     embedding_model: Optional[str] = None,
     search_k: int = 4,
+    persist_dir: Optional[str] = None,
 ) -> Optional[ParentDocumentRetriever]:
     global _PARENT_RETRIEVER_CACHE
     parent_docs = _group_parent_documents(chunks)
@@ -60,10 +62,14 @@ def build_parent_document_retriever(
     if _PARENT_RETRIEVER_CACHE and _PARENT_RETRIEVER_CACHE[0] == cache_key:
         return _PARENT_RETRIEVER_CACHE[1]
 
-    child_store = Chroma(
-        collection_name="rag_parent_child_runtime",
-        embedding_function=build_embeddings(embedding_model),
-    )
+    chroma_kwargs = {
+        "collection_name": "rag_parent_child_runtime",
+        "embedding_function": build_embeddings(embedding_model),
+    }
+    if persist_dir:
+        os.makedirs(persist_dir, exist_ok=True)
+        chroma_kwargs["persist_directory"] = persist_dir
+    child_store = Chroma(**chroma_kwargs)
     docstore = InMemoryStore()
     parent_splitter = RecursiveCharacterTextSplitter(
         chunk_size=3000,
@@ -81,6 +87,8 @@ def build_parent_document_retriever(
         search_kwargs={"k": max(1, int(search_k))},
     )
     retriever.add_documents(parent_docs)
+    if hasattr(child_store, "persist"):
+        child_store.persist()
     _PARENT_RETRIEVER_CACHE = (cache_key, retriever)
     return retriever
 

@@ -10,7 +10,7 @@ import re
 import shutil
 import subprocess
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -667,6 +667,313 @@ def _drop_foreign_language_noise(text: str) -> str:
     return "\n".join(kept).strip()
 
 
+def _is_brand_service_noise(text: str, heading_path: list[str] | None = None) -> bool:
+    value = str(text or "").strip()
+    heading_text = " ".join(heading_path or [])
+    if not value:
+        return False
+    combined = f"{heading_text}\n{value}".lower()
+
+    service_tokens = (
+        "经销商",
+        "授权经销商",
+        "分销商",
+        "零售商",
+        "销售办事处",
+        "合作伙伴网络",
+        "产品中心",
+        "在线培训",
+        "在线保养协议",
+        "网站",
+        "网址",
+        "vppn.volvo.com",
+        "product center",
+        "dealer",
+        "support",
+        "partner network",
+        "office",
+        "online",
+        "service center",
+    )
+    legal_tokens = (
+        "保修",
+        "条款",
+        "排放",
+        "认证",
+        "法规",
+        "责任",
+        "概不负责",
+        "法律要求",
+        "联邦",
+        "加州",
+        "warranty",
+        "emission",
+        "certified",
+        "certification",
+        "liability",
+        "regulation",
+    )
+    branding_tokens = (
+        "沃尔沃遍达",
+        "volvo penta",
+        "原厂零件",
+        "原装备件",
+    )
+    technical_tokens = (
+        "故障",
+        "报警",
+        "维修",
+        "保养",
+        "检修",
+        "诊断",
+        "步骤",
+        "调整",
+        "更换",
+        "拆卸",
+        "安装",
+        "接线",
+        "参数",
+        "规格",
+        "压力",
+        "温度",
+        "转速",
+        "电压",
+        "电流",
+        "阀",
+        "泵",
+        "过滤器",
+        "冷却剂",
+        "机油",
+        "燃油",
+        "发动机",
+        "柴油机",
+        "系统",
+    )
+    operational_tokens = (
+        "必须",
+        "应当",
+        "不得",
+        "严禁",
+        "建议",
+        "检查",
+        "测试",
+        "清洁",
+        "校准",
+        "排空",
+    )
+
+    service_hits = sum(1 for token in service_tokens if token in combined)
+    legal_hits = sum(1 for token in legal_tokens if token in combined)
+    branding_hits = sum(1 for token in branding_tokens if token in combined)
+    technical_hits = sum(1 for token in technical_tokens if token in combined)
+    operational_hits = sum(1 for token in operational_tokens if token in combined)
+    digit_hits = len(re.findall(r"\d", value))
+
+    noise_titles = {
+        "美国市场的具体条款",
+        "保修",
+        "排放认证",
+        "原厂沃尔沃遍达零件",
+        "一般信息",
+        "通用信息",
+        "产品中心",
+        "在线培训",
+        "合作伙伴网络",
+        "销售办事处",
+        "原厂零件",
+        "服务与支持",
+        "通过备件系统的其他订单",
+    }
+    heading_core = re.sub(r"^\[H[1-6]\]\s+", "", heading_text).strip()
+    if any(title in heading_core for title in noise_titles):
+        if service_hits + legal_hits + branding_hits >= 2:
+            return True
+
+    if legal_hits >= 2 and operational_hits == 0:
+        return True
+    if service_hits >= 2 and technical_hits <= 3:
+        return True
+    if branding_hits >= 3 and service_hits + legal_hits >= 1 and operational_hits == 0:
+        return True
+    if branding_hits >= 4 and technical_hits <= 4 and digit_hits < 6:
+        return True
+    return False
+
+
+def _is_brand_service_line(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return False
+    if stripped.startswith("[IMG "):
+        return False
+
+    lowered = stripped.lower()
+    plain = re.sub(r"^\[H[1-6]\]\s+", "", stripped).strip()
+
+    hard_noise_tokens = (
+        "授权经销商",
+        "经销商",
+        "零售商",
+        "分销商",
+        "销售办事处",
+        "合作伙伴网络",
+        "产品中心",
+        "在线培训",
+        "在线保养协议",
+        "vppn.volvo.com",
+        "product center",
+        "partner network",
+        "dealer",
+        "service center",
+        "联系我们",
+        "联系您的沃尔沃",
+        "联系最近的",
+        "通过备件系统的其他订单",
+        "通过备件系统",
+        "vppn",
+        "维修车间",
+        "经授权",
+        "专业培训人员",
+        "不承担任何责任",
+        "网址",
+        "网站",
+        "www.",
+        "http://",
+        "https://",
+    )
+    legal_noise_tokens = (
+        "保修",
+        "保修条款",
+        "排放认证",
+        "排放法规",
+        "法律要求",
+        "责任限制",
+        "概不负责",
+        "联邦",
+        "加州",
+        "未经专业培训",
+        "warranty",
+        "emission",
+        "regulation",
+        "certification",
+        "liability",
+    )
+    brand_tokens = (
+        "沃尔沃遍达",
+        "volvo penta",
+        "原厂零件",
+        "原装备件",
+    )
+    technical_tokens = (
+        "故障",
+        "报警",
+        "维修",
+        "保养",
+        "检修",
+        "诊断",
+        "步骤",
+        "调整",
+        "更换",
+        "拆卸",
+        "安装",
+        "接线",
+        "技术参数",
+        "参数",
+        "规格",
+        "压力",
+        "温度",
+        "转速",
+        "电压",
+        "电流",
+        "扭矩",
+        "滤清器",
+        "过滤器",
+        "阀",
+        "泵",
+        "冷却剂",
+        "机油",
+        "燃油",
+        "喷油器",
+        "发动机",
+        "柴油机",
+        "系统",
+    )
+    operational_tokens = (
+        "必须",
+        "应当",
+        "不得",
+        "严禁",
+        "检查",
+        "测试",
+        "清洁",
+        "校准",
+        "排空",
+        "紧固",
+        "拆下",
+        "装回",
+    )
+
+    hard_noise_hits = sum(1 for token in hard_noise_tokens if token in lowered)
+    legal_hits = sum(1 for token in legal_noise_tokens if token in lowered)
+    brand_hits = sum(1 for token in brand_tokens if token in lowered)
+    technical_hits = sum(1 for token in technical_tokens if token in lowered)
+    operational_hits = sum(1 for token in operational_tokens if token in lowered)
+
+    if hard_noise_hits >= 1 and technical_hits == 0:
+        return True
+    if hard_noise_hits >= 2:
+        return True
+    if "零件号" in lowered and ("套件" in lowered or "订单" in lowered or "软管卷轴" in lowered):
+        return True
+    if legal_hits >= 1 and brand_hits >= 1 and technical_hits == 0:
+        return True
+    if legal_hits >= 2 and operational_hits == 0:
+        return True
+    if brand_hits >= 2 and technical_hits == 0:
+        return True
+    if re.search(r"(联系|咨询).*(经销商|零售商|销售办事处|合作伙伴网络)", plain):
+        return True
+    return False
+
+
+def _prune_brand_service_lines(text: str) -> str:
+    lines = text.splitlines()
+    kept: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if kept and kept[-1] != "":
+                kept.append("")
+            continue
+        if _is_brand_service_line(stripped):
+            continue
+        kept.append(line)
+
+    pruned = "\n".join(kept).strip()
+    pruned = re.sub(r"\n{3,}", "\n\n", pruned).strip()
+    return pruned
+
+
+def _drop_brand_service_sections(text: str) -> str:
+    sections = _build_sections_from_headings(text)
+    if not sections:
+        return _prune_brand_service_lines(text.strip())
+    kept: list[str] = []
+    for section in sections:
+        section_text = section.get("text", "")
+        heading_path = section.get("heading_path", [])
+        if _is_brand_service_noise(section_text, heading_path):
+            continue
+        pruned_text = _prune_brand_service_lines(section_text)
+        if not pruned_text.strip():
+            continue
+        if _is_brand_service_noise(pruned_text, heading_path):
+            continue
+        kept.append(pruned_text)
+    return "\n\n".join(item for item in kept if item.strip()).strip()
+
+
 def _inject_leading_context_heading(text: str) -> str:
     lines = text.splitlines()
     if not lines:
@@ -807,6 +1114,7 @@ def clean_text(text: str, paths: PipelinePaths, doc_id: str) -> tuple[str, list[
     cleaned = _drop_leading_preface_sections(cleaned)
     cleaned = _inject_leading_context_heading(cleaned)
     cleaned = _rebalance_heading_levels(cleaned)
+    cleaned = _drop_brand_service_sections(cleaned)
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned).strip()
     return cleaned, saved_images
 
@@ -971,6 +1279,8 @@ def _is_low_value_chunk(text: str, heading_path: list[str], semantic_group: str)
     )
     if any(token in lowered or token in heading_text for token in noisy_tokens):
         return True
+    if _is_brand_service_noise(text, heading_path):
+        return True
 
     contact_hits = 0
     for line in text.splitlines():
@@ -1077,6 +1387,51 @@ def _chunk_keep_score(chunk: dict[str, Any]) -> int:
         score -= 40
 
     return max(0, min(100, score))
+
+
+def _chunk_filter_reason(paths: PipelinePaths, chunk: dict[str, Any], fast_score: int) -> str | None:
+    """面向 step2 的规则化筛选：优先剔除图片墙、目录噪声和重复低信息块。"""
+    text = str(chunk.get("text", ""))
+    semantic_group = str(chunk.get("semantic_group", "overview"))
+    heading_path = chunk.get("heading_path", [])
+
+    img_count = text.count("[IMG path=")
+    text_wo_img = re.sub(r"\[IMG path=[^\]]+\]", " ", text)
+    text_wo_heading = re.sub(r"\[H[1-6]\]\s*", " ", text_wo_img)
+    pure_text = re.sub(r"\s+", "", text_wo_heading)
+    pure_chars = len(pure_text)
+
+    raw_lines = [line.strip() for line in text_wo_heading.splitlines() if line.strip()]
+    line_count = len(raw_lines)
+    line_counter = Counter(raw_lines)
+    top_repeat_ratio = (
+        max(line_counter.values()) / line_count
+        if line_count and line_counter
+        else 0.0
+    )
+    toc_like_hits = sum(1 for line in raw_lines if _looks_like_toc_entry(line))
+    toc_ratio = toc_like_hits / line_count if line_count else 0.0
+
+    if img_count >= 10 and pure_chars < 700:
+        return "image_wall_low_text"
+    if img_count >= 6 and pure_chars < 360:
+        return "image_dominant"
+    if toc_like_hits >= 6 and toc_ratio >= 0.55:
+        return "toc_heavy"
+    if line_count >= 10 and top_repeat_ratio >= 0.38 and pure_chars < 900:
+        return "high_repetition"
+
+    is_hydraulic = PipelinePaths.normalize_kg_name(paths.kg_name) == "液压"
+    if is_hydraulic:
+        # 液压语料中图片页和封面目录页比例高，适度提高过滤强度。
+        if img_count >= 4 and pure_chars < 500 and fast_score < 65:
+            return "hydraulic_image_bias"
+        if semantic_group in {"overview", "component"} and pure_chars < 180 and fast_score < 62:
+            return "hydraulic_short_low_signal"
+
+    if _is_low_value_chunk(text, heading_path, semantic_group) and fast_score < 55:
+        return "low_value_score"
+    return None
 
 
 def _build_sections_from_headings(text: str) -> list[dict[str, Any]]:
@@ -1572,6 +1927,7 @@ def chunk_documents(
     )
     dropped_total = 0
     dropped_by_doc: dict[str, int] = {}
+    dropped_reason_counts: dict[str, int] = {}
     for source in cleaned_files:
         text = source.read_text(encoding="utf-8")
         doc_id = make_doc_id(source.name)
@@ -1584,9 +1940,11 @@ def chunk_documents(
         for chunk in semantic_chunks:
             fast_score = _chunk_keep_score(chunk)
             chunk["pre_prune_score"] = fast_score
-            if _is_low_value_chunk(chunk.get("text", ""), chunk.get("heading_path", []), chunk.get("semantic_group", "overview")) and fast_score < 55:
+            reason = _chunk_filter_reason(paths, chunk, fast_score)
+            if reason:
                 dropped_total += 1
                 dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + 1
+                dropped_reason_counts[reason] = dropped_reason_counts.get(reason, 0) + 1
                 continue
             ranked_chunks.append((fast_score, chunk))
 
@@ -1636,6 +1994,7 @@ def chunk_documents(
         "chunks": len(chunks),
         "dropped_chunks": dropped_total,
         "dropped_by_doc": dropped_by_doc,
+        "dropped_reason_counts": dropped_reason_counts,
     }
 
 

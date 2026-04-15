@@ -68,7 +68,7 @@ from .steps import (
     merge_entities,
     build_semantic_chunks,
     _semantic_family,
-    _is_low_value_chunk,
+    _chunk_filter_reason,
     _chunk_keep_score,
     split_text_by_heading_tags,
     validate_extracted,
@@ -115,6 +115,7 @@ class ChunkState(TypedDict, total=False):
     doc_source_map: list[dict]
     dropped_chunks: int
     dropped_by_doc: dict[str, int]
+    dropped_reason_counts: dict[str, int]
 
 
 class ExtractState(TypedDict, total=False):
@@ -321,6 +322,7 @@ def prepare_chunk_node(state: ChunkState) -> ChunkState:
         "doc_source_map": [],
         "dropped_chunks": 0,
         "dropped_by_doc": {},
+        "dropped_reason_counts": {},
     }
 
 
@@ -347,21 +349,17 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
     doc_source_map = list(state.get("doc_source_map", []))
     dropped_chunks = int(state.get("dropped_chunks", 0))
     dropped_by_doc = dict(state.get("dropped_by_doc", {}))
+    dropped_reason_counts = dict(state.get("dropped_reason_counts", {}))
     doc_id = source.stem
     ranked_chunks: list[tuple[int, dict[str, Any]]] = []
     for chunk in semantic_chunks:
         fast_score = _chunk_keep_score(chunk)
         chunk["pre_prune_score"] = fast_score
-        if (
-            _is_low_value_chunk(
-                chunk.get("text", ""),
-                chunk.get("heading_path", []),
-                chunk.get("semantic_group", "overview"),
-            )
-            and fast_score < 55
-        ):
+        reason = _chunk_filter_reason(paths, chunk, fast_score)
+        if reason:
             dropped_chunks += 1
             dropped_by_doc[doc_id] = dropped_by_doc.get(doc_id, 0) + 1
+            dropped_reason_counts[reason] = dropped_reason_counts.get(reason, 0) + 1
             continue
         ranked_chunks.append((fast_score, chunk))
 
@@ -498,6 +496,7 @@ def chunk_file_node(state: ChunkState) -> ChunkState:
         "doc_source_map": doc_source_map,
         "dropped_chunks": dropped_chunks,
         "dropped_by_doc": dropped_by_doc,
+        "dropped_reason_counts": dropped_reason_counts,
         "file_cursor": file_cursor + 1,
     }
 
@@ -696,20 +695,29 @@ def dump_neo4j_node(state: Neo4jState) -> Neo4jState:
         env["JAVA_HOME"] = java_home
     neo4j_cmd = _neo4j_executable("neo4j")
     neo4j_admin_cmd = _neo4j_executable("neo4j-admin")
+    dump_target = state["paths"].neo4j_dump_path
+    if dump_target.exists():
+        backup_target = numbered_path(
+            state["paths"].delivery_backups_dir / dump_target.name
+        )
+        backup_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(dump_target), str(backup_target))
     subprocess.run([neo4j_cmd, "stop"], check=False, env=env)
     time.sleep(3)
-    subprocess.run(
-        [
-            neo4j_admin_cmd,
-            "database",
-            "dump",
-            "neo4j",
-            f"--to-path={state['paths'].delivery_dir}",
-        ],
-        check=True,
-        env=env,
-    )
-    subprocess.run([neo4j_cmd, "start"], check=False, env=env)
+    try:
+        subprocess.run(
+            [
+                neo4j_admin_cmd,
+                "database",
+                "dump",
+                "neo4j",
+                f"--to-path={state['paths'].delivery_dir}",
+            ],
+            check=True,
+            env=env,
+        )
+    finally:
+        subprocess.run([neo4j_cmd, "start"], check=False, env=env)
     return {"dumped": True}
 
 
@@ -1699,6 +1707,7 @@ def run_chunk_workflow(paths: PipelinePaths) -> dict[str, Any]:
         "documents": len(final_state.get("doc_source_map", [])),
         "chunks": len(final_state.get("chunks", [])),
         "dropped_chunks": final_state.get("dropped_chunks", 0),
+        "dropped_reason_counts": final_state.get("dropped_reason_counts", {}),
     }
 
 

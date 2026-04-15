@@ -18,6 +18,7 @@ class PipelinePaths:
     backups_dir: Path
     archives_dir: Path
     cleaned_backups_dir: Path
+    delivery_backups_dir: Path
     images_dir: Path
     logs_dir: Path
     raw_dir: Path
@@ -58,6 +59,7 @@ class PipelinePaths:
             backups_dir=kg_dir / "backups",
             archives_dir=kg_dir / "backups" / "archives",
             cleaned_backups_dir=kg_dir / "backups" / "cleaned",
+            delivery_backups_dir=kg_dir / "backups" / "delivery",
             images_dir=build_dir / "images",
             logs_dir=build_dir / "logs",
             raw_dir=build_dir / "raw",
@@ -141,6 +143,7 @@ class PipelinePaths:
         self.backups_dir.mkdir(parents=True, exist_ok=True)
         self.archives_dir.mkdir(parents=True, exist_ok=True)
         self.cleaned_backups_dir.mkdir(parents=True, exist_ok=True)
+        self.delivery_backups_dir.mkdir(parents=True, exist_ok=True)
         self.images_dir.mkdir(parents=True, exist_ok=True)
         self.logs_dir.mkdir(parents=True, exist_ok=True)
         self.raw_dir.mkdir(parents=True, exist_ok=True)

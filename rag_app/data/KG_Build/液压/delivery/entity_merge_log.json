@@ -1,0 +1,524 @@
+[
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump System",
+    "merged_from": "SMP Series Hydraulic Pump System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Control Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Control Valve"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "merged_from": "SMP Series Hydraulic Pump_Hydraulic Oil Spec"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Equipment Damage",
+    "merged_from": "SMP Series Hydraulic Pump_Equipment Damage"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump System",
+    "merged_from": "SMP Series Hydraulic Pump System"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Pressure Regulating Valve"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Max Working Pressure",
+    "merged_from": "SMP Series Hydraulic Pump_Max Working Pressure"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Ambient Temperature",
+    "merged_from": "SMP Series Hydraulic Pump_Ambient Temperature"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "merged_from": "SMP Series Hydraulic Pump_Hydraulic Oil Spec"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Air Source",
+    "merged_from": "SMP Series Hydraulic Pump_Air Source"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_High Pressure Hose",
+    "merged_from": "SMP Series Hydraulic Pump_High Pressure Hose"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Equipment Damage",
+    "merged_from": "SMP Series Hydraulic Pump_Equipment Damage"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Personal Injury",
+    "merged_from": "SMP Series Hydraulic Pump_Personal Injury"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Warning Plate",
+    "merged_from": "SMP Series Hydraulic Pump_Warning Plate"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Personal Injury",
+    "merged_from": "SMP Series Hydraulic Pump_Personal Injury"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Filter plate",
+    "merged_from": "SMP Series Hydraulic Pump_Filter plate"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Pressure Regulating Valve"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Check valve",
+    "merged_from": "SMP Series Hydraulic Pump_Check valve"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Instrument",
+    "merged_from": "SMP Series Hydraulic Pump_Instrument"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "非垂直安装额外支持要求",
+    "merged_from": "非垂直安装额外支持要求"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "使用管道支架或伸缩节",
+    "merged_from": "使用管道支架或伸缩节"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "法兰紧固件对角交叉均匀拧紧",
+    "merged_from": "法兰紧固件对角交叉均匀拧紧"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "法兰错位连接",
+    "merged_from": "法兰错位连接"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门受力过度变形",
+    "merged_from": "阀门受力过度变形"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "merged_from": "船舶管路系统_ZP300 型阀门_气动执行机构"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_手轮",
+    "merged_from": "船舶管路系统_ZP300 型阀门_手轮"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "merged_from": "船舶管路系统_ZP300 型阀门_气动执行机构"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_活塞杆",
+    "merged_from": "船舶管路系统_ZP300 型阀门_活塞杆"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀",
+    "merged_from": "阀门管路系统_三偏心阀"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_阀瓣",
+    "merged_from": "阀门管路系统_三偏心阀_阀瓣"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_执行机构",
+    "merged_from": "阀门管路系统_三偏心阀_执行机构"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_安装方向指示",
+    "merged_from": "阀门管路系统_三偏心阀_安装方向指示"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Rosemount 3051S 无线压力变送器",
+    "merged_from": "Rosemount 3051S 无线压力变送器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "375 现场手操器",
+    "merged_from": "375 现场手操器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "AMS 软件",
+    "merged_from": "AMS 软件"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Rosemount 3051S 无线压力变送器",
+    "merged_from": "Rosemount 3051S 无线压力变送器"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "智能无线网关",
+    "merged_from": "智能无线网关"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Hydraulic Control Module",
+    "entity_b": "SMP Series Hydraulic Pump_Pneumatic Control Module",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9611
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_气缸",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9806
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_控制附件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.971
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料压盖调整",
+    "entity_b": "船舶管路系统_ZP300 型阀门_填料压盖安装",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9631
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料压盖调整",
+    "entity_b": "船舶管路系统_ZP300 型阀门_更换填料",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9237
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料层交替安放",
+    "entity_b": "船舶管路系统_ZP300 型阀门_更换填料",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9224
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_安装方式 A",
+    "entity_b": "船舶管路系统_ZP300 型阀门_安装方式 C",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.953
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构_长期储存润滑维护",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_气孔封堵维护",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9264
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_管路冲洗",
+    "entity_b": "阀门管路系统_三偏心阀_轴承定期冲洗",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9215
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_轴承连续冲洗",
+    "entity_b": "阀门管路系统_三偏心阀_轴承定期冲洗",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9568
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_组态网络参数",
+    "entity_b": "Rosemount 3051S 无线压力变送器_组态设备显示",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9293
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_组态网络参数",
+    "entity_b": "Rosemount 3051S 无线压力变送器_组态换算变量",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9251
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_无线设备加电",
+    "entity_b": "Rosemount 3051S 无线压力变送器_安装电源模块",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9327
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_法兰转接器安装",
+    "entity_b": "Rosemount 3051S 无线压力变送器_安装法兰适配器",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9747
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Pressure Adjustment Safety",
+    "entity_b": "SMP Series Hydraulic Pump_Pressure Adjustment Connection Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.951
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_High Pressure Pipe Safety",
+    "entity_b": "SMP Series Hydraulic Pump_High Pressure Fluid Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9406
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Hose Bending Safety",
+    "entity_b": "SMP Series Hydraulic Pump_Hose Winding Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9213
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_危险物质处理安全",
+    "entity_b": "Rosemount 3051S 无线压力变送器_防爆接线安全",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9219
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_外壳盖金属接触安全",
+    "entity_b": "Rosemount 3051S 无线压力变送器_外壳金属接触确认",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9302
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀体材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_闸板材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9527
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀体材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_阀座材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.983
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀座材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_填料材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9525
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_ASME B16.5 标准",
+    "entity_b": "船舶管路系统_ZP300 型阀门_ASME B16.47 标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9509
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_压力",
+    "entity_b": "Rosemount 3051S 无线压力变送器_供电电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9508
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_传感器温度",
+    "entity_b": "Rosemount 3051S 无线压力变送器_传感器温度单位",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9546
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Material Defect",
+    "entity_b": "SMP Series Hydraulic Pump_Manufacturing Defect",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9454
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_导压管残留气体",
+    "entity_b": "Rosemount 3051S 无线压力变送器_导压管残留液体",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.967
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_阀门检查",
+    "entity_b": "阀门管路系统_三偏心阀_行程验证",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9289
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_阀门检查",
+    "entity_b": "阀门管路系统_三偏心阀_水压测试",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9272
+  }
+]

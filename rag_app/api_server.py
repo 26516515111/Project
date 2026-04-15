@@ -55,6 +55,11 @@ def _reload_pipeline() -> None:
         _pipeline = RagPipeline()
 
 
+@app.on_event("startup")
+def on_startup() -> None:
+    _start_warmup_async()
+
+
 def _sanitize_user_id(user_id: str) -> str:
     cleaned = re.sub(r"[^a-zA-Z0-9_-]", "_", str(user_id or "").strip())
     return cleaned[:64] or "anonymous"
@@ -315,7 +320,9 @@ async def upload_incremental_file(
             stats = run_incremental_update(target_paths=[str(save_path_abs)])
             _reload_pipeline()
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"incremental indexing failed: {exc}") from exc
+        raise HTTPException(
+            status_code=500, detail=f"incremental indexing failed: {exc}"
+        ) from exc
 
     return {
         "ok": True,

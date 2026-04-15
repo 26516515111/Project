@@ -29,13 +29,17 @@ def env_list(key: str, default: str) -> list[str]:
 class Settings:
     # Paths
     data_dir = env(
-        "RAG_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "data")
+        "RAG_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "docs")
     )
     docs_dir = env(
         "RAG_DOCS_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "docs")
     )
     index_dir = env(
         "RAG_INDEX_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "index")
+    )
+    parent_index_cache_dir = env(
+        "RAG_PARENT_INDEX_CACHE_DIR",
+        os.path.join(os.path.dirname(__file__), "..", "data", "index", "parent_child"),
     )
     kg_dir = env(
         "RAG_KG_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "KG")
@@ -167,7 +171,11 @@ class Settings:
 
     # RAG_LLM_API_KEY / MODELSCOPE_API_KEY / LLM_API_KEY：LLM鉴权密钥
     llm_api_key = env(
-        "RAG_LLM_API_KEY", env("MODELSCOPE_API_KEY", env("LLM_API_KEY", "ms-49891fe4-7e57-48d8-836e-1160b8f89ac9"))
+        "RAG_LLM_API_KEY",
+        env(
+            "MODELSCOPE_API_KEY",
+            env("LLM_API_KEY", "ms-49891fe4-7e57-48d8-836e-1160b8f89ac9"),
+        ),
     )
 
     # Neo4j模块

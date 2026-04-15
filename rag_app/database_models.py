@@ -51,6 +51,7 @@ class ChatSession(Base):
 
     id = Column(String, primary_key=True, index=True) # 会话的唯一ID (如时间戳或UUID)
     user_id = Column(String, ForeignKey("users.user_id"), nullable=False)
+    title = Column(String, default="未命名会话")
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # 关联用户和消息
@@ -141,6 +142,7 @@ def init_db():
     """在应用启动时调用此函数以创建表"""
     Base.metadata.create_all(bind=engine)
     _ensure_sqlite_column("user_settings", "avatar", "TEXT DEFAULT ''")
+    _ensure_sqlite_column("chat_sessions", "title", "VARCHAR DEFAULT '未命名会话'")
     _ensure_sqlite_column("chat_messages", "kg_triplets", "TEXT")
     _ensure_sqlite_column("chat_messages", "extra_data", "TEXT")
 

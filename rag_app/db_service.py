@@ -12,7 +12,6 @@ from database_models import (
     User,
     UserSettings,
     init_db,
-    sync_legacy_db,
 )
 
 
@@ -107,13 +106,14 @@ def _ensure_user(db, user_id: str, password: str, role: int, nickname: str) -> U
 
 
 def initialize_database() -> None:
-    sync_legacy_db()
+    """初始化/同步数据库"""
+    # 将原来的 sync_legacy_db() 调用改为 init_db()
     init_db()
     with SessionLocal() as db:
         _ensure_user(db, "admin", "123456", 1, "王轮机长")
         _ensure_user(db, "captain_park", "123456", 0, "Captain Park")
         db.commit()
-    sync_legacy_db()
+    # sync_legacy_db()
 
 
 def authenticate_user(user_id: str, password: str) -> Optional[Dict[str, Any]]:
@@ -202,9 +202,10 @@ def _message_to_dict(msg: ChatMessage) -> Dict[str, Any]:
 
 def _session_to_dict(session: ChatSession) -> Dict[str, Any]:
     messages = sorted(session.messages or [], key=lambda m: m.created_at or datetime.utcnow())
+    title = getattr(session, "title", None) or "未命名会话"
     return {
         "id": session.id,
-        "title": session.title or "未命名会话",
+        "title": title,
         "messages": [_message_to_dict(m) for m in messages],
         "createdAt": (session.created_at or datetime.utcnow()).isoformat(),
     }
@@ -243,11 +244,16 @@ def replace_user_chats(user_id: str, chats: List[Dict[str, Any]]) -> List[Dict[s
 
         for chat in chats or []:
             session_id = str(chat.get("id") or uuid.uuid4())
+            session_kwargs = {
+                "id": session_id,
+                "user_id": uid,
+                "created_at": datetime.utcnow(),
+            }
+            if hasattr(ChatSession, "title"):
+                session_kwargs["title"] = str(chat.get("title") or "未命名会话")
+
             session = ChatSession(
-                id=session_id,
-                user_id=uid,
-                title=str(chat.get("title") or "未命名会话"),
-                created_at=datetime.utcnow(),
+                **session_kwargs,
             )
             db.add(session)
             db.flush()

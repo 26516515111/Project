@@ -1,4 +1,6 @@
 import re
+import os
+import sys
 import threading
 import time
 import json
@@ -23,6 +25,22 @@ from db_service import (
     replace_user_chats,
     save_user_settings,
 )
+
+
+def _configure_stdio_for_windows() -> None:
+    if os.name != "nt":
+        return
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            try:
+                reconfigure(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+
+
+_configure_stdio_for_windows()
 
 
 app = FastAPI(title="RAG LangServe Backend", version="1.0.0")

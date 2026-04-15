@@ -10,3 +10,9 @@ rag_app/.cache/
 rag_app/data/KG/logs/
 rag_app/data/KG/backups/
 lib/
+# 忽略 Chroma 索引
+rag_app/data/index/chroma/
+# 忽略其他可能生成的临时或数据文件
+*.sqlite3
+.env
+.venv

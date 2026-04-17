@@ -1169,7 +1169,7 @@ export default function Setting({
             style={{ background: themeSurface, color: "#d1d5db", margin: 0, overflow: "hidden" }}
         >
             {/* ========== 左侧边栏 ========== */}
-            <aside className="w-64 z-20 flex flex-col h-full shrink-0"
+            <aside className={`setting-sidebar w-64 z-20 flex flex-col h-full shrink-0 ${isLightUi ? "setting-sidebar-light" : ""}`}
                 style={{
                     background: isLightUi ? "rgba(255, 255, 255, 0.92)" : "rgba(4, 21, 39, 0.7)",
                     backdropFilter: "blur(20px)",
@@ -1208,7 +1208,7 @@ export default function Setting({
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sm text-left ${activeTab === tab.id
-                                ? "bg-teal-500/10 border border-teal-500/20 text-teal-400"
+                                ? "bg-sky-500/10 border border-sky-400/25 text-sky-300"
                                 : "text-gray-400 hover:text-gray-200 hover:bg-white/5"
                                 }`}
                         >
@@ -1267,8 +1267,8 @@ export default function Setting({
                         </div>
                         <h1 className="text-base font-medium" style={{ color: isLightUi ? "#0f172a" : "#f3f4f6" }}>{currentTabLabel}</h1>
                     </div>
-                    <button onClick={handleSave} className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors shadow-lg"
-                        style={{ background: "#0d9488" }}>
+                    <button onClick={handleSave} className={`save-btn flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors shadow-lg ${isLightUi ? "save-btn-light" : ""}`}
+                        style={{ background: "#38bdf8" }}>
                         <i className="ph ph-floppy-disk text-lg"></i> 保存更改
                     </button>
                 </header>
@@ -1313,7 +1313,7 @@ export default function Setting({
         .db-setting-light .text-gray-400,
         .db-setting-light .text-gray-500,
         .db-setting-light .text-gray-600 {
-          color: #475569 !important;
+          color: #334155 !important;
         }
         .db-setting-light .text-gray-200,
         .db-setting-light .text-gray-300 {
@@ -1378,19 +1378,50 @@ export default function Setting({
           width: 14px;
           height: 14px;
           border-radius: 999px;
-          background: #0d9488;
+          background: #38bdf8;
           border: 2px solid #ffffff;
-          box-shadow: 0 0 0 1px rgba(13, 148, 136, 0.3);
+          box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.32);
           cursor: pointer;
         }
         .db-setting-light .range-slider::-moz-range-thumb {
           width: 14px;
           height: 14px;
           border-radius: 999px;
-          background: #0d9488;
+          background: #38bdf8;
           border: 2px solid #ffffff;
-          box-shadow: 0 0 0 1px rgba(13, 148, 136, 0.3);
+          box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.32);
           cursor: pointer;
+        }
+        .db-setting-light .save-btn-light {
+          background: #38bdf8 !important;
+          box-shadow: 0 10px 24px rgba(56, 189, 248, 0.26) !important;
+        }
+        .db-setting-light .save-btn-light:hover {
+          background: #0ea5e9 !important;
+        }
+        .setting-sidebar {
+          position: relative;
+          overflow: hidden;
+        }
+        .setting-sidebar::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0.03) 35%, transparent 72%);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .setting-sidebar > * {
+          position: relative;
+          z-index: 1;
+        }
+        .db-setting-light .setting-sidebar-light {
+          background: linear-gradient(180deg, rgba(239, 246, 255, 0.98) 0%, rgba(255, 255, 255, 0.95)) !important;
+          border-right: 1px solid rgba(148, 163, 184, 0.44) !important;
+          box-shadow: 8px 0 24px rgba(148, 163, 184, 0.16);
+        }
+        .db-setting-light .setting-sidebar-light::before {
+          background: linear-gradient(180deg, rgba(147, 197, 253, 0.35) 0%, rgba(191, 219, 254, 0.2) 30%, transparent 72%);
         }
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(5px); }

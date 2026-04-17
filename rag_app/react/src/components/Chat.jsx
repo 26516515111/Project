@@ -519,6 +519,18 @@ export default function Chat({ user }) {
   const isLightUi = effectiveTheme === "light";
 
   useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+    const parsedFontSize = Number(userSettings?.fontSize);
+    const nextFontSize =
+      Number.isFinite(parsedFontSize) && parsedFontSize > 0
+        ? parsedFontSize
+        : DEFAULT_USER_SETTINGS.fontSize;
+    document.documentElement.style.fontSize = `${nextFontSize}px`;
+  }, [userSettings?.fontSize]);
+
+  useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
       return undefined;
     }
@@ -1553,7 +1565,7 @@ export default function Chat({ user }) {
                   <button
                     type="button"
                     onClick={() => resumeStreaming(msg.id)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 hover:bg-teal-500/20 transition-colors text-xs border border-teal-500/20"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 text-sky-300 hover:bg-sky-500/20 transition-colors text-xs border border-sky-500/25"
                   >
                     <i className="ph ph-play"></i> 继续回答
                   </button>
@@ -1655,14 +1667,14 @@ export default function Chat({ user }) {
             </div>
           </div>
 
-          <button onClick={handleNewChat} className="w-full py-2.5 px-4 rounded-lg bg-teal-500 hover:bg-teal-400 text-white transition-colors flex items-center justify-center gap-2 text-sm font-medium shadow-lg shadow-teal-500/20">
+          <button onClick={handleNewChat} className="new-chat-btn w-full py-2.5 px-4 rounded-lg bg-sky-400 hover:bg-sky-500 text-white transition-colors flex items-center justify-center gap-2 text-sm font-medium shadow-lg shadow-sky-500/20">
             <i className="ph ph-plus-circle text-lg"></i>
             新建会话
           </button>
         </div>
 
         <div className="flex-1 overflow-y-auto px-3 pb-3 flex flex-col custom-scrollbar">
-          <p className="px-2 text-xs font-medium text-gray-500 mb-3 mt-2 shrink-0">历史记录</p>
+          <p className="history-label px-2 text-xs font-medium text-gray-500 mb-3 mt-2 shrink-0">历史记录</p>
           <div className="space-y-1">
             {chats.map((chat) => {
               const isActive = chat.id === currentChatId;
@@ -1670,13 +1682,17 @@ export default function Chat({ user }) {
                 <div
                   key={chat.id}
                   onClick={() => loadChat(chat.id)}
-                  className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${isActive
-                    ? "bg-teal-500/10 border border-teal-500/20"
-                    : "hover:bg-white/5 text-gray-400 hover:text-gray-200"
+                  className={`history-item group flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${isActive
+                    ? isLightUi
+                      ? "bg-blue-50 border border-blue-200 text-blue-700"
+                      : "bg-sky-500/10 border border-sky-400/25"
+                    : isLightUi
+                      ? "text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-transparent"
+                      : "hover:bg-white/5 text-gray-400 hover:text-gray-200"
                     }`}
                 >
-                  <i className={`ph ph-chat-centered-text text-lg ${isActive ? "text-teal-400" : ""}`}></i>
-                  <span className={`text-sm truncate flex-1 ${isActive ? "text-teal-100" : ""}`}>
+                  <i className={`ph ph-chat-centered-text text-lg ${isActive ? (isLightUi ? "text-blue-600" : "text-sky-300") : ""}`}></i>
+                  <span className={`text-sm truncate flex-1 ${isActive ? (isLightUi ? "text-blue-800" : "text-sky-100") : ""}`}>
                     {chat.title}
                   </span>
                 </div>
@@ -1709,6 +1725,40 @@ export default function Chat({ user }) {
       {/* ========== 主内容区 ========== */}
       <main className="flex-1 flex flex-col relative z-10 overflow-hidden" style={{ background: themeSurface.mainBg }}>
         <div className="glow-bg"></div>
+        <svg
+          className={`wave-bg ${isLightUi ? "wave-light" : "wave-dark"}`}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g className="wave-parallax">
+            <use
+              className="wave-layer wave-layer-1"
+              xlinkHref="#wave"
+              x="48"
+              y="0"
+              fill={isLightUi ? "rgba(186, 230, 253, 0.14)" : "rgba(13, 148, 136, 0.18)"}
+            />
+            <use
+              className="wave-layer wave-layer-2"
+              xlinkHref="#wave"
+              x="48"
+              y="3"
+              fill={isLightUi ? "rgba(147, 197, 253, 0.18)" : "rgba(17, 53, 90, 0.28)"}
+            />
+            <use
+              className="wave-layer wave-layer-3"
+              xlinkHref="#wave"
+              x="48"
+              y="7"
+              fill={isLightUi ? "rgba(191, 219, 254, 0.22)" : "rgba(4, 21, 39, 0.48)"}
+            />
+          </g>
+        </svg>
 
         <header className="h-16 flex items-center justify-between px-6 shrink-0 relative z-20 glass-header">
           <div className="flex items-center gap-2">
@@ -1733,37 +1783,39 @@ export default function Chat({ user }) {
 
         {/* 欢迎界面 */}
         {isWelcome && (
-          <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center text-center p-8 pb-32 relative z-10 custom-scrollbar">
-            <div className="relative mb-8">
-              <div className="w-20 h-20 rounded-2xl bg-[#0a2530] border border-teal-500/20 flex items-center justify-center relative z-10">
-                <i className="ph ph-steering-wheel text-4xl text-teal-400"></i>
-                <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center border-2 border-[#041527]">
-                  <i className="ph ph-sparkle text-white text-[10px]"></i>
+          <div className="flex-1 overflow-y-auto relative z-10 custom-scrollbar">
+            <div className="welcome-wrap">
+              <div className="logo-wrap">
+                <div className="logo-glow"></div>
+                <div className="particles">
+                  <div className="particle" style={{ top: "50%", left: "50%" }}></div>
+                  <div className="particle" style={{ top: "50%", left: "50%", animationDelay: "2s" }}></div>
+                </div>
+                <div className="logo-box">
+                  <i className="ph ph-steering-wheel"></i>
                 </div>
               </div>
-              <div className="absolute -top-4 -left-4 w-1.5 h-1.5 bg-teal-500/50 rounded-full"></div>
-              <div className="absolute top-1/2 -right-8 w-1 h-1 bg-gray-500/50 rounded-full"></div>
-            </div>
 
-            <h2 className="text-2xl font-bold text-white mb-4">欢迎使用智能船舶问答系统</h2>
-            <p className="text-gray-400 text-sm max-w-md mb-10 leading-relaxed">
-              基于知识图谱的深度故障诊断引擎已就绪<br />请告诉我您想了解的船舶设备问题
-            </p>
+              <h2>欢迎使用智能船舶问答系统</h2>
+              <p className="welcome-desc">
+                基于知识图谱的深度故障诊断引擎已就绪
+                <br />
+                请告诉我您想了解的船舶设备问题
+              </p>
 
-            <div className="grid grid-cols-2 gap-4 w-full max-w-2xl">
-              {QUICK_CARDS.map((card) => (
-                <button
-                  key={card.title}
-                  onClick={() => handleSend(card.title)}
-                  className="p-5 rounded-xl bg-white/[0.02] border border-white/5 text-left flex flex-col items-start gap-3 transition-all duration-300 hover:border-teal-400/30 hover:bg-teal-500/5"
-                >
-                  <i className={`ph ${card.icon} text-2xl text-teal-400`}></i>
-                  <div>
-                    <p className="text-sm text-gray-200 font-medium mb-1">{card.title}</p>
-                    <p className="text-xs text-gray-500">{card.desc}</p>
-                  </div>
-                </button>
-              ))}
+              <div className="quick-grid">
+                {QUICK_CARDS.map((card) => (
+                  <button
+                    key={card.title}
+                    onClick={() => handleSend(card.title)}
+                    className="action-card"
+                  >
+                    <i className={`ph ${card.icon}`}></i>
+                    <div className="action-title">{card.title}</div>
+                    <div className="action-desc">{card.desc}</div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -1836,7 +1888,7 @@ export default function Chat({ user }) {
                 disabled={isAnswering && activeStreamingPaused} // 暂停后只能在消息处点“继续”
                 className={`ml-2 p-3 rounded-lg text-white transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed ${isAnswering
                   ? "bg-orange-500 hover:bg-orange-400"
-                  : "bg-teal-500 hover:bg-teal-400"
+                  : "bg-sky-400 hover:bg-sky-500"
                   }`}
                 title={
                   isAnswering
@@ -1892,18 +1944,18 @@ export default function Chat({ user }) {
 
       {/* ========== 右侧边栏 ========== */}
       <aside className="w-72 z-20 flex flex-col h-full shrink-0 glass-sidebar-right">
-        <div className="h-16 px-6 border-b border-white/5 flex items-center justify-between shrink-0">
-          <h3 className="text-sm font-bold text-white tracking-wide">系统状况</h3>
-          <div className="flex items-center gap-2 bg-teal-500/10 px-2.5 py-1 rounded-full border border-teal-500/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shadow-[0_0_8px_rgba(45,212,191,0.8)]"></span>
-            <span className="text-[11px] text-teal-400 font-medium">运行中</span>
+          <div className="h-16 px-6 border-b border-white/5 flex items-center justify-between shrink-0">
+            <h3 className="text-sm font-bold text-white tracking-wide">系统状况</h3>
+            <div className="system-status-pill flex items-center gap-2 bg-teal-500/10 px-2.5 py-1 rounded-full border border-teal-500/20">
+              <span className="status-dot w-1.5 h-1.5 rounded-full bg-teal-400 shadow-[0_0_8px_rgba(45,212,191,0.8)]"></span>
+              <span className="status-text text-[11px] text-teal-400 font-medium">运行中</span>
+            </div>
           </div>
-        </div>
 
-        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
-          {/* 知识图谱引擎 */}
-          <div className="mb-4">
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/5">
+          <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+            {/* 知识图谱引擎 */}
+            <div className="mb-4">
+            <div className="sidebar-card p-5 rounded-xl bg-white/[0.02] border border-white/5">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs text-gray-400">知识图谱引擎</span>
                 <i className="ph ph-brain text-teal-400 text-lg"></i>
@@ -1915,9 +1967,9 @@ export default function Chat({ user }) {
             </div>
           </div>
 
-          {/* 故障知识库 */}
-          <div className="mb-8">
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/5">
+            {/* 故障知识库 */}
+            <div className="mb-8">
+            <div className="sidebar-card p-5 rounded-xl bg-white/[0.02] border border-white/5">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs text-gray-400">故障知识库</span>
                 <i className="ph ph-database text-teal-400 text-lg"></i>
@@ -1931,7 +1983,7 @@ export default function Chat({ user }) {
 
           <div className="space-y-4">
             {/* 知识图谱分析开关 */}
-            <div className="p-5 rounded-xl bg-teal-500/5 border border-teal-500/20">
+            <div className="sidebar-card p-5 rounded-xl bg-teal-500/5 border border-teal-500/20">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <i className="ph ph-graph text-teal-400 text-lg"></i>
@@ -1945,7 +1997,7 @@ export default function Chat({ user }) {
             </div>
 
             {/* 离线模式开关 */}
-            <div className="p-5 rounded-xl bg-white/[0.02] border border-white/5">
+            <div className="sidebar-card p-5 rounded-xl bg-white/[0.02] border border-white/5">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <i className="ph ph-wifi-slash text-gray-400 text-lg"></i>
@@ -1964,7 +2016,7 @@ export default function Chat({ user }) {
           <button
             type="button"
             onClick={() => setShowHelpDocs(true)}
-            className="w-full py-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-colors text-xs text-gray-400 hover:text-gray-200 flex items-center justify-center gap-2"
+            className="sidebar-help-btn w-full py-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-colors text-xs text-gray-400 hover:text-gray-200 flex items-center justify-center gap-2"
           >
             <i className="ph ph-info text-sm"></i> 帮助与文档
           </button>
@@ -1980,6 +2032,20 @@ export default function Chat({ user }) {
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-right: 1px solid ${themeSurface.panelBorder};
+          position: relative;
+          overflow: hidden;
+        }
+        .glass-sidebar::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0.03) 36%, transparent 72%);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .glass-sidebar > * {
+          position: relative;
+          z-index: 1;
         }
         .glass-sidebar-right {
           background: ${themeSurface.panelBg};
@@ -2014,12 +2080,247 @@ export default function Chat({ user }) {
           pointer-events: none;
           z-index: 0;
         }
+        .welcome-wrap {
+          min-height: 70vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          text-align: center;
+          animation: fadeIn 0.6s ease-out;
+          padding: 2rem 1.5rem 8rem;
+          position: relative;
+        }
+        .welcome-wrap h2 {
+          font-size: 24px;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          color: #fff;
+        }
+        .welcome-desc {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.5);
+          margin-bottom: 2rem;
+          max-width: 34rem;
+          line-height: 1.7;
+        }
+        .logo-wrap {
+          position: relative;
+          margin-bottom: 2rem;
+        }
+        .logo-glow {
+          position: absolute;
+          inset: -20px;
+          background: rgba(45, 212, 191, 0.3);
+          filter: blur(40px);
+          border-radius: 50%;
+          animation: pulse 3s ease-in-out infinite;
+        }
+        .logo-box {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(37, 99, 235, 0.2));
+          border: 1px solid rgba(45, 212, 191, 0.4);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 40px;
+          cursor: pointer;
+        }
+        .logo-box i {
+          color: #2dd4bf;
+          animation: float 6s ease-in-out infinite;
+        }
+        .quick-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+          width: 100%;
+          max-width: 480px;
+        }
+        .action-card {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 16px;
+          color: white;
+          text-align: left;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .action-card:hover {
+          background: rgba(56, 189, 248, 0.12);
+          border-color: rgba(56, 189, 248, 0.3);
+          transform: translateY(-2px);
+        }
+        .action-card i {
+          font-size: 24px;
+          color: #7dd3fc;
+          margin-bottom: 8px;
+          display: block;
+        }
+        .action-title {
+          font-size: 13px;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+        .action-desc {
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.45);
+        }
+        .particles {
+          position: absolute;
+          inset: -60px;
+          pointer-events: none;
+        }
+        .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(45, 212, 191, 0.6);
+          border-radius: 50%;
+          animation: orbit 8s linear infinite;
+        }
+        .wave-bg {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 20vh;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .wave-bg.wave-dark {
+          opacity: 0.75;
+        }
+        .wave-bg.wave-light {
+          opacity: 0.56;
+        }
+        .wave-bg .wave-parallax {
+          animation: wave-tide 7s ease-in-out infinite;
+          transform-origin: center bottom;
+          will-change: transform;
+        }
+        .wave-bg.wave-dark .wave-layer {
+          animation-name: move-wave, wave-shimmer-dark;
+          animation-timing-function: cubic-bezier(0.55, 0.5, 0.45, 0.5), ease-in-out;
+          animation-iteration-count: infinite, infinite;
+          animation-direction: alternate, alternate;
+          will-change: transform, opacity;
+        }
+        .wave-bg.wave-light .wave-layer {
+          animation-name: move-wave, wave-shimmer-light;
+          animation-timing-function: cubic-bezier(0.55, 0.5, 0.45, 0.5), ease-in-out;
+          animation-iteration-count: infinite, infinite;
+          animation-direction: alternate, alternate;
+          will-change: transform, opacity;
+        }
+        .wave-bg .wave-layer-1 {
+          animation-duration: 10s, 6s;
+          animation-delay: -2s, -1s;
+        }
+        .wave-bg .wave-layer-2 {
+          animation-duration: 14s, 8.5s;
+          animation-delay: -3s, -2s;
+        }
+        .wave-bg .wave-layer-3 {
+          animation-duration: 20s, 11s;
+          animation-delay: -4s, -3s;
+        }
+        @keyframes move-wave {
+          0% {
+            transform: translate3d(-90px, 0, 0);
+          }
+          100% {
+            transform: translate3d(85px, 0, 0);
+          }
+        }
+        @keyframes wave-shimmer-dark {
+          0% {
+            opacity: 0.78;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0.84;
+          }
+        }
+        @keyframes wave-shimmer-light {
+          0% {
+            opacity: 0.55;
+          }
+          50% {
+            opacity: 0.72;
+          }
+          100% {
+            opacity: 0.6;
+          }
+        }
+        @keyframes wave-tide {
+          0% {
+            transform: translateY(0) scaleY(1);
+          }
+          50% {
+            transform: translateY(-3px) scaleY(1.02);
+          }
+          100% {
+            transform: translateY(1px) scaleY(0.995);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .wave-bg .wave-parallax,
+          .wave-bg .wave-layer {
+            animation: none;
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.6;
+            transform: scale(1.1);
+          }
+        }
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        @keyframes orbit {
+          from {
+            transform: rotate(0deg) translateX(50px) rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg) translateX(50px) rotate(-360deg);
+          }
+        }
         .db-theme-light .text-white {
           color: #0f172a !important;
         }
         .db-theme-light .text-gray-500,
         .db-theme-light .text-gray-400 {
-          color: #475569 !important;
+          color: #334155 !important;
         }
         .db-theme-light .text-gray-300,
         .db-theme-light .text-gray-200 {
@@ -2070,6 +2371,88 @@ export default function Chat({ user }) {
         .db-theme-light .bg-\[\#0a2530\] {
           background: rgba(191, 219, 254, 0.62) !important;
           border-color: rgba(96, 165, 250, 0.35) !important;
+        }
+        .db-theme-light .new-chat-btn {
+          background: #38bdf8 !important;
+          box-shadow: 0 10px 24px rgba(56, 189, 248, 0.28);
+        }
+        .db-theme-light .new-chat-btn:hover {
+          background: #0ea5e9 !important;
+        }
+        .db-theme-light .history-label {
+          color: #334155 !important;
+        }
+        .db-theme-light .glass-sidebar-right {
+          background: rgba(255, 255, 255, 0.94);
+          border-left: 1px solid rgba(148, 163, 184, 0.42);
+        }
+        .db-theme-light .glass-sidebar {
+          background: linear-gradient(180deg, rgba(239, 246, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+          border-right: 1px solid rgba(148, 163, 184, 0.45);
+          box-shadow: 8px 0 24px rgba(148, 163, 184, 0.16);
+        }
+        .db-theme-light .glass-sidebar::before {
+          background: linear-gradient(180deg, rgba(147, 197, 253, 0.36) 0%, rgba(191, 219, 254, 0.22) 30%, transparent 72%);
+        }
+        .db-theme-light .sidebar-card {
+          background: #ffffff !important;
+          border-color: rgba(148, 163, 184, 0.38) !important;
+          box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+        .db-theme-light .system-status-pill {
+          background: rgba(37, 99, 235, 0.12) !important;
+          border-color: rgba(37, 99, 235, 0.35) !important;
+        }
+        .db-theme-light .system-status-pill .status-dot {
+          background: #2563eb !important;
+          box-shadow: 0 0 8px rgba(37, 99, 235, 0.45) !important;
+        }
+        .db-theme-light .system-status-pill .status-text {
+          color: #1d4ed8 !important;
+        }
+        .db-theme-light .sidebar-help-btn {
+          color: #1e293b !important;
+          border-color: rgba(148, 163, 184, 0.5) !important;
+          background: rgba(255, 255, 255, 0.88) !important;
+        }
+        .db-theme-light .sidebar-help-btn:hover {
+          background: rgba(226, 232, 240, 0.88) !important;
+        }
+        .db-theme-light .welcome-wrap {
+          color: #0f172a;
+        }
+        .db-theme-light .welcome-wrap h2,
+        .db-theme-light .action-card {
+          color: #0f172a;
+        }
+        .db-theme-light .welcome-desc,
+        .db-theme-light .action-desc {
+          color: #475569;
+        }
+        .db-theme-light .action-card {
+          background: rgba(255, 255, 255, 0.75);
+          border-color: rgba(148, 163, 184, 0.35);
+        }
+        .db-theme-light .action-card:hover {
+          background: rgba(147, 197, 253, 0.2);
+          border-color: rgba(59, 130, 246, 0.35);
+        }
+        .db-theme-light .logo-box {
+          background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(14, 116, 144, 0.15));
+          border-color: rgba(14, 116, 144, 0.35);
+        }
+        .db-theme-light .logo-glow {
+          background: rgba(14, 116, 144, 0.2);
+        }
+        @media (max-width: 768px) {
+          .welcome-wrap {
+            min-height: calc(100vh - 12rem);
+            padding: 1.5rem 1rem 9rem;
+          }
+          .quick-grid {
+            grid-template-columns: 1fr;
+            max-width: 360px;
+          }
         }
         .custom-scrollbar::-webkit-scrollbar {
           width: 4px;

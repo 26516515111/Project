@@ -129,6 +129,17 @@ def _get_driver():
     )
 
 
+def _get_driver_with_override(
+    neo4j_uri: Optional[str] = None,
+    neo4j_user: Optional[str] = None,
+    neo4j_password: Optional[str] = None,
+):
+    uri = str(neo4j_uri or SETTINGS.neo4j_uri).strip()
+    user = str(neo4j_user or SETTINGS.neo4j_user).strip()
+    password = str(neo4j_password or SETTINGS.neo4j_password)
+    return GraphDatabase.driver(uri, auth=(user, password))
+
+
 def _pick_rel_id_field(session) -> str:
     keys = []
     try:
@@ -270,8 +281,10 @@ def _extract_exact_entities(
     q_match = _normalize_for_match(question)
     if not q_match:
         return []
+    entity_names = _collect_entity_names(ent_name_map, chunk_kg_map)
+
     candidates = []
-    for name in _collect_entity_names(ent_name_map, chunk_kg_map):
+    for name in entity_names:
         n_match = _normalize_for_match(name)
         if not n_match:
             continue
@@ -287,6 +300,61 @@ def _extract_exact_entities(
             continue
         seen.add(name)
         deduped.append(name)
+
+    # 回退匹配：优先用型号/代号做实体字符串匹配，缓解
+    # “SMP Series Hydraulic Pump_xxx” vs “SMP气动泵/WREN SMP”这类命名差异。
+    if len(deduped) >= 5:
+        return deduped[:5]
+
+    q_lower = _normalize_text(question).lower()
+    q_model_tokens = set(
+        re.findall(r"[a-z]{2,}\d*[a-z0-9-]*", q_lower, flags=re.IGNORECASE)
+    )
+    q_model_tokens = {
+        t.lower()
+        for t in q_model_tokens
+        if len(t) >= 2 and t.lower() not in {"series", "model", "manual"}
+    }
+    q_has_pump = any(k in q_lower for k in ("泵", "液压泵", "气动泵", "pump"))
+    q_has_valve = any(k in q_lower for k in ("阀", "刀闸阀", "法兰", "valve", "flange"))
+
+    fuzzy_candidates = []
+    for name in entity_names:
+        if name in seen:
+            continue
+        n_lower = _normalize_text(name).lower()
+        n_match = _normalize_for_match(name)
+        if not n_match:
+            continue
+        n_model_tokens = set(
+            re.findall(r"[a-z]{2,}\d*[a-z0-9-]*", n_lower, flags=re.IGNORECASE)
+        )
+        n_model_tokens = {
+            t.lower()
+            for t in n_model_tokens
+            if len(t) >= 2 and t.lower() not in {"series", "model", "manual"}
+        }
+        shared_tokens = q_model_tokens & n_model_tokens
+        score = 0
+        if shared_tokens:
+            score += 10 * len(shared_tokens)
+        if q_has_pump and "pump" in n_lower:
+            score += 3
+        if q_has_valve and ("valve" in n_lower or "flange" in n_lower):
+            score += 3
+        if score <= 0:
+            continue
+        fuzzy_candidates.append((name, score, len(n_match)))
+
+    fuzzy_candidates.sort(key=lambda x: (-x[1], -x[2], x[0]))
+    for name, _, _ in fuzzy_candidates:
+        if name in seen:
+            continue
+        seen.add(name)
+        deduped.append(name)
+        if len(deduped) >= 5:
+            break
+
     return deduped[:5]
 
 
@@ -323,6 +391,9 @@ def query_knowledge_graph(
     chunk_kg_map: Optional[Dict[str, dict]] = None,
     chunk_text_map: Optional[Dict[str, str]] = None,
     top_k: int = 5,
+    neo4j_uri: Optional[str] = None,
+    neo4j_user: Optional[str] = None,
+    neo4j_password: Optional[str] = None,
 ) -> List[Dict[str, str]]:
     """查询知识图谱并返回扩展三元组列表。
 
@@ -369,7 +440,11 @@ def query_knowledge_graph(
         if len(chunk_rel_ids) > SETTINGS.kg_rel_limit:
             chunk_rel_ids = chunk_rel_ids[: SETTINGS.kg_rel_limit]
         entities = _extract_entities(question, chunk_kg_map, ent_name_map)
-    driver = _get_driver()
+    driver = _get_driver_with_override(
+        neo4j_uri=neo4j_uri,
+        neo4j_user=neo4j_user,
+        neo4j_password=neo4j_password,
+    )
     try:
         with driver.session() as session:
             rel_id_field = _pick_rel_id_field(session)

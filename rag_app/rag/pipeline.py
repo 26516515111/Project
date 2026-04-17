@@ -24,6 +24,7 @@ from .parent_retriever import (
 from .generator import generate_answer, stream_answer
 from .kg_interface import query_knowledge_graph
 from .decomposer import DecompositionQueryRetriever, decompose_question
+from .query_rewrite import generate_query_variants
 from .model import build_chat_llm
 
 
@@ -83,7 +84,9 @@ class RagPipeline:
             if str(item.get("chunk_id", "") or "").strip()
         }
         kg_chunk_ids = {
-            str(key or "").strip() for key in chunk_kg_map.keys() if str(key or "").strip()
+            str(key or "").strip()
+            for key in chunk_kg_map.keys()
+            if str(key or "").strip()
         }
         if not chunk_ids or not kg_chunk_ids:
             return
@@ -417,6 +420,14 @@ class RagPipeline:
         ) and retrieval_optimization_enabled
         use_reranker = SETTINGS.use_reranker and retrieval_optimization_enabled
         questions = [req.question]
+        rewrite_questions: List[str] = []
+        if SETTINGS.query_rewrite_enabled:
+            rewrite_questions = generate_query_variants(
+                req.question,
+                max_variants=max(0, SETTINGS.query_rewrite_max_variants),
+            )
+            if rewrite_questions:
+                questions.extend(rewrite_questions)
         if use_decompose:
             if self.decomposer is not None:
                 sub_questions = self.decomposer.generate_queries(req.question)
@@ -424,6 +435,14 @@ class RagPipeline:
                 sub_questions = decompose_question(req.question)
             if sub_questions:
                 questions.extend(sub_questions)
+        deduped_questions: List[str] = []
+        seen_questions: Set[str] = set()
+        for q in questions:
+            normalized = str(q or "").strip()
+            if not normalized or normalized in seen_questions:
+                continue
+            seen_questions.add(normalized)
+            deduped_questions.append(normalized)
         return {
             "req": req,
             "top_k": top_k,
@@ -436,7 +455,8 @@ class RagPipeline:
             ),
             "use_decompose": use_decompose,
             "enable_retrieval_optimization": retrieval_optimization_enabled,
-            "questions": questions,
+            "questions": deduped_questions,
+            "rewrite_questions": rewrite_questions,
             "timing": {"t0": time.perf_counter()},
         }
 
@@ -477,18 +497,69 @@ class RagPipeline:
     def _run_kg(self, payload: Dict) -> Dict:
         req = payload["req"]
         top_k = payload["top_k"]
-        kg_triplets = (
-            query_knowledge_graph(
-                req.question,
-                self.doc_source_map,
-                self.chunk_kg_map,
-                self.chunk_text_map,
-                top_k=top_k,
-            )
-            if req.use_kg
-            else []
-        )
+        kg_top_k = max(1, int(getattr(SETTINGS, "kg_top_k", top_k) or top_k))
+        kg_queries_raw = payload.get("questions") or [req.question]
+        kg_queries: List[str] = []
+        seen_queries: Set[str] = set()
+        for q in kg_queries_raw:
+            normalized = str(q or "").strip()
+            if not normalized or normalized in seen_queries:
+                continue
+            seen_queries.add(normalized)
+            kg_queries.append(normalized)
+        if not kg_queries:
+            kg_queries = [req.question]
+
+        if req.use_kg:
+            per_query_triplets: List[List[Dict[str, str]]] = []
+            for q in kg_queries:
+                per_query_triplets.append(
+                    query_knowledge_graph(
+                        q,
+                        self.doc_source_map,
+                        self.chunk_kg_map,
+                        self.chunk_text_map,
+                        top_k=kg_top_k,
+                        neo4j_uri=req.neo4j_uri,
+                        neo4j_user=req.neo4j_user,
+                        neo4j_password=req.neo4j_password,
+                    )
+                )
+
+            # 轮询合并子问题结果，避免长问题被单一路径吞噬。
+            merged_triplets: List[Dict[str, str]] = []
+            seen_triplet_keys: Set[str] = set()
+            max_len = max((len(items) for items in per_query_triplets), default=0)
+            for idx in range(max_len):
+                for rows in per_query_triplets:
+                    if idx >= len(rows):
+                        continue
+                    item = rows[idx] or {}
+                    key = "|".join(
+                        [
+                            str(item.get("head", "") or "").strip(),
+                            str(item.get("rel", "") or "").strip(),
+                            str(item.get("tail", "") or "").strip(),
+                            str(item.get("head_doc_id", "") or "").strip(),
+                            str(item.get("tail_doc_id", "") or "").strip(),
+                            str(item.get("rel_doc_id", "") or "").strip(),
+                        ]
+                    )
+                    if not key or key in seen_triplet_keys:
+                        continue
+                    seen_triplet_keys.add(key)
+                    merged_triplets.append(item)
+                    if len(merged_triplets) >= kg_top_k:
+                        break
+                if len(merged_triplets) >= kg_top_k:
+                    break
+            kg_triplets = merged_triplets
+        else:
+            kg_triplets = []
+
         payload["kg_triplets"] = kg_triplets
+        payload["kg_top_k"] = kg_top_k
+        payload["kg_query_count"] = len(kg_queries)
         payload["timing"]["t2"] = time.perf_counter()
         return payload
 
@@ -550,7 +621,11 @@ class RagPipeline:
                 "retriever": "hybrid",
                 "top_k": str(top_k),
                 "hybrid_top_k": str(hybrid_top_k),
+                "kg_top_k": str(payload.get("kg_top_k", top_k)),
+                "kg_query_count": str(payload.get("kg_query_count", 1)),
                 "decompose": str(use_decompose),
+                "rewrite": str(SETTINGS.query_rewrite_enabled),
+                "rewrite_count": str(len(payload.get("rewrite_questions") or [])),
                 "retrieval_optimization": str(
                     payload.get("enable_retrieval_optimization", True)
                 ),

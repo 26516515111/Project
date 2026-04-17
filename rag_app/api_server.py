@@ -9,7 +9,7 @@ from typing import Optional
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from langchain_core.runnables import RunnableLambda
 from langserve import add_routes
 
@@ -54,7 +54,25 @@ app.add_middleware(
 
 _pipeline_lock = threading.RLock()
 _pipeline: Optional[RagPipeline] = None
+_warmup_lock = threading.Lock()
+_warmup_started = False
 _allowed_suffixes = {".txt", ".md", ".pdf"}
+
+
+def _resolve_frontend_dist_dir() -> Optional[Path]:
+    candidates = []
+    if getattr(sys, "frozen", False):
+        candidates.append(Path(sys.executable).resolve().parent / "frontend" / "dist")
+    base_dir = Path(__file__).resolve().parent
+    candidates.append(base_dir / "frontend" / "dist")
+    candidates.append(base_dir / "react" / "dist")
+    for path in candidates:
+        if path.is_dir():
+            return path
+    return None
+
+
+_frontend_dist_dir = _resolve_frontend_dist_dir()
 
 initialize_database()
 
@@ -71,6 +89,25 @@ def _reload_pipeline() -> None:
     global _pipeline
     with _pipeline_lock:
         _pipeline = RagPipeline()
+
+
+def _warmup_pipeline() -> None:
+    try:
+        _get_pipeline()
+    except Exception as exc:
+        print(f"[startup] pipeline warmup failed: {exc}", file=sys.stderr)
+
+
+def _start_warmup_async() -> None:
+    global _warmup_started
+    with _warmup_lock:
+        if _warmup_started:
+            return
+        _warmup_started = True
+    worker = threading.Thread(
+        target=_warmup_pipeline, name="rag-pipeline-warmup", daemon=True
+    )
+    worker.start()
 
 
 @app.on_event("startup")
@@ -98,6 +135,9 @@ def _run_query(payload: dict) -> dict:
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
         enable_parent_retriever=payload.get("enable_parent_retriever"),
+        neo4j_uri=payload.get("neo4j_uri"),
+        neo4j_user=payload.get("neo4j_user"),
+        neo4j_password=payload.get("neo4j_password"),
     )
     with _pipeline_lock:
         pipeline = _get_pipeline()
@@ -120,6 +160,9 @@ def _build_query_request(payload: dict) -> QueryRequest:
         enable_decompose=payload.get("enable_decompose"),
         enable_retrieval_optimization=payload.get("enable_retrieval_optimization"),
         enable_parent_retriever=payload.get("enable_parent_retriever"),
+        neo4j_uri=payload.get("neo4j_uri"),
+        neo4j_user=payload.get("neo4j_user"),
+        neo4j_password=payload.get("neo4j_password"),
     )
 
 
@@ -351,3 +394,32 @@ async def upload_incremental_file(
         "indexed_chunks": int((stats or {}).get("indexed_chunks", 0)),
         "message": "incremental file indexed",
     }
+
+
+@app.get("/", include_in_schema=False)
+def serve_frontend_root():
+    if not _frontend_dist_dir:
+        raise HTTPException(status_code=404, detail="frontend dist not found")
+    index_file = _frontend_dist_dir / "index.html"
+    if not index_file.is_file():
+        raise HTTPException(status_code=404, detail="frontend index not found")
+    return FileResponse(index_file)
+
+
+@app.get("/{full_path:path}", include_in_schema=False)
+def serve_frontend_assets(full_path: str):
+    if full_path.startswith(("api", "rag", "auth", "users", "docs", "openapi.json")):
+        raise HTTPException(status_code=404, detail="not found")
+    if not _frontend_dist_dir:
+        raise HTTPException(status_code=404, detail="frontend dist not found")
+
+    relative = str(full_path or "").strip().lstrip("/")
+    if relative:
+        candidate = (_frontend_dist_dir / relative).resolve()
+        if _frontend_dist_dir.resolve() in candidate.parents and candidate.is_file():
+            return FileResponse(candidate)
+
+    index_file = _frontend_dist_dir / "index.html"
+    if index_file.is_file():
+        return FileResponse(index_file)
+    raise HTTPException(status_code=404, detail="frontend index not found")

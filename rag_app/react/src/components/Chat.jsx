@@ -25,6 +25,9 @@ const DEFAULT_USER_SETTINGS = {
   dbPath: "/mnt/data/local_kb",
   model: "hybrid",
   retention: "30",
+  neo4jUri: "bolt://127.0.0.1:7687",
+  neo4jUser: "neo4j",
+  neo4jPassword: "",
 };
 const THEME_SURFACES = {
   dark: {
@@ -802,6 +805,9 @@ export default function Chat({ user }) {
           use_llm: !offlineMode,
           use_history: true,
           enable_retrieval_optimization: true,
+          neo4j_uri: String(userSettings?.neo4jUri || "").trim(),
+          neo4j_user: String(userSettings?.neo4jUser || "").trim(),
+          neo4j_password: String(userSettings?.neo4jPassword || "").trim(),
         }),
         signal: streamSession.controller.signal,
       });

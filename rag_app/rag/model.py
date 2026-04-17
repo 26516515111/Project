@@ -197,6 +197,38 @@ def build_embeddings(model_name: Optional[str] = None):
 def build_reranker_components(
     model_name: Optional[str] = None,
 ) -> Tuple[Optional[object], Optional[object]]:
+    """构建重排序组件。
+
+    当 reranker_provider=dashscope 时，调用阿里云百炼 TextReRank API；
+    当 reranker_provider=local 时，使用本地 Transformers 交叉编码器模型。
+
+    Returns:
+        (reranker_or_model, None_or_tokenizer):
+            - dashscope: (DashScopeReranker, None)
+            - local: (AutoModel, AutoTokenizer)
+    """
+    provider = getattr(SETTINGS, "reranker_provider", "local")
+
+    if provider == "dashscope":
+        from .reranker import DashScopeReranker
+
+        resolved_model = model_name or SETTINGS.dashscope_reranker_model
+        api_key = SETTINGS.dashscope_api_key
+        if not api_key:
+            logger.error("Missing DASHSCOPE_API_KEY for DashScope reranker.")
+            return None, None
+        try:
+            reranker = DashScopeReranker(
+                model_name=resolved_model,
+                api_key=api_key,
+            )
+            logger.info("DashScope reranker built: model=%s", resolved_model)
+            return reranker, None
+        except Exception as exc:
+            logger.error("Failed to build DashScope reranker: %s", exc)
+            return None, None
+
+    # local provider — 原有本地 Transformers 逻辑
     if not TRANSFORMERS_AVAILABLE:
         logger.info("Transformers library not available. Reranker disabled.")
         return None, None

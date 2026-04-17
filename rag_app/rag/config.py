@@ -65,13 +65,52 @@ class Settings:
 
     # 检索模块
     # RAG_TOP_K：最终用于回答的检索数量
-    top_k = int(env("RAG_TOP_K", "5"))
+    top_k = int(env("RAG_TOP_K", "6"))
     # RAG_HYBRID_TOP_K：混合检索候选数量（重排序前）
     hybrid_top_k = int(env("RAG_HYBRID_TOP_K", "24"))
     # RAG_BM25_WEIGHT：BM25在混合检索中的权重
-    bm25_weight = float(env("RAG_BM25_WEIGHT", "0.55"))
+    bm25_weight = float(env("RAG_BM25_WEIGHT", "0.60"))
     # RAG_VECTOR_WEIGHT：向量检索在混合检索中的权重
-    vector_weight = float(env("RAG_VECTOR_WEIGHT", "0.45"))
+    vector_weight = float(env("RAG_VECTOR_WEIGHT", "0.40"))
+    # RAG_QUERY_REWRITE_ENABLED：是否启用查询改写扩召回
+    query_rewrite_enabled = env("RAG_QUERY_REWRITE_ENABLED", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_QUERY_REWRITE_MAX_VARIANTS：每次查询最多生成的改写条数
+    query_rewrite_max_variants = int(env("RAG_QUERY_REWRITE_MAX_VARIANTS", "2"))
+    # RAG_RETRIEVAL_FALLBACK_ENABLED：是否启用低召回兜底检索
+    retrieval_fallback_enabled = env(
+        "RAG_RETRIEVAL_FALLBACK_ENABLED", "true"
+    ).lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
+    # RAG_RETRIEVAL_FALLBACK_MIN_RESULTS：触发兜底的最小候选数量阈值
+    retrieval_fallback_min_results = int(env("RAG_RETRIEVAL_FALLBACK_MIN_RESULTS", "8"))
+    # RAG_RETRIEVAL_FALLBACK_BM25_ONLY_K：BM25兜底时每个query的检索数量
+    retrieval_fallback_bm25_only_k = int(
+        env("RAG_RETRIEVAL_FALLBACK_BM25_ONLY_K", "20")
+    )
+    # RAG_RETRIEVAL_SCORE_THRESHOLD：融合排序后的最小分数阈值（0表示关闭）
+    retrieval_score_threshold = float(env("RAG_RETRIEVAL_SCORE_THRESHOLD", "0.35"))
+    # RAG_RETRIEVAL_MIN_RESULTS_AFTER_THRESHOLD：阈值过滤后最少保留数量
+    retrieval_min_results_after_threshold = int(
+        env("RAG_RETRIEVAL_MIN_RESULTS_AFTER_THRESHOLD", "4")
+    )
+    # RAG_RETRIEVAL_FALLBACK_RELAX_HARD_FILTERS：hard路由候选过少时是否自动回退soft
+    retrieval_fallback_relax_hard_filters = env(
+        "RAG_RETRIEVAL_FALLBACK_RELAX_HARD_FILTERS", "true"
+    ).lower() in {
+        "1",
+        "true",
+        "yes",
+        "y",
+    }
     # RAG_ENTITY_PRIORITY_ENABLED：是否启用实体优先检索
     entity_priority_enabled = env("RAG_ENTITY_PRIORITY_ENABLED", "true").lower() in {
         "1",
@@ -106,13 +145,13 @@ class Settings:
     # RAG_NEIGHBOR_CONTEXT_WINDOW：每个命中chunk向后补充的相邻窗口大小
     neighbor_context_window = int(env("RAG_NEIGHBOR_CONTEXT_WINDOW", "2"))
     # RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW：参数/规格类问题时的相邻补充窗口大小
-    neighbor_context_param_window = int(env("RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW", "4"))
+    neighbor_context_param_window = int(env("RAG_NEIGHBOR_CONTEXT_PARAM_WINDOW", "5"))
     # RAG_NEIGHBOR_CONTEXT_SEED_LIMIT：最多对前N个高分命中chunk做相邻扩展
     neighbor_context_seed_limit = int(env("RAG_NEIGHBOR_CONTEXT_SEED_LIMIT", "3"))
     # RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS：单次查询最多补充的相邻chunk数量
-    neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "8"))
+    neighbor_context_max_chunks = int(env("RAG_NEIGHBOR_CONTEXT_MAX_CHUNKS", "10"))
     # RAG_MAX_PER_SOURCE：最终候选中同一source_doc最多保留数量（0表示自动）
-    max_per_source = int(env("RAG_MAX_PER_SOURCE", "0"))
+    max_per_source = int(env("RAG_MAX_PER_SOURCE", "4"))
     # RAG_DOMAIN_ROUTING_ENABLED：是否启用文档域路由
     domain_routing_enabled = env("RAG_DOMAIN_ROUTING_ENABLED", "true").lower() in {
         "1",
@@ -123,7 +162,7 @@ class Settings:
     # RAG_DOMAIN_ROUTE_MODE：域路由模式 soft|hard
     domain_route_mode = env("RAG_DOMAIN_ROUTE_MODE", "soft").strip().lower()
     # RAG_DOMAIN_SOFT_BOOST：soft模式下同域chunk加分
-    domain_soft_boost = float(env("RAG_DOMAIN_SOFT_BOOST", "0.35"))
+    domain_soft_boost = float(env("RAG_DOMAIN_SOFT_BOOST", "0.30"))
     # RAG_DOMAIN_STRICT_MIN_HITS：hard模式启用前，至少需要命中的同域候选数量
     domain_strict_min_hits = int(env("RAG_DOMAIN_STRICT_MIN_HITS", "2"))
     # RAG_DOMAIN_ROUTING_RULES：域分类关键词规则，格式 domain=a,b,c;domain2=d,e
@@ -137,6 +176,10 @@ class Settings:
             "指示灯,报警显示,显示单元,数据采集模块,采集模块,扩展监测单元,监测单元,"
             "延伸监测单元,工作电压,防护等级,ip,rs-485,rs485,总线,gcjb,gcjb0-5,gcjb-0-5,"
             "gcjb24,gcjb-24,gcwj,gcwj-01,bnwas,was-01,gc was-01,gc was-01-03;"
+            "hydraulic_system=液压,液压系统,液压油,液压泵,气动泵,泵站,升压,泄压,保压,"
+            "换向阀,手动阀,柱塞,油箱,注油,排油,配管,软管,快速接头,漏油,气源,气动马达,"
+            "噪声,震动,异味,smp,hydraulic,pump,operation and maintenance manual,"
+            "vanessa,tov,三偏心阀,刀闸阀,zp300,clarkson,rosemount,3051s;"
             "navigation_system=航行,驾驶台,值班,驾驶室,航向,操舵,舵机,推进,螺旋桨,错向,"
             "换档,换挡,倒档,紧急变速,控制杆,压浪板,trim,避碰,航行条件"
         ),
@@ -237,12 +280,14 @@ class Settings:
     # KG检索模块
     # RAG_KG_REL_LIMIT：每次查询KG关系上限
     kg_rel_limit = int(env("RAG_KG_REL_LIMIT", "50"))
+    # RAG_KG_TOP_K：KG检索返回条数（独立于回答top_k）
+    kg_top_k = int(env("RAG_KG_TOP_K", "12"))
     # RAG_KG_SCORE_THRESHOLD：KG检索的chunk相关性阈值
     kg_score_threshold = float(env("RAG_KG_SCORE_THRESHOLD", "0.1"))
     # RAG_KG_ENTITY_ALIASES：KG实体别名映射，格式 alias=canonical，逗号分隔
     kg_entity_aliases = env_list(
         "RAG_KG_ENTITY_ALIASES",
-        "GCWJ-01=船舶监测报警系统,GCWJ01=船舶监测报警系统,GCJB0-5=机舱总线制监测报警系统,GCJB-0-5=机舱总线制监测报警系统,GCJB24=机舱总线制监测报警系统,GCJB-24=机舱总线制监测报警系统,GC WAS-01=驾驶台航行值班报警系统,WAS-01=驾驶台航行值班报警系统,GC WAS-01-03=驾驶台航行值班报警系统,WAS-01-03=驾驶台航行值班报警系统,CDQY2A-PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,CDQY2A-PC2=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,GCJB-1=船舶监测报警系统,GCJB1=船舶监测报警系统",
+        "GCWJ-01=船舶监测报警系统,GCWJ01=船舶监测报警系统,GCJB0-5=机舱总线制监测报警系统,GCJB-0-5=机舱总线制监测报警系统,GCJB24=机舱总线制监测报警系统,GCJB-24=机舱总线制监测报警系统,GC WAS-01=驾驶台航行值班报警系统,WAS-01=驾驶台航行值班报警系统,GC WAS-01-03=驾驶台航行值班报警系统,WAS-01-03=驾驶台航行值班报警系统,CDQY2A-PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,CDQY2A-PC2=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,PC2-6=CDQY2A-PC2-6 型 船用主柴油机电气遥控系统,GCJB-1=船舶监测报警系统,GCJB1=船舶监测报警系统,Clarkson ZP300=manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946,ZP300型刀闸阀=manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946,刀闸阀ZP300=manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946,WREN SMP系列气动泵=Operation and Maintenance Manual for SMP Series Hydraulic Pu,SMP系列气动泵=Operation and Maintenance Manual for SMP Series Hydraulic Pu,SMP气动泵=Operation and Maintenance Manual for SMP Series Hydraulic Pu,WREN气动泵=Operation and Maintenance Manual for SMP Series Hydraulic Pu,配对法兰=manuals-刀闸阀-zp300型-clarkson-zh-zh-cn-5197946,额定压力=Operation and Maintenance Manual for SMP Series Hydraulic Pu",
     )
     # RAG_USE_PARENT_RETRIEVER：是否启用父子索引（父文档预检索）
     use_parent_retriever = env("RAG_USE_PARENT_RETRIEVER", "true").lower() in {
@@ -252,13 +297,13 @@ class Settings:
         "y",
     }
     # RAG_PARENT_RETRIEVER_K：父文档预检索数量
-    parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "5"))
+    parent_retriever_k = int(env("RAG_PARENT_RETRIEVER_K", "6"))
     # RAG_PARENT_RETRIEVER_ROUTE_MODE：父检索路由模式 hard|soft
     parent_retriever_route_mode = (
         env("RAG_PARENT_RETRIEVER_ROUTE_MODE", "soft").strip().lower()
     )
     # RAG_PARENT_SOURCE_SOFT_BOOST：soft路由时父来源加分系数
-    parent_source_soft_boost = float(env("RAG_PARENT_SOURCE_SOFT_BOOST", "0.3"))
+    parent_source_soft_boost = float(env("RAG_PARENT_SOURCE_SOFT_BOOST", "0.35"))
     # RAG_PARENT_PROMPT_MODE：父子检索结果合并到Prompt的模式 route|hybrid
     parent_prompt_mode = env("RAG_PARENT_PROMPT_MODE", "hybrid").strip().lower()
     # RAG_PARENT_PROMPT_TOP_K：混合模式下最多加入的父文档片段数
@@ -267,10 +312,24 @@ class Settings:
     # 重排序模块
     # RAG_USE_RERANKER：是否启用交叉编码器重排序
     use_reranker = env("RAG_USE_RERANKER", "true").lower() in {"1", "true", "yes", "y"}
-    # RAG_RERANKER_MODEL：重排序模型名称
+    # RAG_RERANKER_PROVIDER：重排序模型提供者 local|dashscope
+    reranker_provider = env("RAG_RERANKER_PROVIDER", "local").strip().lower()
+    # RAG_RERANKER_MODEL：本地重排序模型名称
     reranker_model = env("RAG_RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
     # RAG_RERANKER_TOP_K：重排序后保留的passage数量
-    reranker_top_k = int(env("RAG_RERANKER_TOP_K", "5"))
+    reranker_top_k = int(env("RAG_RERANKER_TOP_K", "6"))
+    # RAG_RERANKER_MAX_INPUT：送入重排序模型的最大候选数量
+    reranker_max_input = int(env("RAG_RERANKER_MAX_INPUT", "24"))
+    # RAG_RERANKER_SCORE_THRESHOLD：重排序分数阈值（0表示关闭）
+    reranker_score_threshold = float(env("RAG_RERANKER_SCORE_THRESHOLD", "0.25"))
+    # RAG_RERANKER_MIN_RESULTS_AFTER_THRESHOLD：重排序阈值过滤后最少保留数量
+    reranker_min_results_after_threshold = int(
+        env("RAG_RERANKER_MIN_RESULTS_AFTER_THRESHOLD", "3")
+    )
+    # DASHSCOPE_API_KEY：阿里云百炼 DashScope API密钥
+    dashscope_api_key = env("DASHSCOPE_API_KEY", "")
+    # RAG_DASHSCOPE_RERANKER_MODEL：DashScope重排序模型名称
+    dashscope_reranker_model = env("RAG_DASHSCOPE_RERANKER_MODEL", "gte-rerank-v2")
 
     # 问题分解模块
     # RAG_USE_QUERY_DECOMPOSITION：是否启用问题分解

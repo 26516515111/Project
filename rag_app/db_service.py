@@ -34,6 +34,11 @@ DEFAULT_SETTINGS: Dict[str, Any] = {
 }
 
 
+def sync_legacy_db() -> None:
+    """兼容旧调用：当前版本已不再需要同步旧库。"""
+    return
+
+
 def _hash_password(raw_password: str) -> str:
     return hashlib.sha256(str(raw_password or "").encode("utf-8")).hexdigest()
 
@@ -81,7 +86,9 @@ def _apply_settings_payload(settings: UserSettings, payload: Dict[str, Any]) -> 
 
 
 def _get_or_create_settings(db, user: User) -> UserSettings:
-    settings = db.query(UserSettings).filter(UserSettings.user_id == user.user_id).first()
+    settings = (
+        db.query(UserSettings).filter(UserSettings.user_id == user.user_id).first()
+    )
     if settings:
         return settings
     settings = UserSettings(user_id=user.user_id)
@@ -96,7 +103,9 @@ def _get_or_create_settings(db, user: User) -> UserSettings:
 def _ensure_user(db, user_id: str, password: str, role: int, nickname: str) -> User:
     user = db.query(User).filter(User.user_id == user_id).first()
     if not user:
-        user = User(user_id=user_id, password_hash=_hash_password(password), role=int(role))
+        user = User(
+            user_id=user_id, password_hash=_hash_password(password), role=int(role)
+        )
         db.add(user)
         db.flush()
     settings = _get_or_create_settings(db, user)
@@ -137,7 +146,11 @@ def get_user_settings(user_id: str) -> Dict[str, Any]:
     with SessionLocal() as db:
         user = db.query(User).filter(User.user_id == str(user_id or "").strip()).first()
         if not user:
-            user = User(user_id=str(user_id or "anonymous"), password_hash=_hash_password("123456"), role=0)
+            user = User(
+                user_id=str(user_id or "anonymous"),
+                password_hash=_hash_password("123456"),
+                role=0,
+            )
             db.add(user)
             db.flush()
         settings = _get_or_create_settings(db, user)
@@ -145,11 +158,17 @@ def get_user_settings(user_id: str) -> Dict[str, Any]:
         return _settings_to_dict(settings)
 
 
-def save_user_settings(user_id: str, payload: Dict[str, Any], changed_by: str = "system") -> Dict[str, Any]:
+def save_user_settings(
+    user_id: str, payload: Dict[str, Any], changed_by: str = "system"
+) -> Dict[str, Any]:
     with SessionLocal() as db:
         user = db.query(User).filter(User.user_id == str(user_id or "").strip()).first()
         if not user:
-            user = User(user_id=str(user_id or "anonymous"), password_hash=_hash_password("123456"), role=0)
+            user = User(
+                user_id=str(user_id or "anonymous"),
+                password_hash=_hash_password("123456"),
+                role=0,
+            )
             db.add(user)
             db.flush()
         settings = _get_or_create_settings(db, user)
@@ -201,7 +220,9 @@ def _message_to_dict(msg: ChatMessage) -> Dict[str, Any]:
 
 
 def _session_to_dict(session: ChatSession) -> Dict[str, Any]:
-    messages = sorted(session.messages or [], key=lambda m: m.created_at or datetime.utcnow())
+    messages = sorted(
+        session.messages or [], key=lambda m: m.created_at or datetime.utcnow()
+    )
     title = getattr(session, "title", None) or "未命名会话"
     return {
         "id": session.id,
@@ -225,7 +246,9 @@ def list_user_chats(user_id: str) -> List[Dict[str, Any]]:
         return [_session_to_dict(s) for s in sessions]
 
 
-def replace_user_chats(user_id: str, chats: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def replace_user_chats(
+    user_id: str, chats: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
     uid = str(user_id or "").strip()
     if not uid:
         return []
@@ -275,14 +298,23 @@ def replace_user_chats(user_id: str, chats: List[Dict[str, Any]]) -> List[Dict[s
                 }
                 extra_data = {k: v for k, v in msg.items() if k not in known_keys}
                 message = ChatMessage(
-                    id=str(msg.get("id") or f"{session_id}-msg-{idx}-{uuid.uuid4().hex[:8]}"),
+                    id=str(
+                        msg.get("id")
+                        or f"{session_id}-msg-{idx}-{uuid.uuid4().hex[:8]}"
+                    ),
                     session_id=session_id,
                     role=role,
                     content=content,
                     search_process=str(msg.get("searchProcess") or ""),
-                    citations=json.dumps(citations, ensure_ascii=False) if citations is not None else None,
-                    kg_triplets=json.dumps(kg_triplets, ensure_ascii=False) if kg_triplets is not None else None,
-                    extra_data=json.dumps(extra_data, ensure_ascii=False) if extra_data else None,
+                    citations=json.dumps(citations, ensure_ascii=False)
+                    if citations is not None
+                    else None,
+                    kg_triplets=json.dumps(kg_triplets, ensure_ascii=False)
+                    if kg_triplets is not None
+                    else None,
+                    extra_data=json.dumps(extra_data, ensure_ascii=False)
+                    if extra_data
+                    else None,
                     created_at=datetime.utcnow(),
                 )
                 db.add(message)

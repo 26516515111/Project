@@ -1,4 +1,5 @@
 import os
+import re
 from typing import Dict, List, Optional, Tuple
 
 from langchain_chroma import Chroma
@@ -11,7 +12,80 @@ from .model import build_embeddings
 from .config import SETTINGS
 
 
-_PARENT_RETRIEVER_CACHE: Optional[Tuple[str, ParentDocumentRetriever]] = None
+_PARENT_RETRIEVER_CACHE: Optional[
+    Tuple[str, ParentDocumentRetriever, List[Document]]
+] = None
+_PARENT_DOCS_BY_RETRIEVER_ID: Dict[int, List[Document]] = {}
+
+
+def _normalize_text(text: str) -> str:
+    return " ".join(str(text or "").strip().split())
+
+
+def _extract_model_tokens(text: str) -> set[str]:
+    value = _normalize_text(text).lower()
+    if not value:
+        return set()
+    tokens = set(re.findall(r"[a-z]{2,}\d*[a-z0-9-]*", value, flags=re.IGNORECASE))
+    return {
+        token.lower()
+        for token in tokens
+        if len(token) >= 2 and token.lower() not in {"series", "model", "manual"}
+    }
+
+
+def _score_doc_by_string_match(question: str, doc: Document) -> int:
+    q_lower = _normalize_text(question).lower()
+    if not q_lower:
+        return 0
+    content = _normalize_text(doc.page_content).lower()
+    metadata = doc.metadata or {}
+    source_doc_id = _normalize_text(metadata.get("source_doc_id", "")).lower()
+    source = _normalize_text(metadata.get("source", "")).lower()
+
+    q_tokens = _extract_model_tokens(q_lower)
+    d_tokens = _extract_model_tokens(" ".join([source_doc_id, source, content]))
+    shared_tokens = q_tokens & d_tokens
+
+    score = 0
+    if shared_tokens:
+        score += 10 * len(shared_tokens)
+
+    q_has_pump = any(k in q_lower for k in ("泵", "液压泵", "气动泵", "pump"))
+    q_has_valve = any(k in q_lower for k in ("阀", "刀闸阀", "法兰", "valve", "flange"))
+    q_has_alarm = any(k in q_lower for k in ("报警", "告警", "监测", "alarm"))
+    q_has_engine = any(k in q_lower for k in ("发动机", "主机", "机舱", "engine"))
+
+    if q_has_pump and any(k in content for k in ("pump", "泵", "液压")):
+        score += 3
+    if q_has_valve and any(k in content for k in ("valve", "阀", "法兰")):
+        score += 3
+    if q_has_alarm and any(k in content for k in ("alarm", "报警", "监测")):
+        score += 2
+    if q_has_engine and any(k in content for k in ("engine", "发动机", "机舱")):
+        score += 2
+
+    return score
+
+
+def _fallback_parent_docs_by_string(
+    retriever: Optional[ParentDocumentRetriever], question: str, top_k: int
+) -> List[Document]:
+    if retriever is None:
+        return []
+    parent_docs = _PARENT_DOCS_BY_RETRIEVER_ID.get(id(retriever), []) or []
+    if not parent_docs:
+        return []
+    scored: List[Tuple[int, Document]] = []
+    for doc in parent_docs:
+        score = _score_doc_by_string_match(question, doc)
+        if score <= 0:
+            continue
+        scored.append((score, doc))
+    if not scored:
+        return []
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [doc for _, doc in scored[: max(1, int(top_k))]]
 
 
 def _group_parent_documents(chunks: List[dict]) -> List[Document]:
@@ -66,7 +140,9 @@ def build_parent_document_retriever(
         f"{len(parent_docs)}::{len(chunks)}::{embedding_model or ''}::{int(search_k)}"
     )
     if _PARENT_RETRIEVER_CACHE and _PARENT_RETRIEVER_CACHE[0] == cache_key:
-        return _PARENT_RETRIEVER_CACHE[1]
+        retriever = _PARENT_RETRIEVER_CACHE[1]
+        _PARENT_DOCS_BY_RETRIEVER_ID[id(retriever)] = _PARENT_RETRIEVER_CACHE[2]
+        return retriever
 
     chroma_kwargs = {
         "collection_name": "rag_parent_child_runtime",
@@ -93,9 +169,10 @@ def build_parent_document_retriever(
         search_kwargs={"k": max(1, int(search_k))},
     )
     retriever.add_documents(parent_docs)
+    _PARENT_DOCS_BY_RETRIEVER_ID[id(retriever)] = parent_docs
     if hasattr(child_store, "persist"):
         child_store.persist()
-    _PARENT_RETRIEVER_CACHE = (cache_key, retriever)
+    _PARENT_RETRIEVER_CACHE = (cache_key, retriever, parent_docs)
     return retriever
 
 
@@ -107,6 +184,8 @@ def retrieve_parent_source_doc_ids(
     if retriever is None:
         return []
     docs = retriever.invoke(question)
+    if not docs:
+        docs = _fallback_parent_docs_by_string(retriever, question, top_k=top_k)
     routed_domains = _infer_query_domains(question)
     route_mode = str(getattr(SETTINGS, "domain_route_mode", "soft") or "soft").lower()
     strict_min_hits = max(1, int(getattr(SETTINGS, "domain_strict_min_hits", 2) or 2))
@@ -161,6 +240,8 @@ def retrieve_parent_documents(
     if retriever is None:
         return []
     docs = retriever.invoke(question)
+    if not docs:
+        docs = _fallback_parent_docs_by_string(retriever, question, top_k=top_k)
     if not docs:
         return []
     return docs[: max(1, int(top_k))]

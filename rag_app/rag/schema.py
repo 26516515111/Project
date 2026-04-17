@@ -41,3 +41,10 @@ class QueryRequest(BaseModel):
     enable_decompose: Optional[bool] = None
     enable_retrieval_optimization: Optional[bool] = None
     enable_parent_retriever: Optional[bool] = None
+    llm_provider: Optional[str] = None
+    llm_model: Optional[str] = None
+    llm_api_key: Optional[str] = None
+    llm_api_base: Optional[str] = None
+    neo4j_uri: Optional[str] = None
+    neo4j_user: Optional[str] = None
+    neo4j_password: Optional[str] = None

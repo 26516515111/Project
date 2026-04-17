@@ -257,6 +257,9 @@ export default function Setting({
             streamSpeed: 50,
             dbPath: "/mnt/data/local_kb",
             model: "hybrid",
+            neo4jUri: "bolt://127.0.0.1:7687",
+            neo4jUser: "neo4j",
+            neo4jPassword: "",
 
             // 隐私与安全
             retention: "30"
@@ -761,6 +764,58 @@ export default function Setting({
                                 outline: "none"
                             }}
                         />
+                    </div>
+                </div>
+            </div>
+
+            {/* Neo4j 连接配置 */}
+            <div
+                className="p-6 rounded-2xl"
+                style={{
+                    background: isLightUi ? "#f8fafc" : "rgba(255,255,255,0.02)",
+                    border: isLightUi ? "1px solid rgba(148,163,184,0.45)" : "1px solid rgba(255,255,255,0.05)",
+                }}
+            >
+                <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                        <i className="ph ph-database text-teal-400 text-xl"></i>
+                        <h3 className="text-sm font-medium" style={{ color: isLightUi ? "#0f172a" : "#ffffff" }}>Neo4j 连接配置</h3>
+                    </div>
+                </div>
+                <p className="text-xs mb-4" style={{ color: isLightUi ? "#334155" : "#9ca3af" }}>
+                    用于知识图谱查询。保存后，新发起的问题将使用以下账号连接 Neo4j。
+                </p>
+
+                <div className="grid grid-cols-1 gap-3">
+                    <div className="space-y-2">
+                        <label className="text-xs font-medium ml-1" style={{ color: isLightUi ? "#334155" : "#9ca3af" }}>Neo4j URI</label>
+                        <GlassInput
+                            value={settings.neo4jUri || ""}
+                            onChange={e => updateSetting("neo4jUri", e.target.value)}
+                            placeholder="bolt://127.0.0.1:7687"
+                            icon="ph-link-simple"
+                        />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                        <div className="space-y-2">
+                            <label className="text-xs font-medium ml-1" style={{ color: isLightUi ? "#334155" : "#9ca3af" }}>Neo4j 用户名</label>
+                            <GlassInput
+                                value={settings.neo4jUser || ""}
+                                onChange={e => updateSetting("neo4jUser", e.target.value)}
+                                placeholder="neo4j"
+                                icon="ph-user"
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-medium ml-1" style={{ color: isLightUi ? "#334155" : "#9ca3af" }}>Neo4j 密码</label>
+                            <GlassInput
+                                type="password"
+                                value={settings.neo4jPassword || ""}
+                                onChange={e => updateSetting("neo4jPassword", e.target.value)}
+                                placeholder="请输入 Neo4j 密码"
+                                icon="ph-lock-key"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

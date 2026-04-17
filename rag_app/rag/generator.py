@@ -107,6 +107,39 @@ def _build_prompt() -> ChatPromptTemplate:
     )
 
 
+def _friendly_llm_error_text(exc: Exception, llm_model: Optional[str]) -> str:
+    raw = str(exc or "").strip()
+    text = raw.lower()
+    model_name = (llm_model or SETTINGS.llm_model_name or "").strip() or "当前模型"
+
+    if (
+        ("model" in text and "not found" in text)
+        or "pull" in text
+        or "manifest" in text
+    ) and "ollama" in text:
+        return (
+            "当前本地未找到 Ollama 模型，已切换为提示模式。\n"
+            f"请先在本机执行：ollama pull {model_name}\n"
+            "模型下载完成后，刷新页面或重试提问即可。"
+        )
+
+    if (
+        "connection refused" in text
+        or "failed to connect" in text
+        or "max retries exceeded" in text
+        or "timed out" in text
+        or "cannot connect" in text
+    ):
+        return (
+            "当前无法连接到 Ollama 服务，已切换为提示模式。\n"
+            "请先启动 Ollama（可执行：ollama serve），并确认地址可访问："
+            f"{SETTINGS.llm_base_url}\n"
+            "服务可用后，刷新页面或重试提问即可。"
+        )
+
+    return ""
+
+
 def generate_answer(
     question: str,
     passages: List[Passage],
@@ -172,6 +205,9 @@ def generate_answer(
             return str(getattr(response, "content", response)).strip()
         except Exception as exc:
             print(f"[llm] provider=ollama status=fallback error={type(exc).__name__}")
+            friendly = _friendly_llm_error_text(exc, llm_model)
+            if friendly:
+                return friendly
             return extractive_answer(question, passages, kg_triplets)
     if not use_llm:
         print("[llm] provider=none status=disabled")
@@ -229,6 +265,10 @@ def stream_answer(
             print(
                 f"[llm] provider=ollama status=stream_fallback error={type(exc).__name__}"
             )
+            friendly = _friendly_llm_error_text(exc, llm_model)
+            if friendly:
+                yield friendly
+                return
     else:
         print("[llm] provider=none status=disabled")
     yield extractive_answer(question, passages, kg_triplets)
